@@ -5,7 +5,7 @@ session_start();
 
 $member_ic = $_SESSION['memberIC'];
 
- if(!isset($_SESSION['adminID'])) // If session is not set then redirect to home
+ if(!isset($_SESSION['role'])) // If session is not set then redirect to home
     {
        header("Location:logout.php");  
     }
@@ -33,9 +33,9 @@ $member_ic = $_SESSION['memberIC'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Wadah | Admin</title>
+		<title>Wadah | Staff</title>
 		<!-- Bootstrap core CSS -->
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
@@ -47,7 +47,7 @@ $member_ic = $_SESSION['memberIC'];
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container"><!-- 
@@ -156,9 +156,137 @@ $member_ic = $_SESSION['memberIC'];
 		<!-- Bootstrap core JavaScript
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/jquery.bxslider.js"></script>
-		<script src="../js/mooz.scripts.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<!-- <script src="../js/bootstrap.min.js"></script> -->
+		<!-- <script src="../js/jquery.bxslider.js"></script> -->
+		<!-- <script src="../js/mooz.scripts.min.js"></script> -->
 	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/ico" href="http://www.datatables.net/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">
+	<title>DataTables example - Bootstrap 4</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/dataTables.bootstrap4.css">
+
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="../js/dataTables.bootstrap4.js"></script>
+	<script type="text/javascript" language="javascript" class="init">
+	
+$(document).ready(function() {
+	$('#example').DataTable();
+} );
+
+	</script>
+</head>
+<body class="dt-example dt-example-bootstrap4">
+	<div class="container">
+		<section>
+			<!-- <div class="demo-html"></div> -->
+			<table id="example" class="table table-striped table-bordered" style="width:100%">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Start date</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Tiger Nixon</td>
+						<td>System Architect</td>
+						<td>Edinburgh</td>
+						<td>61</td>
+						<td>2011/04/25</td>
+						<td>$320,800</td>
+					</tr>
+					<tr>
+						<td>Garrett Winters</td>
+						<td>Accountant</td>
+						<td>Tokyo</td>
+						<td>63</td>
+						<td>2011/07/25</td>
+						<td>$170,750</td>
+					</tr>
+					<tr>
+						<td>Ashton Cox</td>
+						<td>Junior Technical Author</td>
+						<td>San Francisco</td>
+						<td>66</td>
+						<td>2009/01/12</td>
+						<td>$86,000</td>
+					</tr>
+					<tr>
+						<td>Cedric Kelly</td>
+						<td>Senior Javascript Developer</td>
+						<td>Edinburgh</td>
+						<td>22</td>
+						<td>2012/03/29</td>
+						<td>$433,060</td>
+					</tr>
+					<tr>
+						<td>Airi Satou</td>
+						<td>Accountant</td>
+						<td>Tokyo</td>
+						<td>33</td>
+						<td>2008/11/28</td>
+						<td>$162,700</td>
+					</tr>
+					<tr>
+						<td>Brielle Williamson</td>
+						<td>Integration Specialist</td>
+						<td>New York</td>
+						<td>61</td>
+						<td>2012/12/02</td>
+						<td>$372,000</td>
+					</tr>
+					<tr>
+						<td>Herrod Chandler</td>
+						<td>Sales Assistant</td>
+						<td>San Francisco</td>
+						<td>59</td>
+						<td>2012/08/06</td>
+						<td>$137,500</td>
+					</tr>
+					<tr>
+						<td>Rhona Davidson</td>
+						<td>Integration Specialist</td>
+						<td>Tokyo</td>
+						<td>55</td>
+						<td>2010/10/14</td>
+						<td>$327,900</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Age</th>
+						<th>Start date</th>
+						<th>Salary</th>
+					</tr>
+				</tfoot>
+			</table>
+			</div>
+		</section>
+	</div>
+</body>
 </html>

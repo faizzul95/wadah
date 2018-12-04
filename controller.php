@@ -2,7 +2,7 @@
 include_once("connection.php");
 
 //log in user
-if(isset($_POST['memberlog']))   
+if(isset($_POST['login']))   
 {
    
      $username=mysqli_real_escape_string($myConnection, $_POST['usr_username']);
@@ -28,9 +28,20 @@ if(isset($_POST['memberlog']))
         $_SESSION['UserID'] = $row['user_id'];
         $_SESSION['role'] = $row['usr_role'];
 
-       echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.location = 'member/user.php?page=$id';
+        $role = $_SESSION['role'];
+        $ic = $_SESSION['memberIC'];
+
+        if ($role == "member") {
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.location = 'member/user.php?page=$ic';
           </SCRIPT>");
+        }else if ($role == "admin"){
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.location = 'member/admin.php?page=$ic';
+          </SCRIPT>");
+        }
+
+       
      }
 
 }

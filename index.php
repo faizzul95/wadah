@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Wadah | Home</title>
+		<title>Wadah | Laman Utama</title>
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -39,13 +39,13 @@
 				<div class="col-md-8">
 					<article class="blog-post">
 						<div class="blog-post-image">
-							<center><a href="post.html"><img src="images/750x500-1.jpg" alt=""></a></center>
+							<center><a href="post.php?page=baca"><img src="images/1140x500-1.jpg" alt=""></a></center>
 						</div>
 						<div class="blog-post-body">
 							<h2><a href="post.html">Tajuk Aktiviti</a></h2>
 							<div class="post-meta"><span><i class="fa fa-clock-o"></i>December 4, 2018</span></div>
 							<p>Text Here.</p>
-							<div class="read-more"><a href="post.php">Teruskan Membaca</a></div>
+							<div class="read-more"><a href="post.php?page=baca">Teruskan Membaca</a></div>
 						</div>
 					</article>
 				</div>

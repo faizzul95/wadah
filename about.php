@@ -42,7 +42,7 @@
 			</div>
 
 			<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-4">
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<h2><a href="">Visi</a></h2>
@@ -53,7 +53,7 @@
 					</article>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<h2><a href="">Misi</a></h2>
@@ -63,19 +63,17 @@
 						</div>
 					</article>
 				</div>
-			</div>
 
-			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-4">
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<h2><a href="">Alamat</a></h2>
 							<div class="blog-post-text">
-								<p>Wadah Pencerdasan Umat Malaysia<br>
+							<p>Wadah Pencerdasan Umat Malaysia<br>
 								No. 23A-2-2A, Jalan Medan Pusat Bandar 2B,<br>
 								Seksyen 9,<br>
-								43650, Bandar Baru Bangi<br>
-								Selangor<br>
+								43650, Bandar Baru Bangi, <br>
+								Selangor.<br>
 								Telefon: 603-8920 2142<br>
 								Faks: 603-8912 2346<br>
 								E-mel: wadahpusat@gmail.com</p>

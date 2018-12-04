@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Renda - clean blog theme based on Bootstrap</title>
+		<title>Wadah | Aktiviti</title>
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -19,7 +19,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include 'navigation.php'; ?>
+			<?php include 'style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -35,7 +35,7 @@
 						</div>
 						<div class="blog-post-body">
 							<h2><a href="post.html">Tajuk</a></h2>
-							<div class="post-meta"><span>by <a href="#">Jamie Mooze</a></span>/<span><i class="fa fa-clock-o"></i>March 14, 2015</span>/<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+							<div class="post-meta"><span><i class="fa fa-clock-o"></i>March 14, 2015</span></div>
 							<div class="blog-post-text">
 
 								<p>A newly-developed mathematical method can detect geometric structure in neural activity in the brain. “Previously, in order to understand this structure, scientists needed to relate neural activity to some specific external stimulus,” said Vladimir Itskov, associate professor of mathematics at Penn State University. “Our method is the first to be able to reveal this structure without our knowing an external stimulus ahead of time. We’ve now shown that our new method will allow us to explore the organizational structure of neurons without knowing their function in advance.”</p>
@@ -46,7 +46,7 @@
 					</article>
 				</div>
 				<div class="col-md-4 sidebar-gutter">
-					<?php include 'sidebar.php'; ?>
+					<?php include 'style/sidebar.php'; ?>
 				</div>
 			</div>
 		</section>

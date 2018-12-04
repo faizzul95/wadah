@@ -100,11 +100,9 @@
 								    <div class="col-md-4">
 								      <section class="login-form">
 								        <form method="post" action="controller.php" role="login">
-								          <input type="text" name="admin_username" placeholder="NRIC : 880808025588 (contoh)" required class="form-control input-lg" required autocomplete="off" maxlength="13" />
-								          <input type="password" name="admin_pwd" class="form-control input-lg" id="password" placeholder="Kata Laluan" required autocomplete="off" maxlength="13" />
-								          <input type="submit" name="adminlog" value="Log Masuk" class="btn btn-lg btn-primary btn-block">
-								         <!--  admin_username
-										  admin_pwd -->
+								          <input type="text" name="usr_username" placeholder="NRIC : 880808025588 (contoh)" required class="form-control input-lg" required autocomplete="off" maxlength="13" />
+								          <input type="password" name="usr_password" class="form-control input-lg" id="password" placeholder="Kata Laluan" required autocomplete="off" maxlength="13" />
+								          <input type="submit" name="login" value="Log Masuk" class="btn btn-lg btn-primary btn-block">
 								        </form>
 								      </section>  
 								      </div>
