@@ -65,7 +65,7 @@
 					<?php } ?>
 			    </ul>
 			     <ul class="nav navbar-nav navbar-right">
-				      <li><a href="login.php?page=logmasuk">Login</a></li>
+				      <li><a href="login.php?page=logmasuk">Log Masuk</a></li>
 				  </ul>
 			  </div>
 				<!--/.nav-collapse -->
