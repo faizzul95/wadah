@@ -1,64 +1,80 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Home</title>
-</head>
-<body>
-        <?php
-                                     
-                $sql = "SELECT * FROM `education_info` WHERE `member_ic` = '$member_ic' ORDER BY `edu_end_date` DESC";
-                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
-                if (mysqli_num_rows($result)==0){
-                     echo "No result found";
-                  }else{
-          ?>
-            <table border="1">
-                <thead bgcolor="#57A0D2">
-                  <tr>
-                    <th scope="col"><center>#</center></th>
-                    <th scope="col"><center>Name</center></th>
-                    <th scope="col"><center>Address</center></th>
-                    <th scope="col"><center>Phone</center></th>
-                    <th scope="col"><center>Course</center></th>
-                    <th scope="col"><center>Level</center></th>
-                    <th colspan="2" scope="col"><center>Date</center></th>
-                    <th scope="col"><center>Action</center></th>
-                  </tr>
-                </thead>
-                <tbody>
-                                         
-                  <?php
-                $count = 1;
-                while($row = mysqli_fetch_assoc($result))
-                 {  
-                  
-                  ?>
+                        <br>
+
+                        <table style="width:100%"> 
+                        <tr>  
+                           <td colspan="8">
+                            <input type="submit" name="login" value="Daftar Institusi" onclick="location.href='user_edu_reg.php?member_ic=<?php echo $member_ic; ?>';" class="btn btn-primary pull-right">
+                          </td>
+                      </tr> 
+                        </table>
+
+                      <br>
+
+                  <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
                       <tr>
-                        <th scope="row"><center><?php echo $count; ?></center></th>
+                        <th>No.</th>
+                        <th>Nama Institusi</th>
+                        <th>Alamat Institusi</th>
+                        <th>Nombor Telefon</th>
+                        <th>Course</th>
+                        <th>Tahap Pengajian</th>
+                        <th colspan="2">Tarikh</th>
+                        <th>Tindakan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+
+                      <?php 
+
+                           $sql = "SELECT * FROM `education_info` WHERE `member_ic` = '$member_ic' ORDER BY `edu_end_date` DESC";
+                            $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
+
+                            if (mysqli_num_rows($result)==0){
+                                 echo "Data Tidak Ditemui";
+                              }
+                            else{
+                              $count = 1;
+                              while($row = mysqli_fetch_assoc($result))
+                               { 
+                                ?>
+                                   
+                                   <tr>
+                        <td><?php echo $count; ?></td>
                         <td><center><?php echo $row['edu_name']; ?></center></td>
                         <td><center><?php echo $row['edu_address']; ?></center></td>
                         <td><center><?php echo $row['edu_phone']; ?></center></td>
                         <td><center><?php echo $row['edu_course']; ?></center></td>
                         <td><center><?php echo $row['edu_level']; ?></center></td>
                         <td colspan="2"><center><?php echo $row['edu_start_date']; ?> - <?php echo $row['edu_end_date']; ?></center></td>
-                        <td><center>
-                            <button onclick="location.href='occupation_update.php?edu_id=<?php echo $row['edu_id']; ?>';">Update</button>
-                            <form method="post" action="controller.php">
-                              <input type="hidden" name="delete_id" value="<?php echo $row['edu_id']; ?>">
-                              <input type="submit" name="delete_edu" value="Delete">
+                        <td><button class="btn btn-primary" onclick="location.href='user_edu_edit.php?eduID=<?php echo $row["edu_id"]; ?>';">Kemaskini</button><br>
+
+                           <form method="post" action="controller.php?eduID=<?php echo $row["edu_id"]; ?>">
+                                  <input type="hidden" name="edu_id" value="<?php echo $row["edu_id"]; ?>">
+                                  <input type="submit" name="deleteedu" onclick='return checkDeleteEdu()' class="btn btn-danger" value="Padam">
                             </form>
-                          </center></td>
+                        </td>
                       </tr>
-                    <?php
-                    $count++;
-                  }
-                  ?>
 
-                <?php } ?>
+                                  <?php
+                                  $count++;
+                                }
+                               } 
+                                ?>
 
-                  </tbody>
-                </table>
-
-</body>
-</html>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>No.</th>
+                        <th>Nama Institusi</th>
+                        <th>Alamat Institusi</th>
+                        <th>Nombor Telefon</th>
+                        <th>Course</th>
+                        <th>Tahap Pengajian</th>
+                        <th colspan="2">Tarikh</th>
+                        <th>Tindakan</th>
+                      </tr>
+                    </tfoot>
+                  </table>

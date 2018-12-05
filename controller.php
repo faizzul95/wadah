@@ -37,7 +37,7 @@ if(isset($_POST['login']))
           </SCRIPT>");
         }else if ($role == "admin"){
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.location = 'member/admin.php?page=$ic';
+          window.location = 'admin/admin.php?page=$ic';
           </SCRIPT>");
         }
 
