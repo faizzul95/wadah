@@ -10,7 +10,7 @@
 				</div>
 
 				<?php
-					session_start();
+					//session_start();
 				    $page = $_GET['page'];
 				?>
 
