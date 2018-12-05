@@ -7,8 +7,7 @@
 					<span class="icon-bar"></span>
 					</button>
 				</div>
-
-
+				
 			  <div class="container-fluid collapse navbar-collapse">
 			  	<?php if(isset($_SESSION['role'])) { ?>
 					<div class="navbar-header">
