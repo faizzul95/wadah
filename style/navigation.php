@@ -61,6 +61,13 @@
 					          <li><a href="#">Ahli</a></li>
 					        </ul>
 				      	</li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
+					        <ul class="dropdown-menu">
+					          <li><a href="asset/user_asset_reg.php">Daftar Aset</a></li>
+					          <li><a href="asset/user_asset_maintenance.php">Penyelenggaraan Aset</a></li>
+                              <li><a href="asset/user_asset_rent.php">Sewaan Aset</a></li>
+					        </ul>
+				      	</li>
 						<li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
 					<?php } ?>
 			    </ul>
