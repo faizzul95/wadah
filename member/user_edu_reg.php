@@ -1,4 +1,7 @@
 <?php
+ 	// Turn off error reporting
+	error_reporting(0); 
+	
 	session_start(); 
 	$member_ic = $_SESSION['memberIC'];
 	if(isset($_GET['member_ic'])) 

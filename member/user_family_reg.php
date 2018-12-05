@@ -1,4 +1,7 @@
 <?php
+	// Turn off error reporting
+	error_reporting(0);
+	
 	session_start();
 
 	if(!isset($_SESSION['UserID'])) // If session is not set then redirect to home
@@ -31,6 +34,10 @@
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+
+		<script type="text/javascript">
+			<?php include '../js/input_restriction.js';?>
+		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -129,6 +136,7 @@
 											<option value="Anak Perempuan">Anak Perempuan</option>
 				                            <option value="Suami" >Suami</option>
 											<option value="Isteri">Isteri</option>
+											<option value="Adik Beradik">Adik Beradik</option>
 										</select>
 									</td>
 								</tr>

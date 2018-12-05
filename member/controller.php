@@ -15,7 +15,7 @@ if (isset($_POST['reg_family']))
     $family_dob = mysqli_real_escape_string($myConnection, $_POST['family_dob']);
     $family_email = mysqli_real_escape_string($myConnection, $_POST['family_email']);
     $family_relation = mysqli_real_escape_string($myConnection, $_POST['family_relation']);
-    $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['mbr_ic']);
+    $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
 
     // register family occupation
     $company_name = mysqli_real_escape_string($myConnection, $_POST['company_name']);
@@ -25,7 +25,6 @@ if (isset($_POST['reg_family']))
     $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
     $company_start_date = mysqli_real_escape_string($myConnection, $_POST['company_start_date']);
     $company_end_date = mysqli_real_escape_string($myConnection, $_POST['company_end_date']);
-
 
     $check_ic = mysqli_query($myConnection, "SELECT * FROM `family` WHERE `family_ic` = '$family_ic'");
     if(mysqli_num_rows($check_ic) > 0){

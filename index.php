@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php 
+// Turn off error reporting
+	error_reporting(0);
+
+	session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -16,6 +20,11 @@
 		<!-- Custom styles for this template -->
 		<link href="css/jquery.bxslider.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+		<style>
+		.active {
+		    background-color: #4CAF50;
+		}
+		</style>
 	</head>
 	<body>
 		<!-- Navigation -->

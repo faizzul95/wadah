@@ -1,4 +1,7 @@
 <?php 
+// Turn off error reporting
+error_reporting(0);
+
 require ('../connection.php');
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
@@ -17,6 +20,8 @@ if (isset($_POST['reg_member']))
     $mbr_branch = mysqli_real_escape_string($myConnection, $_POST['mbr_branch']);
     $usr_password = "wadah123";
     $usr_role = "member";
+    $mbr_profile_picture = "user.png";
+
     // $date = mysqli_real_escape_string($myConnection, date('Y-m-d'));
     $check_ic = mysqli_query($myConnection, "SELECT * FROM `user` WHERE `usr_username` = '$mbr_ic'");
     if(mysqli_num_rows($check_ic) > 0){
@@ -33,9 +38,9 @@ if (isset($_POST['reg_member']))
 	    $result = mysqli_query($myConnection, $query) or die(mysqli_error($myConnection));
 
       $query_member = "INSERT INTO `member` 
-        (`mbr_name`,`mbr_ic`,`mbr_address`,`mbr_gender`,`mbr_phone`,`mbr_dob`,`mbr_email`,`mbr_branch`)
+        (`mbr_name`,`mbr_ic`,`mbr_address`,`mbr_gender`,`mbr_phone`,`mbr_dob`,`mbr_email`,`mbr_branch`,`mbr_profile_picture`)
          VALUES 
-        ('$mbr_name','$mbr_ic','$mbr_address','$mbr_gender','$mbr_phone','$mbr_dob','$mbr_email','$mbr_branch')";
+        ('$mbr_name','$mbr_ic','$mbr_address','$mbr_gender','$mbr_phone','$mbr_dob','$mbr_email','$mbr_branch','$mbr_profile_picture' )";
       $result2 = mysqli_query($myConnection, $query_member) or die(mysqli_error($myConnection));
 
 	    if($result2)

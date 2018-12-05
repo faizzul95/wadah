@@ -1,5 +1,8 @@
 <?php
-	require ('../connection.php');
+  // Turn off error reporting
+	error_reporting(0);
+
+  require ('../connection.php');
   session_start(); 
   $member_ic = $_SESSION['memberIC'];
 
@@ -8,6 +11,15 @@
  $mmbrName = $row['mbr_name'];
  $mmbrIC = $row['mbr_ic'];
  $profileimage = $row['mbr_profile_picture'];
+
+ $mbr_address = $row['mbr_address'];
+ $mbr_phone = $row['mbr_phone'];
+ $mbr_branch = $row['mbr_branch'];
+ $mbr_email = $row['mbr_email'];
+
+ echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -75,21 +87,45 @@
 
 							</center>
 
-								<br><br><br>
+								<br><br>
 								<div class="container">
 								<section>
 
                 				<div class="container">
 								     <table style="width:100%"> 
 					                      <tr bgcolor="#5bc0de">
-					                        <td colspan="8"> <center><b>MAKLUMAT PERIBADI</b></center></td>
-					                      </tr> 
-
-					                      <tr>
-					                        <td colspan="4"> Nama : </td>
-					                        <td colspan="4"> <?php echo $mmbrName; ?> </td>
+					                        <td colspan="8"> <br><center><b>MAKLUMAT PERIBADI</b></center><br></td>
 					                      </tr>  
 					                </table>
+					                <br>
+					                <center>
+					                	<table border="1" class="table table-striped" style="width:50%"> 
+					                      <tr>
+					                        <td> <center>Nama : </center></td>
+					                        <td> <center><b><?php echo $mmbrName; ?></b> </center></td>
+					                      </tr>
+					                      <tr>
+					                        <td> <center>Nombor IC : </center></td>
+					                        <td> <center><b><?php echo $mmbrIC; ?></b> </center></td>
+					                      </tr>
+					                      <tr>
+					                        <td> <center>Alamat : </center></td>
+					                        <td> <center><b><?php echo $mbr_address; ?></b> </center></td>
+					                      </tr>
+					                      <tr>
+					                        <td> <center>No Telefon : </center></td>
+					                        <td> <center><b><?php echo $mbr_phone; ?></b> </center></td>
+					                      </tr>  
+					                      <tr>
+					                        <td> <center>Email : </center></td>
+					                        <td> <center><b><?php echo $mbr_email; ?></b> </center></td>
+					                      </tr>
+					                      <tr>
+					                        <td> <center>Cawangan : </center></td>
+					                        <td> <center><b><?php echo $mbr_branch; ?></b> </center></td>
+					                      </tr>    
+					                	</table>
+					            	</center>
 								</div>
 
 								<br><br>
