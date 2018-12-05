@@ -25,7 +25,7 @@
 					          <li><a href="#">Ahli</a></li>
 					        </ul>
 				      	</li>
-						<li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
+						<li><a href="about.php?page=tentangwadah">Akaun</a></li>
 					<?php } else if ($page == "tentangwadah") { ?>
 						<li><a href="index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aktiviti<span class="caret"></span></a>
@@ -34,7 +34,7 @@
 					          <li><a href="#">Ahli</a></li>
 					        </ul>
 				      	</li>
-						<li  class="active"><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
+						<li  class="active"><a href="about.php?page=tentangwadah">Akaun</a></li>
 					<?php }  else if ($page == "aktiviti") { ?>
 						<li><a href="index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aktiviti<span class="caret"></span></a>
@@ -43,7 +43,7 @@
 					          <li><a href="#">Ahli</a></li>
 					        </ul>
 				      	</li>
-						<li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
+						<li><a href="about.php?page=tentangwadah">Member</a></li>
 					<?php } else if ($page == "logmasuk" || $page == "LoginFail") { ?>
 						<li><a href="index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aktiviti<span class="caret"></span></a>
@@ -52,7 +52,7 @@
 					          <li><a href="#">Ahli</a></li>
 					        </ul>
 				      	</li>
-						<li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
+						<li><a href="about.php?page=tentangwadah">Akaun</a></li>
 					<?php } else { ?>
 						<li><a href="index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aktiviti<span class="caret"></span></a>
@@ -61,11 +61,11 @@
 					          <li><a href="#">Ahli</a></li>
 					        </ul>
 				      	</li>
-						<li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
+						<li><a href="about.php?page=tentangwadah">Akaun</a></li>
 					<?php } ?>
 			    </ul>
 			     <ul class="nav navbar-nav navbar-right">
-				      <li><a href="../logout.php">Logout</a></li>
+				      <li><a href="../logout.php">Log Keluar</a></li>
 				  </ul>
 			  </div>
 				<!--/.nav-collapse -->

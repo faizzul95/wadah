@@ -1,17 +1,19 @@
 <?php
-	session_start();
-
-	if(!isset($_SESSION['UserID'])) // If session is not set then redirect to home
-    {
-       header("Location:../logout.php");  
-    }
-
+	session_start(); 
 	$member_ic = $_SESSION['memberIC'];
-	
 	if(isset($_GET['member_ic'])) 
     {
       $member = $_GET['member_ic'];
     }
+    elseif ($_GET['family_ic']) {
+     $family = $_GET['family_ic'];
+    }
+
+    require('../connection.php');
+    $id = $_GET['eduID'];
+
+    $sql = mysqli_query($myConnection,"SELECT * FROM `education_info` WHERE edu_id = '$id' ") or die (mysqli_error());
+    $row=mysqli_fetch_array($sql);
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +26,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Ahli | Daftar Keluarga</title>
+		<title>Ahli | Kemaskini Pendidikan</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -52,7 +54,7 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><a href="user.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Keluarga</li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Pendidikan</li>
 				  </ol>
 				</nav>
 								
@@ -61,36 +63,26 @@
 				<section>
             
 								<div align="center">
-								<h1><br>DAFTAR KELUARGA</h1></br>
+								<h1><br>KEMASKINI PENDIDIKAN</h1></br>
 
 						<form action="controller.php" method="post">
-
-							<input name="member_ic" type="hidden" value="<?php echo $member;?>" size="50" maxlength="50">
+							<input name="edu_id" type="hidden" value="<?php echo $id;?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
-									<td colspan="2"><center><b>MAKLUMAT KELUARGA</b></center></td> 
+									<td colspan="2"><center><b>MAKLUMAT PENDIDIKAN</b></center></td> 
 								</tr>
 								<tr>
-									<td>Nama  :</td>
-									<td><br><input name="family_name" type="text" size="50" maxlength="50" class="form-control" required></td>
+									<td>Nama Institusi :</td>
+									<td><br><input name="edu_name" value="<?php echo $row['edu_name'];?>" type="text" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Nombor IC  :</td>
-									<td><br><input name="family_ic" type="text" size="50" onkeypress="return isNumeric(event)"
-				                         oninput="maxLengthCheck(this)"
-				                         type = "text"
-				                         maxlength = "12"
-				                         min = "1"
-				                         max = "12" class="form-control" required></td>
-								</tr>
-								<tr>
-									<td>Alamat :</td>
-									<td><br><input name="family_address" type="text" size="50" class="form-control" maxlength="250"></td>
+									<td>Alamat Institusi :</td>
+									<td><br><input name="edu_address" value="<?php echo $row['edu_address'];?>" type="text" size="50" maxlength="250" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
-									<td><br><input name="family_phone" type="text" size="50" onkeypress="return isNumeric(event)"
+									<td><br><input name="edu_phone" value="<?php echo $row['edu_phone'];?>" type="text" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
 				                         maxlength = "12"
@@ -98,44 +90,36 @@
 				                         max = "12" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Jantina :</td>
-									<td><br>
-										<select name="family_gender" class="form-control">
-											<option value="" >- Pilih -</option>
-											<option value="Lelaki" >Lelaki</option>
-											<option value="Perempuan">Perempuan</option>
-										</select>
+									<td>Kursus :</td>
+									<td><br><input name="edu_course" value="<?php echo $row['edu_course'];?>" type="text" size="50" class="form-control" maxlength="50"></td>
+								</tr>
+								<tr>
+									<td>Tahap Pendidikan :</td>
+									<td><br><select name="edu_level" class="form-control" required>
+										<option name="">-Pilih-</option>
+										<option name="PMR">PMR</option>
+										<option name="SPM">SPM</option>
+										<option name="Diploma">Diploma</option>
+										<option name="Ijazah">Ijazah</option>
+										<option name="Master">Master</option>
+										<option name="PhD">PhD</option>
+									</select>
 									</td>
 								</tr>
 								<tr>
-									<td>Email :</td>
-									<td><br><input name="company_email" type="family_email" size="50" class="form-control" maxlength="80"></td>
-								</tr>
-								<tr>
-									<td>Tarikh Lahir : <br></td>
-									<td><br><input name="family_dob" type="date" size="50" class="form-control" maxlength="50">
+									<td>Tarikh Mula Belajar :</td>
+									<td><br><input name="edu_start_date" value="<?php echo $row['edu_start_date'];?>" type="text" size="50" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>
-									<td><br>
-										Hubungan Keluarga : 
-									</td>
-									<td><br>
-										<select name="family_relation" class="form-control">
-											<option value="" >- Pilih -</option>
-											<option value="Ayah" >Ayah</option>
-											<option value="Ibu">Ibu</option>
-											<option value="Anak Lelaki" >Anak Lelaki</option>
-											<option value="Anak Perempuan">Anak Perempuan</option>
-				                            <option value="Suami" >Suami</option>
-											<option value="Isteri">Isteri</option>
-										</select>
+									<td>Tarikh Tamat Belajar :</td>
+									<td><br><input name="edu_end_date" value="<?php echo $row['edu_end_date'];?>" type="date" size="50" class="form-control" maxlength="50">
 									</td>
 								</tr>
 								<tr align="center">
 									<td colspan="2">
 										<br>
-										<input type="submit" name="reg_family" value="Daftar" class="btn btn-primary form-control">
+										<input type="submit" name="update_edu" value="Kemaskini" class="btn btn-primary form-control">
 									</td>
 								</tr>
 							</TABLE>
