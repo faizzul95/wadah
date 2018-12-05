@@ -71,4 +71,38 @@ if (isset($_POST['register_fees']))
         }
 
 }
+// register expenses
+if (isset($_POST['register_expenses']))
+{
+ 
+    $Exp_name = mysqli_real_escape_string($myConnection, $_POST['Exp_name']);
+    $Exp_date = mysqli_real_escape_string($myConnection, $_POST['Exp_date']);
+    $Exp_type = mysqli_real_escape_string($myConnection, $_POST['Exp_type']);
+    $Exp_outstanding = mysqli_real_escape_string($myConnection, $_POST['Exp_outstanding']);
+    $Fxp_desc = mysqli_real_escape_string($myConnection, $_POST['Exp_desc']);
+
+            $query_expinfo = "INSERT INTO `expenses` 
+            (`Exp_name`,`Exp_date`,`Exp_type`,`Exp_outstanding`,`Exp_desc`)
+               VALUES 
+            ('$Exp_name','$Exp_date','$Exp_type','$Exp_outstanding','$Exp_desc')";
+			
+            $result = mysqli_query($myConnection, $query_expinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya')
+          window.location = 'list_expenses.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
 ?>
