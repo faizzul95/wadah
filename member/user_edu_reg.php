@@ -30,6 +30,9 @@
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+		<script type="text/javascript">
+			<?php include '../js/input_restriction.js';?>
+		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -50,7 +53,7 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="user.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Pelajaran</li>
 				  </ol>
 				</nav>

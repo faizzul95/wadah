@@ -17,9 +17,9 @@
  $mbr_branch = $row['mbr_branch'];
  $mbr_email = $row['mbr_email'];
 
- echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
+//  echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +49,10 @@ echo '</pre>';
              return confirm('Padam Pekerjaan ?');
          }
 
+         function checkDeleteFamily(){
+             return confirm('Padam Keluarga ?');
+         }
+
       </script>
 	</head>
 	<body>
@@ -70,7 +74,7 @@ echo '</pre>';
 								<br>
 								<nav aria-label="breadcrumb">
 								  <ol class="breadcrumb">
-								    <li class="breadcrumb-item"><a href="admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="#">Halaman Utama</a></li>
 								  </ol>
 								</nav>
 								<center><strong>Selamat Datang. <?php echo strtoupper($mmbrName); ?> ( <?php echo $mmbrIC; ?> ) </strong> 

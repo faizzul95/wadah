@@ -26,7 +26,7 @@
 		}
 		</style>
 	</head>
-	<body>
+	<body background="images/bg2.jpg">
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<?php include 'style/navigation.php'; ?>
@@ -34,13 +34,13 @@
 
 		<div class="container">
 		<header>
-			<a href="index.php"><img src="images/logo.jpg" width="50%" height="50%"></a>
+			<a href="index.php"><img src="images/fulllogo.png" width="50%" height="50%"></a>
 		</header>
 		<section class="main-slider">
 			<ul class="bxslider">
-				<li><div class="slider-item"><img src="images/1140x500-2.jpg" title="" /><h2><a href="post.html" title="">Slider 1</a></h2></div></li>
-				<li><div class="slider-item"><img src="images/1140x500-1.jpg" title="" /><h2><a href="post.html" title="Vintage-Inspired Finds for Your Home">Slider 2</a></h2></div></li>
-				<li><div class="slider-item"><img src="images/1140x500-3.jpg" title="Funky roots" /><h2><a href="post.php" title="">Slider 3</a></h2></div></li>
+				<li><div class="slider-item"><img src="images/1.png" title="" /><h2><a href="post.html" title="">Slider 1</a></h2></div></li>
+				<li><div class="slider-item"><img src="images/2.png" title="" /><h2><a href="post.html" title="Vintage-Inspired Finds for Your Home">Slider 2</a></h2></div></li>
+				<li><div class="slider-item"><img src="images/3.png" title="Funky roots" /><h2><a href="post.php" title="">Slider 3</a></h2></div></li>
 			</ul>
 		</section>
 		<section>
@@ -48,12 +48,16 @@
 				<div class="col-md-8">
 					<article class="blog-post">
 						<div class="blog-post-image">
-							<center><a href="post.php?page=baca"><img src="images/1140x500-1.jpg" alt=""></a></center>
+							<center><a href="post.php?page=baca"><img src="images/activiti.jpeg" alt=""></a></center>
 						</div>
 						<div class="blog-post-body">
-							<h2><a href="post.html">Tajuk Aktiviti</a></h2>
-							<div class="post-meta"><span><i class="fa fa-clock-o"></i>December 4, 2018</span></div>
-							<p>Text Here.</p>
+							<h2><a href="post.html">Sehari Bersama Anak Yatim Baitul Hasanah</a></h2>
+							<div class="post-meta"><span><i class="fa fa-clock-o"></i>June 6, 2018</span></div>
+							<p>Kuala Lumpur – Lembaga Zakat Selangor (LZS) MAIS Wilayah Timur dengan kerjasama Aquawalk Sdn.Bhd. telah menganjurkan program Kembara Ilmu pada 05 Jun yang lalu bersempena dengan minggu orientasi asrama Anak Yatim Baitul Hasanah, Kuala Kubu Bharu.
+
+							Seramai 26 orang penghuni asrama ini dan disertai 18 orang anak-anak asnaf fakir dan miskin dari daerah Hulu Selangor Selatan telah dibawa melawat Aquaria, KLCC.
+
+							Menurut Ketua Operasi Wilayah Timur, Muhammad Rizal Shah Harudin, sesi lawatan sambil belajar tersebut juga bertujuan meraikan para penghuni asrama yang berjauhan daripada keluarga masing-masing . . .</p>
 							<div class="read-more"><a href="post.php?page=baca">Teruskan Membaca</a></div>
 						</div>
 					</article>

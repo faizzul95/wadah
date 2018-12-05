@@ -16,7 +16,7 @@
 		<link href="css/jquery.bxslider.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 	</head>
-	<body>
+	<body background="images/bg2.jpg">
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<?php include 'style/navigation.php'; ?>
@@ -24,7 +24,7 @@
 
 		<div class="container">
 		<header>
-			<a href="index.php"><img src="images/logo.jpg" width="50%" height="50%"></a>
+			<a href="index.php"><img src="images/fulllogo.png" width="50%" height="50%"></a>
 		</header>
 		<section>
 			<div class="row">

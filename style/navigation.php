@@ -22,7 +22,7 @@
 			    <ul class="nav navbar-nav">
 
 				    <!-- only admin can view-->
-				     <?php if(isset($_SESSION['role']) == 'admin') { ?>
+				     <?php if($_SESSION['role'] == 'admin') { ?>
 						<li><a href="../index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ahli<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
@@ -31,7 +31,7 @@
 						       <li><a href="admin/list_naqib.php">Senarai Naqib</a></li>
 						    </ul>
 					     </li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aktiviti<span class="caret"></span></a>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
 					          <li><a href="#">Awam</a></li>
 					          <li><a href="#">Ahli</a></li>
@@ -50,9 +50,20 @@
 					          <li><a href="account/">Pembelanjaan</a></li>
 					        </ul>
 				      	</li>
+
+				     <?php } if($_SESSION['role'] == 'member') { ?>
+						<li><a href="../index.php?page=home">Halaman Utama</a></li>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
+						   <ul class="dropdown-menu">
+						       <li><a href="#">Awam</a></li>
+						        <li><a href="#">Ahli</a></li>
+						    </ul>
+					     </li>
+					    <li><a href="../about.php?page=tentangwadah">Tentang Wadah</a></li>
+					    <li><a href="member/user.php">Profil</a></li>
 					<?php } else { ?>
 						<li><a href="index.php?page=home">Halaman Utama</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aktiviti<span class="caret"></span></a>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
 						       <li><a href="#">Awam</a></li>
 						        <li><a href="#">Ahli</a></li>
@@ -65,11 +76,11 @@
 			    
 			    <?php if(isset($_SESSION['role'])){ ?>
 					    <ul class="nav navbar-nav navbar-right">
-						 <li><a href="../logout.php">Log Keluar</a></li>
+						 <li><a href="logout.php">Log Keluar &nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
 						</ul> 
 				<?php } else { ?>
 					 <ul class="nav navbar-nav navbar-right">
-						 <li><a href="login.php?page=logmasuk">Log Masuk</a></li>
+						 <li><a href="login.php?page=logmasuk">Log Masuk &nbsp;<span class="glyphicon glyphicon-log-in"></span></a></li>
 					 </ul> 
 				<?php } ?>
 

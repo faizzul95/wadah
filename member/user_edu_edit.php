@@ -56,7 +56,7 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="user.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Pendidikan</li>
 				  </ol>
 				</nav>

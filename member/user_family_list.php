@@ -54,9 +54,12 @@
                         <td><center><?php echo $row['family_relation']; ?></center></td>
                         <td><center><button onclick="location.href='occupation_registration.php?family_ic=<?php echo $row['family_ic']; ?>';">Detail</button></center></td>
                         <td><center><button onclick="location.href='list_education.php?family_ic=<?php echo $row['family_ic']; ?>';">Detail</button></center></td>
-                        <td><center><button onclick="location.href='family_edit.php?family_ic=<?php echo $row['family_ic']; ?>';">Edit</button></center></td>
+                        <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br>
 
-                        <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+                          <form method="post" action="controller.php?eduID=<?php echo $row["family_ic"]; ?>">
+                              <input type="hidden" name="family_ic" value="<?php echo $row["family_ic"]; ?>">
+                              <input type="submit" name="deletefamily" onclick='return checkDeleteFamily()' class="btn btn-danger" value="Padam">
+                          </form>
                       </tr>
 
                                   <?php

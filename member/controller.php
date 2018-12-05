@@ -231,5 +231,30 @@ if (isset($_POST['deleteedu'])){
    }
 } 
 
+//delete occupation
+if (isset($_POST['deletefamily'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['family_ic']);
+
+        $sql= "DELETE FROM `family` WHERE `family_ic` = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya Dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
+} 
 
 ?>

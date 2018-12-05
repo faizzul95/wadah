@@ -8,7 +8,7 @@
 		setcookie(session_name(),'',0,'/');
 	
 		echo ("<SCRIPT LANGUAGE='JavaScript'>
-		window.location = '../index.php?page=home';
+		window.location = 'index.php?page=home';
         </SCRIPT>");
 
  ?>

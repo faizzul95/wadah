@@ -1,20 +1,17 @@
 <?php
-	// Turn off error reporting
+// Turn off error reporting
 	error_reporting(0);
 	
-	session_start();
-
-	if(!isset($_SESSION['UserID'])) // If session is not set then redirect to home
-    {
-       header("Location:../logout.php");  
-    }
-
+	session_start(); 
 	$member_ic = $_SESSION['memberIC'];
-	
 	if(isset($_GET['member_ic'])) 
     {
       $member = $_GET['member_ic'];
     }
+    require('../connection.php');
+
+    $sql = mysqli_query($myConnection,"SELECT * FROM `member` WHERE `mbr_ic` = '$member' ") or die (mysqli_error());
+    $row=mysqli_fetch_array($sql);
 
 ?>
 <!DOCTYPE html>
@@ -27,17 +24,13 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Ahli | Daftar Keluarga</title>
+		<title>Ahli | Kemaskini Maklumat</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
-
-		<script type="text/javascript">
-			<?php include '../js/input_restriction.js';?>
-		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -59,45 +52,48 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Keluarga</li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Maklumat Peribadi</li>
 				  </ol>
 				</nav>
 								
 				<br><br><br>
 				<div class="container">
 				<section>
+							<center><img title=" " alt=" " src="img/<?php echo $row['mbr_profile_picture'];?>" height="300px" width="300px" />
+								<br><br>
+
+								<form method="post" action="user_update.php?member_ic=<?php echo $mmbrIC; ?>">
+									<div class="form-group"><input type="file" name="mbr_profile_picture" class="btn btn-primary" id="" placeholder=""></div>
+								</form>
+
+							</center>
+
             
 								<div align="center">
-								<h1><br>DAFTAR KELUARGA</h1></br>
+								<h1><br>KEMASKINI MAKLUMAT PERIBADI</h1></br>
 
 						<form action="controller.php" method="post">
-
-							<input name="member_ic" type="hidden" value="<?php echo $member;?>" size="50" maxlength="50">
+							<input name="edu_id" type="hidden" value="<?php echo $id;?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
-									<td colspan="2"><center><b>MAKLUMAT KELUARGA</b></center></td> 
+									<td colspan="2"><center><b>MAKLUMAT PERIBADI</b></center></td> 
 								</tr>
 								<tr>
-									<td>Nama  :</td>
-									<td><br><input name="family_name" type="text" size="50" maxlength="50" class="form-control" required></td>
+									<td>Nama :</td>
+									<td><br><input name="mbr_name" value="<?php echo $row['mbr_name'];?>" type="text" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Nombor IC  :</td>
-									<td><br><input name="family_ic" type="text" size="50" onkeypress="return isNumeric(event)"
-				                         oninput="maxLengthCheck(this)"
-				                         type = "text"
-				                         maxlength = "12"
-				                         min = "1"
-				                         max = "12" class="form-control" required></td>
+									<td>Nombor Kad Pengenalan :</td>
+									<td><br><input name="mbr_ic" value="<?php echo $row['mbr_ic'];?>" type="text" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Alamat :</td>
-									<td><br><input name="family_address" type="text" size="50" class="form-control" maxlength="250"></td>
+									<td><br><input name="mbr_address" value="<?php echo $row['mbr_address'];?>" type="text" size="50" maxlength="250" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
-									<td><br><input name="family_phone" type="text" size="50" onkeypress="return isNumeric(event)"
+									<td><br><input name="mbr_phone" value="<?php echo $row['mbr_phone'];?>" type="text" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
 				                         maxlength = "12"
@@ -105,45 +101,31 @@
 				                         max = "12" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Jantina :</td>
-									<td><br>
-										<select name="family_gender" class="form-control">
-											<option value="" >- Pilih -</option>
-											<option value="Lelaki" >Lelaki</option>
-											<option value="Perempuan">Perempuan</option>
-										</select>
-									</td>
-								</tr>
-								<tr>
 									<td>Email :</td>
-									<td><br><input name="company_email" type="family_email" size="50" class="form-control" maxlength="80"></td>
+									<td><br><input name="mbr_email" value="<?php echo $row['mbr_email'];?>" type="text" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Tarikh Lahir : <br></td>
-									<td><br><input name="family_dob" type="date" size="50" class="form-control" maxlength="50">
+									<td>Jantina :</td>
+									<td><br><select name="mbr_gender" class="form-control" required>
+										<option name="">-Pilih-</option>
+										<option name="Lelaki">Lelaki</option>
+										<option name="Perempuan">Perempuan</option>
+									</select>
 									</td>
 								</tr>
 								<tr>
-									<td><br>
-										Hubungan Keluarga : 
+									<td>Tarikh Lahir :</td>
+									<td><br><input name="mbr_dob" value="<?php echo $row['mbr_dob'];?>" type="text" size="50" class="form-control" maxlength="50" required>
 									</td>
-									<td><br>
-										<select name="family_relation" class="form-control">
-											<option value="" >- Pilih -</option>
-											<option value="Ayah" >Ayah</option>
-											<option value="Ibu">Ibu</option>
-											<option value="Anak Lelaki" >Anak Lelaki</option>
-											<option value="Anak Perempuan">Anak Perempuan</option>
-				                            <option value="Suami" >Suami</option>
-											<option value="Isteri">Isteri</option>
-											<option value="Adik Beradik">Adik Beradik</option>
-										</select>
-									</td>
+								</tr>
+								<tr>
+									<td>Cawangan :</td>
+									<td><br><input name="mbr_branch" value="<?php echo $row['mbr_branch'];?>" type="text" size="50" class="form-control" maxlength="50"></td>
 								</tr>
 								<tr align="center">
 									<td colspan="2">
 										<br>
-										<input type="submit" name="reg_family" value="Daftar" class="btn btn-primary form-control">
+										<input type="submit" name="update_member" value="Kemaskini" class="btn btn-primary form-control">
 									</td>
 								</tr>
 							</TABLE>

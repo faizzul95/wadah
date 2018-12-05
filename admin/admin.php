@@ -138,7 +138,7 @@ $member_ic = $_SESSION['memberIC'];
 												<td><button class="btn btn-primary" onclick="location.href='admin_children_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button></td>
 												<td><button class="btn btn-primary" onclick="location.href='admin_edu_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button></td>
 												<td><button class="btn btn-primary" onclick="location.href='admin_occupation_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button></td>
-												<td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+												<td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Padam</button></td>
 											</tr>
 
 							                    <?php
