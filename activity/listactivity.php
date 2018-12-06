@@ -47,7 +47,7 @@
                                   </tr>
                                   <tr>
                                     <td width="38">Aktiviti :</td>
-                                    <td width="279"><select name="type" required>
+                                    <td width="279"><select name="act_type" required>
                                       <option value="">- Jenis Aktiviti -</option>
                                       <option valuea="Muktamar">Muktamar</option>
                                       <option value="Tamrin">Tamrin</option>
@@ -96,7 +96,7 @@
 					</td>
 				</tr> -->
                                   <tr align="center">
-                                    <td height="79" colspan="2"><input type="submit" name="cari_aktiviti" value="Cari" class="btn btn-info"></td>
+                                    <td height="79" colspan="2"><input type="submit" name="listactivity_output" value="CARI" class="btn btn-info"></td>
                                   </tr>
                                 </table>
                               </div>

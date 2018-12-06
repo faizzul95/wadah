@@ -1,15 +1,8 @@
-<!--php
-	session_start(); 
 
-	if(!isset($_SESSION['asset_id'])) // If session is not set then redirect to home
-    {
-       header("Location:../logout.php");  
-    }
--->
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
+<!--meta charset="utf-8"-->
 <title>REGISTER ASSET</title>
 
 </head>

@@ -2,8 +2,13 @@
 <html>
 <head>
   <title>Home</title>
+  <script type="text/javascript">
+	<?php include '../js/input_restriction.js';?>
+	<?php include '../connection.php';?>
+</script>
 </head>
 <body>
+
         <?php
                                      
                 $sql = "SELECT * FROM `asset`";
@@ -44,7 +49,7 @@
                         <td><center>
                             <button onclick="location.href='asset_update.php?edu_id=<?php echo $row['asset_id']; ?>';">Update</button>
                             <form method="post" action="../member/controller.php">
-                              <input type="hidden" name="delete_id" value="<?php echo $row['edu_id']; ?>">
+                              <input type="hidden" name="delete_id" value="<?php echo $row['asset_id']; ?>">
                               <input type="submit" name="delete_asset" value="Delete">
                             </form>
                           </center></td>

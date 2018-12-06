@@ -34,28 +34,28 @@
 							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
 						</div>
 						<div class="blog-post-body">
-							<h2>AKTIVITI MASYARAKAT</h2>
+							<h2>DAFTAR MASYARAKAT</h2>
 							<p>&nbsp;</p>
-							<p>Pendaftaran </p>
+							<p>&nbsp;</p>
 							<form name="form1" method="post" action="">
 							  <div align="left">
 							    <TABLE border="1" cellpadding="5" cellspacing="2">
 							      <tr>
 							        <td colspan="2"><center>
-							          <b>PENCERAMAH</b>
+							          <b>MASYARAKAT</b>
 							          </center></td>
 						          </tr>
 							      <tr>
-							        <td>Masyarakat ID:</td>
-							        <td><input name="speak_id" type="text" size="50" maxlength="50" required></td>
+							        <td width="74">Masyarakat ID:</td>
+							        <td width="355"><input name="public_id" type="text" size="50" maxlength="50" required></td>
 						          </tr>
 							      <tr>
 							        <td>Nama  :</td>
-							        <td><input name="speak_name" type="text" size="50" maxlength="50" required></td>
+							        <td><input name="public_name" type="text" size="50" maxlength="50" required></td>
 						          </tr>
 							      <tr>
 							        <td>Aktiviti</td>
-							        <td><select name="type" required>
+							        <td><select name="act_type" required>
 							          <option value="">- Jenis Aktiviti -</option>
 							          <option valuea="Muktamar">Muktamar</option>
 							          <option value="Tamrin">Tamrin</option>
@@ -66,17 +66,17 @@
 						          </tr>
 							      <tr>
 							        <td>No. Telefon  :</td>
-							        <td><input name="speak_phone" type="text" size="50" maxlength="50" required></td>
+							        <td><input name="public_phone_phone" type="text" size="50" maxlength="50" required></td>
 						          <tr>
 							          <td>Tarikh:</td>
-							          <td><input id="event_date" type="date" value="2011-01-13"/></td>
+							          <td><input id="act_date" type="date" value="2011-01-13"/></td>
 						          </tr>
                                    <tr>
 							          <td>Tempat:</td>
-							          <td><input name="speak_mail" type="email" size="50" maxlength="50"></td>
+							          <td><input name="act_venue" type="email" size="50" maxlength="50"></td>
 						          </tr>
 							      <tr align="center">
-							        <td colspan="2"><input type="submit" name="reg_edu" value="DAFTAR" class="btn btn-info"></td>
+							        <td colspan="2"><input type="submit" name="register_public_output" value="DAFTAR" class="btn btn-info"></td>
 						          </tr>
 						        </TABLE>
 							    <div align="center"></div>
@@ -84,10 +84,7 @@
 							  </div>
 					      </form>
 							<p>&nbsp;</p>
-							<p>
-							  <input type="submit" name="Button" id="Button" value="Set Semula">
-							  <input type="submit" name="Button2" id="Button2" value="Hantar">
-							</p>
+							<p>&nbsp;</p>
 							<div class="post-meta"><span><i class="fa fa-clock-o"></i></span></div>
 							<div class="blog-post-text"></div>
 					      <form name="form2" method="post" action="">

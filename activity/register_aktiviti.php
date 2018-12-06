@@ -34,7 +34,7 @@
 				</tr>
 				<tr>
 					<td>Aktiviti :</td>
-					<td><select name="type" required>
+					<td><select name="act_type" required>
 					  <option value="">- Jenis Aktiviti -</option>
 					  <option valuea="Muktamar">Muktamar</option>
 					  <option value="Tamrin">Tamrin</option>
@@ -52,9 +52,7 @@
 					<td><input name="act_venue" type="text" size="50" maxlength="50" required></td>
 				<tr>
 					<td> Tarikh/Masa:</td>
-					<td><!-- #BeginDate format:Am1m -->
-December 5, 2018  22:40
-  <!-- #EndDate --></td>
+					<td><!-- #BeginDate format:Am1m -->December 6, 2018  16:39<!-- #EndDate --></td>
 				</tr>
                 			<tr>
 					<td> Nama Penceramah/Naqib :</td>
@@ -62,7 +60,7 @@ December 5, 2018  22:40
 				</tr>
 				<tr align="center">
 					<td colspan="2">
-						<input type="submit" name="reg_edu" value="DAFTAR" class="btn btn-info">
+						<input type="submit" name="register_activity_output" value="DAFTAR" class="btn btn-info">
 					</td>
 				</tr>
 			</TABLE>

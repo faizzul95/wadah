@@ -46,7 +46,7 @@
 							        <td><input name="member_id" value="" type="text" size="50" maxlength="50"></td>
 						          </tr>
 							      <tr align="center">
-							        <td colspan="2"><input type="submit" name="reg_family" value="SEMAK" class="btn btn-info"></td>
+							        <td colspan="2"><input type="submit" name="check_acti_output" value="SEMAK" class="btn btn-info"></td>
 						          </tr>
 						        </table>
 						      </form>
