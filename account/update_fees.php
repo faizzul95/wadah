@@ -18,7 +18,7 @@ session_start();
 	
 	if(isset($_GET['feeID'])) 
     {
-      $spsID = $_GET['feeID'];
+      $feeID = $_GET['feeID'];
     }
     require('../connection.php');
 
@@ -68,7 +68,7 @@ session_start();
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="list_sps.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><a href="list_fee.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Yuran</li>
 				  </ol>
 				</nav>
