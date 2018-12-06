@@ -5,6 +5,7 @@
 <title>MAINTENANCE ASSET</title>
 <script type="text/javascript">
 	<?php include '../js/input_restriction.js';?>
+	<?php include '../connection.php';?>
 </script>
 </head>
 
@@ -13,21 +14,47 @@
 	<div align="center">
 	<h1><br>
 	  PENYELENGGARAAN ASET</h1></br>
-	<a href="../member/Index.php"> HOME </a> <br><br>
+	<a href="../wadah"> HOME </a> <br><br>
 	<form action="../member/controller.php" method="post">
-		<input name="mbr_ic" type="hidden" value="<?php echo $_SESSION["memberIC"];?>" >
+		>
 			<table border="1" cellpadding="5" cellspacing="2">
 				<tr>
 					<td colspan="2"><center><b>MAKLUMAT PENYELENGGARAAN ASET</b></center></td> 
 				</tr>
 				<tr>
 					<td>Nama Penyelenggara :</td>
-					<td><input name="asset_id" value="" type="text" size="50" maxlength="50"></td>
+					<td>
+                    <div class="col-md-4">
+                                      <?php
+                                            
+                                            $query = $myConnection->query("SELECT * FROM vendor");
+                                            $rowCount = $query->num_rows;
+                                            ?>
+
+                                      <div class="form-group">
+                                        <select name="vendor_name" id="" class="form-control" required>
+                                        <option value="">- Sila Pilih -</option>
+                                          <?php
+                                          if($rowCount > 0){
+                                              while($row = $query->fetch_assoc()){ 
+                                                  echo '<option value="'.$row['vendor_id'].'">'.strtoupper($row['vendor_name']).'</option>';
+                                              }
+                                          }else{
+                                              echo '<option value="">Tiada Vendor yang berdaftar</option>';
+                                          }
+                                          ?>
+                                      </select> 
+                                      </div>
+                                    </div>
+                    
+                    
+                    
+                    </td>
 				</tr>		
                 <tr>
 					<td>Tahap penyelenggaraan:</td>
 					<td>
-					<select name="asset_status" required>
+					<select name="maintenance_status" required>
 						<option value="Pilih">Pilih</option>
 							<option value="100%">100%</option>
 							<option value="80%">80%</option>
@@ -44,11 +71,11 @@
 				</tr>
                 <tr>
 					<td>Kos Penyelenggaraan :</td>
-					<td><input name="asset_id" value="" type="text" size="50" maxlength="50"></td>
+					<td><input name="maintenance_cost" value="" type="text" size="50" maxlength="50"></td>
 				</tr>
                 <tr>
 					<td>Tempat Penyelenggaraan :</td>
-					<td><input name="asset_id" value="" type="text" size="50" maxlength="50"></td>
+					<td><input name="asset_place" value="" type="text" size="50" maxlength="50"></td>
 				</tr>
                 <tr>
 					<td>Tempoh Hari Penyelenggaraan :</td>
@@ -66,7 +93,7 @@
 				</tr>
 				<tr>
 					<td>Penerangan Penyelenggaraan:</td>
-					<td><input name="company_name" type="date"  value="" size="50" maxlength="50">
+					<td><input name="maintenance_desc" type="date"  value="" size="50" maxlength="50">
 					</td>
 				</tr>
                 	

@@ -6,7 +6,7 @@
 <body>
         <?php
                                      
-                $sql = "SELECT * FROM `asset`";
+                $sql = "SELECT * FROM `maintenance`";
                 $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
                 if (mysqli_num_rows($result)==0){
@@ -17,12 +17,12 @@
                 <thead bgcolor="#57A0D2">
                   <tr>
                     <th scope="col"><center>#</center></th>
-                    <th scope="col"><center>Id Aset</center></th>
-                    <th scope="col"><center>Jenis Aset</center></th>
-                    <th scope="col"><center>Status Aset</center></th>
-                    <th scope="col"><center>Kuantiti Aset</center></th>
-                    <th scope="col"><center>Lokasi Aset</center></th>
-                    <th colspan="2" scope="col"><center>Peneranga Aset</center></th>
+                    <th scope="col"><center>Id Penyelenggaraan</center></th>
+                    <th scope="col"><center>Tahap Penyelenggaraan</center></th>
+                    <th scope="col"><center>Kos Penyelenggaraan</center></th>
+                    <th scope="col"><center>Tempat Penyelenggaraan</center></th>
+                    <th scope="col"><center>Tempoh Hari Penyelenggaraan</center></th>
+                    <th colspan="2" scope="col"><center>Penerangan Penyelenggaraan</center></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,10 +35,10 @@
                   ?>
                       <tr>
                         <th scope="row"><center><?php echo $count; ?></center></th>
-                        <td><center><?php echo $row['asset_id']; ?></center></td>
-                        <td><center><?php echo $row['asset_type']; ?></center></td>
-                        <td><center><?php echo $row['asset_status']; ?></center></td>
-                        <td><center><?php echo $row['asset_quantity']; ?></center></td>
+                        <td><center><?php echo $row['maintenance_id']; ?></center></td>
+                        <td><center><?php echo $row['maintenance_status']; ?></center></td>
+                        <td><center><?php echo $row['maintenance_cost']; ?></center></td>
+                        <td><center><?php echo $row['asset_place']; ?></center></td>
                         <td><center><?php echo $row['asset_desc']; ?></center></td>
                         <td colspan="2"><center><?php echo $row['edu_start_date']; ?> - <?php echo $row['edu_end_date']; ?></center></td>
                         <td><center>

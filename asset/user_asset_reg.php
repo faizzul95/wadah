@@ -20,8 +20,8 @@
 	<h1><br>
 	  DAFTAR ASET</h1></br>
 	<a href="../asset/user_asset_reg.php"> HOME </a> <br><br>
-	<form action="../asset/asset_list.php" method="post">
-		<input name="mbr_ic" type="hidden" value="<?php echo $_SESSION["memberIC"];?>" >
+	<form action="../asset/controller.php" method="post">
+		
 			<table border="1" cellpadding="5" cellspacing="2">
 				<tr>
 					<td colspan="2"><center><b>MAKLUMAT ASET</b></center></td> 
@@ -63,7 +63,7 @@
 				</tr>
 				<tr>
 					<td>Penerangan Aset :</td>
-					<td><input name="family_email" value="" type="text" size="50" maxlength="50">
+					<td><input name="asset_desc" value="" type="text" size="50" maxlength="50">
 					</td>
 				</tr>
 				
@@ -105,7 +105,7 @@
 				</tr> -->
 				<tr align="center">
 					<td colspan="2">
-						<input type="submit" name="asset" value="Tambah Aset" class="btn btn-info">
+						<input type="submit" name="register_asset" value="Tambah Aset" class="btn btn-info">
 					</td>
 				</tr>
 			</table>
