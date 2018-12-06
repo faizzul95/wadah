@@ -77,7 +77,7 @@ session_start();
 												<td>ID :</td>
 												<td><br><input name="Sps_id" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
-							                     maxlength = "12" class="form-control"></td>
+							                     maxlength = "12" class="form-control" required></td>
 											</tr>
 											<tr>
 												<td>Nama :</td>

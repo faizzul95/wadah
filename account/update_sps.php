@@ -15,6 +15,15 @@ session_start();
           window.location = 'logout.php';
           </SCRIPT>");  
     }
+	
+	if(isset($_GET['spsID'])) 
+    {
+      $spsID = $_GET['spsID'];
+    }
+    require('../connection.php');
+
+    $sql = mysqli_query($myConnection,"SELECT * FROM `sponsors` WHERE `Sps_id` = '$spsID' ") or die (mysqli_error());
+    $row=mysqli_fetch_array($sql);
 
 // echo '<pre>';
 // var_dump($_SESSION);
@@ -32,7 +41,7 @@ session_start();
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Daftar Pembelanjaan</title>
+		<title>Admin | Kemaskini Penaja</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -59,8 +68,8 @@ session_start();
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="list_expenses.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Pembelanjaan</li>
+				    <li class="breadcrumb-item"><a href="list_sps.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Penaja</li>
 				  </ol>
 				</nav>
 								
@@ -69,36 +78,19 @@ session_start();
 				<section>
             
 								<div align="center">
-								<h1><br>DAFTAR PEMBELANJAAN</h1></br>
+								<h1><br>KEMASKINI PENAJA</h1></br>
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
-                                    <tr>
-												<td>ID:</td>
-												<td><br><input name="Exp_id" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
+											<tr>
+												<td>ID :</td>
+												<td><br><input name="Sps_id"  value="<?php echo $row['Sps_id'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
-							                     maxlength = "12" class="form-control"></td>
+							                     maxlength = "12" class="form-control" required></td>
 											</tr>
 											<tr>
-												<td>Nama:</td>
-												<td><br><input name="Exp_name" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "12" class="form-control"></td>
-											</tr>
-                                            <tr>
-												<td>Tarikh :</td>
-												<td><br>
-												<input name="Exp_date" type="date" size="50" class="form-control" maxlength="50" required>
-												</td>
-                                                <tr>
-												<td>Jenis :</td>
-												<td><br><input name="Exp_type" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
-											</tr>
-											<tr>
-												<td>Baki :</td>
-												<td><br><input name="Exp_outstanding" type="text" size="50" onkeypress="return isNumeric(event)"
+												<td>Nama :</td>
+												<td><br><input name="Sps_name"  value="<?php echo $row['Sps_name'];?>" type="text" size="50" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "50"
@@ -106,20 +98,41 @@ session_start();
 							                         max = "50" class="form-control" required ></td>
 											</tr>
 											<tr>
-												<td>Penerangan :</td>
-												<td><br><input name="Exp_desc" type="text" size="50" maxlength="150" oninput="maxLengthCheck(this)"
+												<td>Alamat :</td>
+												<td><br><input name="Sps_add" value="<?php echo $row['Sps_add'];?>"  type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "250" class="form-control" required></td>
 											</tr>
-											
+											<tr>
+												<td>No. Telefon :</td>
+												<td><br>
+												<input name="Sps_phoneNo"  value="<?php echo $row['Sps_phoneNo'];?>" type="text" size="50" onkeypress="return isNumeric(event)"
+							                         oninput="maxLengthCheck(this)"
+							                         type = "text"
+							                         maxlength = "12"
+							                         min = "1"
+							                         max = "12" class="form-control" required>
+												</td>
 											</tr>
-							
-											
+											<tr>
+												<td>Emel :</td>
+												<td><br>
+												<input name="Sps_email"  value="<?php echo $row['Sps_email'];?>" type="email" size="50" oninput="maxLengthCheck(this)"
+							                     type = "text"
+							                     maxlength = "40" class="form-control" required>
+												</td>	
+											</tr>
+											<tr>
+												<td>Jenis :</td>
+												<td><br><input name="Sps_type" value="<?php echo $row['Sps_type'];?>" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
+							                     type = "text"
+							                     maxlength = "250" class="form-control" required></td>
+											</tr>
 											</tr>
 										
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="register_expenses" value="Daftar" class="btn btn-primary">
+													<input type="submit" name="update_sps" value="Kemaskini" class="btn btn-primary">
 												</td>
 											</tr>
 										</form>

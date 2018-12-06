@@ -39,6 +39,12 @@ session_start();
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+        <script>
+      	function checkDeleteExp(){
+             return confirm('Padam Pembelanjaan ?');
+         }
+
+      </script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -73,6 +79,7 @@ session_start();
 			                    <thead>
 			                      <tr>
 			                        <th>No.</th>
+                                    <th>ID</th>
 			                        <th>Nama</th>
 			                        <th>Tarikh</th>
 			                        <th>Jenis</th>
@@ -98,12 +105,17 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
+                                     <td><?php echo $row['Exp_id']; ?></td>
 			                        <td><?php echo $row['Exp_name']; ?></td>
 			                        <td><?php echo $row['Exp_date']; ?></td>
 			                        <td><?php echo $row['Exp_type']; ?></td>
 			                        <td><?php echo $row['Exp_outstanding']; ?></td>
                                     <td><?php echo $row['Exp_desc']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+			                       <td><button class="btn btn-primary" onclick="location.href='update_expenses.php?expID=<?php echo $row['Exp_id']; ?>';">Kemaskini</button><br>
+                                  <form method="post" action="controller.php?expID=<?php echo $row["Exp_id"]; ?>">
+                                  <input type="hidden" name="Exp_id" value="<?php echo $row["Exp_id"]; ?>">
+                                  <input type="submit" name="deleteExp" onclick='return checkDeleteExp()' class="btn btn-danger" value="Padam">
+                                  </td>
 		                          </tr>
 			                      <?php
 							                    $count++;
@@ -114,6 +126,7 @@ session_start();
 			                    <tfoot>
 			                      <tr>
 			                        <th>No.</th>
+                                    <th>ID</th>
 			                        <th>Nama</th>
 			                        <th>Tarikh</th>
 			                        <th>Jenis</th>

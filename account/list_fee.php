@@ -39,6 +39,12 @@ session_start();
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+        <script>
+      	function checkDeleteFee(){
+             return confirm('Padam Yuran ?');
+         }
+
+      </script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -103,7 +109,11 @@ session_start();
 			                        <td><?php echo $row['Fee_status']; ?></td>
 			                        <td><?php echo $row['Fee_date']; ?></td>
                                     <td><?php echo $row['Fee_type']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+			                       <<td><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';">Kemaskini</button><br>
+                                  <form method="post" action="controller.php?feeID=<?php echo $row["Fee_id"]; ?>">
+                                  <input type="hidden" name="Fee_id" value="<?php echo $row["Fee_id"]; ?>">
+                                  <input type="submit" name="deleteFee" onclick='return checkDeleteFee()' class="btn btn-danger" value="Padam">
+                                  </td>
 		                          </tr>
 			                      <?php
 							                    $count++;

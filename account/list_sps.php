@@ -39,6 +39,12 @@ session_start();
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+        <script>
+      	function checkDeleteSps(){
+             return confirm('Padam Penaja ?');
+         }
+
+      </script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -105,7 +111,13 @@ session_start();
 			                        <td><?php echo $row['Sps_phoneNo']; ?></td>
                                     <td><?php echo $row['Sps_email']; ?></td>
                                     <td><?php echo $row['Sps_type']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+			                       <td>
+                                   <button class="btn btn-primary" onclick="location.href='update_sps.php?spsID=<?php echo $row['Sps_id']; ?>';">Kemaskini</button><br>
+                                  <form method="post" action="controller.php?expID=<?php echo $row["Sps_id"]; ?>">
+                                  <input type="hidden" name="Sps_id" value="<?php echo $row["Sps_id"]; ?>">
+                                  <input type="submit" name="deleteSps" onclick='return checkDeleteSps()' class="btn btn-danger" value="Padam">
+                                   
+                                   </td>
 		                          </tr>
 			                      <?php
 							                    $count++;
