@@ -251,14 +251,14 @@ if (isset($_POST['update_exp']))
 {
  
     // update exp
-     $Exp_ID = mysqli_real_escape_string($myConnection, $_POST['Exp_id']);
+    $Exp_id = mysqli_real_escape_string($myConnection, $_POST['Exp_id']);
 	$Exp_name = mysqli_real_escape_string($myConnection, $_POST['Exp_name']);
     $Exp_date = mysqli_real_escape_string($myConnection, $_POST['Exp_date']);
     $Exp_type = mysqli_real_escape_string($myConnection, $_POST['Exp_type']);
     $Exp_outstanding = mysqli_real_escape_string($myConnection, $_POST['Exp_outstanding']);
     $Exp_desc = mysqli_real_escape_string($myConnection, $_POST['Exp_desc']);
 
-			$query_expinfo = "UPDATE expenses SET Exp_id='$Exp_ID',Exp_name='$Exp_name',Exp_date='$Exp_date',Exp_type='$Exp_type',Exp_outstanding='$Exp_outstanding', Exp_desc='Exp_desc' WHERE Exp_id = '$Exp_id'";
+			$query_expinfo = "UPDATE expenses SET Exp_id='$Exp_id',Exp_name='$Exp_name',Exp_date='$Exp_date',Exp_type='$Exp_type',Exp_outstanding='$Exp_outstanding', Exp_desc='Exp_desc' WHERE Exp_id = '$Exp_id'";
         $result = mysqli_query($myConnection, $query_expinfo) or die(mysqli_error($myConnection));
 		
         if($result)

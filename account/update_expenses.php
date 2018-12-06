@@ -84,7 +84,7 @@ session_start();
 									<form method="post" action="controller.php">
 											<tr>
 												<td>Nama :</td>
-												<td><br><input name="Exp_name"  value="<?php echo $row['Exp_name'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td><br><input name="Exp_name" value="<?php echo $row['Exp_name'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "12" class="form-control"</td>
 											</tr>
