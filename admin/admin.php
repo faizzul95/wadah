@@ -17,10 +17,6 @@ $member_ic = $_SESSION['memberIC'];
           </SCRIPT>");  
     }
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
-
 ?>
 
 <!DOCTYPE html>

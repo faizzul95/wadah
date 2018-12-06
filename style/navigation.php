@@ -51,7 +51,7 @@
 					        </ul>
 				      	</li>
 
-				     <?php } if($_SESSION['role'] == 'member') { ?>
+				     <?php } else if($_SESSION['role'] == 'member') { ?>
 						<li><a href="../index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
