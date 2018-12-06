@@ -34,9 +34,9 @@
 							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
 						</div>
 						<div class="blog-post-body">
-							<h2>Aktiviti Masyarakat</h2>
+							<h2>AKTIVITI MASYARAKAT</h2>
 							<p>&nbsp;</p>
-							<p>Senarai pendaftaran aktiviti</p>
+							<p>SENARAI PENDAFTARAN MASYARAKAT</p>
 							<form name="form1" method="post" action="">
 							  <div align="left">
 							    <p>&nbsp;</p>

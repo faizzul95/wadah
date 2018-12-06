@@ -32,7 +32,7 @@
 					<article class="blog-post">
 						<div class="blog-post-image">
 							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
-							<h1 align="center">Aktiviti Ahli</h1>
+							<h1 align="center">AKTIVITI AHLI</h1>
                             <div align="center"><br>
                               <br>
                             </div>

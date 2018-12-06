@@ -32,7 +32,7 @@
 					<article class="blog-post">
 						<div class="blog-post-image">
 							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
-							<h1 align="center">Aktiviti Ahli</h1>
+							<h1 align="center">SENARAI AKTIVITI</h1>
                             <div align="center"><br>
                               <br>
                             </div>
@@ -41,10 +41,10 @@
                                 <input name="mbr_ic" type="hidden" value="<?php echo $_SESSION["memberIC"];?>" >
                                 <table width="744" border="1">
                                   <tr>
-                                    <th width="212" scope="col"><div align="center">Aktiviti ID</div></th>
-                                    <th width="181" scope="col"><div align="center">Jenis Aktiviti</div></th>
-                                    <th width="97" scope="col"><div align="center">Keterangan</div></th>
-                                    <th width="226" scope="col"> <div align="center">Tarikh</div></th>
+                                    <th width="212" scope="col"><div align="center">Aktiviti</div></th>
+                                    <th width="181" scope="col"><div align="center">Tarikh</div></th>
+                                    <th width="97" scope="col"><div align="center">Tempat</div></th>
+                                    <th width="226" scope="col"> <div align="center">Penerangan</div></th>
                                   </tr>
                                   <tr>
                                     <td>&nbsp;</td>
