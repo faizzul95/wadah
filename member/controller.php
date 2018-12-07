@@ -3,6 +3,99 @@ require ('../connection.php');
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
 
+
+if(isset($_POST['update_member']))
+{    
+
+  $mbr_id=mysqli_real_escape_string($myConnection, $_POST['mbr_id']);
+  $mbr_name = mysqli_real_escape_string($myConnection, $_POST['mbr_name']);
+  $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['mbr_ic']);
+  $mbr_address = mysqli_real_escape_string($myConnection, $_POST['mbr_address']);
+  $mbr_gender = mysqli_real_escape_string($myConnection, $_POST['mbr_gender']);
+  $mbr_phone = mysqli_real_escape_string($myConnection, $_POST['mbr_phone']);
+  $mbr_email = mysqli_real_escape_string($myConnection, $_POST['mbr_email']);
+  $mbr_dob = mysqli_real_escape_string($myConnection, $_POST['mbr_dob']);
+  $mbr_branch = mysqli_real_escape_string($myConnection, $_POST['mbr_branch']);
+
+  $file = $_FILES['image_upload']['tmp_name'];
+
+  // var_dump($file);die;
+
+  if($file == NULL) {
+
+    $sql = "UPDATE `member` SET `mbr_name` = '$mbr_name', `mbr_ic` = '$mbr_ic', `mbr_address` = '$mbr_address', `mbr_gender` = '$mbr_gender', `mbr_phone` = '$mbr_phone', `mbr_dob` = '$mbr_dob', `mbr_email` = '$mbr_email', `mbr_branch` = '$mbr_branch' WHERE `mbr_id` = '$mbr_id'";
+    $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+
+    echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Dikemaskini')
+          window.location = 'user.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+
+  } // end if
+  else {
+
+  $folder="../member/img/";
+  $image_name = addslashes(rand(100,100000)."-".date("Y.m.d")."-".$_FILES['image_upload']['name']);
+  $image_size = getimagesize($_FILES['image_upload']['tmp_name']);//to get size of image
+  $image_type = $image_size['mime'];//to get the type of image
+  // Maximum image width 
+  $max_width = "4500"; 
+  // Maximum image height 
+  $max_height = "4500"; 
+
+  list($width, $height, $type, $attr) = getimagesize($file);
+
+  $file_type = $_FILES['image_upload']['type']; //returns the mimetype 
+  $allowed = array("image/jpeg", "image/jpg", "image/png"); 
+
+    if($width>$max_width || $height>$max_height) 
+      { 
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Gambar Melebihi Had Dibenarkan. Maksima resolusi dibenarkan hanya 2500 x 2500.')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+      }  
+  else
+  {
+    if(!in_array($file_type, $allowed) || !$image_size > 4100) 
+      { 
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+            window.alert('Hanya gambar format jpg dan png dibenarkan atau gambar tidak melebihi had 2MB.')
+            window.location.href = window.history.back();
+            </SCRIPT>");
+
+      }
+      else
+      {
+        if(move_uploaded_file($file,$folder.$image_name))
+          {
+            $sql = "UPDATE `member` SET `mbr_name` = '$mbr_name', `mbr_ic` = '$mbr_ic', `mbr_address` = '$mbr_address', `mbr_gender` = '$mbr_gender', `mbr_phone` = '$mbr_phone', `mbr_dob` = '$mbr_dob', `mbr_email` = '$mbr_email', `mbr_branch` = '$mbr_branch', `mbr_profile_picture` = '$image_name'  WHERE `mbr_id` = '$mbr_id'";
+
+              $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+
+                echo ("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Berjaya Dikemaskini')
+                window.location = 'user.php?result=SuccessfullyRegister';
+                </SCRIPT>");
+          }
+          else
+          {
+            
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+            window.alert('Masalah ketika memuat naik gambar')
+            window.location.href = window.history.back();
+            </SCRIPT>");
+
+          }
+        }
+      }
+    
+  }
+  
+}
+
+
+
 // register family
 if (isset($_POST['reg_family']))
 {

@@ -62,9 +62,12 @@
 							<center><img title=" " alt=" " src="img/<?php echo $row['mbr_profile_picture'];?>" height="300px" width="300px" />
 								<br><br>
 
-								<form method="post" action="user_update.php?member_ic=<?php echo $mmbrIC; ?>">
-									<div class="form-group"><input type="file" name="mbr_profile_picture" class="btn btn-primary" id="" placeholder=""></div>
-								</form>
+					<form method="post" action="controller.php"  enctype = "multipart/form-data">
+									<div class="form-group">
+										<input type="file" name="image_upload" class="btn btn-primary" id="" placeholder="">
+										<!-- <input type="file" class="form-control" name="image_upload"> -->
+									</div>
+					
 
 							</center>
 
@@ -72,8 +75,7 @@
 								<div align="center">
 								<h1><br>KEMASKINI MAKLUMAT PERIBADI</h1></br>
 
-						<form action="controller.php" method="post">
-							<input name="edu_id" type="hidden" value="<?php echo $id;?>" size="50" maxlength="50">
+							<input name="mbr_id" type="hidden" value="<?php echo $row['mbr_id'];?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
@@ -108,8 +110,8 @@
 									<td>Jantina :</td>
 									<td><br><select name="mbr_gender" class="form-control" required>
 										<option name="">-Pilih-</option>
-										<option name="Lelaki">Lelaki</option>
-										<option name="Perempuan">Perempuan</option>
+										<option value="Lelaki" <?php if($row['mbr_gender']=="Lelaki") echo 'selected="selected"'; ?> >Lelaki</option>
+										<option value="Perempuan" <?php if($row['mbr_gender']=="Perempuan") echo 'selected="selected"'; ?> >Perempuan</option>
 									</select>
 									</td>
 								</tr>

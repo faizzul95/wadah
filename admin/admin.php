@@ -9,7 +9,7 @@ $member_ic = $_SESSION['memberIC'];
     {
        header("Location:logout.php");  
     }
-   else if($_SESSION['role'] != "admin") // if not admin redirect to home
+    if(isset($_SESSION['role']) != "admin") // if not admin redirect to home
     {
        echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Anda tidak mempunyai akses ke menu Admin.')
