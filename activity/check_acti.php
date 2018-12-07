@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="../favicon.ico">
-		<title>Wadah | Aktiviti</title>
+		<title>SEMAK AKTIVITI</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -38,7 +38,7 @@
 							  </br>
 							  <a href="../member/New folder/Index.php"> HOME </a> <br>
 							  <br>
-							  <form action="../member/New folder/controller.php" method="post">
+							  <form action="../activity/controller.php" method="post">
 							    <input name="mbr_ic" type="hidden" value="<?php echo $_SESSION["member_id"];?>" >
 							    <table border="1" cellpadding="5" cellspacing="2">
 							      <tr>

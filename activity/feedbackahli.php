@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="../favicon.ico">
-		<title>Wadah | Aktiviti</title>
+		<title>MAKLUM BALAS</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -155,8 +155,8 @@
 							  <p>&nbsp;</p>
 							</div>
 					      <form name="form2" method="post" action="">
-					        <input type="submit" name="Button2" id="Button2" value="Reset">
-					        <input type="submit" name="Button" id="Button" value="Submit">
+					        <input type="submit" name="Button2" id="Button2" value="BATAL">
+					        <input type="submit" name="Button" id="Button" value="HANTAR">
 					      </form>
 						</div>
 					</article>

@@ -1,86 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<link rel="icon" href="../favicon.ico">
-		<title>Wadah | Aktiviti</title>
-		<!-- Bootstrap core CSS -->
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<!-- Custom styles for this template -->
-		<link href="../css/jquery.bxslider.css" rel="stylesheet">
-		<link href="../css/style.css" rel="stylesheet">
-	</head>
-	<body>
-		<!-- Navigation -->
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
-		</nav>
+<?php
+	session_start(); 
+	
+?>
 
-		<div class="container">
-		<header>
-			<a href="../index.php"><img src="../images/logo.jpg" width="50%" height="50%"></a>
-		</header>
-		<section>
-			<div class="row">
-				<div class="col-md-8">
-					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
-						</div>
-						<div class="blog-post-body">
-							<h2>DAFTAR MASYARAKAT</h2>
-							<p>&nbsp;</p>
-							<p>&nbsp;</p>
-							<form name="form1" method="post" action="">
-							  <div align="left">
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DAFTAR AKTIVITI</title>
+<script type="text/javascript">
+	<?php include '../js/input_restriction.js';?>
+</script>
+</head>
+
+<body>
+	<div align="center">
+	<h1>DAFTAR MASYARAKAT</h1></br>
+	<a href="../member/New folder/index.php">LAMAN UTAMA </a> <br><br>
+	<form action="../activity/controller.php" method="post">
+
 							    <TABLE border="1" cellpadding="5" cellspacing="2">
 							      <tr>
 							        <td colspan="2"><center>
-							          <b>MASYARAKAT</b>
-							          </center></td>
+							          <b>Masyarakat</b>
+							        </center></td>
 						          </tr>
+							      
 							      <tr>
-							        <td width="74">Masyarakat ID:</td>
-							        <td width="355"><input name="public_id" type="text" size="50" maxlength="50" required></td>
+							        <td>No.Kad Pengenalan:</td>
+							        <td><input name="public_id" type="text" size="50" maxlength="50" required></td>
 						          </tr>
 							      <tr>
 							        <td>Nama  :</td>
 							        <td><input name="public_name" type="text" size="50" maxlength="50" required></td>
-						          </tr>
-							      <tr>
-							        <td>Aktiviti</td>
-							        <td><select name="act_type" required>
-							          <option value="">- Jenis Aktiviti -</option>
-							          <option valuea="Muktamar">Muktamar</option>
-							          <option value="Tamrin">Tamrin</option>
-							          <option value="Usrah">Usrah</option>
-							          <option value="Rehleh">Rehleh</option>
-							          <
-						            </select></td>
-						          </tr>
-							      <tr>
-							        <td>No. Telefon  :</td>
-							        <td><input name="public_phone_phone" type="text" size="50" maxlength="50" required></td>
 						          <tr>
-							          <td>Tarikh:</td>
-							          <td><input id="act_date" type="date" value="2011-01-13"/></td>
+							          <td>Alamat:</td>
+							          <td><input name="public_add" type="text" size="50" maxlength="100" required></td>
 						          </tr>
-                                   <tr>
-							          <td>Tempat:</td>
-							          <td><input name="act_venue" type="email" size="50" maxlength="50"></td>
+							      <tr>
+							        <td> No. Telefon:</td>
+							        <td><input name="naqib_name" type="text" size="50" maxlength="50"></td>
 						          </tr>
 							      <tr align="center">
-							        <td colspan="2"><input type="submit" name="register_public_output" value="DAFTAR" class="btn btn-info"></td>
+							        <td colspan="2"><input type="submit" name="register_public" value="DAFTAR" class="btn btn-info"></td>
 						          </tr>
 						        </TABLE>
-							    <div align="center"></div>
-							    <p>&nbsp;</p>
+<p>&nbsp;</p>
 							  </div>
 					      </form>
 							<p>&nbsp;</p>

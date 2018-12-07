@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="../favicon.ico">
-		<title>Wadah | Aktiviti</title>
+		<title>SENARAI AKTIVITI</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -36,9 +36,9 @@
                             <div align="center"><br>
                               <br>
                             </div>
-                            <form action="../member/controller.php" method="post">
+                            <form action="../activity/controller.php" method="post">
                               <div align="center">
-                                <input name="mbr_ic" type="hidden" value="<?php echo $_SESSION["memberIC"];?>" >
+                                <input name="act_type" type="hidden" value="<?php echo $_SESSION["act_type"];?>" >
                                 <table border="1" cellpadding="5" cellspacing="2">
                                   <tr>
                                     <td colspan="2"><center>

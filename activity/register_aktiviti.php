@@ -1,21 +1,13 @@
 <?php
 	session_start(); 
-	$member_ic = $_SESSION['memberIC'];
-	if(isset($_GET['member_ic'])) 
-    {
-      $member = $_GET['member_ic'];
-    }
-    elseif ($_GET['family_ic']) {
-     $family = $_GET['family_ic'];
-    }
-
+	
 ?>
 
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>REGISTER EDUCATION</title>
+<title>DAFTAR AKTIVITI</title>
 <script type="text/javascript">
 	<?php include '../js/input_restriction.js';?>
 </script>
@@ -25,7 +17,7 @@
 	<div align="center">
 	<h1>DAFTAR AKTIVITI</h1></br>
 	<a href="../member/New folder/index.php">LAMAN UTAMA </a> <br><br>
-	<form action="../member/New folder/controller.php" method="post">
+	<form action="../activity/controller.php" method="post">
 	  <TABLE border="1" cellpadding="5" cellspacing="2">
 		  <tr>
 					<td colspan="2"><center>
@@ -52,15 +44,15 @@
 					<td><input name="act_venue" type="text" size="50" maxlength="50" required></td>
 				<tr>
 					<td> Tarikh/Masa:</td>
-					<td><!-- #BeginDate format:Am1m -->December 6, 2018  16:39<!-- #EndDate --></td>
+					<td><input name="act_date" type="date" size="50" maxlength="50" required> / <input name="act_time" type="time" size="50" maxlength="50" required></td>
 				</tr>
                 			<tr>
 					<td> Nama Penceramah/Naqib :</td>
-					<td><input name="naqib_name" type="email" size="50" maxlength="50"></td>
+					<td><input name="naqib_name" type="text" size="50" maxlength="50"></td>
 				</tr>
 				<tr align="center">
 					<td colspan="2">
-						<input type="submit" name="register_activity_output" value="DAFTAR" class="btn btn-info">
+						<input type="submit" name="register_activity" value="DAFTAR" class="btn btn-info">
 					</td>
 				</tr>
 			</TABLE>

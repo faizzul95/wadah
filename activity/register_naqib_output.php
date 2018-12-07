@@ -1,21 +1,13 @@
 <?php
 	session_start(); 
-	$member_ic = $_SESSION['memberIC'];
-	if(isset($_GET['member_ic'])) 
-    {
-      $member = $_GET['member_ic'];
-    }
-    elseif ($_GET['family_ic']) {
-     $family = $_GET['family_ic'];
-    }
-
+	
 ?>
 
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>REGISTER EDUCATION</title>
+<title>DAFTAR NAQIB</title>
 <script type="text/javascript">
 	<?php include '../js/input_restriction.js';?>
 </script>
@@ -26,7 +18,7 @@
 	<h1>SENARAI  NAQIB/NAQIBAH</h1>
 	</br>
 	<a href="../member/New folder/index.php">LAMAN UTAMA </a> <br><br>
-	<form action="../member/New folder/controller.php" method="post">
+	<form action="../activity/controller.php" method="post">
 	  <table width="744" border="1">
 	    <tr>
 	      <th width="212" scope="col"><div align="center">Naqib/Naqibah IC</div></th>
