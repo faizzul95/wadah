@@ -46,7 +46,7 @@
 				</tr>
 				<tr align="center">
 					<td colspan="2">
-						<input type="submit" name="register_penceramah_output" value="DAFTAR" class="btn btn-info">
+						<input type="submit" name="register_penceramah" value="DAFTAR" class="btn btn-info">
 					</td>
 				</tr>
 			</TABLE>

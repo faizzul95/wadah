@@ -52,7 +52,7 @@
 				</tr>
 				<tr align="center">
 					<td colspan="2">
-						<input type="submit" name="register_activity" value="DAFTAR" class="btn btn-info">
+						<input type="submit" name="register_aktiviti" value="DAFTAR" class="btn btn-info">
 					</td>
 				</tr>
 			</TABLE>
