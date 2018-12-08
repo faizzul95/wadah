@@ -140,5 +140,42 @@ if (isset($_POST['register_public']))
         }
 
 }
+
+// register penceramah
+if (isset($_POST['register_penceramah']))
+{
+ 
+    $speak_id = mysqli_real_escape_string($myConnection, $_POST['speak_id']);
+    $speak_name = mysqli_real_escape_string($myConnection, $_POST['speak_name']);
+    $speak_position = mysqli_real_escape_string($myConnection, $_POST['speak_position']);
+    $speak_phone = mysqli_real_escape_string($myConnection, $_POST['speak_phone']);
+    $speak_mail = mysqli_real_escape_string($myConnection, $_POST['speak_mail']);
+
+            $query_expinfo = "INSERT INTO `act_speak` 
+            (`speak_id`,`speak_name`,`speak_position`,`speak_phone`,`speak_mail`)
+               VALUES 
+            ('$speak_id','$speak_name','$speak_position','$speak_phone','$speak_mail')";
+			
+            $result = mysqli_query($myConnection, $query_expinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya')
+          window.location = 'register_penceramah_output.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
+
+
 ?>
 

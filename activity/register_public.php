@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>DAFTAR AKTIVITI</title>
+<title>DAFTAR MASYARAKAT</title>
 <script type="text/javascript">
 	<?php include '../js/input_restriction.js';?>
 </script>
