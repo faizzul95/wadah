@@ -23,6 +23,9 @@
 					<td colspan="2"><center>
 					  <b>AKTIVITI</b>
 				  </center></td> 
+				</tr><tr>
+					<td>Aktiviti ID  :</td>
+					<td><input name="act_id" type="text" size="50" maxlength="50" required></td>
 				</tr>
 				<tr>
 					<td>Aktiviti :</td>

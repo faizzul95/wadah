@@ -6,7 +6,7 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
 if (isset($_POST['register_aktiviti']))
 {
  
-    
+    $act_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
     $act_type = mysqli_real_escape_string($myConnection, $_POST['act_type']);
     $act_topic = mysqli_real_escape_string($myConnection, $_POST['act_topic']);
     $act_venue = mysqli_real_escape_string($myConnection, $_POST['act_venue']);
@@ -15,9 +15,9 @@ if (isset($_POST['register_aktiviti']))
 	
 
             $query_feeinfo = "INSERT INTO `activity` 
-            (`act_type`,`act_topic`,`act_venue`,`act_time`,`naqib_name`)
+            (`act_id`,`act_type`,`act_topic`,`act_venue`,`act_time`,`naqib_name`)
                VALUES 
-            ('$act_type','$act_topic','$act_venue','$act_time','$naqib_name')";
+            ('$act_id','$act_type','$act_topic','$act_venue','$act_time','$naqib_name')";
             $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
         
         if($result)
@@ -46,7 +46,7 @@ if (isset($_POST['register_naqib']))
     $naqib_phone = mysqli_real_escape_string($myConnection, $_POST['naqib_phone']);
     $naqib_mail = mysqli_real_escape_string($myConnection, $_POST['naqib_mail']);
 
-            $query_feeinfo = "INSERT INTO `act_naqib` 
+            $query_feeinfo = "INSERT INTO `naqib` 
             (`naqib_id`,`naqib_name`,`naqib_phone`,`naqib_mail`)
                VALUES 
             ('$naqib_id','$naqib_name','$naqib_phone','$naqib_mail')";
@@ -80,7 +80,7 @@ if (isset($_POST['register_penceramah']))
     $speak_phone = mysqli_real_escape_string($myConnection, $_POST['speak_phone']);
     $speak_mail = mysqli_real_escape_string($myConnection, $_POST['speak_mail']);
 
-            $query_expinfo = "INSERT INTO `act_speak` 
+            $query_expinfo = "INSERT INTO `speak` 
             (`speak_id`,`speak_name`,`speak_position`,`speak_phone`,`speak_mail`)
                VALUES 
             ('$speak_id','$speak_name','$speak_position','$speak_phone','$speak_mail')";
@@ -116,7 +116,7 @@ if (isset($_POST['register_public']))
     $public_phone = mysqli_real_escape_string($myConnection, $_POST['public_phone']);
     
 
-            $query_expinfo = "INSERT INTO `act_public` 
+            $query_expinfo = "INSERT INTO `public` 
             (`public_id`,`public_name`,`public_add`,`public_phone`)
                VALUES 
             ('$public_id','$public_name','$public_add','$public_phone')";
@@ -151,7 +151,7 @@ if (isset($_POST['register_penceramah']))
     $speak_phone = mysqli_real_escape_string($myConnection, $_POST['speak_phone']);
     $speak_mail = mysqli_real_escape_string($myConnection, $_POST['speak_mail']);
 
-            $query_expinfo = "INSERT INTO `act_speak` 
+            $query_expinfo = "INSERT INTO `speak` 
             (`speak_id`,`speak_name`,`speak_position`,`speak_phone`,`speak_mail`)
                VALUES 
             ('$speak_id','$speak_name','$speak_position','$speak_phone','$speak_mail')";

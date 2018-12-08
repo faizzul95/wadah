@@ -39,7 +39,7 @@
 						          </tr>
 							      <tr>
 							        <td> No. Telefon:</td>
-							        <td><input name="naqib_name" type="text" size="50" maxlength="50"></td>
+							        <td><input name="public_phone" type="text" size="50" maxlength="50"></td>
 						          </tr>
 							      <tr align="center">
 							        <td colspan="2"><input type="submit" name="register_public" value="DAFTAR" class="btn btn-info"></td>
