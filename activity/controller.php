@@ -3,7 +3,7 @@ require ('../connection.php');
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
 // register aktiviti
-if (isset($_POST['register_activity']))
+if (isset($_POST['register_aktiviti']))
 {
  
     
@@ -14,7 +14,7 @@ if (isset($_POST['register_activity']))
     $naqib_name = mysqli_real_escape_string($myConnection, $_POST['naqib_name']);
 	
 
-            $query_feeinfo = "INSERT INTO `act_activity` 
+            $query_feeinfo = "INSERT INTO `activity` 
             (`act_type`,`act_topic`,`act_venue`,`act_time`,`naqib_name`)
                VALUES 
             ('$act_type','$act_topic','$act_venue','$act_time','$naqib_name')";
