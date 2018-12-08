@@ -56,7 +56,7 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Pendidikan</li>
 				  </ol>
 				</nav>
@@ -70,7 +70,6 @@
 
 						<form action="controller.php" method="post">
 							<input name="edu_id" type="hidden" value="<?php echo $id;?>" size="50" maxlength="50">
-								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
 									<td colspan="2"><center><b>MAKLUMAT PENDIDIKAN</b></center></td> 
@@ -100,12 +99,12 @@
 									<td>Tahap Pendidikan :</td>
 									<td><br><select name="edu_level" class="form-control" required>
 										<option name="">-Pilih-</option>
-										<option name="PMR">PMR</option>
-										<option name="SPM">SPM</option>
-										<option name="Diploma">Diploma</option>
-										<option name="Ijazah">Ijazah</option>
-										<option name="Master">Master</option>
-										<option name="PhD">PhD</option>
+										<option value="PMR" <?php if($row['edu_level']=="PMR") echo 'selected="selected"'; ?> >PMR</option>
+										<option value="SPM" <?php if($row['edu_level']=="SPM") echo 'selected="selected"'; ?> >SPM</option>
+										<option value="Diploma" <?php if($row['edu_level']=="Diploma") echo 'selected="selected"'; ?> >Diploma</option>
+										<option value="Ijazah" <?php if($row['edu_level']=="Ijazah") echo 'selected="selected"'; ?> >Ijazah</option>
+										<option value="Master" <?php if($row['edu_level']=="Master") echo 'selected="selected"'; ?> >Master</option>
+										<option value="PhD" <?php if($row['edu_level']=="PhD") echo 'selected="selected"'; ?> >PhD</option>
 									</select>
 									</td>
 								</tr>

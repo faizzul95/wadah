@@ -15,7 +15,7 @@
 			  <div class="container-fluid collapse navbar-collapse">
 			  	<?php if(isset($_SESSION['role'])) { ?>
 					<div class="navbar-header">
-				      <a class="navbar-brand" href="../index.php?page=home">Wadah</a>
+				      <a class="navbar-brand" href="index.php?page=home">Wadah</a>
 				    </div>	
 				<?php } else { ?>
 					<div class="navbar-header">
@@ -27,7 +27,7 @@
 
 				    <!-- only admin can view-->
 				     <?php if($_SESSION['role'] == 'admin') { ?>
-						<li><a href="../index.php?page=home">Halaman Utama</a></li>
+						<li><a href=index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ahli<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
 						       <li><a href="admin/list_member.php">Senarai Ahli</a></li>
@@ -56,7 +56,7 @@
 				      	</li>
 
 				     <?php } else if($_SESSION['role'] == 'member') { ?>
-						<li><a href="../index.php?page=home">Halaman Utama</a></li>
+						<li><a href="index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
 						       <li><a href="#">Awam</a></li>

@@ -47,7 +47,7 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Pelajaran</li>
 				  </ol>
 				</nav>
@@ -101,7 +101,7 @@
 								</tr>
 								<tr>
 									<td>Tarikh Tamat Bekerja :</td>
-									<td><br><input name="company_end_date" type="date" size="50" class="form-control" maxlength="50">
+									<td><br><input name="company_end_date" type="date" size="50" class="form-control" maxlength="50" >
 									</td>
 								</tr>
 								<tr align="center">

@@ -53,7 +53,7 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Pelajaran</li>
 				  </ol>
 				</nav>
@@ -77,15 +77,15 @@
 								</tr>
 								<tr>
 									<td>Nama Institusi :</td>
-									<td><br><input name="edu_name" type="text" size="50" maxlength="50" class="form-control" required></td>
+									<td><br><input name="edu_name" type="text" autocomplete="off" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Alamat Institusi :</td>
-									<td><br><input name="edu_address" type="text" size="50" maxlength="250" class="form-control" required></td>
+									<td><br><input name="edu_address" type="text" autocomplete="off" size="50" maxlength="250" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
-									<td><br><input name="edu_phone" type="text" size="50" onkeypress="return isNumeric(event)"
+									<td><br><input name="edu_phone" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
 				                         maxlength = "12"
@@ -94,7 +94,7 @@
 								</tr>
 								<tr>
 									<td>Kursus :</td>
-									<td><br><input name="edu_course" type="text" size="50" class="form-control" maxlength="50"></td>
+									<td><br><input name="edu_course" type="text" size="50" autocomplete="off" class="form-control" maxlength="50"></td>
 								</tr>
 								<tr>
 									<td>Tahap Pendidikan :</td>
@@ -111,12 +111,12 @@
 								</tr>
 								<tr>
 									<td>Tarikh Mula Belajar :</td>
-									<td><br><input name="edu_start_date" type="date" size="50" class="form-control" maxlength="50" required>
+									<td><br><input name="edu_start_date" type="date" value="<?php echo $row['edu_start_date'];?>" size="50" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>
 									<td>Tarikh Tamat Belajar :</td>
-									<td><br><input name="edu_end_date" type="date" size="50" class="form-control" maxlength="50">
+									<td><br><input name="edu_end_date" type="date" value="<?php echo $row['edu_start_date'];?>" size="50" class="form-control" maxlength="50">
 									</td>
 								</tr>
 								<tr align="center">

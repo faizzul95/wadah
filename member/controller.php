@@ -2,8 +2,6 @@
 require ('../connection.php');
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
-
-
 if(isset($_POST['update_member']))
 {    
 
@@ -19,17 +17,15 @@ if(isset($_POST['update_member']))
 
   $file = $_FILES['image_upload']['tmp_name'];
 
-  // var_dump($file);die;
-
   if($file == NULL) {
 
-    $sql = "UPDATE `member` SET `mbr_name` = '$mbr_name', `mbr_ic` = '$mbr_ic', `mbr_address` = '$mbr_address', `mbr_gender` = '$mbr_gender', `mbr_phone` = '$mbr_phone', `mbr_dob` = '$mbr_dob', `mbr_email` = '$mbr_email', `mbr_branch` = '$mbr_branch' WHERE `mbr_id` = '$mbr_id'";
-    $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+  $sql = "UPDATE `member` SET `mbr_name` = '$mbr_name', `mbr_ic` = '$mbr_ic', `mbr_address` = '$mbr_address', `mbr_gender` = '$mbr_gender', `mbr_phone` = '$mbr_phone', `mbr_dob` = '$mbr_dob', `mbr_email` = '$mbr_email', `mbr_branch` = '$mbr_branch' WHERE `mbr_id` = '$mbr_id'";
+  $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
 
-    echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Berjaya Dikemaskini')
-          window.location = 'user.php?result=SuccessfullyRegister';
-          </SCRIPT>");
+  echo ("<SCRIPT LANGUAGE='JavaScript'>
+         window.alert('Berjaya Dikemaskini')
+        window.location = 'user.php?result=SuccessfullyRegister';
+        </SCRIPT>");
 
   } // end if
   else {
@@ -95,7 +91,6 @@ if(isset($_POST['update_member']))
 }
 
 
-
 // register family
 if (isset($_POST['reg_family']))
 {
@@ -110,19 +105,19 @@ if (isset($_POST['reg_family']))
     $family_relation = mysqli_real_escape_string($myConnection, $_POST['family_relation']);
     $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
 
-    // register family occupation
-    $company_name = mysqli_real_escape_string($myConnection, $_POST['company_name']);
-    $company_address = mysqli_real_escape_string($myConnection, $_POST['company_address']);
-    $company_phone = mysqli_real_escape_string($myConnection, $_POST['company_phone']);
-    $company_position = mysqli_real_escape_string($myConnection, $_POST['company_position']);
-    $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
-    $company_start_date = mysqli_real_escape_string($myConnection, $_POST['company_start_date']);
-    $company_end_date = mysqli_real_escape_string($myConnection, $_POST['company_end_date']);
+    // // register family occupation
+    // $company_name = mysqli_real_escape_string($myConnection, $_POST['company_name']);
+    // $company_address = mysqli_real_escape_string($myConnection, $_POST['company_address']);
+    // $company_phone = mysqli_real_escape_string($myConnection, $_POST['company_phone']);
+    // $company_position = mysqli_real_escape_string($myConnection, $_POST['company_position']);
+    // $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
+    // $company_start_date = mysqli_real_escape_string($myConnection, $_POST['company_start_date']);
+    // $company_end_date = mysqli_real_escape_string($myConnection, $_POST['company_end_date']);
 
     $check_ic = mysqli_query($myConnection, "SELECT * FROM `family` WHERE `family_ic` = '$family_ic'");
     if(mysqli_num_rows($check_ic) > 0){
         echo ("<SCRIPT LANGUAGE='JavaScript'>
-        window.alert('Failed to register, Family already exist')
+        window.alert('Pendaftaran Tidak Berjaya, IC Keluarga Telah didaftarkan')
         window.location.href = window.history.back();
             </SCRIPT>");
     }else{
@@ -133,13 +128,13 @@ if (isset($_POST['reg_family']))
         ('$family_name','$family_ic','$family_address','$family_gender','$family_phone','$family_dob','$family_email','$family_relation','$mbr_ic')";
         $result = mysqli_query($myConnection, $query_faminfo) or die(mysqli_error($myConnection));
 
-        if($company_name != NULL && $company_start_date != NULL && $company_end_date != NULL){
-            $query_occuinfo = "INSERT INTO `occupation_info` 
-            (`family_ic`,`company_name`,`company_address`, `company_phone`,`company_position`,`company_email`,`company_start_date`,`company_end_date`)
-               VALUES 
-            ('$family_ic','$company_name','$company_address','$company_phone','$company_position','$company_email','$company_start_date','$company_end_date')";
-            $result2 = mysqli_query($myConnection, $query_occuinfo) or die(mysqli_error($myConnection));
-        }
+        // if($company_name != NULL && $company_start_date != NULL && $company_end_date != NULL){
+        //     $query_occuinfo = "INSERT INTO `occupation_info` 
+        //     (`family_ic`,`company_name`,`company_address`, `company_phone`,`company_position`,`company_email`,`company_start_date`,`company_end_date`)
+        //        VALUES 
+        //     ('$family_ic','$company_name','$company_address','$company_phone','$company_position','$company_email','$company_start_date','$company_end_date')";
+        //     $result2 = mysqli_query($myConnection, $query_occuinfo) or die(mysqli_error($myConnection));
+        // }
 
         if($result)
         {
@@ -152,11 +147,104 @@ if (isset($_POST['reg_family']))
         else
         { 
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Pendaftaran tidak berjaya, Sila cuba sekali lagi')
+          window.alert('Pendaftaran keluarga tidak berjaya')
           window.location.href = window.history.back();
           </SCRIPT>");
         }
     }
+}
+
+// update family
+if (isset($_POST['update_family']))
+{
+    // update family info
+    $family_name = mysqli_real_escape_string($myConnection, $_POST['family_name']);
+    $new_family_ic = mysqli_real_escape_string($myConnection, $_POST['new_family_ic']);
+    $family_address = mysqli_real_escape_string($myConnection, $_POST['family_address']);
+    $family_gender = mysqli_real_escape_string($myConnection, $_POST['family_gender']);
+    $family_phone = mysqli_real_escape_string($myConnection, $_POST['family_phone']);
+    $family_dob = mysqli_real_escape_string($myConnection, $_POST['family_dob']);
+    $family_email = mysqli_real_escape_string($myConnection, $_POST['family_email']);
+    $family_relation = mysqli_real_escape_string($myConnection, $_POST['family_relation']);
+    $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
+
+     $family_ic = mysqli_real_escape_string($myConnection, $_POST['family_ic']);
+
+         $query_faminfo = "UPDATE `family` SET 
+        `family_name` = '$family_name', 
+        `family_ic` = '$new_family_ic', 
+        `family_address` = '$family_address',
+        `family_gender` = '$family_gender', 
+        `family_phone` = '$family_phone', 
+        `family_dob` = '$family_dob', 
+        `family_email` = '$family_email',
+        `family_relation` = '$family_relation' 
+        WHERE `family_ic` = '$family_ic'";
+
+        $result = mysqli_query($myConnection, $query_faminfo) or die(mysqli_error($myConnection));
+
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Dikemaskini')
+          window.location = 'user.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Pendaftaran keluarga tidak berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+}
+
+// Update occupation
+if (isset($_POST['update_job']))
+{
+
+    $occupation_id = mysqli_real_escape_string($myConnection, $_POST['occupation_id']); 
+
+    $company_name = mysqli_real_escape_string($myConnection, $_POST['company_name']);
+    $company_address = mysqli_real_escape_string($myConnection, $_POST['company_address']);
+    $company_phone = mysqli_real_escape_string($myConnection, $_POST['company_phone']);
+    $company_position = mysqli_real_escape_string($myConnection, $_POST['company_position']);
+    $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
+    $company_start_date = mysqli_real_escape_string($myConnection,  $_POST["company_start_date"]);
+    $company_end_date = mysqli_real_escape_string($myConnection,  $_POST["company_end_date"]);
+
+    // if ($company_end_date == "01/01/1970") {
+    //     $company_end_date = "Sekarang";
+    // }
+
+    $query_eduinfo = "UPDATE `occupation_info` SET 
+        `company_name` = '$company_name', 
+        `company_address` = '$company_address', 
+        `company_phone` = '$company_phone',
+        `company_position` = '$company_position', 
+        `company_email` = '$company_email', 
+        `company_start_date` = '$company_start_date', 
+        `company_end_date` = '$company_end_date' WHERE `occupation_id` = '$occupation_id'";
+
+        $result = mysqli_query($myConnection, $query_eduinfo) or die(mysqli_error($myConnection));
+
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Dikemaskini')
+          window.location = 'user.php?result=SuccessfullyUpdate';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
+          // window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
 }
 
 // register occupation
@@ -170,18 +258,15 @@ if (isset($_POST['reg_job']))
     if(isset($_POST['member_ic'])){
         $member_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
     }
-    // register occupation
     $company_name = mysqli_real_escape_string($myConnection, $_POST['company_name']);
     $company_address = mysqli_real_escape_string($myConnection, $_POST['company_address']);
     $company_phone = mysqli_real_escape_string($myConnection, $_POST['company_phone']);
     $company_position = mysqli_real_escape_string($myConnection, $_POST['company_position']);
     $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
-    $company_start_date = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["company_start_date"])));
-    $company_end_date = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["company_end_date"])));
-
-    if ($company_end_date == "01/01/1970") {
-        $company_end_date = "Current";
-    }
+    $company_start_date = mysqli_real_escape_string($myConnection,  $_POST["company_start_date"]);
+    $company_end_date = mysqli_real_escape_string($myConnection,  $_POST["company_end_date"]);
+    // $company_end_date = mysqli_real_escape_string($myConnection,  strtotime($_POST["company_end_date"]));
+    var_dump($company_end_date);die;
 
         if(isset($_POST['family_ic'])){
             $query_occuinfo = "INSERT INTO `occupation_info` 
@@ -196,6 +281,8 @@ if (isset($_POST['reg_job']))
             ('$member_ic','$company_name','$company_address','$company_phone','$company_position','$company_email','$company_start_date','$company_end_date')";
             $result = mysqli_query($myConnection, $query_occuinfo) or die(mysqli_error($myConnection));
         }
+
+         var_dump($query_occuinfo);die;
         
         if($result)
         {
@@ -208,7 +295,7 @@ if (isset($_POST['reg_job']))
         else
         { 
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Fail, Please Try Again')
+          window.alert('Pekerjaan Tidak Berjaya Didaftar')
           window.location.href = window.history.back();
           </SCRIPT>");
         }
@@ -263,7 +350,7 @@ if (isset($_POST['reg_edu']))
     $edu_end_date  = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_end_date"])));
 
     if ($edu_end_date == "01/01/1970") {
-        $edu_end_date = "Current";
+        $edu_end_date = "Sekarang";
     }
 
         if(isset($_POST['family_ic'])){
@@ -284,14 +371,64 @@ if (isset($_POST['reg_edu']))
         {
        
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Successfully Registered')
+          window.alert('Berjaya Didaftar')
           window.location = 'user.php?result=SuccessfullyRegister';
           </SCRIPT>");
         }
         else
         { 
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Fail, Please Try Again')
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
+
+// update education
+if (isset($_POST['update_edu']))
+{
+
+    $edu_id = mysqli_real_escape_string($myConnection, $_POST['edu_id']);
+
+    // register occupation
+    $edu_name = mysqli_real_escape_string($myConnection, $_POST['edu_name']);
+    $edu_address = mysqli_real_escape_string($myConnection, $_POST['edu_address']);
+    $edu_phone = mysqli_real_escape_string($myConnection, $_POST['edu_phone']);
+    $edu_course = mysqli_real_escape_string($myConnection, $_POST['edu_course']);
+    $edu_level = mysqli_real_escape_string($myConnection, $_POST['edu_level']);
+    $edu_start_date = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_start_date"])));
+    $edu_end_date  = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_end_date"])));
+
+    if ($edu_end_date == "01/01/1970") {
+        $edu_end_date = "Sekarang";
+    }
+
+
+        $query_eduinfo = "UPDATE `education_info` SET 
+        `edu_name` = '$edu_name', 
+        `edu_address` = '$edu_address', 
+        `edu_phone` = '$edu_phone',
+        `edu_course` = '$edu_course', 
+        `edu_level` = '$edu_level', 
+        `edu_start_date` = '$edu_start_date', 
+        `edu_end_date` = '$edu_end_date' WHERE `edu_id` = '$edu_id'";
+
+        $result = mysqli_query($myConnection, $query_eduinfo) or die(mysqli_error($myConnection));
+        
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Berjaya')
+          window.location = 'user.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
           window.location.href = window.history.back();
           </SCRIPT>");
         }

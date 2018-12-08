@@ -18,7 +18,7 @@
                           <th>Nama Institusi</th>
                           <th>Alamat Institusi</th>
                           <th>Nombor Telefon</th>
-                          <th>Course</th>
+                          <th>Kursus</th>
                           <th>Tahap Pengajian</th>
                           <th colspan="2">Tarikh</th>
                           <th>Tindakan</th>
@@ -71,7 +71,7 @@
                           <th>Nama Institusi</th>
                           <th>Alamat Institusi</th>
                           <th>Nombor Telefon</th>
-                          <th>Course</th>
+                          <th>Kursus</th>
                           <th>Tahap Pengajian</th>
                           <th colspan="2">Tarikh</th>
                           <th>Tindakan</th>

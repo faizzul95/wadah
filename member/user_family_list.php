@@ -52,10 +52,10 @@
                         <td><center><?php echo $row['family_ic']; ?></center></td>
                         <td><center><?php echo $row['family_phone']; ?></center></td>
                         <td><center><?php echo $row['family_relation']; ?></center></td>
-                        <td><center><button onclick="location.href='occupation_registration.php?family_ic=<?php echo $row['family_ic']; ?>';">Detail</button></center></td>
-                        <td><center><button onclick="location.href='list_education.php?family_ic=<?php echo $row['family_ic']; ?>';">Detail</button></center></td>
-                        <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br>
-
+                        <td><center><button class="btn btn-info" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Lihat</button></center></td>
+                        <td><center><button class="btn btn-info" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Lihat</button></center></td>
+                        <td><button class="btn btn-info" onclick="location.href='user_family_view.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button><br>
+                          <button class="btn btn-primary" onclick="location.href='user_family_edit.php?famIC=<?php echo $row['family_ic']; ?>';">Kemaskini</button><br>
                           <form method="post" action="controller.php?eduID=<?php echo $row["family_ic"]; ?>">
                               <input type="hidden" name="family_ic" value="<?php echo $row["family_ic"]; ?>">
                               <input type="submit" name="deletefamily" onclick='return checkDeleteFamily()' class="btn btn-danger" value="Padam">

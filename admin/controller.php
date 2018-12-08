@@ -47,10 +47,11 @@ if (isset($_POST['reg_member']))
 	    {
           // mail function
            $title = "WADAH";
-           $message = "Hi, ".$mbr_name."\nPermohonan anda telah berjaya. Sila Layaran Laman Web
-           \nUsername : ".$mbr_ic.
-                      "\Kata Laluan : ".$usr_password.
-                      "\n\nNote : This e-mail is generated electronically. Please do not reply to this email ";
+           $message = "Assalamualaikum, ".$mbr_name."\nPermohonan anda telah berjaya. Sila Layaran Laman Web http://localhost/wadah/login.php?page=logmasuk \n\n 
+           Berikut adalah maklumat log masuk
+           \n No. Kad Pengenalan : ".$mbr_ic.
+            "\nKata Laluan : ".$usr_password.
+          "\n\nNote : This is an auto generated email, Please do not reply to this email";
           
            $to = $mbr_email;
            $subject = "PENDAFTARAN WADAH";
@@ -58,18 +59,45 @@ if (isset($_POST['reg_member']))
            mail($to, $subject, $message);
 	   
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Successfully Registered')
+          window.alert('Berjaya Didaftar')
           window.location = 'admin.php?result=SuccessfullyRegister';
           </SCRIPT>");
 	    }
 	    else
 	    { 
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Fail, Please Try Again')
+          window.alert('Pendaftaran Ahli Tidak Berjaya')
           window.location.href = window.history.back();
           </SCRIPT>");
 	    }
 	}
+}
+
+
+//delete member
+if (isset($_POST['deletemem'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['mbr_ic']);
+
+        $sql= "DELETE FROM `member` WHERE `mbr_ic` = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya Dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
 }
 
 ?>

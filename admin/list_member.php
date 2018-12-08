@@ -40,11 +40,18 @@ $member_ic = $_SESSION['memberIC'];
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+
+		<script>
+      	function checkDeleteMem(){
+             return confirm('Padam Ahli ?');
+         }
+
+      </script>
 	</head>
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../admin/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -57,8 +64,12 @@ $member_ic = $_SESSION['memberIC'];
 						</div>
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								
-								<br><br><br>
+								<br><nav aria-label="breadcrumb">
+								  <ol class="breadcrumb">
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Ahli</li>
+								  </ol>
+								</nav><br><br>
 								<div class="container">
 								<section>
    
@@ -67,7 +78,7 @@ $member_ic = $_SESSION['memberIC'];
 						            		<td><form method="post" action="admin.php">
 						 					Branch : 				 
 							                <select name="mbr_branch">
-							                   <option value="ALL">ALL</option>
+							                   <option value="all">Semua</option>
 							                            <?php
 							                              $sql = "SELECT DISTINCT `mbr_branch` FROM `member`";
 							                              $sql_branch = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -109,13 +120,15 @@ $member_ic = $_SESSION['memberIC'];
 
 											<?php 
 
-						                if (isset($_POST['mbr_branch'])) {
+						               if (isset($_POST['mbr_branch'])) {
 						                	$branch = $_POST['mbr_branch'];
-						                	$sql = "SELECT * FROM `member` WHERE `mbr_branch` = '$branch'";
+						                	if ($branch == "all") {
+						                		$sql = "SELECT * FROM `member`";
+						                	}else{
+						                		$sql = "SELECT * FROM `member` WHERE `mbr_branch` = '$branch'";
+						                	}
 						                }else{
-
 						                	 $sql = "SELECT * FROM `member`";
-
 						                }
 						 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
@@ -127,18 +140,71 @@ $member_ic = $_SESSION['memberIC'];
 							                $count = 1;
 							                while($row = mysqli_fetch_assoc($result))
 							                 { 
+							                 		$mbr_ic = $row['mbr_ic'];
 							                  ?>
 							                     
 							                     <tr>
 												<td><?php echo $count; ?></td>
 												<td><?php echo $row['mbr_name']; ?></td>
-												<td><?php echo $row['mbr_ic']; ?></td>
+												<td><?php echo $mbr_ic; ?></td>
 												<td><?php echo $row['mbr_phone']; ?></td>
 												<td><?php echo $row['mbr_branch']; ?></td>
-												<td><button class="btn btn-primary" onclick="location.href='admin_children_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button></td>
-												<td><button class="btn btn-primary" onclick="location.href='admin_edu_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button></td>
-												<td><button class="btn btn-primary" onclick="location.href='admin_occupation_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button></td>
-												<td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+												<td>
+													<!-- <button class="btn btn-primary" onclick="location.href='admin_children_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button> -->
+													<?php 
+													$sql = "SELECT * FROM `family` WHERE `member_ic` = '$mbr_ic'";
+												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+												     $row = mysqli_fetch_array($res);
+
+												     if (mysqli_num_rows($res)!=0) { ?>
+													<form method='post' action=''>
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $mbr_ic; ?>" >Lihat
+                                                      </button></center>
+                                                     </form>
+                                                     <?php }else{ ?>
+                                                     	 <center> - Tiada Maklumat - </center>
+                                                     <?php } ?>
+												</td>
+
+												<td>
+													
+                                                    <?php 
+													$sql = "SELECT * FROM `education_info` WHERE `member_ic` = '$mbr_ic'";
+												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+												     $row = mysqli_fetch_array($res);
+
+												     if (mysqli_num_rows($res)!=0) { ?>
+													<form method='post' action=''>
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $mbr_ic; ?>" >Lihat
+                                                      </button></center>
+                                                     </form>
+                                                     <?php }else{ ?>
+                                                     	 <center> - Tiada Maklumat - </center>
+                                                     <?php } ?>
+
+												</td>
+												<td>
+													<?php 
+													$sql = "SELECT * FROM `occupation_info` WHERE `member_ic` = '$mbr_ic'";
+												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+												     $row = mysqli_fetch_array($res);
+
+												     if (mysqli_num_rows($res)!=0) { ?>
+													<form method='post' action=''>
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $mbr_ic; ?>" >Lihat
+                                                      </button></center>
+                                                     </form>
+                                                     <?php }else{ ?>
+                                                     	 <center> - Tiada Maklumat - </center>
+                                                     <?php } ?>
+
+												</td>
+												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?member_ic=<?php echo $mbr_ic; ?>';">Kemaskini</button><br>
+													 <form method="post" action="controller.php?member_ic=<?php echo $row["mbr_ic"]; ?>">
+						                              <input type="hidden" name="mbr_ic" value="<?php echo $mbr_ic; ?>">
+						                              <input type="submit" name="deletemem" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
+						                          </form>
+												</td>
 											</tr>
 
 							                    <?php
@@ -185,3 +251,48 @@ $member_ic = $_SESSION['memberIC'];
 		<script src="../js/mooz.scripts.min.js"></script>
 	</body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT PENDIDIKAN</font></center></center></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
+		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
+	  </div>
+    </div>
+  </div>
+</div>
+
+<!-- ajax untuk pendidikan -->
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "admin_edu_info.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.modal-body').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
