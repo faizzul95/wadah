@@ -1,6 +1,6 @@
 <?php
 	// Turn off error reporting
-	error_reporting(0);
+	// error_reporting(0);
 	
 	session_start();
 
@@ -9,12 +9,11 @@
        header("Location:../logout.php");  
     }
 
-	$member_ic = $_SESSION['memberIC'];
-	
-	if(isset($_GET['member_ic'])) 
-    {
-      $member = $_GET['member_ic'];
-    }
+    require('../connection.php');
+    $id = $_GET['famIC'];
+
+    $sql = mysqli_query($myConnection,"SELECT * FROM `family` WHERE `family_ic` = '$id' ") or die (mysqli_error());
+    $row=mysqli_fetch_array($sql);
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +71,7 @@
 
 						<form action="controller.php" method="post">
 
-							<input name="member_ic" type="hidden" value="<?php echo $member;?>" size="50" maxlength="50">
+							<input name="family_ic" type="hidden" value="<?php echo $row['family_ic'];?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
@@ -80,11 +79,11 @@
 								</tr>
 								<tr>
 									<td>Nama  :</td>
-									<td><br><input name="family_name" type="text" autocomplete="off" size="50" maxlength="50" class="form-control" required></td>
+									<td><br><input name="family_name" type="text" value="<?php echo $row['family_name'];?>" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Nombor IC  :</td>
-									<td><br><input name="family_ic" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
+									<td><br><input name="new_family_ic" type="text" value="<?php echo $row['family_ic'];?>" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
 				                         maxlength = "12"
@@ -93,11 +92,11 @@
 								</tr>
 								<tr>
 									<td>Alamat :</td>
-									<td><br><input name="family_address" type="text" autocomplete="off" size="50" class="form-control" maxlength="250"></td>
+									<td><br><input name="family_address" type="text" value="<?php echo $row['family_address'];?>" size="50" class="form-control" maxlength="250"></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
-									<td><br><input name="family_phone" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
+									<td><br><input name="family_phone" type="text" value="<?php echo $row['family_phone'];?>" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
 				                         maxlength = "12"
@@ -109,18 +108,18 @@
 									<td><br>
 										<select name="family_gender" class="form-control">
 											<option value="" >- Pilih -</option>
-											<option value="Lelaki" >Lelaki</option>
-											<option value="Perempuan">Perempuan</option>
+											<option value="Lelaki" <?php if($row['family_gender']=="Lelaki") echo 'selected="selected"'; ?> >Lelaki</option>
+										<option value="Perempuan" <?php if($row['family_gender']=="Perempuan") echo 'selected="selected"'; ?> >Perempuan</option>
 										</select>
 									</td>
 								</tr>
 								<tr>
 									<td>Email :</td>
-									<td><br><input name="family_email" type="text" size="50" autocomplete="off" class="form-control" maxlength="80"></td>
+									<td><br><input name="family_email" type="text" value="<?php echo $row['family_email'];?>" size="50" class="form-control" maxlength="80"></td>
 								</tr>
 								<tr>
 									<td>Tarikh Lahir : <br></td>
-									<td><br><input name="family_dob" type="date" size="50" autocomplete="off" class="form-control" maxlength="50">
+									<td><br><input name="family_dob" type="date" size="50" value="<?php echo $row['family_dob'];?>" class="form-control" maxlength="50">
 									</td>
 								</tr>
 								<tr>
@@ -129,21 +128,21 @@
 									</td>
 									<td><br>
 										<select name="family_relation" class="form-control">
-											<option value="" >- Pilih -</option>
-											<option value="Ayah" >Ayah</option>
-											<option value="Ibu">Ibu</option>
-											<option value="Anak Lelaki" >Anak Lelaki</option>
-											<option value="Anak Perempuan">Anak Perempuan</option>
-				                            <option value="Suami" >Suami</option>
-											<option value="Isteri">Isteri</option>
-											<option value="Adik Beradik">Adik Beradik</option>
+											<option value="Ayah" <?php if($row['family_relation']=="Ayah") echo 'selected="selected"'; ?> >Ayah</option>
+											<option value="Ibu" <?php if($row['family_relation']=="Ibu") echo 'selected="selected"'; ?> >Ibu</option>
+											<option value="Anak Lelaki" <?php if($row['family_relation']=="Anak Lelaki") echo 'selected="selected"'; ?> >Anak Lelaki</option>
+											<option value="Anak Perempuan" <?php if($row['family_relation']=="Anak Perempuan") echo 'selected="selected"'; ?> >Anak Perempuan</option>
+											<option value="Suami" <?php if($row['family_relation']=="Suami") echo 'selected="selected"'; ?> >Suami</option>
+											<option value="Isteri" <?php if($row['family_relation']=="Isteri") echo 'selected="selected"'; ?> >Isteri</option>
+											<option value="Adik Beradik" <?php if($row['family_relation']=="Adik Beradik") echo 'selected="selected"'; ?> >Adik Beradik</option>
+
 										</select>
 									</td>
 								</tr>
 								<tr align="center">
 									<td colspan="2">
 										<br>
-										<input type="submit" name="reg_family" value="Daftar" class="btn btn-primary form-control">
+										<input type="submit" name="update_family" value="Kemaskini" class="btn btn-primary form-control">
 									</td>
 								</tr>
 							</TABLE>

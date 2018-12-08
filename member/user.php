@@ -11,12 +11,15 @@
  $mmbrName = $row['mbr_name'];
  $mmbrIC = $row['mbr_ic'];
  $profileimage = $row['mbr_profile_picture'];
-
  $mbr_address = $row['mbr_address'];
  $mbr_phone = $row['mbr_phone'];
  $mbr_branch = $row['mbr_branch'];
  $mbr_email = $row['mbr_email'];
 
+ $result = $myConnection->query("SELECT * FROM `fees` WHERE `member_ic` = '$mmbrIC'"); 
+ $row = $result->fetch_assoc();
+ $member_id = $row['member_id'];
+ $Fee_status = $row['Fee_status'];
 //  echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';
@@ -32,7 +35,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Ahli | Halaman Utama</title>
+		<title>Ahli | Profil</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -58,7 +61,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -74,7 +77,7 @@
 								<br>
 								<nav aria-label="breadcrumb">
 								  <ol class="breadcrumb">
-								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="#">Halaman Utama</a></li>
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="#">Profil</a></li>
 								  </ol>
 								</nav>
 								<center><strong>Selamat Datang. <?php echo strtoupper($mmbrName); ?> ( <?php echo $mmbrIC; ?> ) </strong> 
@@ -127,7 +130,17 @@
 					                      <tr>
 					                        <td> <center>Cawangan : </center></td>
 					                        <td> <center><b><?php echo $mbr_branch; ?></b> </center></td>
-					                      </tr>    
+					                      </tr> 
+					                      <tr>
+					                        <td> <center>Yuran Ahli : </center></td>
+					                        <td> <center><b></b> <?php 
+					                        if ($Fee_status == NULL) {
+					                        	echo "<b><a href=''><font color='red'> BELUM DIBAYAR </font></a><b>";
+					                        }else {
+					                        	echo "<b><a href=''><font color='green'>".$Fee_status."</font></a><b>"; 
+					                        }
+					                        ?> </center></td>
+					                      </tr>   
 					                	</table>
 					            	</center>
 								</div>

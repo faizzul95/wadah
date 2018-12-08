@@ -53,8 +53,8 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> <a href="user.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Pendidikan</li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Pekerjaan</li>
 				  </ol>
 				</nav>
 								
@@ -66,7 +66,7 @@
 								<h1><br>KEMASKINI PEKERJAAN</h1></br>
 
 						<form action="controller.php" method="post">
-							<input name="edu_id" type="hidden" value="<?php echo $id;?>" size="50" maxlength="50">
+							<input name="occupation_id" type="hidden" value="<?php echo $row['occupation_id'];?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
@@ -99,12 +99,12 @@
 								</tr>
 								<tr>
 									<td>Tarikh Mula Bekerja :</td>
-									<td><br><input name="company_start_date" value="<?php echo $row['company_start_date'];?>" type="text" size="50" class="form-control" maxlength="50" required>
+									<td><br><input name="company_start_date" value="<?php echo $row['company_start_date'];?>" type="date" size="50" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>
 									<td>Tarikh Tamat Bekerja :</td>
-									<td><br><input name="company_end_date" value="<?php echo $row['company_end_date'];?>" type="date" size="50" class="form-control" maxlength="50">
+									<td><br><input name="company_end_date" type="date" size="50" class="form-control" maxlength="50">
 									</td>
 								</tr>
 								<tr align="center">

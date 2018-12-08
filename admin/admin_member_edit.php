@@ -51,7 +51,7 @@
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="list_member.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Maklumat Peribadi</li>
 				  </ol>
 				</nav>
@@ -59,14 +59,6 @@
 				<br><br><br>
 				<div class="container">
 				<section>
-							<center><img title=" " alt=" " src="img/<?php echo $row['mbr_profile_picture'];?>" height="300px" width="300px" />
-								<br><br>
-
-							<form method="post" action="controller.php"  enctype = "multipart/form-data">
-									<div class="form-group">
-										<input type="file" name="image_upload" class="btn btn-primary" id="" placeholder="">
-									</div>
-							</center>
 								<div align="center">
 								<h1><br>KEMASKINI MAKLUMAT PERIBADI</h1></br>
 

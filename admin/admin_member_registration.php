@@ -40,11 +40,17 @@ $member_ic = $_SESSION['memberIC'];
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+		
+		<script type="text/javascript">
+    		<?php include '../js/calculate_age.js';?>
+			<?php include '../js/input_restriction.js';?>
+    	</script>
+
 	</head>
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../admin/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -60,7 +66,7 @@ $member_ic = $_SESSION['memberIC'];
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="admin.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Ahli</li>
 				  </ol>
 				</nav>
@@ -76,13 +82,13 @@ $member_ic = $_SESSION['memberIC'];
 									<form method="post" action="controller.php">
 											<tr>
 												<td>Nama :</td>
-												<td><br><input name="mbr_name" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td><br><input name="mbr_name" type="text" size="50" autocomplete="off" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "60" class="form-control"></td>
 											</tr>
 											<tr>
 												<td>No IC :</td>
-												<td><br><input name="mbr_ic" type="text" size="50" onkeypress="return isNumeric(event)"
+												<td><br><input name="mbr_ic" id="nokadpengenalan" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "12"
@@ -91,14 +97,14 @@ $member_ic = $_SESSION['memberIC'];
 											</tr>
 											<tr>
 												<td>Alamat :</td>
-												<td><br><input name="mbr_address" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
+												<td><br><input name="mbr_address" type="text" autocomplete="off" size="50" maxlength="50" oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "250" class="form-control" required></td>
 											</tr>
 											<tr>
 												<td>No. Telefon :</td>
 												<td><br>
-												<input name="mbr_phone" type="text" size="50" onkeypress="return isNumeric(event)"
+												<input name="mbr_phone" type="text" size="50" autocomplete="off" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "12"
@@ -109,17 +115,14 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Jantina :</td>
 												<td><br>
-												<select name="mbr_gender" class="form-control" required>
-													<option value="">- Pilih -</option>
-														<option value="Lelaki">Lelaki</option>
-														<option value="Perempuan">Perempuan</option>
-												</select>
+													<input type="radio" name="mbr_gender" id="lelaki" value="Lelaki"> Lelaki &nbsp;
+													<input type="radio" name="mbr_gender" id="perempuan" value="Perempuan"> Perempuan
 												</td>
 											</tr>
 											<tr>
 												<td>Email :</td>
 												<td><br>
-												<input name="mbr_email" type="email" size="50" oninput="maxLengthCheck(this)"
+												<input name="mbr_email" type="email" autocomplete="off" size="50" oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "40" class="form-control" required>
 												</td>
@@ -127,11 +130,23 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Tarikh Lahir :</td>
 												<td><br>
-												<input name="mbr_dob" type="date" size="50" class="form-control" maxlength="50" required>
+												<input name="mbr_dob" type="date" autocomplete="off" id="dob" size="50" class="form-control" maxlength="50" required>
 												</td>
 											</tr>
 											<tr>
-												<td>Branch :</td>
+												<td>Umur :</td>
+												<td><br>
+												<input name="mbr_phone" type="text" size="50" autocomplete="off" id="umur" onkeypress="return isNumeric(event)"
+							                         oninput="maxLengthCheck(this)"
+							                         type = "text"
+							                         maxlength = "12"
+							                         min = "1"
+							                         max = "12" class="form-control">
+												</td>
+												</td>
+											</tr>
+											<tr>
+												<td>Cawangan :</td>
 												<td><br>
 												<select name="mbr_branch" class="form-control" required>
 													<option value="">- Pilih -</option>
