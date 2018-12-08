@@ -90,11 +90,15 @@ session_start();
 												<td><br>
 												<input name="Exp_date" type="date" size="50" class="form-control" maxlength="50" required>
 												</td>
-                                                <tr>
+                                               <tr>
 												<td>Jenis :</td>
-												<td><br><input name="Exp_type" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
+												<td><br>
+												<select name="Exp_type" class="form-control" required>
+													<option value="">- Pilih -</option>
+														<option value="Sewaan">Sewaan</option>
+														<option value="Pembelian">Pembelian</option>
+												</select>
+												</td>
 											</tr>
 											<tr>
 												<td>Baki :</td>

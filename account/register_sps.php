@@ -115,9 +115,17 @@ session_start();
 											</tr>
 											<tr>
 												<td>Jenis :</td>
-												<td><br><input name="Sps_type" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
+												<td><br>
+												<select name="Sps_type" class="form-control" required>
+													<option value="">- Pilih -</option>
+														<option value="Wang Tuna">Wang Tunai</option>
+														<option value="Cek">Cek</option>
+                                                        <option value="Keperluan Harian">Keperluan Harian</option>
+                                                        <option value="Makanan & Minuman">Makanan & Minuman</option>
+                                                        <option value="Makanan">Makanan </option>
+                                                        <option value="Minuman">Minuman</option>
+												</select>
+												</td>
 											</tr>
 											</tr>
 										

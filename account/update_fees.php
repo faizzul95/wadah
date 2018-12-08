@@ -99,11 +99,14 @@ session_start();
 											</tr>
 											<tr>
 												<td>Status :</td>
-												<td><br><input name="Fee_status" value="<?php echo $row['Fee_status'];?>"  type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
+												<td><br>
+												<select name="Fee_status" class="form-control" required>
+													<option value="">- Pilih -</option>
+														<option value="Sudah dibayar">Sudah dibayar</option>
+														<option value="Belum dibayar">Belum dibayar</option>
+												</select>
+												</td>
 											</tr>
-											<tr>
 												<td>Tarikh :</td>
 												<td><br>
 												<input name="Fee_date"  value="<?php echo $row['Fee_date'];?>" type="text" size="50" class="form-control" maxlength="50" required>
