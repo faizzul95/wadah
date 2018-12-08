@@ -40,7 +40,7 @@ $member_ic = $_SESSION['memberIC'];
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php //include '../admin/style/navigation.php'; ?>
+			<?php include '../admin/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -57,7 +57,7 @@ $member_ic = $_SESSION['memberIC'];
 								<br><br><br>
 								<div class="container">
 								<section>
-   									<?php include 'list_member.php'; ?>
+   									<?php //include 'list_member.php'; ?>
 								</section>
 							</div>
 							</div>
@@ -69,7 +69,7 @@ $member_ic = $_SESSION['memberIC'];
 		</div><!-- /.container -->
 
 		<footer class="footer">
-			<?php //include '../style/footer.php'; ?>
+			<?php include '../style/footer.php'; ?>
 		</footer>
 
 		<!-- Bootstrap core JavaScript
