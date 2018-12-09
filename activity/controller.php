@@ -176,6 +176,46 @@ if (isset($_POST['register_penceramah']))
 		
 
 }
+// feebackahli
+if (isset($_POST['feedbackahli']))
+{
+ 
+    $radio = mysqli_real_escape_string($myConnection, $_POST['radio']);
+    $radio1 = mysqli_real_escape_string($myConnection, $_POST['radio1']);
+	$radio2 = mysqli_real_escape_string($myConnection, $_POST['radio2']);
+    $radio3 = mysqli_real_escape_string($myConnection, $_POST['radio3']);
+	$radio4 = mysqli_real_escape_string($myConnection, $_POST['radio4']);
+    $radio5 = mysqli_real_escape_string($myConnection, $_POST['radio5']);
+	$radio6 = mysqli_real_escape_string($myConnection, $_POST['radio6']);
+    $radio7 = mysqli_real_escape_string($myConnection, $_POST['radio7']);
+    $radio8 = mysqli_real_escape_string($myConnection, $_POST['radio8']);
+	$radio9 = mysqli_real_escape_string($myConnection, $_POST['radio9']);
+    
+            $query_expinfo = "INSERT INTO `feedback` 
+            (`radio`,`radio1`,`radio2`,`radio3`,`radio4`,`radio5`,`radio6`,`radio7`,`radio8`,`radio9`)
+               VALUES 
+            ('$radio','$radio1','$radio2','$radio3','$radio4','$radio5','$radio6','$radio7','$radio8','$radio9')";
+			
+            $result = mysqli_query($myConnection, $query_expinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya')
+          window.location = 'feedback_output.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+		
+
+}
 
 //delete member
 if (isset($_POST['deleteactivity'])){

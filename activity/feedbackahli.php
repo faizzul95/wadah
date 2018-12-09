@@ -18,165 +18,198 @@
 	</head>
 	<body>
 		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-fixed-top"></nav>
+		<div class="blog-post-body">		  </div>
+					
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="favicon.ico">
+		<title>Admin | Daftar Naqib/Naqibah</title>
+		<!-- Bootstrap core CSS -->
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!-- Custom styles for this template -->
+		<link href="../css/jquery.bxslider.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">
+		
+		<script type="text/javascript">
+    		<?php include '../js/calculate_age.js';?>
+			<?php include '../js/input_restriction.js';?>
+    	</script>
+
+	</head>
+	<body>
+		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../admin/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
-		<header>
-			<a href="../index.php"><img src="../images/logo.jpg" width="50%" height="50%"></a>
-		</header>
 		<section>
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<article class="blog-post">
 						<div class="blog-post-image">
-							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
+							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
 						</div>
 						<div class="blog-post-body">
-							<h2 align="center">Maklum Balas</h2>
-							<div align="center">
-							  <table width="306" border="1">
-							    <tr>
-							      <th width="59" scope="col">Sangat Tidak Setuju</th>
-							      <th width="51" scope="col">Tidak Setuju</th>
-							      <th width="46" scope="col">Tidak Pasti</th>
-							      <th width="51" scope="col"> Setuju</th>
-							      <th width="65" scope="col"><div align="center">Sangat Setuju</div></th>
-						        </tr>
-							    <tr>
-							      <td><div align="center">1</div></td>
-							      <td><div align="center">2</div></td>
-							      <td><div align="center">3</div></td>
-							      <td><div align="center">4</div></td>
-							      <td><div align="center">5</div></td>
-						        </tr>
-						      </table>
-						  </div>
-							<p>&nbsp;</p>
-							<div class="post-meta"><span><i class="fa fa-clock-o"></i></span></div>
 							<div class="blog-post-text">
-							  <table width="734" border="1">
-							  <tr>
-							  <td><table width="734" border="1">
-							    <tr>
-							      <th width="612" scope="col">&nbsp;</th>
-							      <th width="17" scope="col"><form name="form1" method="post" action="">
-							        <div align="center">1 </div>
-							        </form></th>
-							      <th width="17" scope="col"><div align="center">2</div></th>
-							      <th width="17" scope="col"><div align="center">3</div></th>
-							      <th width="17" scope="col"><div align="center">4</div></th>
-							      <th width="17" scope="col"><div align="center">5</div></th>
-						        </tr>
-							    <tr>
-							      <td>Saya dapat maklumat selepas mengikuti aktiviti.</td>
-							      <td><input type="radio" name="radio" id="16" data-col="1" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio" id="17" data-col="1" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio" id="18" data-col="1" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio" id="19" data-col="1" value="Setuju"></td>
-							      <td><input type="radio" name="radio" id="110" data-col="1" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td height="24">Saya dapat jumpa kawan baru selepas mengikuti aktiviti ini.</td>
-							      <td><input type="radio" name="radio1" id="111" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio1" id="112" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio1" id="113" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio1" id="114" value="Setuju"></td>
-							      <td><input type="radio" name="radio1" id="115" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Pengunaan peralatan sangat bagus.</td>
-							      <td><input type="radio" name="radio2" id="120" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio2" id="119" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio2" id="118" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio2" id="117" value="Setuju"></td>
-							      <td><input type="radio" name="radio2" id="116" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Makanan disediakan sedap dan bersih,</td>
-							      <td><input type="radio" name="radio3" id="121" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio3" id="122" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio3" id="123" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio3" id="124" value="Setuju"></td>
-							      <td><input type="radio" name="radio3" id="125" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Tempat sangat selesa.</td>
-							      <td><input type="radio" name="radio4" id="126" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio4" id="127" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio4" id="128" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio4" id="129" value="Setuju"></td>
-							      <td><input type="radio" name="radio4" id="130" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Saya berpuas hati dengan perkhidmatan yang disediakan.</td>
-							      <td><input type="radio" name="radio5" id="131" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio5" id="132" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio5" id="133" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio5" id="134" value="Setuju"></td>
-							      <td><input type="radio" name="radio5" id="135" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Aktiviti ini dijalankan pada hari terluang .</td>
-							      <td><input type="radio" name="radio6" id="136" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio6" id="137" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio6" id="138" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio6" id="139" value="Setuju"></td>
-							      <td><input type="radio" name="radio6" id="140" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Aktiviti ini memberi manfaat kepada saya.</td>
-							      <td><input type="radio" name="radio7" id="141" value="Sangat Tidak Setuj"></td>
-							      <td><input type="radio" name="radio7" id="142" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio7" id="143" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio7" id="144" value="Setuju"></td>
-							      <td><input type="radio" name="radio7" id="145" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Ingin mengajak teman lain menyertai aktiviti.</td>
-							      <td><input type="radio" name="radio8" id="1412" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio8" id="1413" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio8" id="1414" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio8" id="1415" value="Setuju"></td>
-							      <td><input type="radio" name="radio8" id="1416" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Ingin melibatkan diri dengan aktiviti ini lagi jika ada.</td>
-							      <td><input type="radio" name="radio9" id="150" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio9" id="148" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio9" id="149" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio9" id="147" value="Setuju"></td>
-							      <td><input type="radio" name="radio9" id="146" value="Sangat Setuju"></td>
-						        </tr>
-							    </table></td>
-							  </tr>
-							  </table>
-							  <p>&nbsp;</p>
+								<br>
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb">
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item active" aria-current="page">Daftar Naqib/Naqibah</li>
+				  </ol>
+				</nav>
+								
+				<br><br><br>
+				<div class="container">
+				<section>
+            
+								<div align="center">
+								<h1><br>
+								Maklum Balas</h1>
+								</br>
+								<table width="734" border="1">
+								  <tr>
+								    <td><table width="734" border="1">
+								      <tr>
+								        <th width="612" scope="col">&nbsp;</th>
+								        <th width="17" scope="col"><form name="form1" method="post" action="">
+								          <div align="center">1 </div>
+								          </form></th>
+								        <th width="17" scope="col"><div align="center">2</div></th>
+								        <th width="17" scope="col"><div align="center">3</div></th>
+								        <th width="17" scope="col"><div align="center">4</div></th>
+								        <th width="17" scope="col"><div align="center">5</div></th>
+							          </tr>
+								      <tr>
+								        <td>Saya dapat maklumat selepas mengikuti aktiviti.</td>
+								        <td><input type="radio" name="radio" id="162" data-col="1" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio" id="172" data-col="1" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio" id="182" data-col="1" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio" id="192" data-col="1" value="Setuju"></td>
+								        <td><input type="radio" name="radio" id="1102" data-col="1" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td height="24">Saya dapat jumpa kawan baru selepas mengikuti aktiviti ini.</td>
+								        <td><input type="radio" name="radio1" id="1112" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio1" id="1122" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio1" id="1132" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio1" id="1142" value="Setuju"></td>
+								        <td><input type="radio" name="radio1" id="1152" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Pengunaan peralatan sangat bagus.</td>
+								        <td><input type="radio" name="radio2" id="1202" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio2" id="1192" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio2" id="1182" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio2" id="1172" value="Setuju"></td>
+								        <td><input type="radio" name="radio2" id="1162" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Makanan disediakan sedap dan bersih,</td>
+								        <td><input type="radio" name="radio3" id="1212" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio3" id="1222" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio3" id="1232" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio3" id="1242" value="Setuju"></td>
+								        <td><input type="radio" name="radio3" id="1252" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Tempat sangat selesa.</td>
+								        <td><input type="radio" name="radio4" id="1262" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio4" id="1272" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio4" id="1282" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio4" id="1292" value="Setuju"></td>
+								        <td><input type="radio" name="radio4" id="1302" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Saya berpuas hati dengan perkhidmatan yang disediakan.</td>
+								        <td><input type="radio" name="radio5" id="1312" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio5" id="1322" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio5" id="1332" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio5" id="1342" value="Setuju"></td>
+								        <td><input type="radio" name="radio5" id="1352" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Aktiviti ini dijalankan pada hari terluang .</td>
+								        <td><input type="radio" name="radio6" id="1362" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio6" id="1372" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio6" id="1382" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio6" id="1392" value="Setuju"></td>
+								        <td><input type="radio" name="radio6" id="1402" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Aktiviti ini memberi manfaat kepada saya.</td>
+								        <td><input type="radio" name="radio7" id="1417" value="Sangat Tidak Setuj"></td>
+								        <td><input type="radio" name="radio7" id="1422" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio7" id="1432" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio7" id="1442" value="Setuju"></td>
+								        <td><input type="radio" name="radio7" id="1452" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Ingin mengajak teman lain menyertai aktiviti.</td>
+								        <td><input type="radio" name="radio8" id="14122" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio8" id="14132" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio8" id="14142" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio8" id="14152" value="Setuju"></td>
+								        <td><input type="radio" name="radio8" id="14162" value="Sangat Setuju"></td>
+							          </tr>
+								      <tr>
+								        <td>Ingin melibatkan diri dengan aktiviti ini lagi jika ada.</td>
+								        <td><input type="radio" name="radio9" id="1502" value="Sangat Tidak Setuju"></td>
+								        <td><input type="radio" name="radio9" id="1482" value="Tidak Setuju"></td>
+								        <td><input type="radio" name="radio9" id="1492" value="Tidak Pasti"></td>
+								        <td><input type="radio" name="radio9" id="1472" value="Setuju"></td>
+								        <td><input type="radio" name="radio9" id="1462" value="Sangat Setuju"></td>
+							          </tr>
+								      </table></td>
+							      </tr>
+								  </table>
+								<input type="submit" name="feedbackahli" value="Hantar" class="btn btn-primary">
+								</div>
+				  </section>
 							</div>
-					      <form name="form2" method="post" action="">
-					        <input type="submit" name="Button2" id="Button2" value="BATAL">
-					        <input type="submit" name="Button" id="Button" value="HANTAR">
-					      </form>
+							</div>
 						</div>
 					</article>
 				</div>
-				<div class="col-md-4 sidebar-gutter"></div>
-			</div>
 			</div>
 		</section>
 		</div><!-- /.container -->
 
 		<footer class="footer">
-			<?php include '../footer.php'; ?>
+			<?php include '../style/footer.php'; ?>
 		</footer>
 
 		<!-- Bootstrap core JavaScript
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/jquery.bxslider.js"></script>
-		<script src="../js/mooz.scripts.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.bxslider.js"></script>
+<span class="col-md-12">
+<article class="blog-post"></article>
+</span>
+<script src="../js/mooz.scripts.min.js"></script>
+</body>
+</html>
+	
+</body>
+</html>
+	
+</body>
+</html>
+                
+	
+</body>
+</html>
 	</body>
 </html>
