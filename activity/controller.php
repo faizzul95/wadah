@@ -173,6 +173,61 @@ if (isset($_POST['register_penceramah']))
           window.location.href = window.history.back();
           </SCRIPT>");
         }
+		
+
+}
+
+//delete member
+if (isset($_POST['deleteactivity'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['public_id']);
+
+        $sql= "DELETE FROM `public` WHERE `public_id` = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya Dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
+
+}
+
+//delete member ahli
+if (isset($_POST['deleteactivityahli'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['act_id']);
+
+        $sql= "DELETE FROM `activity` WHERE `act_id` = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya Dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
 
 }
 
