@@ -4,12 +4,20 @@
                           </tr>  
                 </table> -->
                 <table style="width:100%"> 
-
                   <br>
-
                     <tr>  
                        <td colspan="8">
-                        <input type="submit" name="login" value="Daftar Keluarga" onclick="location.href='user_family_reg.php?member_ic=<?php echo $member_ic; ?>';" class="btn btn-primary pull-right">
+                        <input type="submit" name="login" value="Daftar Keluarga" onclick="location.href='user_family_reg.php?member_ic=<?php echo $member_ic; ?>';" class="btn btn-primary pull-right"> 
+
+                         <?php 
+                          $sql = "SELECT * FROM `family` WHERE `member_ic` = '$mmbrIC'";
+                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+                             $row = mysqli_fetch_array($res);
+
+                             if (mysqli_num_rows($res)!=0) { ?>
+                              <input type="submit" name="login" value="Daftar Pendidikan" onclick="location.href='family_edu_reg.php?member_ic=<?php echo $member_ic; ?>';" class="btn btn-success pull-right">&nbsp; &nbsp;
+                              <input type="submit" name="login" value="Daftar Pekerjaan" onclick="location.href='family_job_reg.php?member_ic=<?php echo $member_ic; ?>';" class="btn btn-success pull-right"> &nbsp; &nbsp;
+                          <?php }?>
                         </td>
                     </tr> 
                   </table>
@@ -21,11 +29,11 @@
                       <tr>
                         <th>No.</th>
                         <th>Nama</th>
-                        <th>Nombor IC</th>
+                        <th>No Kad Pengenalan</th>
                         <th>Nombor Telefon</th>
                         <th>Hubungan Keluarga</th>
                         <th>Pekerjaan</th>
-                        <th>Pelajaran</th>
+                        <th>Pendidikan</th>
                         <th>Tindakan</th>
                       </tr>
                     </thead>
@@ -44,6 +52,7 @@
                               $count = 1;
                               while($row = mysqli_fetch_assoc($result))
                                { 
+                                  $family_ic = $row['family_ic'];
                                 ?>
                                    
                                    <tr>
@@ -52,11 +61,35 @@
                         <td><center><?php echo $row['family_ic']; ?></center></td>
                         <td><center><?php echo $row['family_phone']; ?></center></td>
                         <td><center><?php echo $row['family_relation']; ?></center></td>
-                        <td><center><button class="btn btn-info" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Lihat</button></center></td>
-                        <td><center><button class="btn btn-info" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Lihat</button></center></td>
-                        <td><button class="btn btn-info" onclick="location.href='user_family_view.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button><br>
-                          <button class="btn btn-primary" onclick="location.href='user_family_edit.php?famIC=<?php echo $row['family_ic']; ?>';">Kemaskini</button><br>
-                          <form method="post" action="controller.php?eduID=<?php echo $row["family_ic"]; ?>">
+                        <td><center> <?php 
+                          $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$family_ic'";
+                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+                             $row = mysqli_fetch_array($res);
+
+                             if (mysqli_num_rows($res)!=0) { ?>
+                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
+                             <?php }else{ ?>
+                               <center> - Tiada Maklumat - </center>
+                        <?php } ?></center></td>
+                        <td>
+                          <center>
+                            <?php 
+                          $sql = "SELECT * FROM `education_info` WHERE `family_ic` = '$family_ic'";
+                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+                             $row = mysqli_fetch_array($res);
+
+                             if (mysqli_num_rows($res)!=0) { ?>
+                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
+                             <?php }else{ ?>
+                               <center> - Tiada Maklumat - </center>
+                        <?php } ?>
+                          </center>
+                        </td>
+
+
+                        <td><button class="btn btn-info" onclick="location.href='user_family_view.php?family_ic=<?php echo $row['family_ic']; ?>';">Lihat</button><br>
+                          <button class="btn btn-primary" onclick="location.href='user_family_edit.php?family_ic=<?php echo $row['family_ic']; ?>';">Kemaskini</button><br>
+                          <form method="post" action="controller.php?family_ic=<?php echo $row["family_ic"]; ?>">
                               <input type="hidden" name="family_ic" value="<?php echo $row["family_ic"]; ?>">
                               <input type="submit" name="deletefamily" onclick='return checkDeleteFamily()' class="btn btn-danger" value="Padam">
                           </form>
@@ -73,11 +106,11 @@
                       <tr>
                         <th>No.</th>
                         <th>Nama</th>
-                        <th>Nombor IC</th>
+                        <th>No Kad Pengenalan</th>
                         <th>Nombor Telefon</th>
                         <th>Hubungan Keluarga</th>
                         <th>Pekerjaan</th>
-                        <th>Pelajaran</th>
+                        <th>Pendidikan</th>
                         <th>Tindakan</th>
                       </tr>
                     </tfoot>

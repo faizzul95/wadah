@@ -27,7 +27,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Ahli | Kemaskini Keluarga</title>
+		<title>Ahli | Daftar Keluarga</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -59,7 +59,7 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Keluarga</li>
+				    <li class="breadcrumb-item active" aria-current="page">Daftar Keluarga</li>
 				  </ol>
 				</nav>
 								
@@ -68,7 +68,7 @@
 				<section>
             
 								<div align="center">
-								<h1><br>KEMASKINI KELUARGA</h1></br>
+								<h1><br>DAFTAR MAKLUMAT KELUARGA</h1></br>
 
 						<form action="controller.php" method="post">
 
@@ -83,7 +83,7 @@
 									<td><br><input name="family_name" type="text" autocomplete="off" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Nombor IC  :</td>
+									<td>No Kad Pengenalan  :</td>
 									<td><br><input name="family_ic" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
@@ -100,18 +100,15 @@
 									<td><br><input name="family_phone" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
-				                         maxlength = "12"
+				                         maxlength = "11"
 				                         min = "1"
-				                         max = "12" class="form-control" required></td>
+				                         max = "11" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Jantina :</td>
 									<td><br>
-										<select name="family_gender" class="form-control">
-											<option value="" >- Pilih -</option>
-											<option value="Lelaki" >Lelaki</option>
-											<option value="Perempuan">Perempuan</option>
-										</select>
+										<input type="radio" name="family_gender" value="Lelaki"> Lelaki &nbsp;
+										<input type="radio" name="family_gender" value="Perempuan"> Perempuan
 									</td>
 								</tr>
 								<tr>
@@ -120,7 +117,7 @@
 								</tr>
 								<tr>
 									<td>Tarikh Lahir : <br></td>
-									<td><br><input name="family_dob" type="date" size="50" autocomplete="off" class="form-control" maxlength="50">
+									<td><br><input name="family_dob" type="date" size="50" autocomplete="off" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>
@@ -128,7 +125,7 @@
 										Hubungan Keluarga : 
 									</td>
 									<td><br>
-										<select name="family_relation" class="form-control">
+										<select name="family_relation" class="form-control" required>
 											<option value="" >- Pilih -</option>
 											<option value="Ayah" >Ayah</option>
 											<option value="Ibu">Ibu</option>

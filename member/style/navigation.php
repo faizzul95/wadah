@@ -63,7 +63,6 @@
 						        <li><a href="#">Ahli</a></li>
 						    </ul>
 					     </li>
-					    <li><a href="../about.php?page=tentangwadah">Tentang Wadah</a></li>
 					    <li><a href="user.php">Profil</a></li>
 					<?php } else { ?>
 						<li><a href="index.php?page=home">Halaman Utama</a></li>

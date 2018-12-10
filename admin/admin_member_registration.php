@@ -67,11 +67,11 @@ $member_ic = $_SESSION['memberIC'];
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item active" aria-current="page"><a href="list_member.php">Senarai Ahli</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Ahli</li>
 				  </ol>
 				</nav>
 								
-				<br><br><br>
 				<div class="container">
 				<section>
             
@@ -87,7 +87,7 @@ $member_ic = $_SESSION['memberIC'];
 							                     maxlength = "60" class="form-control"></td>
 											</tr>
 											<tr>
-												<td>No IC :</td>
+												<td>No Kad Pengenalan :</td>
 												<td><br><input name="mbr_ic" id="nokadpengenalan" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
@@ -136,7 +136,7 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Umur :</td>
 												<td><br>
-												<input name="mbr_phone" type="text" size="50" autocomplete="off" id="umur" onkeypress="return isNumeric(event)"
+												<input name="" type="text" size="50" autocomplete="off" id="umur" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "12"
@@ -164,9 +164,34 @@ $member_ic = $_SESSION['memberIC'];
 												</select>
 												</td>
 											</tr>
+
+											<tr>
+												<td colspan="2"><center><h2><br>BAYARAN AHLI<br><br></h2></center></td>
+											</tr>
+											<tr>
+												<td> Jenis Bayaran :</td>
+												<td> <input type="text" name="Fee_type" value="Yuran Ahli" class="form-control"> </td>
+											</tr>
+
+											<tr>
+												<td> Jumlah Bayaran :</td>
+												<td> <br> 
+												<input name="Fee_amount" type="text" size="50" autocomplete="off" id="Fee_amount" onkeypress="return isNumeric(event)"
+							                         oninput="maxLengthCheck(this)"
+							                         type = "text"
+							                         maxlength = "4"
+							                         min = "1"
+							                         max = "4" class="form-control">
+											</tr>
+
+											<tr>
+												<td> Tarikh Bayaran :</td>
+												<td> <br><input type="date" name="Fee_date" class="form-control"> </td>
+											</tr>
+
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="reg_member" value="Daftar" class="btn btn-primary">
+													<input type="submit" name="reg_member" value="Daftar Ahli" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>

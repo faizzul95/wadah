@@ -2,6 +2,8 @@
   // Turn off error reporting
 	error_reporting(0);
 
+  date_default_timezone_set("Asia/Kuala_Lumpur");
+
   require ('../connection.php');
   session_start(); 
   $member_ic = $_SESSION['memberIC'];
@@ -20,6 +22,13 @@
  $row = $result->fetch_assoc();
  $member_id = $row['member_id'];
  $Fee_status = $row['Fee_status'];
+ $Fee_type = $row['Fee_type'];
+ $Fee_amount = $row['Fee_amount'];
+ 
+
+ $result = $myConnection->query("SELECT * FROM `feedback` WHERE `member_ic` = '$mmbrIC'"); 
+ $row = $result->fetch_assoc();
+ $member_ic = $row['member_ic'];
 //  echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';
@@ -43,7 +52,7 @@
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
 
-		<script>
+		<script type="text/javascript">
       	function checkDeleteEdu(){
              return confirm('Padam Pendidikan ?');
          }
@@ -56,9 +65,16 @@
              return confirm('Padam Keluarga ?');
          }
 
+         function clickButton(){
+             document.getElementById("buttonstudy").click();
+             document.getElementById("buttonjob").click();
+             document.getElementById("buttonfamily").click();
+             document.getElementById("buttonactivity").click();
+         }
+
       </script>
 	</head>
-	<body>
+	<body onLoad="clickButton()">
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<?php include '../member/style/navigation.php'; ?>
@@ -82,6 +98,8 @@
 								</nav>
 								<center><strong>Selamat Datang. <?php echo strtoupper($mmbrName); ?> ( <?php echo $mmbrIC; ?> ) </strong> 
 
+								<button type="submit" class="btn btn-success" onclick="window.open('print.php?member_ic=<?php echo $mmbrIC; ?>')" value="Cetak " target="_blank" data-backdrop="static"> Cetak <span class="glyphicon glyphicon-print"></span></button>
+
 								<br><br>	
 
 								<img title=" " alt=" " src="img/<?php echo $profileimage ?>" height="300px" width="300px" />
@@ -92,7 +110,7 @@
 									<input type="submit" class="btn btn-primary" name="updateprofile" value="Kemaskini Profil">
 								</form>
 
-							</center>
+								</center>
 
 								<br><br>
 								<div class="container">
@@ -101,7 +119,7 @@
                 				<div class="container">
 								     <table style="width:100%"> 
 					                      <tr bgcolor="#5bc0de">
-					                        <td colspan="8"> <br><center><b>MAKLUMAT PERIBADI</b></center><br></td>
+					                        <td colspan="8"> <br><center><b><font color="white">MAKLUMAT PERIBADI</font></b></center><br></td>
 					                      </tr>  
 					                </table>
 					                <br>
@@ -133,22 +151,24 @@
 					                      </tr> 
 					                      <tr>
 					                        <td> <center>Yuran Ahli : </center></td>
-					                        <td> <center><b></b> <?php 
-					                        if ($Fee_status == NULL) {
-					                        	echo "<b><a href=''><font color='red'> BELUM DIBAYAR </font></a><b>";
+					                        <td> <center><b> 
+					                        	<?php 
+					                        if ($Fee_status != "Belum Dibayar" AND $Fee_amount != NULL AND $Fee_type == "Yuran Ahli") {
+					                        	echo "<b><a href=''><font color='green'>".strtoupper($Fee_status)."</font></a><b>"; 
 					                        }else {
-					                        	echo "<b><a href=''><font color='green'>".$Fee_status."</font></a><b>"; 
+					                        	echo "<b><a href=''><font color='red'> BELUM DIBAYAR </font></a><b>";
 					                        }
-					                        ?> </center></td>
+					                        ?>
+					                        	
+
+					                        </b> </center></td>
 					                      </tr>   
 					                	</table>
 					            	</center>
 								</div>
-
-								<br><br>
-
+								<br>
 								<div class="container">
-								  <button type="button" class="btn btn-info form-control" data-toggle="collapse" data-target="#study">MAKLUMAT PENDIDIKAN</button>
+								  <button type="button" id="buttonstudy" class="btn btn-info form-control" data-toggle="collapse" data-target="#study">MAKLUMAT PENDIDIKAN</button>
 								  <div id="study" class="collapse">
 								   <?php include 'user_edu_list.php'; ?>
 								  </div>
@@ -157,7 +177,7 @@
 								<br>
 
 								<div class="container">
-								  <button type="button" class="btn btn-info form-control" data-toggle="collapse" data-target="#job">MAKLUMAT PEKERJAAN</button>
+								  <button type="button" id="buttonjob" class="btn btn-info form-control" data-toggle="collapse" data-target="#job">MAKLUMAT PEKERJAAN</button>
 								  <div id="job" class="collapse">
 								   <?php include 'user_job_list.php'; ?>
 								  </div>
@@ -166,9 +186,18 @@
 								<br>
 
 								<div class="container">
-								  <button type="button" class="btn btn-info form-control" data-toggle="collapse" data-target="#family">MAKLUMAT KELUARGA</button>
+								  <button type="button" id="buttonfamily" class="btn btn-info form-control" data-toggle="collapse" data-target="#family">MAKLUMAT KELUARGA</button>
 								  <div id="family" class="collapse">
 								   <?php include 'user_family_list.php'; ?>
+								  </div>
+								</div>
+
+								<br>
+
+								<div class="container">
+								  <button type="button" id="buttonactivity" class="btn btn-info form-control" data-toggle="collapse" data-target="#activity">SENARAI AKTIVITI</button>
+								  <div id="activity" class="collapse">
+								   <?php include 'user_activity_list.php'; ?>
 								  </div>
 								</div>
 				           
@@ -195,3 +224,48 @@
 		<script src="../js/mooz.scripts.min.js"></script>
 	</body>
 </html>
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT PENDIDIKAN</font></center></center></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
+	  </div>
+    </div>
+  </div>
+</div>
+
+<!-- ajax untuk pendidikan -->
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "admin_edu_info.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.modal-body').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>

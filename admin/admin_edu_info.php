@@ -3,8 +3,6 @@
 require ('../connection.php');
 session_start();
 
-$memberIC = $_GET['member_ic'];
-
 $id = $_GET['id'];
 
 $sql = mysqli_query($myConnection,"SELECT `member`.*,`education_info`.* FROM `member` 
@@ -67,8 +65,14 @@ body {font-family: Arial;}
     border-top: none;
 }
 </style>
+
+<script type="text/javascript">
+  function clickButton1(){
+             document.getElementById("btn1").click();
+         }
+</script>
 </head>
-<body>
+<body onLoad="clickButton1()">
 
 <!-- <h2>MAKLUMAT PENDIDIKAN</h2> -->
 <p>NAMA : <b><?php echo strtoupper($name); ?></b><br>
@@ -79,7 +83,7 @@ body {font-family: Arial;}
     $sql = "SELECT * FROM `education_info` WHERE `member_ic` = '$id' AND `edu_end_date` != 'Semasa'";
     $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
       if (mysqli_num_rows($result)!=0){ ?>
-              <button class="tablinks" onclick="openCity(event, 'History')">Senarai Pendidikan</button>
+              <button class="tablinks" id="btn1" onclick="openCity(event, 'History')">Senarai Pendidikan</button>
   <?php } ?>
   <?php
     $sql = "SELECT * FROM `education_info` WHERE `member_ic` = '$id' AND `edu_end_date` = 'Semasa'";
@@ -121,7 +125,11 @@ body {font-family: Arial;}
               </tr>
               <tr>
                 <td> No Telefon Institusi :  </td>
-                <td> <?php echo $edu_phone; ?> </td>
+                <td> <?php if ($row['edu_phone'] == 0) {
+                         echo "";
+                        } else echo $row['edu_phone']; 
+                   ?> 
+                 </td>
               </tr>
               <tr>
                 <td> Kursus :  </td>
@@ -168,7 +176,11 @@ body {font-family: Arial;}
               </tr>
               <tr>
                 <td> No Telefon Institusi :  </td>
-                <td> <?php echo $edu_phone; ?> </td>
+                <td> <?php if ($row['edu_phone'] == 0) {
+                         echo "";
+                        } else echo $row['edu_phone']; 
+                   ?> 
+                 </td>
               </tr>
               <tr>
                 <td> Kursus :  </td>

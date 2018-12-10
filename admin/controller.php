@@ -22,6 +22,9 @@ if (isset($_POST['reg_member']))
     $usr_role = "member";
     $mbr_profile_picture = "user.png";
 
+    $Fee_status = "Belum Dibayar";
+    $Fee_type = "Yuran Ahli";
+
     // $date = mysqli_real_escape_string($myConnection, date('Y-m-d'));
     $check_ic = mysqli_query($myConnection, "SELECT * FROM `user` WHERE `usr_username` = '$mbr_ic'");
     if(mysqli_num_rows($check_ic) > 0){
@@ -43,11 +46,17 @@ if (isset($_POST['reg_member']))
         ('$mbr_name','$mbr_ic','$mbr_address','$mbr_gender','$mbr_phone','$mbr_dob','$mbr_email','$mbr_branch','$mbr_profile_picture' )";
       $result2 = mysqli_query($myConnection, $query_member) or die(mysqli_error($myConnection));
 
-	    if($result2)
+      $query3 = "INSERT INTO `fees` 
+        (`member_ic`,`Fee_status`,`Fee_type`)
+         VALUES 
+        ('$mbr_ic','$Fee_status','$Fee_type')";
+      $result3 = mysqli_query($myConnection, $query3) or die(mysqli_error($myConnection));
+
+	    if($result3)
 	    {
           // mail function
            $title = "WADAH";
-           $message = "Assalamualaikum, ".$mbr_name."\nPermohonan anda telah berjaya. Sila Layaran Laman Web http://localhost/wadah/login.php?page=logmasuk \n\n 
+           $message = "Assalamualaikum, ".$mbr_name."\nPermohonan anda telah berjaya. Sila Layaran Laman Web http://localhost/wadah/login.php?page=logmasuk \n
            Berikut adalah maklumat log masuk
            \n No. Kad Pengenalan : ".$mbr_ic.
             "\nKata Laluan : ".$usr_password.
@@ -60,7 +69,7 @@ if (isset($_POST['reg_member']))
 	   
           echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Berjaya Didaftar')
-          window.location = 'admin.php?result=SuccessfullyRegister';
+          window.location = 'list_member.php?result=SuccessfullyRegister';
           </SCRIPT>");
 	    }
 	    else
@@ -81,6 +90,148 @@ if (isset($_POST['deletemem'])){
         $id=mysqli_real_escape_string($myConnection, $_POST['mbr_ic']);
 
         $sql= "DELETE FROM `member` WHERE `mbr_ic` = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya Dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
+}
+
+
+// register naqib
+if (isset($_POST['reg_naqib']))
+{
+
+    $naqib_name = mysqli_real_escape_string($myConnection, $_POST['naqib_name']);
+    $naqib_ic = mysqli_real_escape_string($myConnection, $_POST['naqib_ic']);
+    $naqib_phone = mysqli_real_escape_string($myConnection, $_POST['naqib_phone']);
+    $naqib_address = mysqli_real_escape_string($myConnection, $_POST['naqib_address']);
+    $naqib_mail = mysqli_real_escape_string($myConnection, $_POST['naqib_mail']);
+    $naqib_branch = mysqli_real_escape_string($myConnection, $_POST['naqib_branch']);
+    $naqib_category = mysqli_real_escape_string($myConnection, $_POST['naqib_category']);
+
+
+    $check_ic = mysqli_query($myConnection, "SELECT * FROM `naqib` WHERE `naqib_ic` = '$naqib_ic'");
+    if(mysqli_num_rows($check_ic) > 0){
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('Pendaftaran tidak berjaya, Naqib telah didaftarkan')
+        window.location.href = window.history.back();
+            </SCRIPT>");
+    }else{
+    
+      $query_member = "INSERT INTO `naqib` 
+        (`naqib_name`,`naqib_ic`,`naqib_category`,`naqib_phone`,`naqib_address`,`naqib_mail`,`naqib_branch`)
+         VALUES 
+        ('$naqib_name','$naqib_ic','$naqib_category','$naqib_phone','$naqib_address','$naqib_mail','$naqib_branch')";
+      $result2 = mysqli_query($myConnection, $query_member) or die(mysqli_error($myConnection));
+
+      if($result2)
+      {
+     
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Didaftar')
+          window.location = 'list_naqib.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+      }
+      else
+      { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Pendaftaran Naqib Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+      }
+  }
+}
+
+// register speaker
+if (isset($_POST['reg_speaker']))
+{
+
+    $speak_ic = mysqli_real_escape_string($myConnection, $_POST['speak_ic']);
+    $speak_name = mysqli_real_escape_string($myConnection, $_POST['speak_name']);
+    $speak_address = mysqli_real_escape_string($myConnection, $_POST['speak_address']);
+    $speak_phone = mysqli_real_escape_string($myConnection, $_POST['speak_phone']);
+    $speak_gender = mysqli_real_escape_string($myConnection, $_POST['speak_gender']);
+    $speak_mail = mysqli_real_escape_string($myConnection, $_POST['speak_mail']);
+
+
+    $check_ic = mysqli_query($myConnection, "SELECT * FROM `speaker` WHERE `speak_ic` = '$speak_ic'");
+    if(mysqli_num_rows($check_ic) > 0){
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('Pendaftaran tidak berjaya, Penceramah telah didaftarkan')
+        window.location.href = window.history.back();
+            </SCRIPT>");
+    }else{
+    
+      $query_member = "INSERT INTO `speaker` 
+        (`speak_ic`,`speak_name`,`speak_address`,`speak_phone`,`speak_gender`,`speak_mail`)
+         VALUES 
+        ('$speak_ic','$speak_name','$speak_address','$speak_phone','$speak_gender','$speak_mail')";
+      $result2 = mysqli_query($myConnection, $query_member) or die(mysqli_error($myConnection));
+
+      if($result2)
+      {
+     
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Didaftar')
+          window.location = 'list_speaker.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+      }
+      else
+      { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Pendaftaran Naqib Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+      }
+  }
+}
+
+//delete naqib
+if (isset($_POST['deletenaqib'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['naqib_ic']);
+
+        $sql= "DELETE FROM `naqib` WHERE `naqib_ic` = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya Dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
+}
+
+//delete speaker
+if (isset($_POST['deletespeaker'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['speak_ic']);
+
+        $sql= "DELETE FROM `speaker` WHERE `speak_ic` = '$id' ";
         $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
         if (!$result)
           {

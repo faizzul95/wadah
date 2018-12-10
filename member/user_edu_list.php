@@ -45,7 +45,11 @@
                           <td><?php echo $count; ?></td>
                           <td><center><?php echo $row['edu_name']; ?></center></td>
                           <td><center><?php echo $row['edu_address']; ?></center></td>
-                          <td><center><?php echo $row['edu_phone']; ?></center></td>
+                          <td><center>
+                            <?php if ($row['edu_phone'] == 0) {
+                              echo "";
+                              } else echo $row['edu_phone']; 
+                            ?></center></td>
                           <td><center><?php echo $row['edu_course']; ?></center></td>
                           <td><center><?php echo $row['edu_level']; ?></center></td>
                           <td colspan="2"><center><?php echo $row['edu_start_date']; ?> - <?php echo $row['edu_end_date']; ?></center></td>
