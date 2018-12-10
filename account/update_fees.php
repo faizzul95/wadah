@@ -115,10 +115,13 @@ session_start();
 											
 											<tr>
 												<td>Jenis :</td>
-												<td><br><input name="Fee_type" value="<?php echo $row['Fee_type'];?>" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
-											</tr>
+												<td><br>
+												<select name="Fee_type" class="form-control" required>
+													<option value="">- Pilih -</option>
+														<option value="Ahli">Ahli</option>
+														<option value="Aktiviti">Aktiviti</option>
+												</select>
+												</td>
 											</tr>
 										
 											<tr align="center">
