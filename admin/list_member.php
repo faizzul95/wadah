@@ -33,7 +33,7 @@ $member_ic = $_SESSION['memberIC'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Menu</title>
+		<title>Admin | Ahli</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -72,13 +72,19 @@ $member_ic = $_SESSION['memberIC'];
 								</nav><br><br>
 								<div class="container">
 								<section>
-   
-						            <table style="width:100%"> 
+
+									<table style="width:100%"> 
 						            	<tr>
-						            		<td><form method="post" action="admin.php">
-						 					Branch : 				 
-							                <select name="mbr_branch">
-							                   <option value="all">Semua</option>
+						                <td width="68%">
+						            		
+						            	</td>
+						            	<td>
+						            		<form method="post" action="list_member.php?result=search">
+						            		<table>
+						            			<tr>
+						            				<td width="80%">
+						            					<select name="mbr_branch" class="form-control">
+							                   			<option value="all">Semua</option>
 							                            <?php
 							                              $sql = "SELECT DISTINCT `mbr_branch` FROM `member`";
 							                              $sql_branch = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -90,15 +96,28 @@ $member_ic = $_SESSION['memberIC'];
 							                                <?php
 							                              }
 							                            ?>
-							                  </select>
-							                  <input type="submit" value="Carian" class="btn btn-primary">
-						                  </form> </td>
-						                  <td>
+							                 			 </select>
+						            				</td>
+						            				<td>
+						            					&nbsp; <input type="submit" value="Carian" class="btn btn-primary pull-right">
+						            				</td>
+						            			</tr>
+						            		</table>
+						                  </form> 
+						              	</td>
+						            	</tr>   
+						            </table>
+
+						            <br>
+   
+									<table style="width:100%"> 
+						            	<tr>
+						                <td>
 						            		<input type="submit" name="login" value="Daftar Ahli" onclick="location.href='admin_member_registration.php';" class="btn btn-primary pull-right">
 						            	</td>
 						            	</tr>   
 						            </table>
-
+  
 						            <br>
 
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -108,7 +127,7 @@ $member_ic = $_SESSION['memberIC'];
 												<th>Nama</th>
 												<th>Nombor IC</th>
 												<th>Nombor Telefon</th>
-												<th>Branch</th>
+												<th>Cawangan</th>
 												<th>Maklumat Keluarga</th>
 												<th>Maklumat Pendidikan</th>
 												<th>Maklumat Pekerjaan</th>
@@ -157,10 +176,7 @@ $member_ic = $_SESSION['memberIC'];
 												     $row = mysqli_fetch_array($res);
 
 												     if (mysqli_num_rows($res)!=0) { ?>
-													<form method='post' action=''>
-                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $mbr_ic; ?>" >Lihat
-                                                      </button></center>
-                                                     </form>
+                                                      <center><button class="btn btn-info" onclick="location.href='list_family.php?mbr_ic=<?php echo $row['member_ic']; ?>';">Lihat</button></center>
                                                      <?php }else{ ?>
                                                      	 <center> - Tiada Maklumat - </center>
                                                      <?php } ?>
@@ -191,7 +207,7 @@ $member_ic = $_SESSION['memberIC'];
 
 												     if (mysqli_num_rows($res)!=0) { ?>
 													<form method='post' action=''>
-                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $mbr_ic; ?>" >Lihat
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" data-whatever="<?php echo $mbr_ic; ?>" >Lihat
                                                       </button></center>
                                                      </form>
                                                      <?php }else{ ?>
@@ -220,7 +236,7 @@ $member_ic = $_SESSION['memberIC'];
 												<th>Nama</th>
 												<th>Nombor IC</th>
 												<th>Nombor Telefon</th>
-												<th>Branch</th>
+												<th>Cawangan</th>
 												<th>Maklumat Keluarga</th>
 												<th>Maklumat Pendidikan</th>
 												<th>Maklumat Pekerjaan</th>
@@ -267,7 +283,6 @@ $member_ic = $_SESSION['memberIC'];
       </div>
       <div class="modal-footer">
 		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
-		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
 	  </div>
     </div>
   </div>
@@ -284,6 +299,51 @@ $member_ic = $_SESSION['memberIC'];
             $.ajax({
                 type: "GET",
                 url: "admin_edu_info.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.modal-body').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModal2LongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h2 class="modal-title" id="exampleModal2Label"><center><font color="white">MAKLUMAT PEKERJAAN</font></center></center></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
+	  </div>
+    </div>
+  </div>
+</div>
+
+<!-- ajax untuk pendidikan -->
+<script>
+    $('#exampleModal2').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "admin_occupation_info.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

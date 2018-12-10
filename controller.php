@@ -16,7 +16,7 @@ if(isset($_POST['login']))
      if (mysqli_num_rows($res)==0) { 
 
            echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Wrong Username or Password, Please Try Again')
+          window.alert('Salah Kata Laluan atau No Kad Pengenalan, Sila Cuba lagi')
           window.location = 'login.php?page=LoginFail';
           </SCRIPT>");
          

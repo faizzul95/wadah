@@ -214,9 +214,9 @@ if (isset($_POST['update_job']))
     $company_start_date = mysqli_real_escape_string($myConnection,  $_POST["company_start_date"]);
     $company_end_date = mysqli_real_escape_string($myConnection,  $_POST["company_end_date"]);
 
-    // if ($company_end_date == "01/01/1970") {
-    //     $company_end_date = "Sekarang";
-    // }
+    if ($company_end_date == "01/01/1970") {
+        $company_end_date = "Semasa";
+    }
 
     $query_eduinfo = "UPDATE `occupation_info` SET 
         `company_name` = '$company_name', 
@@ -250,11 +250,10 @@ if (isset($_POST['update_job']))
 // register occupation
 if (isset($_POST['reg_job']))
 {
-    // register family info
+
     if(isset($_POST['family_ic'])){
         $family_ic = mysqli_real_escape_string($myConnection, $_POST['family_ic']);
     }
-
     if(isset($_POST['member_ic'])){
         $member_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
     }
@@ -263,10 +262,12 @@ if (isset($_POST['reg_job']))
     $company_phone = mysqli_real_escape_string($myConnection, $_POST['company_phone']);
     $company_position = mysqli_real_escape_string($myConnection, $_POST['company_position']);
     $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
-    $company_start_date = mysqli_real_escape_string($myConnection,  $_POST["company_start_date"]);
-    $company_end_date = mysqli_real_escape_string($myConnection,  $_POST["company_end_date"]);
-    // $company_end_date = mysqli_real_escape_string($myConnection,  strtotime($_POST["company_end_date"]));
-    var_dump($company_end_date);die;
+    $company_start_date = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["company_start_date"])));
+    $company_end_date  = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["company_end_date"])));
+
+    if ($company_end_date == "01/01/1970") {
+        $company_end_date = "Semasa";
+    }
 
         if(isset($_POST['family_ic'])){
             $query_occuinfo = "INSERT INTO `occupation_info` 
@@ -281,8 +282,6 @@ if (isset($_POST['reg_job']))
             ('$member_ic','$company_name','$company_address','$company_phone','$company_position','$company_email','$company_start_date','$company_end_date')";
             $result = mysqli_query($myConnection, $query_occuinfo) or die(mysqli_error($myConnection));
         }
-
-         var_dump($query_occuinfo);die;
         
         if($result)
         {
@@ -344,13 +343,17 @@ if (isset($_POST['reg_edu']))
     $edu_name = mysqli_real_escape_string($myConnection, $_POST['edu_name']);
     $edu_address = mysqli_real_escape_string($myConnection, $_POST['edu_address']);
     $edu_phone = mysqli_real_escape_string($myConnection, $_POST['edu_phone']);
+    // mengelakkan error
+    if ($edu_phone == '') {
+        $edu_phone = 0;
+    }
     $edu_course = mysqli_real_escape_string($myConnection, $_POST['edu_course']);
     $edu_level = mysqli_real_escape_string($myConnection, $_POST['edu_level']);
     $edu_start_date = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_start_date"])));
     $edu_end_date  = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_end_date"])));
 
     if ($edu_end_date == "01/01/1970") {
-        $edu_end_date = "Sekarang";
+        $edu_end_date = "Semasa";
     }
 
         if(isset($_POST['family_ic'])){
@@ -395,13 +398,17 @@ if (isset($_POST['update_edu']))
     $edu_name = mysqli_real_escape_string($myConnection, $_POST['edu_name']);
     $edu_address = mysqli_real_escape_string($myConnection, $_POST['edu_address']);
     $edu_phone = mysqli_real_escape_string($myConnection, $_POST['edu_phone']);
+    // mengelakkan error
+    if ($edu_phone == '') {
+        $edu_phone = 0;
+    }
     $edu_course = mysqli_real_escape_string($myConnection, $_POST['edu_course']);
     $edu_level = mysqli_real_escape_string($myConnection, $_POST['edu_level']);
     $edu_start_date = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_start_date"])));
     $edu_end_date  = mysqli_real_escape_string($myConnection,  date('d/m/Y',strtotime($_POST["edu_end_date"])));
 
     if ($edu_end_date == "01/01/1970") {
-        $edu_end_date = "Sekarang";
+        $edu_end_date = "Semasa";
     }
 
 

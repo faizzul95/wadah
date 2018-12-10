@@ -41,7 +41,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -119,7 +119,7 @@
 								</tr>
 								<tr>
 									<td>Tarikh Lahir : <br></td>
-									<td><br><input name="family_dob" type="date" size="50" value="<?php echo $row['family_dob'];?>" class="form-control" maxlength="50">
+									<td><br><input name="family_dob" type="date" size="50" value="<?php echo $row['family_dob'];?>" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>
@@ -127,7 +127,8 @@
 										Hubungan Keluarga : 
 									</td>
 									<td><br>
-										<select name="family_relation" class="form-control">
+										<select name="family_relation" class="form-control" required>
+											<option value="" >- Pilih -</option>
 											<option value="Ayah" <?php if($row['family_relation']=="Ayah") echo 'selected="selected"'; ?> >Ayah</option>
 											<option value="Ibu" <?php if($row['family_relation']=="Ibu") echo 'selected="selected"'; ?> >Ibu</option>
 											<option value="Anak Lelaki" <?php if($row['family_relation']=="Anak Lelaki") echo 'selected="selected"'; ?> >Anak Lelaki</option>
