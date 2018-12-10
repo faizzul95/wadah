@@ -73,18 +73,30 @@ $member_ic = $_SESSION['memberIC'];
 								<div class="container">
 								<section>
 
+   
 									<table style="width:100%"> 
 						            	<tr>
-						                <td width="68%">
-						            		
+						                <td>
+						            		<input type="submit" name="login" value="Daftar Ahli" onclick="location.href='admin_member_registration.php';" class="btn btn-primary pull-right">
 						            	</td>
+						            	</tr>   
+						            </table>
+  
+						            <br>
+
+						            <table style="width:100%"> 
+						            	<tr>
 						            	<td>
-						            		<form method="post" action="list_member.php?result=search">
+						            		<form method="post" action="list_member.php?sort=search">
 						            		<table>
 						            			<tr>
-						            				<td width="80%">
-						            					<select name="mbr_branch" class="form-control">
-							                   			<option value="all">Semua</option>
+						            				<td>
+						            					Susun :
+						            				</td>
+						            				<td width="80%">  
+						            					<select name="mbr_branch" class="form-control" onchange='this.form.submit()'>
+							                   			<option value="">- Pilih Cawangan -</option>
+							                   			<option value="all">Lihat Semua</option>
 							                            <?php
 							                              $sql = "SELECT DISTINCT `mbr_branch` FROM `member`";
 							                              $sql_branch = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -99,25 +111,29 @@ $member_ic = $_SESSION['memberIC'];
 							                 			 </select>
 						            				</td>
 						            				<td>
-						            					&nbsp; <input type="submit" value="Carian" class="btn btn-primary pull-right">
+						            					&nbsp; <noscript><input type="submit" value="Submit"></noscript>
 						            				</td>
 						            			</tr>
 						            		</table>
 						                  </form> 
 						              	</td>
-						            	</tr>   
-						            </table>
+						            	<td>
+						            		&nbsp;
+						            	</td>
+						            	
+						              <td width="45%">
+						            	</td>
+						            	<td width="30%">
+						            		<form method="post" action="list_member.php?search=search">
+						            			<input type="text" name="ic" class="form-control" placeholder="Carian.." onblur='this.form.submit()' maxlength="13" autocomplete="off">
+						            			 <noscript><input type="submit" value="Submit"></noscript>
+						            		</form>
 
-						            <br>
-   
-									<table style="width:100%"> 
-						            	<tr>
-						                <td>
-						            		<input type="submit" name="login" value="Daftar Ahli" onclick="location.href='admin_member_registration.php';" class="btn btn-primary pull-right">
+						            		
 						            	</td>
 						            	</tr>   
 						            </table>
-  
+
 						            <br>
 
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -146,6 +162,10 @@ $member_ic = $_SESSION['memberIC'];
 						                	}else{
 						                		$sql = "SELECT * FROM `member` WHERE `mbr_branch` = '$branch'";
 						                	}
+						                }else if(isset($_POST['ic'])) {
+						                	$ic = $_POST['ic'];
+						                	$sql="SELECT * FROM `member` WHERE  `mbr_name` LIKE '%" . $ic . "%' OR `mbr_ic` LIKE '%" . $ic  ."%'"; 
+						                	
 						                }else{
 						                	 $sql = "SELECT * FROM `member`";
 						                }

@@ -31,7 +31,10 @@
                         <th>Nama</th>
                         <th>No Kad Pengenalan</th>
                         <th>Nombor Telefon</th>
+                        <th>Alamat</th>
+                        <th>Tarikh Lahir</th>
                         <th>Hubungan Keluarga</th>
+                        <th>Email</th>
                         <th>Pekerjaan</th>
                         <th>Pendidikan</th>
                         <th>Tindakan</th>
@@ -54,13 +57,16 @@
                                { 
                                   $family_ic = $row['family_ic'];
                                 ?>
-                                   
-                                   <tr>
+                          <tr>
+
                         <td><?php echo $count; ?></td>
                         <td><center><?php echo $row['family_name']; ?></center></td>
                         <td><center><?php echo $row['family_ic']; ?></center></td>
                         <td><center><?php echo $row['family_phone']; ?></center></td>
+                        <td><center><?php echo $row['family_address']; ?></center></td>
+                        <td><center><?php echo $row['family_dob']; ?></center></td>
                         <td><center><?php echo $row['family_relation']; ?></center></td>
+                        <td><center><?php echo $row['family_email']; ?></center></td>
                         <td><center> <?php 
                           $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$family_ic'";
                              $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -86,13 +92,25 @@
                           </center>
                         </td>
 
-
-                        <td><button class="btn btn-info" onclick="location.href='user_family_view.php?family_ic=<?php echo $row['family_ic']; ?>';">Lihat</button><br>
-                          <button class="btn btn-primary" onclick="location.href='user_family_edit.php?family_ic=<?php echo $row['family_ic']; ?>';">Kemaskini</button><br>
-                          <form method="post" action="controller.php?family_ic=<?php echo $row["family_ic"]; ?>">
-                              <input type="hidden" name="family_ic" value="<?php echo $row["family_ic"]; ?>">
+                       <!--  <td>
+                          <button class="btn btn-primary" onclick="location.href='user_family_edit.php?family_ic=<?php echo $family_ic; ?>';">Kemaskini</button><br>
+                          <form method="post" action="controller.php?family_ic=<?php echo $family_ic; ?>">
+                              <input type="text" name="family_ic" value="<?php echo $family_ic; ?>">
                               <input type="submit" name="deletefamily" onclick='return checkDeleteFamily()' class="btn btn-danger" value="Padam">
                           </form>
+                        </td>
+ -->
+                        <td>
+                            <button class="btn btn-primary" onclick="location.href='user_family_edit.php?family_ic=<?php echo $family_ic; ?>';">
+                              <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                             <form onsubmit="return checkDeleteFamily(this);" method="post" action="controller.php?family_ic=<?php echo $family_ic; ?>">
+                                    <input type="hidden" name="family_ic" value="<?php echo $family_ic; ?>">
+                                    <button name="deletefamily" class="btn btn-danger">
+                                      <span class="glyphicon glyphicon-trash"></span> 
+                                    </button>
+                              </form>
+                          </td>
                       </tr>
 
                                   <?php
@@ -108,7 +126,10 @@
                         <th>Nama</th>
                         <th>No Kad Pengenalan</th>
                         <th>Nombor Telefon</th>
+                        <th>Alamat</th>
+                        <th>Tarikh Lahir</th>
                         <th>Hubungan Keluarga</th>
+                        <th>Email</th>
                         <th>Pekerjaan</th>
                         <th>Pendidikan</th>
                         <th>Tindakan</th>

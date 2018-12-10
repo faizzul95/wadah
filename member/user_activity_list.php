@@ -10,14 +10,14 @@
                   <table id="example" class="table table-striped table-bordered table-responsive" style="width:100%">
                     <thead>
                       <tr>
-                        <th>No.</th>
-                        <th>Nama Aktiviti</th>
-                        <th>Tarikh</th>
-                        <th>Masa</th>
-                        <th>Tempat</th>
-                        <th>Jenis Aktiviti</th>
-                        <th>Bayaran</th>
-                        <th>Tindakan</th>
+                        <th><center>No.</center></th>
+                        <th><center>Nama Aktiviti</center></th>
+                        <th><center>Tarikh</center></th>
+                        <th><center>Masa</center></th>
+                        <th><center>Tempat</center></th>
+                        <th><center>Jenis Aktiviti</center></th>
+                        <th><center>Bayaran Aktiviti</center></th>
+                        <th><center>Maklum Balas</center></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -80,7 +80,7 @@
                           if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity == NULL) { ?>
                           <center><button class="btn btn-info" onclick="location.href='../activity/feedbackahli.php?act_id=<?php echo $row['act_id']; ?>';">Maklum Balas</button></center>
                           <?php } else if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity != NULL) { ?>
-                              <center><button class="btn btn-info" disable>Diterima</button></center>
+                              <center><span class="glyphicon glyphicon-check"></span></center>
                           <?php } ?>
                         </td>
                         
@@ -94,14 +94,14 @@
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>No.</th>
-                        <th>Nama Aktiviti</th>
-                        <th>Tarikh</th>
-                        <th>Masa</th>
-                        <th>Tempat</th>
-                        <th>Jenis Aktiviti</th>
-                        <th>Bayaran</th>
-                        <th>Tindakan</th>
+                        <th><center>No.</center></th>
+                        <th><center>Nama Aktiviti</center></th>
+                        <th><center>Tarikh</center></th>
+                        <th><center>Masa</center></th>
+                        <th><center>Tempat</center></th>
+                        <th><center>Jenis Aktiviti</center></th>
+                        <th><center>Bayaran Aktiviti</center></th>
+                        <th><center>Maklum Balas</center></th>
                       </tr>
                     </tfoot>
                   </table>

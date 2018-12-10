@@ -109,7 +109,7 @@ session_start();
 			                        <td><?php echo $row['Fee_status']; ?></td>
 			                        <td><?php echo $row['Fee_date']; ?></td>
                                     <td><?php echo $row['Fee_type']; ?></td>
-			                       <<td><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';">Kemaskini</button><br>
+			                       <td><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';">Kemaskini</button><br>
                                   <form method="post" action="controller.php?feeID=<?php echo $row["Fee_id"]; ?>">
                                   <input type="hidden" name="Fee_id" value="<?php echo $row["Fee_id"]; ?>">
                                   <input type="submit" name="deleteFee" onclick='return checkDeleteFee()' class="btn btn-danger" value="Padam">

@@ -10,7 +10,7 @@
     }
 
     require('../connection.php');
-    $id = $_GET['famIC'];
+    $id = $_GET['family_ic'];
 
     $sql = mysqli_query($myConnection,"SELECT * FROM `family` WHERE `family_ic` = '$id' ") or die (mysqli_error());
     $row=mysqli_fetch_array($sql);
