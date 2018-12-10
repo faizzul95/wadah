@@ -1,3 +1,27 @@
+<?php 
+
+require ('../connection.php');
+session_start();
+
+$member_ic = $_SESSION['memberIC'];
+
+ //if(!isset($_SESSION['role'])) // If session is not set then redirect to home
+    {
+      // header("Location:logout.php");  
+    }
+  // else if($_SESSION['role'] != "admin") // if not admin redirect to home
+    {
+      // echo ("<SCRIPT LANGUAGE='JavaScript'>
+          //window.alert('Anda tidak mempunyai akses ke menu Admin.')
+        //  window.location =// 'logout.php';  
+    }
+
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,168 +31,145 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="icon" href="../favicon.ico">
-		<title>MAKLUM BALAS</title>
+		<link rel="icon" href="../admin/favicon.ico">
+		<title>Admin | Aktiviti Ahli</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+
+		<script>
+      	function checkDeleteMem(){
+             return confirm('Padam Aktiviti ?');
+         }
+
+      </script>
 	</head>
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../admin/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
-		<header>
-			<a href="../index.php"><img src="../images/logo.jpg" width="50%" height="50%"></a>
-		</header>
 		<section>
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<article class="blog-post">
 						<div class="blog-post-image">
-							<a href="../post.html"><img src="../images/750x500-5.jpg" alt=""></a>
+							<a href="../admin/post.html"><img src="../admin/images/750x500-5.jpg" alt=""></a>
 						</div>
 						<div class="blog-post-body">
-							<h2 align="center">Maklum Balas</h2>
-							<div align="center">
-							  <table width="306" border="1">
-							    <tr>
-							      <th width="59" scope="col">Sangat Tidak Setuju</th>
-							      <th width="51" scope="col">Tidak Setuju</th>
-							      <th width="46" scope="col">Tidak Pasti</th>
-							      <th width="51" scope="col"> Setuju</th>
-							      <th width="65" scope="col"><div align="center">Sangat Setuju</div></th>
-						        </tr>
-							    <tr>
-							      <td><div align="center">1</div></td>
-							      <td><div align="center">2</div></td>
-							      <td><div align="center">3</div></td>
-							      <td><div align="center">4</div></td>
-							      <td><div align="center">5</div></td>
-						        </tr>
-						      </table>
-						  </div>
-							<p>&nbsp;</p>
-							<div class="post-meta"><span><i class="fa fa-clock-o"></i></span></div>
 							<div class="blog-post-text">
-							  <table width="734" border="1">
-							  <tr>
-							  <td><table width="734" border="1">
-							    <tr>
-							      <th width="612" scope="col">&nbsp;</th>
-							      <th width="17" scope="col"><form name="form1" method="post" action="">
-							        <div align="center">1 </div>
-							        </form></th>
-							      <th width="17" scope="col"><div align="center">2</div></th>
-							      <th width="17" scope="col"><div align="center">3</div></th>
-							      <th width="17" scope="col"><div align="center">4</div></th>
-							      <th width="17" scope="col"><div align="center">5</div></th>
-						        </tr>
-							    <tr>
-							      <td>Saya dapat maklumat selepas mengikuti aktiviti.</td>
-							      <td><input type="radio" name="radio" id="16" data-col="1" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio" id="17" data-col="1" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio" id="18" data-col="1" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio" id="19" data-col="1" value="Setuju"></td>
-							      <td><input type="radio" name="radio" id="110" data-col="1" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td height="24">Saya dapat jumpa kawan baru selepas mengikuti aktiviti ini.</td>
-							      <td><input type="radio" name="radio1" id="111" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio1" id="112" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio1" id="113" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio1" id="114" value="Setuju"></td>
-							      <td><input type="radio" name="radio1" id="115" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Pengunaan peralatan sangat bagus.</td>
-							      <td><input type="radio" name="radio2" id="120" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio2" id="119" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio2" id="118" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio2" id="117" value="Setuju"></td>
-							      <td><input type="radio" name="radio2" id="116" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Makanan disediakan sedap dan bersih,</td>
-							      <td><input type="radio" name="radio3" id="121" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio3" id="122" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio3" id="123" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio3" id="124" value="Setuju"></td>
-							      <td><input type="radio" name="radio3" id="125" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Tempat sangat selesa.</td>
-							      <td><input type="radio" name="radio4" id="126" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio4" id="127" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio4" id="128" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio4" id="129" value="Setuju"></td>
-							      <td><input type="radio" name="radio4" id="130" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Saya berpuas hati dengan perkhidmatan yang disediakan.</td>
-							      <td><input type="radio" name="radio5" id="131" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio5" id="132" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio5" id="133" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio5" id="134" value="Setuju"></td>
-							      <td><input type="radio" name="radio5" id="135" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Aktiviti ini dijalankan pada hari terluang .</td>
-							      <td><input type="radio" name="radio6" id="136" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio6" id="137" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio6" id="138" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio6" id="139" value="Setuju"></td>
-							      <td><input type="radio" name="radio6" id="140" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Aktiviti ini memberi manfaat kepada saya.</td>
-							      <td><input type="radio" name="radio7" id="141" value="Sangat Tidak Setuj"></td>
-							      <td><input type="radio" name="radio7" id="142" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio7" id="143" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio7" id="144" value="Setuju"></td>
-							      <td><input type="radio" name="radio7" id="145" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Ingin mengajak teman lain menyertai aktiviti.</td>
-							      <td><input type="radio" name="radio8" id="1412" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio8" id="1413" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio8" id="1414" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio8" id="1415" value="Setuju"></td>
-							      <td><input type="radio" name="radio8" id="1416" value="Sangat Setuju"></td>
-						        </tr>
-							    <tr>
-							      <td>Ingin melibatkan diri dengan aktiviti ini lagi jika ada.</td>
-							      <td><input type="radio" name="radio9" id="150" value="Sangat Tidak Setuju"></td>
-							      <td><input type="radio" name="radio9" id="148" value="Tidak Setuju"></td>
-							      <td><input type="radio" name="radio9" id="149" value="Tidak Pasti"></td>
-							      <td><input type="radio" name="radio9" id="147" value="Setuju"></td>
-							      <td><input type="radio" name="radio9" id="146" value="Sangat Setuju"></td>
-						        </tr>
-							    </table></td>
-							  </tr>
-							  </table>
-							  <p>&nbsp;</p>
+								<br><nav aria-label="breadcrumb">
+								  <ol class="breadcrumb">
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="../admin/admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Aktiviti Ahli</li>
+								  </ol>
+								</nav><br><br>
+								<div class="container">
+								<section>
+   
+						            <table style="width:100%"> 
+						            	<tr>
+						            		<td><form method="post" action="../admin/admin.php">
+						            		</form> </td>
+						                  <td>
+						            		<input type="submit" name="login" value="Daftar Aktiviti Ahli" onclick="location.href='register_aktiviti.php';" class="btn btn-primary pull-right">
+						            	</td>
+						            	</tr>   
+						            </table>
+
+						            <br>
+
+									<table id="example" class="table table-striped table-bordered" style="width:100%">
+										<thead>
+											<tr>
+												<th>No.</th>
+												<th>Aktiviti  ID</th>
+												<th>Jenis Aktiviti</th>
+												<th>Topik</th>
+												<th>Tempat</th>
+												<th>Tarikh</th>
+                                                <th>Masa</th>
+                                                <th>Penceramah</th>
+                                                <th>Tindakan</th>
+											</tr>
+										</thead>
+										<tbody>
+
+
+											<?php 
+
+						               {
+						                	 $sql = "SELECT * FROM `activity`";
+						                }
+						 
+						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
+
+						                if (mysqli_num_rows($result)==0){
+						                     echo "Data Tidak Ditemui";
+						                  }
+						                else{
+							                $count = 1;
+							                while($row = mysqli_fetch_assoc($result))
+							                 { 
+							                 		$mbr_ic = $row['mbr_ic'];
+							                  ?>
+							                     
+							                     <tr>
+												<td><?php echo $count; ?></td>
+												<td><?php echo $row['act_id']; ?></td>
+												<td><?php echo $row['act_type']; ?></td>
+												<td><?php echo $row['act_topic']; ?></td>
+												<td><?php echo $row['act_venue']; ?></td>
+                                                <td><?php echo $row['act_date']; ?></td>
+                                                <td><?php echo $row['act_time']; ?></td>
+                                                <td><?php echo $row['naqib_name']; ?></td>
+												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?member_ic=<?php echo $act_id; ?>';">Kemaskini</button><br>
+													 <form method="post" action="controller.php?act_id=<?php echo $row["act_id"]; ?>">
+						                              <input type="hidden" name="act_id" value="<?php echo $row['act_id']; ?>">
+						                              <input type="submit" name="deleteactivityahli" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
+						                          </form>
+												</td>
+											</tr>
+
+							                    <?php
+							                    $count++;
+							                  }
+							                 } 
+						                    ?>
+
+										</tbody>
+										<tfoot>
+											<tr>
+												<th>No.</th>
+												<th>Masyarakat ID</th>
+												<th>Nama Aktiviti</th>
+												<th>Alamat</th>
+												<th>No. Telefon</th>
+												<th>Tarikh</th>
+                                                <th>Masa</th>
+                                                <th>Penceramah</th>
+                                                <th>Tindakan</th>
+                                                
+										  </tr>
+										</tfoot>
+									</table>
+								</section>
 							</div>
-					      <form name="form2" method="post" action="">
-					        <input type="submit" name="Button2" id="Button2" value="BATAL">
-					        <input type="submit" name="Button" id="Button" value="HANTAR">
-					      </form>
+							</div>
 						</div>
 					</article>
 				</div>
-				<div class="col-md-4 sidebar-gutter"></div>
-			</div>
 			</div>
 		</section>
 		</div><!-- /.container -->
 
 		<footer class="footer">
-			<?php include '../footer.php'; ?>
+			<?php include '../style/footer.php'; ?>
 		</footer>
 
 		<!-- Bootstrap core JavaScript
@@ -180,3 +181,48 @@
 		<script src="../js/mooz.scripts.min.js"></script>
 	</body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT PENDIDIKAN</font></center></center></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
+		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
+	  </div>
+    </div>
+  </div>
+</div>
+
+<!-- ajax untuk pendidikan -->
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "admin_edu_info.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.modal-body').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+    })
+</script>
