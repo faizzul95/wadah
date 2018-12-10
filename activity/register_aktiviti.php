@@ -1,16 +1,19 @@
-
 <?php 
 
 require ('../connection.php');
 session_start();
 
-$member_ic = $_SESSION['memberIC'];
-
-
-
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+ if(!isset($_SESSION['role'])) // If session is not set then redirect to home
+    {
+       header("Location:logout.php");  
+    }
+   else if($_SESSION['role'] != "admin") // if not admin redirect to home
+    {
+       echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Anda tidak mempunyai akses ke menu Admin.')
+          window.location = 'logout.php';
+          </SCRIPT>");  
+    }
 
 ?>
 
@@ -61,8 +64,7 @@ $member_ic = $_SESSION['memberIC'];
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Aktiviti Ahli</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+
 				<div class="container">
 				<section>
             
@@ -74,21 +76,15 @@ $member_ic = $_SESSION['memberIC'];
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
 											<tr>
-												<td>Aktiviti ID:</td>
-												<td><br><input name="act_id" type="text" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "60" class="form-control"></td>
-											</tr>
-											<tr>
 												<td>Aktiviti:</td>
-											  <td><select name="act_type" required>
+											  <td><select name="act_type" class="form-control" required>
 											    <option value="">- Jenis Aktiviti -</option>
 											    <option valuea="Muktamar">Muktamar</option>
 											    <option value="Tamrin">Tamrin</option>
 											    <option value="Usrah">Usrah</option>
 											    <option value="Rehleh">Rehleh</option>
-											    <
-											    </select>											    <br></td>
+											    </select>
+											</td>
 											</tr>
 											<tr>
 												<td>Topik :</td>

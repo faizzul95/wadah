@@ -73,13 +73,15 @@
                            $Fee_activity_status = $row3['Fee_status'];
                            $fees_activity_id = $row3['activity_id'];
 
-                           // $result4 = $myConnection->query("SELECT * FROM `feedback` WHERE `activity_id` = '$activity_id' AND `activity_id` = '$act_id'");
-                           // $row4 = $result4->fetch_assoc();
-                           // $feedback_activity = $row4['activity_id'];
+                           $result4 = $myConnection->query("SELECT * FROM `feedback` WHERE `activity_id` = '$act_id'");
+                           $row4 = $result4->fetch_assoc();
+                           $feedback_activity = $row4['activity_id'];
 
-                          if($today >= $act_date AND $Fee_activity_status != NULL) { ?>
+                          if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity == NULL) { ?>
                           <center><button class="btn btn-info" onclick="location.href='../activity/feedbackahli.php?act_id=<?php echo $row['act_id']; ?>';">Maklum Balas</button></center>
-                          <?php }  ?>
+                          <?php } else if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity != NULL) { ?>
+                              <center><button class="btn btn-info" disable>Diterima</button></center>
+                          <?php } ?>
                         </td>
                         
                       </tr>
