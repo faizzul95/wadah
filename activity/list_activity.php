@@ -93,7 +93,7 @@ session_start();
 									<table style="width:100%"> 
 						            	<tr>
 						                <td>
-						            		<input type="submit" name="login" value="Daftar Aktiviti" onclick="location.href='admin_naqib_registration.php';" class="btn btn-primary pull-right">
+						            		<input type="submit" name="login" value="Daftar Aktiviti" onclick="location.href='register_aktiviti.php';" class="btn btn-primary pull-right">
 						            	</td>
 						            	</tr>   
 						            </table>
@@ -145,8 +145,8 @@ session_start();
 							                     <tr>
 												<td><?php echo $count; ?></td>
 												<td><?php echo $row['act_name']; ?></td>
-												<td><?php echo $row['act_time']; ?></td>
 												<td><?php echo $row['act_date']; ?></td>
+												<td><?php echo $row['act_time']; ?></td>
 												<td><?php echo $row['act_venue']; ?></td>
 												<td><?php echo $row['act_description']; ?></td>
 												<td><?php echo $row['act_category']; ?></td>

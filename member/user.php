@@ -25,10 +25,6 @@
  $Fee_type = $row['Fee_type'];
  $Fee_amount = $row['Fee_amount'];
  
-
- $result = $myConnection->query("SELECT * FROM `feedback` WHERE `member_ic` = '$mmbrIC'"); 
- $row = $result->fetch_assoc();
- $member_ic = $row['member_ic'];
 //  echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';

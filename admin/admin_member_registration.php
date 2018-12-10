@@ -130,7 +130,7 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Tarikh Lahir :</td>
 												<td><br>
-												<input name="mbr_dob" type="date" autocomplete="off" id="dob" size="50" class="form-control" maxlength="50" required>
+												<input name="mbr_dob" type="text" autocomplete="off" id="dob" size="50" class="form-control" maxlength="50" required>
 												</td>
 											</tr>
 											<tr>

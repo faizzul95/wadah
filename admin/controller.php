@@ -22,14 +22,24 @@ if (isset($_POST['reg_member']))
     $usr_role = "member";
     $mbr_profile_picture = "user.png";
 
-    $Fee_status = "Belum Dibayar";
-    $Fee_type = "Yuran Ahli";
-
+    // first payment as a member
+    $Fee_amount = mysqli_real_escape_string($myConnection, $_POST['Fee_amount']);
+    
+    if ($Fee_amount != NULL) {
+      $Fee_status = "Telah Dibayar";
+      $Fee_date = mysqli_real_escape_string($myConnection, $_POST['Fee_date']);
+      $Fee_type = mysqli_real_escape_string($myConnection, $_POST['Fee_type']);
+    }else{
+      $Fee_status = "Belum Dibayar";
+      $Fee_date = NULL;
+      $Fee_type = "Yuran Ahli";
+    }
+    
     // $date = mysqli_real_escape_string($myConnection, date('Y-m-d'));
     $check_ic = mysqli_query($myConnection, "SELECT * FROM `user` WHERE `usr_username` = '$mbr_ic'");
     if(mysqli_num_rows($check_ic) > 0){
         echo ("<SCRIPT LANGUAGE='JavaScript'>
-        window.alert('Failed to register, Member already exist')
+        window.alert('Pendaftaran tidak berjaya, No KP telah berdaftar')
         window.location.href = window.history.back();
             </SCRIPT>");
     }else{
@@ -46,17 +56,25 @@ if (isset($_POST['reg_member']))
         ('$mbr_name','$mbr_ic','$mbr_address','$mbr_gender','$mbr_phone','$mbr_dob','$mbr_email','$mbr_branch','$mbr_profile_picture' )";
       $result2 = mysqli_query($myConnection, $query_member) or die(mysqli_error($myConnection));
 
-      $query3 = "INSERT INTO `fees` 
-        (`member_ic`,`Fee_status`,`Fee_type`)
-         VALUES 
-        ('$mbr_ic','$Fee_status','$Fee_type')";
-      $result3 = mysqli_query($myConnection, $query3) or die(mysqli_error($myConnection));
+      if ($Fee_amount == "") {
+        $query3 = "INSERT INTO `fees` 
+          (`member_ic`,`Fee_status`,`Fee_type`)
+           VALUES 
+          ('$mbr_ic','$Fee_status','$Fee_type')";
+        $result3 = mysqli_query($myConnection, $query3) or die(mysqli_error($myConnection));
+      }else{
+        $query3 = "INSERT INTO `fees` 
+          (`member_ic`,`Fee_status`,`Fee_type`,`Fee_date`,`Fee_amount`)
+           VALUES 
+          ('$mbr_ic','$Fee_status','$Fee_type', '$Fee_date','$Fee_amount')";
+        $result3 = mysqli_query($myConnection, $query3) or die(mysqli_error($myConnection));
+      }
 
 	    if($result3)
 	    {
           // mail function
            $title = "WADAH";
-           $message = "Assalamualaikum, ".$mbr_name."\nPermohonan anda telah berjaya. Sila Layaran Laman Web http://localhost/wadah/login.php?page=logmasuk \n
+           $message = "Assalamualaikum, ".$mbr_name."\n\nPermohonan anda telah berjaya. Sila Layaran Laman Web http://localhost/wadah/login.php?page=logmasuk \n
            Berikut adalah maklumat log masuk
            \n No. Kad Pengenalan : ".$mbr_ic.
             "\nKata Laluan : ".$usr_password.

@@ -91,7 +91,8 @@ if (isset($_POST['feedbackahli']))
        
           echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Terima kasih kerana memberi maklum balas')
-          window.location.href = window.history.back();
+          // window.location.href = window.history.back();
+          window.location = '../member/user.php?result=berjaya';
           </SCRIPT>");
         }
         else
