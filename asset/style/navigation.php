@@ -30,9 +30,9 @@
 						<li><a href="../index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ahli<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
-						       <li><a href="list_member.php">Senarai Ahli</a></li>
-						       <li><a href="list_speaker.php">Senarai Speaker</a></li>
-						       <li><a href="list_naqib.php">Senarai Naqib</a></li>
+						       <li><a href="../admin/list_member.php">Senarai Ahli</a></li>
+						       <li><a href="../admin/list_speaker.php">Senarai Speaker</a></li>
+						       <li><a href="../admin/list_naqib.php">Senarai Naqib</a></li>
 						    </ul>
 					     </li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
@@ -43,15 +43,15 @@
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="../asset/user_asset_reg.php">Daftar Aset</a></li>
-					          <li><a href="../asset/user_asset_maintenance.php">Penyelenggaraan Aset</a></li>
-                              <li><a href="../asset/user_asset_rent.php">Sewaan Aset</a></li>
+					          <li><a href="user_asset_reg.php">Daftar Aset</a></li>
+					          <li><a href="user_asset_maintenance.php">Penyelenggaraan Aset</a></li>
+                              <li><a href="user_asset_rent.php">Sewaan Aset</a></li>
 					        </ul>
 				      	</li>
 				      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Akaun<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="account/">Senarai Penaja</a></li>
-					          <li><a href="account/">Pembelanjaan</a></li>
+					          <li><a href="../account/">Senarai Penaja</a></li>
+					          <li><a href="../account/">Pembelanjaan</a></li>
 					        </ul>
 				      	</li>
 
@@ -80,7 +80,7 @@
 			    
 			    <?php if(isset($_SESSION['role'])){ ?>
 					    <ul class="nav navbar-nav navbar-right">
-						 <li><a href="logout.php">Log Keluar &nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
+						 <li><a href="../logout.php">Log Keluar &nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
 						</ul> 
 				<?php } else { ?>
 					 <ul class="nav navbar-nav navbar-right">
