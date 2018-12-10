@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2018 at 02:47 PM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Dec 10, 2018 at 11:08 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `wadah4a`
@@ -23,104 +25,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `act_activity`
+-- Table structure for table `feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `act_activity` (
-  `act_date` date NOT NULL,
-  `act_description` varchar(500) NOT NULL,
-  `act_topic` varchar(500) NOT NULL,
-  `act_venue` varchar(500) NOT NULL,
-  `act_time` int(20) NOT NULL
+CREATE TABLE `feedback` (
+  `radio` int(11) NOT NULL,
+  `radio1` int(11) NOT NULL,
+  `radio2` int(11) NOT NULL,
+  `radio3` int(11) NOT NULL,
+  `radio4` int(11) NOT NULL,
+  `radio5` int(11) NOT NULL,
+  `radio6` int(11) NOT NULL,
+  `radio7` int(11) NOT NULL,
+  `radio8` int(11) NOT NULL,
+  `radio9` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `act_member`
+-- Table structure for table `public`
 --
 
-CREATE TABLE IF NOT EXISTS `act_member` (
-  `member_id` varchar(20) NOT NULL,
-  `member_name` varchar(100) NOT NULL,
-  `member_add` varchar(200) NOT NULL,
-  `member_phone` int(20) NOT NULL
+CREATE TABLE `public` (
+  `public_id` varchar(20) NOT NULL,
+  `public_name` varchar(500) NOT NULL,
+  `public_add` varchar(500) NOT NULL,
+  `public_phone` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `act_naqib`
+-- Dumping data for table `public`
 --
 
-CREATE TABLE IF NOT EXISTS `act_naqib` (
-  `naqib_id` varchar(20) NOT NULL,
-  `naqib_name` varchar(100) NOT NULL,
-  `naqib_phone` int(20) NOT NULL,
-  `naqib_mail` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `act_public`
---
-
-CREATE TABLE IF NOT EXISTS `act_public` (
-  `public_id` varchar(30) NOT NULL,
-  `public_name` varchar(100) NOT NULL,
-  `public_add` varchar(200) NOT NULL,
-  `public_phone` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `act_speak`
---
-
-CREATE TABLE IF NOT EXISTS `act_speak` (
-  `speak_id` varchar(20) NOT NULL,
-  `speak_name` varchar(100) NOT NULL,
-  `speak_position` varchar(100) NOT NULL,
-  `speak_phone` int(20) NOT NULL,
-  `speak_mail` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `act_type`
---
-
-CREATE TABLE IF NOT EXISTS `act_type` (
-  `tamrin` varchar(200) NOT NULL,
-  `muktamar` varchar(200) NOT NULL,
-  `rehlah` varchar(200) NOT NULL,
-  `usrah` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `public` (`public_id`, `public_name`, `public_add`, `public_phone`) VALUES
+('343', '43453', '43', 435);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `act_member`
+-- Indexes for table `public`
 --
-ALTER TABLE `act_member`
-  ADD PRIMARY KEY (`member_id`);
-
---
--- Indexes for table `act_naqib`
---
-ALTER TABLE `act_naqib`
-  ADD PRIMARY KEY (`naqib_id`);
-
---
--- Indexes for table `act_public`
---
-ALTER TABLE `act_public`
+ALTER TABLE `public`
   ADD PRIMARY KEY (`public_id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
