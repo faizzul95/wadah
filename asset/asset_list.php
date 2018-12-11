@@ -43,7 +43,7 @@ session_start();
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../asset/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -104,9 +104,20 @@ session_start();
 			                        <td><?php echo $row['asset_quantity']; ?></td>
                                     <td><?php echo $row['asset_place']; ?></td>
                                     <td><?php echo $row['asset_desc']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
-		                          </tr>
+			                       <td><button class="btn btn-primary" onclick="location.href='user_asset_edit.php?asset_id=<?php echo $row['asset_id']; ?>';">Kemaskini</button><br>
+		                          
+                                  <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                            <form onsubmit="return checkDeleteAsset(this);" method="post" action="controller.php?asset_id=<?php echo $asset_id; ?>">
+                                    <input type="hidden" name="asset_id" value="<?php echo $asset_id; ?>">
+                                    <button name="deleteasset" class="btn btn-danger">
+                                      <span class="glyphicon glyphicon-trash"></span> 
+                                    </button>
+                              </form>
+                              </td>
+                              </tr>
 			                      <?php
+                             
 							                    $count++;
 							                  }
 							                 } 

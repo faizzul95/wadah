@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <?php 
 
 require ('../connection.php');
@@ -95,7 +89,6 @@ session_start();
 						                //$sql = "SELECT * FROM `maintenance`";
 
 						                $sql = "SELECT * FROM `rent` 
-										INNER JOIN `asset` ON `asset`.`asset_id` = `rent`.`asset_id` 
 										INNER JOIN `asset` ON `asset`.`asset_id` = `rent`.`asset_id`";
 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
@@ -117,7 +110,7 @@ session_start();
                                     <td><?php echo $row['rent_startdate']; ?></td>
                                     <td><?php echo $row['rent_finishdate']; ?></td>
                                     <td><?php echo $row['rent_companyname']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+			                       <td><button class="btn btn-primary" onclick="location.href='user_asset_edit.php?asset_id=<?php echo $row['asset_id']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
 		                          </tr>
 			                      <?php
 							                    $count++;

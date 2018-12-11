@@ -90,7 +90,7 @@ if (isset($_POST['rent_asset']))
             $query_rentinfo = "INSERT INTO `rent` 
             (`asset_id`,`rent_availability`,`rent_days`,`rent_startdate`,`rent_finishdate`,`rent_companyname`)
                VALUES 
-            ('$asset_id','$rent_availability','$rent_days','$rent_startdate','$rent_finishdate''$rent_companyname')";
+            ('$asset_id','$rent_availability','$rent_days','$rent_startdate','$rent_finishdate','$rent_companyname')";
 			
             $result = mysqli_query($myConnection, $query_rentinfo) or die(mysqli_error($myConnection));
         

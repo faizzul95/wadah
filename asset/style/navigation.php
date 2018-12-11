@@ -43,7 +43,7 @@
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="aseet_list.php">Senarai Aset</a></li>
+					          <li><a href="asset_list.php">Senarai Aset</a></li>
 					          <li><a href="maintenance_list.php">Senarai Penyelenggaraan Aset</a></li>
                               <li><a href="rent_list.php">Senarai Sewaan Aset</a></li>
 					        </ul>
