@@ -53,7 +53,7 @@ session_start();
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								<br>
+								<br><br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><a href="list_fee.php">Halaman Utama</a></li>

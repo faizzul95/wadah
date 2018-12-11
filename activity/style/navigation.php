@@ -51,6 +51,7 @@
 					        <ul class="dropdown-menu">
 					          <li><a href="../account/list_sps.php">Senarai Penaja</a></li>
 					          <li><a href="../account/list_expenses.php">Pembelanjaan</a></li>
+					          <li><a href="../account/list_fee.php">Yuran Ahli</a></li>
 					        </ul>
 				      	</li>
 				      	
