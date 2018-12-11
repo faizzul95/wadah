@@ -80,7 +80,7 @@ if (isset($_POST['rent_asset']))
 {
  
     $asset_type = mysqli_real_escape_string($myConnection, $_POST['asset_type']);
-    $asset_availability = mysqli_real_escape_string($myConnection, $_POST['asset_availability']);
+    $rent_availability = mysqli_real_escape_string($myConnection, $_POST['rent_availability']);
     $rent_days = mysqli_real_escape_string($myConnection, $_POST['rent_days']);
     $rent_startdate = mysqli_real_escape_string($myConnection, $_POST['rent_startdate']);
     $rent_finishdate = mysqli_real_escape_string($myConnection, $_POST['rent_finishdate']);
