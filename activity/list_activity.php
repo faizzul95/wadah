@@ -45,7 +45,7 @@ session_start();
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../admin/style/navigation.php'; ?>
+			<?php include '../activity/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -65,21 +65,22 @@ session_start();
 								  </ol>
 								</nav><br>
 								<div class="container">
-								<section>
+								<section>	
+									
 						            <table style="width:100%"> 
 						            	<tr>
 						                <td width="70%">
 						            		
 						            	</td>
 						            	<td>
-						            		<form method="post" action="list_naqib.php?result=search">
+						            		<form method="post" action="list_activity.php?result=search">
 						            		<table>
 						            			<tr>
 						            				<td width="80%">
-						            					<input type="text" name="search" class="form-control" size="90">
+						            					<input type="text" name="search" autocomplete="off" class="form-control" size="90" required>
 						            				</td>
 						            				<td>
-						            					<input type="submit" value="Carian" class="btn btn-primary pull-right">
+						            					<input type="submit" name="search"  value="Carian" class="btn btn-primary pull-right">
 						            				</td>
 						            			</tr>
 						            		</table>
@@ -89,11 +90,15 @@ session_start();
 						            </table>
 
 						            <br>
-   
-									<table style="width:100%"> 
+
+						            <table style="width:100%"> 
 						            	<tr>
-						                <td>
-						            		<input type="submit" name="login" value="Daftar Aktiviti" onclick="location.href='register_aktiviti.php';" class="btn btn-primary pull-right">
+						                <td width="85%">
+						            		<input type="submit" value="Daftar Aktiviti Awam" onclick="location.href='register_public.php';" class="btn btn-primary pull-right"> &nbsp; &nbsp; &nbsp;
+						            		
+						            	</td>
+						            	<td>
+						            		<input type="submit" value="Daftar Aktiviti Ahli" onclick="location.href='register_aktiviti.php';" class="btn btn-primary pull-right">
 						            	</td>
 						            	</tr>   
 						            </table>
@@ -119,13 +124,9 @@ session_start();
 
 											<?php 
 
-						               if (isset($_POST['mbr_branch'])) {
-						                	$branch = $_POST['mbr_branch'];
-						                	if ($branch == "all") {
-						                		$sql = "SELECT * FROM `activity`";
-						                	}else{
-						                		$sql = "SELECT * FROM `activity` LIKE '%".$query."%'";
-						                	}
+						               if (isset($_POST['search'])) {
+						                	$search = $_POST['search'];
+						                	$sql="SELECT * FROM `activity` WHERE `act_name` LIKE '%" . $search . "%' OR `act_category` LIKE '%" . $search . "%'"; 
 						                }else{
 						                	 $sql = "SELECT * FROM `activity`";
 						                }

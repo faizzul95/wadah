@@ -1,8 +1,4 @@
-              <!--   <table style="width:100%"> 
-                          <tr bgcolor="#5097A4">
-                            <td colspan="8"> <center><b>MAKLUMAT KELUARGA</b></center></td>
-                          </tr>  
-                </table> -->
+             
                 <table style="width:100%"> 
                   <br>
                     <tr>  
@@ -44,7 +40,6 @@
 
 
                       <?php 
-
                             $sql = "SELECT * FROM `family` WHERE `member_ic` = '$member_ic' ORDER BY `family_dob` ASC";
                               $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
@@ -73,7 +68,7 @@
                              $row = mysqli_fetch_array($res);
 
                              if (mysqli_num_rows($res)!=0) { ?>
-                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
+                          <button class="btn btn-info" onclick="location.href='user_occupation_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
                              <?php }else{ ?>
                                <center> - Tiada Maklumat - </center>
                         <?php } ?></center></td>
@@ -91,15 +86,6 @@
                         <?php } ?>
                           </center>
                         </td>
-
-                       <!--  <td>
-                          <button class="btn btn-primary" onclick="location.href='user_family_edit.php?family_ic=<?php echo $family_ic; ?>';">Kemaskini</button><br>
-                          <form method="post" action="controller.php?family_ic=<?php echo $family_ic; ?>">
-                              <input type="text" name="family_ic" value="<?php echo $family_ic; ?>">
-                              <input type="submit" name="deletefamily" onclick='return checkDeleteFamily()' class="btn btn-danger" value="Padam">
-                          </form>
-                        </td>
- -->
                         <td>
                             <button class="btn btn-primary" onclick="location.href='user_family_edit.php?family_ic=<?php echo $family_ic; ?>';">
                               <span class="glyphicon glyphicon-edit"></span>
@@ -112,7 +98,6 @@
                               </form>
                           </td>
                       </tr>
-
                                   <?php
                                   $count++;
                                 }

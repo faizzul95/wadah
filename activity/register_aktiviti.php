@@ -44,7 +44,7 @@ session_start();
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../admin/style/navigation.php'; ?>
+			<?php include '../activity/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -88,9 +88,15 @@ session_start();
 											</tr>
 											<tr>
 												<td>Topik :</td>
-												<td><br><input name="act_topic" type="text" autocomplete="off" size="50" maxlength="500" oninput="maxLengthCheck(this)"
+												<td><br><input name="act_name" type="text" autocomplete="off"  oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "250" class="form-control" required></td>
+											</tr>
+
+											<tr>
+												<td>Penerangan :</td>
+												<td><br>
+													<textarea name="act_description" class="form-control" rows="5" cols="20" required maxlength="250"></textarea></td>
 											</tr>
 											<tr>
 												<td>Tempat :</td>
@@ -105,24 +111,55 @@ session_start();
 											</tr>
                                             
 											<tr>
-												<td>Tarikh/Masa:</td>
+												<td>Tarikh:</td>
 												<td><br><input name="act_date" type="date" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "60" class="form-control"> / <input name="act_time" type="time" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "60" class="form-control"></td>
 											</tr>
+
 											<tr>
-												<td>Nama Penceramah/Naqib:</td>
-												<td><br><input name="naqib_name" type="text" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
+												<td>Masa:</td>
+												<td><br> <input name="act_time" type="time" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "60" class="form-control"></td>
+											</tr>
+
+											<tr>
+												<td>Yuran Aktiviti:</td>
+												<td><br> <input name="act_fee" type="number" maxlength = "4" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
+							                     type = "text"
+							                     maxlength = "60" class="form-control">
+							                 	</td>
+											</tr>
+
+											<tr>
+												<td>Nama Naqib/Naqibah:</td>
+												<td><br>
+											<select name="naqib_ic" id="" class="form-control" required>
+							                 <?php
+                                            
+                                            $query = $myConnection->query("SELECT * FROM naqib");
+                                            $rowCount = $query->num_rows;
+                                            ?>
+		                                        <option value="">- Sila Pilih -</option>
+		                                          <?php
+		                                          if($rowCount > 0){
+		                                              while($row = $query->fetch_assoc()){ 
+		                                                  echo '<option value="'.$row['naqib_ic'].'">'.strtoupper($row['naqib_name']).'</option>';
+		                                              }
+		                                          }else{
+		                                              echo '<option value="">Tiada Vendor yang berdaftar</option>';
+		                                          }
+		                                     ?>
+		                                      
+
+							                 	</td>
 											</tr>
 											
 											
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="register_aktiviti" value="Daftar" class="btn btn-primary">
+													<input type="submit" name="reg_aktiviti_ahli" value="Daftar" class="btn btn-primary form-control">
 												</td>
 											</tr>
                                             

@@ -196,7 +196,10 @@ $member_ic = $_SESSION['memberIC'];
 												     $row = mysqli_fetch_array($res);
 
 												     if (mysqli_num_rows($res)!=0) { ?>
-                                                      <center><button class="btn btn-info" onclick="location.href='list_family.php?mbr_ic=<?php echo $row['member_ic']; ?>';">Lihat</button></center>
+                                                      <center>
+                                                      	<button class="btn btn-info" onclick="location.href='list_family.php?mbr_ic=<?php echo $row['member_ic']; ?>';">Lihat
+                                                      	</button>
+                                                      </center>
                                                      <?php }else{ ?>
                                                      	 <center> - Tiada Maklumat - </center>
                                                      <?php } ?>

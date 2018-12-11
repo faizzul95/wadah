@@ -1,26 +1,19 @@
-
-
-
-
-
-
-
-
-
-
-
 <?php 
 
 require ('../connection.php');
 session_start();
 
-$member_ic = $_SESSION['memberIC'];
-
-
-
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+ if(!isset($_SESSION['role'])) // If session is not set then redirect to home
+    {
+       header("Location:logout.php");  
+    }
+   else if($_SESSION['role'] != "admin") // if not admin redirect to home
+    {
+       echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Anda tidak mempunyai akses ke menu Admin.')
+          window.location = 'logout.php';
+          </SCRIPT>");  
+    }
 
 ?>
 
@@ -34,7 +27,7 @@ $member_ic = $_SESSION['memberIC'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Daftar Masyarakat</title>
+		<title>Admin | Daftar Aktiviti Ahli</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -51,7 +44,7 @@ $member_ic = $_SESSION['memberIC'];
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../admin/style/navigation.php'; ?>
+			<?php include '../activity/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -68,58 +61,95 @@ $member_ic = $_SESSION['memberIC'];
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Masyarakat</li>
+				    <li class="breadcrumb-item active" aria-current="page">Daftar Aktiviti Ahli</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+
 				<div class="container">
 				<section>
             
 								<div align="center">
-								<h1><br>DAFTAR MASYARAKAT</h1></br>
+								<h1><br>
+								DAFTAR AKTIVITI AHLI</h1>
+								</br>
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
 											<tr>
-												<td>No. Kad Pengenalan:</td>
-												<td><br><input name="public_id" type="text" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "60" class="form-control"></td>
-											</tr>
-											<tr>
-												<td>Nama:</td>
-												<td><br><input name="public_name" id="public_name" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" 
-							                         oninput="maxLengthCheck(this)"
-							                         type = "text"
-							                         maxlength = "500"
-							                         min = "1"
-							                         max = "12" class="form-control" required ></td>
-											</tr>
-											<tr>
-												<td>Alamat :</td>
-												<td><br><input name="public_add" type="text" autocomplete="off" size="50" maxlength="500" oninput="maxLengthCheck(this)"
+												<td>Topik :</td>
+												<td><br><input name="act_name" type="text" autocomplete="off"  oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "250" class="form-control" required></td>
 											</tr>
+
 											<tr>
-												<td>No. Telefon :</td>
+												<td>Penerangan :</td>
 												<td><br>
-												<input name="public_phone" type="text" size="50" autocomplete="off" onkeypress="return isNumeric(event)"
+													<textarea name="act_description" class="form-control" rows="5" cols="20" required maxlength="250"></textarea></td>
+											</tr>
+											<tr>
+												<td>Tempat :</td>
+												<td><br>
+												<input name="act_venue" type="text" size="50" autocomplete="off" 
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
-							                         maxlength = "11"
+							                         maxlength = "100"
 							                         min = "1"
-							                         max = "11" class="form-control" required>
+							                         max = "100" class="form-control" required>
 												</td>
+											</tr>
+                                            
+											<tr>
+												<td>Tarikh:</td>
+												<td><br><input name="act_date" type="date" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
+							                     type = "text"
+							                     maxlength = "60" class="form-control"></td>
+											</tr>
+
+											<tr>
+												<td>Masa:</td>
+												<td><br> <input name="act_time" type="time" maxlength = "11" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
+							                     type = "text"
+							                     maxlength = "60" class="form-control"></td>
+											</tr>
+
+											<tr>
+												<td>Yuran Aktiviti:</td>
+												<td><br> <input name="act_fee" type="number" maxlength = "4" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
+							                     type = "text"
+							                     maxlength = "60" class="form-control">
+							                 	</td>
+											</tr>
+
+											<tr>
+												<td>Nama Penceramah:</td>
+												<td><br>
+											<select name="speak_ic" id="" class="form-control" required>
+							                 <?php
+                                            
+                                            $query = $myConnection->query("SELECT * FROM speaker");
+                                            $rowCount = $query->num_rows;
+                                            ?>
+		                                        <option value="">- Sila Pilih -</option>
+		                                          <?php
+		                                          if($rowCount > 0){
+		                                              while($row = $query->fetch_assoc()){ 
+		                                                  echo '<option value="'.$row['speak_ic'].'">'.strtoupper($row['speak_name']).'</option>';
+		                                              }
+		                                          }else{
+		                                              echo '<option value="">Tiada Vendor yang berdaftar</option>';
+		                                          }
+		                                     ?>
+							                 	</td>
 											</tr>
 											
 											
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="register_public" value="Daftar" class="btn btn-primary">
+													<input type="submit" name="reg_aktiviti_awam" value="Daftar" class="btn btn-primary form-control">
 												</td>
 											</tr>
+                                            
 										</form>
 								</TABLE>
 											</div>
@@ -145,4 +175,7 @@ $member_ic = $_SESSION['memberIC'];
 		<script src="../js/jquery.bxslider.js"></script>
 		<script src="../js/mooz.scripts.min.js"></script>
 	</body>
+</html>
+	
+</body>
 </html>

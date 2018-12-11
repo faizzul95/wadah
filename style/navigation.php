@@ -51,7 +51,7 @@
 				      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Akaun<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
 					          <li><a href="account/list_sps.php">Senarai Penaja</a></li>
-					          <li><a href="account/">Pembelanjaan</a></li>
+					          <li><a href="account/list_expenses.php">Pembelanjaan</a></li>
 					        </ul>
 				      	</li>
 
