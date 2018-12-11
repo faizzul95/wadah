@@ -38,6 +38,7 @@ if (isset($_POST['register_asset']))
           </SCRIPT>");
         }
 }
+//update asset
 if (isset($_POST['update_asset']))
 {
     // update asset
@@ -70,12 +71,12 @@ if (isset($_POST['update_asset']))
         else
         { 
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Pendaftaran keluarga tidak berjaya')
+          window.alert('Pendaftaran Aset tidak berjaya')
           window.location.href = window.history.back();
           </SCRIPT>");
         }
 }
-		
+		//delete asset
 		if (isset($_POST['delete_asset'])){
    {
 
@@ -173,7 +174,7 @@ if (isset($_POST['update_maintenance']))
           </SCRIPT>");
         }
 }
-		
+		//delete maintenance
 		if (isset($_POST['delete_maintenance'])){
    {
 
@@ -197,6 +198,7 @@ if (isset($_POST['update_maintenance']))
           }
        
    }
+}
 // rent asset
 if (isset($_POST['rent_asset']))
 {
@@ -235,7 +237,7 @@ if (isset($_POST['rent_asset']))
 }
 if (isset($_POST['update_maintenance']))
 {
-    // update maintenance
+    // update rent
      $asset_type = mysqli_real_escape_string($myConnection, $_POST['asset_type']);
     $asset_status = mysqli_real_escape_string($myConnection, $_POST['asset_status']);
     $asset_quantity = mysqli_real_escape_string($myConnection, $_POST['asset_quantity']);
@@ -270,7 +272,7 @@ if (isset($_POST['update_maintenance']))
           </SCRIPT>");
         }
 }
-		
+		//delete rent
 		if (isset($_POST['delete_rent'])){
    {
 
@@ -327,9 +329,9 @@ if (isset($_POST['register_vendor']))
           </SCRIPT>");
         }
 }
-if (isset($_POST['update_asset']))
+if (isset($_POST['update_vendor']))
 {
-    // update asset
+    // update vendor
      $asset_type = mysqli_real_escape_string($myConnection, $_POST['asset_type']);
     $asset_status = mysqli_real_escape_string($myConnection, $_POST['asset_status']);
     $asset_quantity = mysqli_real_escape_string($myConnection, $_POST['asset_quantity']);
