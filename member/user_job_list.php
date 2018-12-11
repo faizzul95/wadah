@@ -47,21 +47,19 @@
                         <td><center><?php echo $row['company_phone']; ?></center></td>
                         <td><center><?php echo $row['company_email']; ?></center></td>
                         <td><center><?php echo $row['company_position']; ?></center></td>
-                        <td colspan="2"><center><?php
-                          $date=$row["company_start_date"];
-                          $newdate=date_create($date);
-                          echo date_format($newdate,"d/m/Y");?> - <?php
-                          $date=$row["company_end_date"];
-                          $newdate=date_create($date);
-                          echo date_format($newdate,"d/m/Y");?></center>
-                        </td>
-                        <td><button class="btn btn-primary" onclick="location.href='user_job_edit.php?jobID=<?php echo $row['occupation_id']; ?>';">Kemaskini</button><br>
-                          <form method="post" action="controller.php?jobID=<?php echo $row["occupation_id"]; ?>">
-                                  <input type="hidden" name="occupation_id" value="<?php echo $row["occupation_id"]; ?>">
-                                  <input type="submit" name="deletejob" onclick='return checkDeleteJob()' class="btn btn-danger" value="Padam">
-                            </form></td>
+                        <td colspan="2"><center><?php echo $row['company_start_date']; ?> - <?php echo $row['company_end_date']; ?></center></td>
+                        <td>
+                            <button class="btn btn-primary" onclick="location.href='user_job_edit.php?jobID=<?php echo $row["occupation_id"]; ?>';">
+                              <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                             <form method="post" action="controller.php?jobID=<?php echo $row["occupation_id"]; ?>">
+                                    <input type="hidden" name="occupation_id" value="<?php echo $row["occupation_id"]; ?>">
+                                    <button name="deletejob" onclick='return checkDeleteJob()' class="btn btn-danger">
+                                      <span class="glyphicon glyphicon-trash"></span> 
+                                    </button>
+                              </form>
+                          </td>
                       </tr>
-
                                   <?php
                                   $count++;
                                 }

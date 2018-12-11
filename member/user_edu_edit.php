@@ -40,7 +40,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -89,7 +89,7 @@
 				                         type = "text"
 				                         maxlength = "12"
 				                         min = "1"
-				                         max = "12" class="form-control" required></td>
+				                         max = "12" class="form-control"></td>
 								</tr>
 								<tr>
 									<td>Kursus :</td>
@@ -110,7 +110,7 @@
 								</tr>
 								<tr>
 									<td>Tarikh Mula Belajar :</td>
-									<td><br><input name="edu_start_date" value="<?php echo $row['edu_start_date'];?>" type="text" size="50" class="form-control" maxlength="50" required>
+									<td><br><input name="edu_start_date" value="<?php echo $row['edu_start_date'];?>" type="date" size="50" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>

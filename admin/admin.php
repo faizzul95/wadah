@@ -36,6 +36,25 @@ $member_ic = $_SESSION['memberIC'];
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+			<!-- Font Awesome -->
+	  <link rel="stylesheet" href="../admin/bower_components/font-awesome/css/font-awesome.min.css">
+	  <!-- Ionicons -->
+	  <link rel="stylesheet" href="../admin/bower_components/Ionicons/css/ionicons.min.css">
+	  <!-- Theme style -->
+	  <link rel="stylesheet" href="../admin/dist/css/AdminLTE.min.css">
+	  <!-- AdminLTE Skins. Choose a skin from the css/skins
+	       folder instead of downloading all of them to reduce the load. -->
+	  <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css">
+	  <!-- Morris chart -->
+	  <link rel="stylesheet" href="../admin/bower_components/morris.js/morris.css">
+	  <!-- jvectormap -->
+	  <link rel="stylesheet" href="../admin/bower_components/jvectormap/jquery-jvectormap.css">
+	  <!-- Date Picker -->
+	  <link rel="stylesheet" href="../admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+	  <!-- Daterange picker -->
+	  <link rel="stylesheet" href="../admin/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+	  <!-- bootstrap wysihtml5 - text editor -->
+	  <link rel="stylesheet" href="../admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -56,10 +75,92 @@ $member_ic = $_SESSION['memberIC'];
 								
 								<br><br><br>
 								<div class="container">
-								<section>
-   									<?php //include 'list_member.php'; ?>
-								</section>
-							</div>
+
+									  <!-- Main content -->
+								    <section class="content">
+								      <!-- Small boxes (Stat box) -->
+								      <div class="row">
+								        <div class="col-lg-3 col-xs-6">
+								          <!-- small box -->
+								          <div class="small-box bg-aqua">
+								            <div class="inner">
+								              <h3><?php 
+                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM member") or die (mysqli_error($myConnection));
+                                            $count=mysqli_num_rows($countmember);
+                                            echo $count;
+                                            ?></h3>
+
+								              <p>Ahli</p>
+								            </div>
+								            <div class="icon">
+								              <i class="ion ion-person-add"></i>
+								            </div>
+								            <a href="list_member.php" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								          </div>
+								        </div>
+								        <!-- ./col -->
+								        <div class="col-lg-3 col-xs-6">
+								          <!-- small box -->
+								          <div class="small-box bg-green">
+								            <div class="inner">
+								              <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+								              <p>Kewangan</p>
+								            </div>
+								            <div class="icon">
+								              <i class="ion ion-stats-bars"></i>
+								            </div>
+								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								          </div>
+								        </div>
+								        <!-- ./col -->
+								        <div class="col-lg-3 col-xs-6">
+								          <!-- small box -->
+								          <div class="small-box bg-yellow">
+								            <div class="inner">
+								              <h3><?php 
+                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM member") or die (mysqli_error($myConnection));
+                                            $count=mysqli_num_rows($countmember);
+                                            echo $count;
+                                            ?></h3>
+
+								              <p>Awam</p>
+								            </div>
+								            <div class="icon">
+								              <i class="ion ion-person-add"></i>
+								            </div>
+								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								          </div>
+								        </div>
+								        <!-- ./col -->
+								        <div class="col-lg-3 col-xs-6">
+								          <!-- small box -->
+								          <div class="small-box bg-red">
+								            <div class="inner">
+								              <h3><?php 
+                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM member") or die (mysqli_error($myConnection));
+                                            $count=mysqli_num_rows($countmember);
+                                            echo $count;
+                                            ?></h3>
+
+								              <p>Aktiviti</p>
+								            </div>
+								            <div class="icon">
+								              <i class="ion ion-pie-graph"></i>
+								            </div>
+								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								          </div>
+								        </div>
+								        <!-- ./col -->
+								      </div>
+
+								      </div>
+								      <!-- /.row (main row) -->
+
+								    </section>
+								    <!-- /.content -->
+								
+								</div>
 							</div>
 						</div>
 					</article>

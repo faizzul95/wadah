@@ -59,12 +59,12 @@ session_start();
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="list_sps.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li><li class="breadcrumb-item active" aria-current="page"><a href="list_sps.php">Senarai Penaja</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Penaja</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+							
+				<br>
 				<div class="container">
 				<section>
             
@@ -115,15 +115,23 @@ session_start();
 											</tr>
 											<tr>
 												<td>Jenis :</td>
-												<td><br><input name="Sps_type" type="text" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
+												<td><br>
+												<select name="Sps_type" class="form-control" required>
+													<option value="">- Pilih -</option>
+														<option value="Wang Tuna">Wang Tunai</option>
+														<option value="Cek">Cek</option>
+                                                        <option value="Keperluan Harian">Keperluan Harian</option>
+                                                        <option value="Makanan & Minuman">Makanan & Minuman</option>
+                                                        <option value="Makanan">Makanan </option>
+                                                        <option value="Minuman">Minuman</option>
+												</select>
+												</td>
 											</tr>
 											</tr>
 										
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="register_sps" value="Daftar" class="btn btn-primary">
+													<input type="submit" name="register_sps" value="Daftar Penaja" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>

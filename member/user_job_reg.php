@@ -27,6 +27,9 @@
 		<!-- Custom styles for this template -->
 		<link href="../css/jquery.bxslider.css" rel="stylesheet">
 		<link href="../css/style.css" rel="stylesheet">
+		<script type="text/javascript">
+			<?php include '../js/input_restriction.js';?>
+		</script>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -48,7 +51,7 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Pelajaran</li>
+				    <li class="breadcrumb-item active" aria-current="page">Daftar Pekerjaan</li>
 				  </ol>
 				</nav>
 								
@@ -57,7 +60,7 @@
 				<section>
             
 								<div align="center">
-								<h1><br>DAFTAR PEKERJAAN</h1></br>
+								<h1><br>DAFTAR MAKLUMAT PEKERJAAN</h1></br>
 
 						<form action="controller.php" method="post">
 								<?php if (isset($member)) { ?>
@@ -71,32 +74,32 @@
 								</tr>
 								<tr>
 									<td>Nama Syarikat :</td>
-									<td><br><input name="company_name" type="text" size="50" maxlength="50" class="form-control" required></td>
+									<td><br><input name="company_name" type="text" autocomplete="off" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Alamat Syarikat :</td>
-									<td><br><input name="company_address" type="text" size="50" maxlength="250" class="form-control" required></td>
+									<td><br><input name="company_address" type="text" autocomplete="off" size="50" maxlength="250" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
-									<td><br><input name="company_phone" type="text" size="50" onkeypress="return isNumeric(event)"
+									<td><br><input name="company_phone" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
-				                         maxlength = "12"
+				                         maxlength = "11"
 				                         min = "1"
-				                         max = "12" class="form-control" required></td>
+				                         max = "11" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Jawatan :</td>
-									<td><br><input name="company_position" type="text" size="50" class="form-control" maxlength="50"></td>
+									<td><br><input name="company_position" type="text" autocomplete="off" size="50" class="form-control" maxlength="50"></td>
 								</tr>
 								<tr>
 									<td>Email Syarikat :</td>
-									<td><br><input name="company_email" type="email" size="50" class="form-control" maxlength="50"></td>
+									<td><br><input name="company_email" type="email" autocomplete="off" size="50" class="form-control" maxlength="50"></td>
 								</tr>
 								<tr>
 									<td>Tarikh Mula Bekerja :</td>
-									<td><br><input name="company_start_date" type="date" size="50" class="form-control" maxlength="50" required>
+									<td><br><input name="company_start_date" autocomplete="off" type="date" size="50" class="form-control" maxlength="50" required>
 									</td>
 								</tr>
 								<tr>

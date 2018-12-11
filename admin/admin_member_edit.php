@@ -8,6 +8,19 @@
     {
       $member = $_GET['member_ic'];
     }
+
+ 	if(!isset($_SESSION['role'])) // If session is not set then redirect to home
+    {
+       header("Location:logout.php");  
+    }
+    if(isset($_SESSION['role']) != "admin") // if not admin redirect to home
+    {
+       echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Anda tidak mempunyai akses ke menu Admin.')
+          window.location = 'logout.php';
+          </SCRIPT>");  
+    }
+
     require('../connection.php');
 
     $sql = mysqli_query($myConnection,"SELECT * FROM `member` WHERE `mbr_ic` = '$member' ") or die (mysqli_error());
@@ -35,7 +48,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../admin/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -56,7 +69,7 @@
 				  </ol>
 				</nav>
 								
-				<br><br><br>
+				<br>
 				<div class="container">
 				<section>
 								<div align="center">

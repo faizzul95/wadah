@@ -23,7 +23,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Ahli | Daftar Pelajaran</title>
+		<title>Ahli | Daftar Institusi</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -37,7 +37,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -54,16 +54,15 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Pelajaran</li>
+				    <li class="breadcrumb-item active" aria-current="page">Daftar Institusi</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+						
 				<div class="container">
 				<section>
             
 								<div align="center">
-								<h1><br>DAFTAR PELAJARAN</h1></br>
+								<h1><br>DAFTAR INSTITUSI</h1></br>
 
 						<form action="controller.php" method="post">
 								<?php if (isset($member)) { ?>
@@ -73,7 +72,7 @@
 							<?php } ?>
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
-									<td colspan="2"><center><b>MAKLUMAT PENDIDIKAN</b></center></td> 
+									<td colspan="2"><center><b>MAKLUMAT INSTITUSI</b></center></td> 
 								</tr>
 								<tr>
 									<td>Nama Institusi :</td>
@@ -88,9 +87,9 @@
 									<td><br><input name="edu_phone" type="text" autocomplete="off" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
-				                         maxlength = "12"
+				                         maxlength = "11"
 				                         min = "1"
-				                         max = "12" class="form-control" required></td>
+				                         max = "11" class="form-control"></td>
 								</tr>
 								<tr>
 									<td>Kursus :</td>
