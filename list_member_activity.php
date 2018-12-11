@@ -20,6 +20,15 @@ session_start();
 		<!-- Custom styles for this template -->
 		<link href="css/jquery.bxslider.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+
+		<script type="text/javascript">
+
+         function checkJoin(){
+             return confirm('Adakah anda mahu ikut serta dengan aktiviti ini ?');
+         }
+
+      </script>
+
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -124,8 +133,14 @@ session_start();
 													    { ?>
 													    <td>
 													       <center>
-																<button class="btn btn-primary" onclick="location.href='admin_member_edit.php?act_id=<?php echo $act_id; ?>';">Sertai Aktiviti
-																</button>
+													       	<?php
+													       		
+													       	 ?>
+													       	<form method="post" action="controller.php">
+													       		<input type="hidden" name="member_ic" value="<?php echo $_SESSION['memberIC']; ?>">
+													       		<input type="hidden" name="member_ic" value="<?php echo $act_id; ?>">
+													       		<input type="submit" name="joinevent" class="btn btn-primary" value="Sertai Aktiviti" onclick='return checkJoin()'>
+													       	</form>
 															</center>
 														</td>
 													 <?php } ?>  
@@ -157,53 +172,8 @@ session_start();
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/jquery.bxslider.js"></script>
-		<script src="../js/mooz.scripts.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.bxslider.js"></script>
+		<script src="js/mooz.scripts.min.js"></script>
 	</body>
 </html>
-
-<!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT PENDIDIKAN</font></center></center></h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
-		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
-	  </div>
-    </div>
-  </div>
-</div>
-
-<!-- ajax untuk pendidikan -->
-<script>
-    $('#exampleModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var modal = $(this);
-          var dataString = 'id=' + recipient;
-
-            $.ajax({
-                type: "GET",
-                url: "admin_edu_info.php",
-                data: dataString,
-                cache: false,
-                success: function (data) {
-                    console.log(data);
-                    modal.find('.modal-body').html(data);
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
-    })
-</script>

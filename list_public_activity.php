@@ -118,7 +118,7 @@ require ('connection.php');
 												<td><center><?php echo $row['act_time']; ?></center></td>
 												<td><center><?php echo $row['act_venue']; ?></center></td>
 												<td><center><?php echo $row['act_description']; ?></center></td>
-												<td><center><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?act_id=<?php echo $act_id; ?>';">Sertai Aktiviti</center></button>
+												<td><center><button class="btn btn-primary" onclick="location.href='controller.php?act_id=<?php echo $act_id; ?>';">Sertai Aktiviti</center></button>
 												</td>
 											</tr>
 
@@ -148,8 +148,8 @@ require ('connection.php');
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
-		<script src="../js/jquery.bxslider.js"></script>
-		<script src="../js/mooz.scripts.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.bxslider.js"></script>
+		<script src="js/mooz.scripts.min.js"></script>
 	</body>
 </html>
