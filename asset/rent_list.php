@@ -43,7 +43,7 @@
                         <td colspan="2"><center><?php echo $row['edu_start_date']; ?> - <?php echo $row['edu_end_date']; ?></center></td>
                         <td><center>
                             <button onclick="location.href='asset_update.php?edu_id=<?php echo $row['asset_id']; ?>';">Update</button>
-                            <form method="post" action="../member/controller.php">
+                            <form method="post" action="../asset/controller.php">
                               <input type="hidden" name="delete_id" value="<?php echo $row['edu_id']; ?>">
                               <input type="submit" name="delete_asset" value="Delete">
                             </form>

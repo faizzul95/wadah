@@ -43,9 +43,9 @@
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="user_asset_reg.php">Daftar Aset</a></li>
-					          <li><a href="user_asset_maintenance.php">Penyelenggaraan Aset</a></li>
-                              <li><a href="user_asset_rent.php">Sewaan Aset</a></li>
+					          <li><a href="aseet_list.php">Senarai Aset</a></li>
+					          <li><a href="maintenance_list.php">Senarai Penyelenggaraan Aset</a></li>
+                              <li><a href="rent_list.php">Senarai Sewaan Aset</a></li>
 					        </ul>
 				      	</li>
 				      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Akaun<span class="caret"></span></a>
