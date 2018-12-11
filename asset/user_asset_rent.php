@@ -62,11 +62,8 @@
 								<h1><br>DAFTAR SEWAAN ASET</h1></br>
 
 						<form action="controller.php" method="post">
-								<?php if (isset($member)) { ?>
-								<input name="member_ic" type="hidden" value="<?php echo $member;?>" size="50" maxlength="50">
-							<?php } else { ?>
-								<input name="family_ic" type="hidden" value="<?php echo $family;?>" size="50" maxlength="50">
-							<?php } ?>
+                        <input name="asset_id" type="hidden" value="<?php echo $row['asset_id'];?>" size="50" maxlength="50">
+								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
 									<td colspan="2"><center><b>MAKLUMAT ASET</b></center></td> 

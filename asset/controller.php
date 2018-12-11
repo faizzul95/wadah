@@ -26,19 +26,80 @@ if (isset($_POST['register_asset']))
         {
        
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Successfully Registered')
+          window.alert('Berjaya Didaftarkan')
           window.location = 'asset_list.php?result=SuccessfullyRegister';
           </SCRIPT>");
         }
         else
         { 
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Fail, Please Try Again')
+          window.alert('Gagal, Sila Cuba Lagi')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+}
+if (isset($_POST['update_asset']))
+{
+    // update asset
+     $asset_type = mysqli_real_escape_string($myConnection, $_POST['asset_type']);
+    $asset_status = mysqli_real_escape_string($myConnection, $_POST['asset_status']);
+    $asset_quantity = mysqli_real_escape_string($myConnection, $_POST['asset_quantity']);
+    $asset_place = mysqli_real_escape_string($myConnection, $_POST['asset_place']);
+    $asset_desc = mysqli_real_escape_string($myConnection, $_POST['asset_desc']);
+
+     $asset_id = mysqli_real_escape_string($myConnection, $_POST['asset_id']);
+
+         $query_assetinfo = "UPDATE `asset` SET 
+        `asset_type` = '$asset_type', 
+        `asset_status` = '$asset_status', 
+        `asset_quantity` = '$asset_quantity',
+        `asset_place` = '$asset_place', 
+        `asset_desc` = '$asset_desc', 
+        WHERE `asset_id` = '$asset_id'";
+
+        $result = mysqli_query($myConnection, $query_assetinfo) or die(mysqli_error($myConnection));
+
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Dikemaskini')
+          window.location = 'user.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Pendaftaran keluarga tidak berjaya')
           window.location.href = window.history.back();
           </SCRIPT>");
         }
 }
 		
+		if (isset($_POST['delete_asset'])){
+   {
+
+        $id=mysqli_real_escape_string($myConnection, $_POST['asset_id']);
+
+        $sql= "DELETE FROM asset WHERE asset_id = '$id' ";
+        $result = mysqli_query($myConnection, $sql) or die (mysqli_error($myConnection));
+        if (!$result)
+          {
+            echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Tidak Berjaya')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+          else
+          {
+             echo ("<SCRIPT LANGUAGE='JavaScript'>
+              window.alert('Berjaya dipadam')
+              window.location.href = window.history.back();
+              </SCRIPT>");
+          }
+       
+   }
+} 
 // maintenance asset
 if (isset($_POST['maintenance_asset']))
 {
