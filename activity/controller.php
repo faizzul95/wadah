@@ -2,21 +2,25 @@
 require ('../connection.php');
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
-// register aktiviti
-if (isset($_POST['register_aktiviti']))
+// register aktiviti member
+if (isset($_POST['reg_aktiviti_ahli']))
 {
 
+    $act_name = mysqli_real_escape_string($myConnection, $_POST['act_name']);
     $act_type = mysqli_real_escape_string($myConnection, $_POST['act_type']);
-    $act_topic = mysqli_real_escape_string($myConnection, $_POST['act_topic']);
-    $act_venue = mysqli_real_escape_string($myConnection, $_POST['act_venue']);
+    $act_description = mysqli_real_escape_string($myConnection, $_POST['act_description']);
+    $act_date = mysqli_real_escape_string($myConnection, $_POST['act_date']);
     $act_time = mysqli_real_escape_string($myConnection, $_POST['act_time']);
-    $naqib_name = mysqli_real_escape_string($myConnection, $_POST['naqib_name']);
+    $act_venue = mysqli_real_escape_string($myConnection, $_POST['act_venue']);
+    $act_category = "Ahli";
+    $act_fee = mysqli_real_escape_string($myConnection, $_POST['act_fee']);
+    $naqib_ic = mysqli_real_escape_string($myConnection, $_POST['naqib_ic']);
   
 
             $query_feeinfo = "INSERT INTO `activity` 
-            (`act_type`,`act_topic`,`act_venue`,`act_time`,`naqib_name`)
+            (`act_name`,`act_type`,`act_description`,`act_date`,`act_time`,`act_venue`,`act_category`,`act_fee`,`naqib_ic`)
                VALUES 
-            ('$act_type','$act_topic','$act_venue','$act_time','$naqib_name')";
+            ('$act_name','$act_type','$act_description','$act_date','$act_time','$act_venue','$act_category','$act_fee','$naqib_ic')";
             $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
         
         if($result)
@@ -24,7 +28,7 @@ if (isset($_POST['register_aktiviti']))
        
           echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Berjaya Didaftar')
-          window.location = 'register_activity_ouput.php?result=SuccessfullyRegister';
+          window.location = 'list_activity.php?result=SuccessfullyRegister';
           </SCRIPT>");
         }
         else
@@ -35,6 +39,44 @@ if (isset($_POST['register_aktiviti']))
           </SCRIPT>");
         }
 }
+
+// register aktiviti member
+if (isset($_POST['reg_aktiviti_awam']))
+{
+
+    $act_name = mysqli_real_escape_string($myConnection, $_POST['act_name']);
+    $act_description = mysqli_real_escape_string($myConnection, $_POST['act_description']);
+    $act_date = mysqli_real_escape_string($myConnection, $_POST['act_date']);
+    $act_time = mysqli_real_escape_string($myConnection, $_POST['act_time']);
+    $act_venue = mysqli_real_escape_string($myConnection, $_POST['act_venue']);
+    $act_category = "Awam";
+    $act_fee = mysqli_real_escape_string($myConnection, $_POST['act_fee']);
+    $speak_ic = mysqli_real_escape_string($myConnection, $_POST['speak_ic']);
+  
+
+            $query_feeinfo = "INSERT INTO `activity` 
+            (`act_name`,`act_type`,`act_description`,`act_date`,`act_time`,`act_venue`,`act_category`,`act_fee`,`speak_ic`)
+               VALUES 
+            ('$act_name','$act_type','$act_description','$act_date','$act_time','$act_venue','$act_category','$act_fee','$speak_ic')";
+            $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya Didaftar')
+          window.location = 'list_activity.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+}
+
     
 //delete activity
 if (isset($_POST['deleteactivity'])){

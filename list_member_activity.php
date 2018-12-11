@@ -94,6 +94,7 @@ session_start();
 												<th><center>Tempat</center></th>
 												<th><center>Penerangan</center></th>
 												<th><center>Jenis</center></th>
+												<th><center>Yuran Aktiviti</center></th>
 												<?php if(isset($_SESSION['memberIC'])) { ?>
 												<th><center>Tindakan</center></th>
 												<?php } ?>  
@@ -119,6 +120,7 @@ session_start();
 							                while($row = mysqli_fetch_assoc($result))
 							                 { 
 							                 		$act_id = $row['act_id'];
+							                 		$act_fee = $row['act_fee'];
 							                  ?>
 							                     
 							                     <tr>
@@ -129,12 +131,13 @@ session_start();
 												<td><center><?php echo $row['act_venue']; ?></center></td>
 												<td><center><?php echo $row['act_description']; ?></center></td>
 												<td><center><?php echo $row['act_type']; ?></center></td>
+												<td><center><?php echo $act_fee; ?></center></td>
 													<?php if(isset($_SESSION['memberIC'])) 
 													    { ?>
 													    <td>
 													       <center>
 													       	<?php
-													       		
+
 													       	 ?>
 													       	<form method="post" action="controller.php">
 													       		<input type="hidden" name="member_ic" value="<?php echo $_SESSION['memberIC']; ?>">

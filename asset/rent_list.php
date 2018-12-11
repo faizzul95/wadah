@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <?php 
 
 require ('../connection.php');
@@ -50,7 +44,7 @@ session_start();
      
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../asset/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">

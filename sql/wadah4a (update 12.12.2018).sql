@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 10, 2018 at 11:37 AM
+-- Generation Time: Dec 11, 2018 at 06:26 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -38,6 +38,9 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `act_venue` varchar(25) NOT NULL,
   `act_category` enum('Ahli','Awam') NOT NULL,
   `act_type` varchar(11) DEFAULT NULL,
+  `act_fee` int(11) DEFAULT NULL,
+  `naqib_ic` bigint(13) DEFAULT NULL,
+  `speak_ic` bigint(13) DEFAULT NULL,
   PRIMARY KEY (`act_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -86,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `education_info` (
   `family_ic` varchar(15) DEFAULT NULL,
   `edu_name` varchar(50) DEFAULT NULL,
   `edu_address` varchar(255) DEFAULT NULL,
-  `edu_phone` int(11) DEFAULT NULL,
+  `edu_phone` bigint(13) DEFAULT NULL,
   `edu_course` varchar(60) DEFAULT NULL,
   `edu_level` varchar(50) DEFAULT NULL,
   `edu_start_date` varchar(25) DEFAULT NULL,
@@ -104,11 +107,9 @@ DROP TABLE IF EXISTS `event`;
 CREATE TABLE IF NOT EXISTS `event` (
   `event_id` int(11) NOT NULL AUTO_INCREMENT,
   `member_ic` varchar(13) NOT NULL,
-  `naqib_ic` bigint(13) DEFAULT NULL,
   `activity_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`event_id`),
-  KEY `event_activity` (`activity_id`),
-  KEY `event_naqib` (`naqib_ic`)
+  KEY `event_activity` (`activity_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -156,6 +157,7 @@ CREATE TABLE IF NOT EXISTS `family` (
 
 DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE IF NOT EXISTS `feedback` (
+  `feedback_id` int(11) NOT NULL AUTO_INCREMENT,
   `member_ic` bigint(13) DEFAULT NULL,
   `activity_id` bigint(13) DEFAULT NULL,
   `q1` int(11) DEFAULT NULL,
@@ -167,7 +169,8 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `q7` int(11) DEFAULT NULL,
   `q8` int(11) DEFAULT NULL,
   `q9` int(11) DEFAULT NULL,
-  `q10` int(11) DEFAULT NULL
+  `q10` int(11) DEFAULT NULL,
+  PRIMARY KEY (`feedback_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -218,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `mbr_ic` varchar(12) DEFAULT NULL,
   `mbr_address` varchar(255) DEFAULT NULL,
   `mbr_gender` varchar(10) DEFAULT NULL,
-  `mbr_phone` int(13) DEFAULT NULL,
+  `mbr_phone` bigint(13) DEFAULT NULL,
   `mbr_dob` date DEFAULT NULL,
   `mbr_email` varchar(40) DEFAULT NULL,
   `mbr_branch` varchar(225) DEFAULT NULL,
@@ -257,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `occupation_info` (
   `family_ic` varchar(15) DEFAULT NULL,
   `company_name` varchar(50) DEFAULT NULL,
   `company_address` varchar(255) DEFAULT NULL,
-  `company_phone` int(12) DEFAULT NULL,
+  `company_phone` bigint(123) DEFAULT NULL,
   `company_position` varchar(60) DEFAULT NULL,
   `company_email` varchar(50) DEFAULT NULL,
   `company_start_date` varchar(20) DEFAULT NULL,
@@ -308,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `speaker` (
   `speak_ic` bigint(13) NOT NULL,
   `speak_name` varchar(100) NOT NULL,
   `speak_address` varchar(255) NOT NULL,
-  `speak_phone` int(20) NOT NULL,
+  `speak_phone` bigint(13) NOT NULL,
   `speak_gender` varchar(15) NOT NULL,
   `speak_mail` varchar(50) NOT NULL,
   PRIMARY KEY (`speak_ic`)
@@ -367,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`user_id`, `usr_username`, `usr_password`, `usr_role`) VALUES
-(1, '1', '1', 'admin');
+(1, 'staff', 'staff', 'admin');
 
 -- --------------------------------------------------------
 

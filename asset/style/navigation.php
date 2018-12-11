@@ -27,7 +27,7 @@
 
 				    <!-- only admin can view-->
 				     <?php if($_SESSION['role'] == 'admin') { ?>
-						<li><a href="../index.php?page=home">Halaman Utama</a></li>
+						<li><a href=../index.php?page=home>Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ahli<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
 						       <li><a href="../admin/list_member.php">Senarai Ahli</a></li>
@@ -37,44 +37,25 @@
 					     </li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="#">Awam</a></li>
-					          <li><a href="#">Ahli</a></li>
+					          <li><a href="../list_public_activity.php">Awam</a></li>
+					          <li><a href="../list_member_activity.php">Ahli</a></li>
 					        </ul>
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="aseet_list.php">Senarai Aset</a></li>
-					          <li><a href="maintenance_list.php">Senarai Penyelenggaraan Aset</a></li>
+					          <li><a href="asset_list.php">Senarai Aset</a></li>
+					          <li><a href="maintenance_list.php">Senarai Penyelenggaraan</a></li>
                               <li><a href="rent_list.php">Senarai Sewaan Aset</a></li>
 					        </ul>
 				      	</li>
 				      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Akaun<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="../account/">Senarai Penaja</a></li>
-					          <li><a href="../account/">Pembelanjaan</a></li>
+					          <li><a href="../account/list_sps.php">Senarai Penaja</a></li>
+					          <li><a href="../account/list_expenses.php">Pembelanjaan</a></li>
 					        </ul>
 				      	</li>
-
-				     <?php } else if($_SESSION['role'] == 'member') { ?>
-						<li><a href="../index.php?page=home">Halaman Utama</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
-						   <ul class="dropdown-menu">
-						       <li><a href="#">Awam</a></li>
-						        <li><a href="#">Ahli</a></li>
-						    </ul>
-					     </li>
-					    <li><a href="../about.php?page=tentangwadah">Tentang Wadah</a></li>
-					    <li><a href="user.php">Profil</a></li>
-					<?php } else { ?>
-						<li><a href="index.php?page=home">Halaman Utama</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
-						   <ul class="dropdown-menu">
-						       <li><a href="#">Awam</a></li>
-						        <li><a href="#">Ahli</a></li>
-						    </ul>
-					     </li>
-					    <li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
-					<?php } ?>
+				      	
+				     <?php } ?>
 
 			    </ul>
 			    

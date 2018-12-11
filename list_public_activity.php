@@ -1,8 +1,6 @@
 <?php 
-
 require ('connection.php');
-// session_start();
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +84,7 @@ require ('connection.php');
 												<th><center>Masa</center></th>
 												<th><center>Tempat</center></th>
 												<th><center>Penerangan</center></th>
+												<th><center>Yuran Aktiviti</center></th>
 												<th><center>Tindakan</center></th>
 											</tr>
 										</thead>
@@ -118,6 +117,8 @@ require ('connection.php');
 												<td><center><?php echo $row['act_time']; ?></center></td>
 												<td><center><?php echo $row['act_venue']; ?></center></td>
 												<td><center><?php echo $row['act_description']; ?></center></td>
+												
+												<td><center><?php echo $row['act_type']; ?></center></td>
 												<td><center><button class="btn btn-primary" onclick="location.href='controller.php?act_id=<?php echo $act_id; ?>';">Sertai Aktiviti</center></button>
 												</td>
 											</tr>

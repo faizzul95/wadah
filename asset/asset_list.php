@@ -43,7 +43,7 @@ session_start();
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../asset/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -53,11 +53,13 @@ session_start();
 			    <article class="blog-post">
 			      <div class="col-md-12">
 			        <article class="blog-post">
-			          <div class="blog-post-image"> <a href="post.html"><img src="images/750x500-5.jpg" alt=""></a> </div>
 			          <div class="blog-post-body">
-			            <div class="blog-post-text"> <br>
-			              <br>
-			              <br>
+			            <div class="blog-post-text"><nav aria-label="breadcrumb">
+								  <ol class="breadcrumb"><br><br>
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Aset</li>
+								  </ol>
+								</nav><br>
 			              <div class="container">
 			                <section>
                              <table style="width:100%"> 
@@ -79,6 +81,7 @@ session_start();
 			                        <th>Kuantiti Aset</th>
 			                        <th>Lokasi Aset</th>
                                     <th>Penerangan Aset</th>
+                                    <th>Tindakan</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>
@@ -104,7 +107,7 @@ session_start();
 			                        <td><?php echo $row['asset_quantity']; ?></td>
                                     <td><?php echo $row['asset_place']; ?></td>
                                     <td><?php echo $row['asset_desc']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Padam</button></td>
 		                          </tr>
 			                      <?php
 							                    $count++;

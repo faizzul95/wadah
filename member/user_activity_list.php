@@ -29,7 +29,7 @@
 
                         $sql = "SELECT `event`.*,`member`.*,`naqib`.*,`activity`.* FROM `event` 
                          INNER JOIN  `member` ON `event`.`member_ic` = `member`.`mbr_ic`
-                         INNER JOIN  `naqib` ON `event`.`naqib_ic` = `naqib`.`naqib_ic`
+                         -- INNER JOIN  `naqib` ON `event`.`naqib_ic` = `naqib`.`naqib_ic`
                          INNER  JOIN  `activity` ON `event`.`activity_id` = `activity`.`act_id`
                         WHERE `member_ic` = '$member_ic'";
                         $result = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));

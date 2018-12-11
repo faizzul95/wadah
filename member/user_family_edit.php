@@ -49,9 +49,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
-						</div>
+						occupation_registration
 						<div class="blog-post-body">
 							<div class="blog-post-text">
 								<br>
@@ -60,9 +58,7 @@
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Keluarga</li>
 				  </ol>
-				</nav>
-								
-				<br><br><br>
+				</nav>	
 				<div class="container">
 				<section>
             
@@ -82,7 +78,7 @@
 									<td><br><input name="family_name" type="text" value="<?php echo $row['family_name'];?>" size="50" maxlength="50" class="form-control" required></td>
 								</tr>
 								<tr>
-									<td>Nombor IC  :</td>
+									<td>No Kad Pengenalan  :</td>
 									<td><br><input name="new_family_ic" type="text" value="<?php echo $row['family_ic'];?>" size="50" onkeypress="return isNumeric(event)"
 				                         oninput="maxLengthCheck(this)"
 				                         type = "text"
