@@ -94,7 +94,7 @@
                                           }else{
                                               echo '<option value="">Tiada aset yang berdaftar</option>';
                                           }
-                                          ?>></td>
+                                          ?></td>
 								</tr>
 								<tr>
 					<td>Status Aset:</td>
@@ -130,7 +130,7 @@
 				
                 <tr>
 					<td>Syarikat Sewaan :</td>
-					<td><br><input name="asset_place" value="" type="text" size="50" class="form-control" maxlength="50"></td>
+					<td><br><input name="rent_companyname" value="" type="text" size="50" class="form-control" maxlength="50"></td>
 				</tr>
 								
 								<tr align="center">

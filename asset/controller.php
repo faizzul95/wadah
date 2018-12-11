@@ -79,18 +79,18 @@ if (isset($_POST['maintenance_asset']))
 if (isset($_POST['rent_asset']))
 {
  
-    $asset_type = mysqli_real_escape_string($myConnection, $_POST['asset_type']);
+    $asset_id = mysqli_real_escape_string($myConnection, $_POST['asset_id']);
     $rent_availability = mysqli_real_escape_string($myConnection, $_POST['rent_availability']);
     $rent_days = mysqli_real_escape_string($myConnection, $_POST['rent_days']);
     $rent_startdate = mysqli_real_escape_string($myConnection, $_POST['rent_startdate']);
     $rent_finishdate = mysqli_real_escape_string($myConnection, $_POST['rent_finishdate']);
-	$asset_place = mysqli_real_escape_string($myConnection, $_POST['asset_place']);
+	$rent_companyname = mysqli_real_escape_string($myConnection, $_POST['rent_companyname']);
 
 
             $query_rentinfo = "INSERT INTO `rent` 
-            (`asset_type`,`asset_availability`,`rent_days`,`rent_startdate`,`rent_finishdate`,`asset_place`)
+            (`asset_id`,`rent_availability`,`rent_days`,`rent_startdate`,`rent_finishdate`,`rent_companyname`)
                VALUES 
-            ('$asset_type','$asset_availability','$rent_days','$rent_startdate','$rent_finishdate'`asset_place`)";
+            ('$asset_id','$rent_availability','$rent_days','$rent_startdate','$rent_finishdate''$rent_companyname')";
 			
             $result = mysqli_query($myConnection, $query_rentinfo) or die(mysqli_error($myConnection));
         
