@@ -32,7 +32,7 @@ session_start();
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Aset</title>
+		<title>Admin | Vendor</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -58,7 +58,7 @@ session_start();
 			            		<nav aria-label="breadcrumb">
 								  <ol class="breadcrumb"><br><br>
 								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="../admin.php">Halaman Utama</a></li>
-								    <li class="breadcrumb-item active" aria-current="page">Senarai Aset</li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Vendor</li>
 								  </ol>
 								</nav><br>
 			              <div class="container">
@@ -67,7 +67,7 @@ session_start();
 						            	<tr>
 						            		<td> </td>
 						                  <td>
-						            		<input type="submit" name="login" value="Tambah Aset" onclick="location.href='user_asset_reg.php';" class="btn btn-primary pull-right">
+						            		<input type="submit" name="login" value="Tambah Vendor" onclick="location.href='admin_vendor_reg.php';" class="btn btn-primary pull-right">
 						            	</td>
 						            	</tr>   
 						            </table>
@@ -76,19 +76,17 @@ session_start();
 			                    <thead>
 			                      <tr>
 			                        <th>#</th>
-			                        <th>Id Aset</th>
-			                        <th>Jenis Aset</th>
-			                        <th>Status Aset</th>
-			                        <th>Kuantiti Aset</th>
-			                        <th>Lokasi Aset</th>
-                                    <th>Penerangan Aset</th>
-                                    <th>Tindakan</th>
+			                        <th>Id Vendor</th>
+			                        <th>Nama Vendor</th>
+			                        <th>Alamat Vendor</th>
+			                        <th>Nombor Telefon</th>
+			                        <th>Penerangan Vendor</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>
 			                      <?php 
 
-						                $sql = "SELECT * FROM `asset`";
+						                $sql = "SELECT * FROM `vendor`";
 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
@@ -102,19 +100,18 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['asset_id']; ?></td>
-			                        <td><?php echo $row['asset_type']; ?></td>
-			                        <td><?php echo $row['asset_status']; ?></td>
-			                        <td><?php echo $row['asset_quantity']; ?></td>
-                                    <td><?php echo $row['asset_place']; ?></td>
-                                    <td><?php echo $row['asset_desc']; ?></td>
+			                        <td><?php echo $row['vendor_id']; ?></td>
+			                        <td><?php echo $row['vendor_name']; ?></td>
+			                        <td><?php echo $row['vendor_address']; ?></td>
+			                        <td><?php echo $row['vendor_phone']; ?></td>
+                                    <td><?php echo $row['vendor_desc']; ?></td>
 			                       <td>
-                            <button class="btn btn-primary" onclick="location.href='user_asset_edit.php?assetID=<?php echo $row["asset_id"]; ?>';">
+                            <button class="btn btn-primary" onclick="location.href='user_vendor_edit.php?vendorID=<?php echo $row["vendor_id"]; ?>';">
                               <span class="glyphicon glyphicon-edit"></span>
                             </button>
-                             <form method="post" action="controller.php?jobID=<?php echo $row["asset_id"]; ?>">
-                                    <input type="hidden" name="asset_id" value="<?php echo $row["asset_id"]; ?>">
-                                    <button name="delete_asset" onclick='return checkDeleteAsset()' class="btn btn-danger">
+                             <form method="post" action="controller.php?jobID=<?php echo $row["vendor_id"]; ?>">
+                                    <input type="hidden" name="vendor_id" value="<?php echo $row["vendor_id"]; ?>">
+                                    <button name="delete_vendor" onclick='return checkDeleteAsset()' class="btn btn-danger">
                                       <span class="glyphicon glyphicon-trash"></span> 
                                     </button>
                               </form>
