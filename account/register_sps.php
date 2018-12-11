@@ -59,12 +59,12 @@ session_start();
 								<br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li><li class="breadcrumb-item active" aria-current="page"><a href="list_sps.php">Senarai Penaja</a></li>
+				    <li class="breadcrumb-item"><a href="list_sps.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Penaja</li>
 				  </ol>
 				</nav>
-							
-				<br>
+								
+				<br><br><br>
 				<div class="container">
 				<section>
             
@@ -118,7 +118,7 @@ session_start();
 												<td><br>
 												<select name="Sps_type" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Wang Tuna">Wang Tunai</option>
+														<option value="Wang Tunai">Wang Tunai</option>
 														<option value="Cek">Cek</option>
                                                         <option value="Keperluan Harian">Keperluan Harian</option>
                                                         <option value="Makanan & Minuman">Makanan & Minuman</option>
@@ -131,7 +131,7 @@ session_start();
 										
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="register_sps" value="Daftar Penaja" class="btn btn-primary form-control">
+													<input type="submit" name="register_sps" value="Daftar" class="btn btn-primary">
 												</td>
 											</tr>
 										</form>

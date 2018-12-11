@@ -127,7 +127,7 @@ session_start();
 												<td><br>
 												<select name="Sps_type" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Wang Tuna">Wang Tunai</option>
+														<option value="Wang Tunai">Wang Tunai</option>
 														<option value="Cek">Cek</option>
                                                         <option value="Keperluan Harian">Keperluan Harian</option>
                                                         <option value="Makanan & Minuman">Makanan & Minuman</option>
