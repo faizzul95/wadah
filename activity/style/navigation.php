@@ -15,7 +15,7 @@
 			  <div class="container-fluid collapse navbar-collapse">
 			  	<?php if(isset($_SESSION['role'])) { ?>
 					<div class="navbar-header">
-				      <a class="navbar-brand" href="index.php?page=home">Wadah</a>
+				      <a class="navbar-brand" href="../index.php?page=home">Wadah</a>
 				    </div>	
 				<?php } else { ?>
 					<div class="navbar-header">
@@ -27,59 +27,41 @@
 
 				    <!-- only admin can view-->
 				     <?php if($_SESSION['role'] == 'admin') { ?>
-						<li><a href=index.php?page=home">Halaman Utama</a></li>
+						<li><a href=../index.php?page=home>Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ahli<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
-						       <li><a href="admin/list_member.php">Senarai Ahli</a></li>
-						       <li><a href="admin/list_speaker.php">Senarai Speaker</a></li>
-						       <li><a href="admin/list_naqib.php">Senarai Naqib</a></li>
+						       <li><a href="../admin/list_member.php">Senarai Ahli</a></li>
+						       <li><a href="../admin/list_speaker.php">Senarai Speaker</a></li>
+						       <li><a href="../admin/list_naqib.php">Senarai Naqib</a></li>
 						    </ul>
 					     </li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="list_public_activity.php">Awam</a></li>
-					          <li><a href="list_member_activity.php">Ahli</a></li>
+					          <li><a href="../list_public_activity.php">Awam</a></li>
+					          <li><a href="../list_member_activity.php">Ahli</a></li>
 					        </ul>
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="asset/asset_list.php">Senarai Aset</a></li>
-					          <li><a href="asset/maintenance_list.php">Senarai Penyelenggaraan</a></li>
-                              <li><a href="asset/rent_list.php">Senarai Sewaan Aset</a></li>
+					          <li><a href="../asset/asset_list.php">Senarai Aset</a></li>
+					          <li><a href="../asset/maintenance_list.php">Senarai Penyelenggaraan</a></li>
+                              <li><a href="../asset/rent_list.php">Senarai Sewaan Aset</a></li>
 					        </ul>
 				      	</li>
 				      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Akaun<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="account/list_sps.php">Senarai Penaja</a></li>
-					          <li><a href="account/list_expenses.php">Pembelanjaan</a></li>
+					          <li><a href="../account/list_sps.php">Senarai Penaja</a></li>
+					          <li><a href="../account/list_expenses.php">Pembelanjaan</a></li>
 					        </ul>
 				      	</li>
-
-				     <?php } else if($_SESSION['role'] == 'member') { ?>
-						<li><a href="index.php?page=home">Halaman Utama</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
-						   <ul class="dropdown-menu">
-						        <li><a href="list_public_activity.php?page=awam">Awam</a></li>
-					          <li><a href="list_member_activity.php?page=ahli">Ahli</a></li>
-						    </ul>
-					     </li>
-					    <li><a href="member/user.php">Profil</a></li>
-					<?php } else { ?>
-						<li><a href="index.php?page=home">Halaman Utama</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
-						   <ul class="dropdown-menu">
-					          <li><a href="list_public_activity.php?page=awam">Awam</a></li>
-					          <li><a href="list_member_activity.php?page=ahli">Ahli</a></li>
-						    </ul>
-					     </li>
-					    <li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
-					<?php } ?>
+				      	
+				     <?php } ?>
 
 			    </ul>
 			    
 			    <?php if(isset($_SESSION['role'])){ ?>
 					    <ul class="nav navbar-nav navbar-right">
-						 <li><a href="logout.php">Log Keluar &nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
+						 <li><a href="../logout.php">Log Keluar &nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
 						</ul> 
 				<?php } else { ?>
 					 <ul class="nav navbar-nav navbar-right">

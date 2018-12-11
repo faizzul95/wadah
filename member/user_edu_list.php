@@ -53,11 +53,15 @@
                           <td><center><?php echo $row['edu_course']; ?></center></td>
                           <td><center><?php echo $row['edu_level']; ?></center></td>
                           <td colspan="2"><center><?php echo $row['edu_start_date']; ?> - <?php echo $row['edu_end_date']; ?></center></td>
-                          <td><button class="btn btn-primary" onclick="location.href='user_edu_edit.php?eduID=<?php echo $row["edu_id"]; ?>';">Kemaskini</button><br>
-
+                          <td>
+                            <button class="btn btn-primary" onclick="location.href='user_edu_edit.php?eduID=<?php echo $row["edu_id"]; ?>';">
+                              <span class="glyphicon glyphicon-edit"></span>
+                            </button>
                              <form method="post" action="controller.php?eduID=<?php echo $row["edu_id"]; ?>">
                                     <input type="hidden" name="edu_id" value="<?php echo $row["edu_id"]; ?>">
-                                    <input type="submit" name="deleteedu" onclick='return checkDeleteEdu()' class="btn btn-danger" value="Padam">
+                                    <button name="deleteedu" onclick='return checkDeleteEdu()' class="btn btn-danger">
+                                      <span class="glyphicon glyphicon-trash"></span> 
+                                    </button>
                               </form>
                           </td>
                         </tr>

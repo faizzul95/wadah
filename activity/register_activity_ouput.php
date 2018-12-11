@@ -5,21 +5,6 @@ session_start();
 
 $member_ic = $_SESSION['memberIC'];
 
- //if(!isset($_SESSION['role'])) // If session is not set then redirect to home
-    {
-      // header("Location:logout.php");  
-    }
-  // else if($_SESSION['role'] != "admin") // if not admin redirect to home
-    {
-      // echo ("<SCRIPT LANGUAGE='JavaScript'>
-          //window.alert('Anda tidak mempunyai akses ke menu Admin.')
-        //  window.location =// 'logout.php';  
-    }
-
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +35,7 @@ $member_ic = $_SESSION['memberIC'];
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../admin/style/navigation.php'; ?>
+			<?php include '../activity/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">

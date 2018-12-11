@@ -27,6 +27,11 @@ $member_ic = $_SESSION['memberIC'];
 	$name = $row['mbr_name'];
 	$ic = $row['mbr_ic'];
 
+  $sql2 = mysqli_query($myConnection,"SELECT * FROM `member` WHERE `mbr_ic` = '$id'") or die (mysqli_error());
+  $row2=mysqli_fetch_array($sql2);
+  $name = $row2['mbr_name'];
+  $ic = $row2['mbr_ic'];
+
 ?>
 
 <!DOCTYPE html>
@@ -120,31 +125,37 @@ $member_ic = $_SESSION['memberIC'];
                         <td><center><?php echo $row['family_ic']; ?></center></td>
                         <td><center><?php echo $row['family_phone']; ?></center></td>
                         <td><center><?php echo $row['family_relation']; ?></center></td>
-                        <td><center> <?php 
+                        <td><center><?php 
                           $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$family_ic'";
                              $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
                              $row = mysqli_fetch_array($res);
 
                              if (mysqli_num_rows($res)!=0) { ?>
-                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
-                             <?php }else{ ?>
-                               <center> - Tiada Maklumat - </center>
-                        <?php } ?></center></td>
-                        <td>
-                          <center>
-                            <?php 
-                          $sql = "SELECT * FROM `education_info` WHERE `family_ic` = '$family_ic'";
-                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
-                             $row = mysqli_fetch_array($res);
+                          <form method='post' action=''>
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" data-whatever="<?php echo $family_ic; ?>" >Lihat
+                                                      </button></center>
+                                                     </form>
+                                                     <?php }else{ ?>
+                                                       <center> - Tiada Maklumat - </center>
+                                                     <?php } ?></center></td>
+                                  <td>
+                                    <center>
+                                       <?php 
+                                    $sql = "SELECT * FROM `education_info` WHERE `family_ic` = '$family_ic'";
+                                       $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+                                       $row = mysqli_fetch_array($res);
 
-                             if (mysqli_num_rows($res)!=0) { ?>
-                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
-                             <?php }else{ ?>
-                               <center> - Tiada Maklumat - </center>
-                        <?php } ?>
-                          </center>
-                        </td>
-                      </tr>
+                                       if (mysqli_num_rows($res)!=0) { ?>
+                                    <form method='post' action=''>
+                                                                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $family_ic; ?>" >Lihat
+                                                                </button></center>
+                                                               </form>
+                                                               <?php }else{ ?>
+                                                                 <center> - Tiada Maklumat - </center>
+                                                               <?php } ?>
+                                    </center>
+                                  </td>
+                                </tr>
                                   <?php
                                   $count++;
                                 }

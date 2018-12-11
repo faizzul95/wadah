@@ -17,7 +17,7 @@ $id = $_GET['famIC'];
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Admin | Senarai Pendidikan Keluarga</title>
+    <title>Admin | Senarai Pekerjaan Keluarga</title>
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -27,9 +27,8 @@ $id = $_GET['famIC'];
 
     <script>
         function checkDeleteMem(){
-             return confirm('Padam Pendidikan Keluarga ?');
+             return confirm('Padam Pekerjaan Keluarga ?');
          }
-
       </script>
   </head>
   <body>
@@ -51,7 +50,7 @@ $id = $_GET['famIC'];
                 <br><nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Senarai Pendidikan Keluarga</li>
+                    <li class="breadcrumb-item active" aria-current="page">Senarai Pekerjaan Keluarga</li>
                   </ol>
                 </nav><br><br>
                 <div class="container">
@@ -102,10 +101,10 @@ $id = $_GET['famIC'];
                   <?php 
                            if (isset($_POST['search'])) {
                               $search = $_POST['search'];
-                              $sql="SELECT * FROM `education_info` WHERE  `edu_name` LIKE '%" . $search . "%'"; 
+                              $sql="SELECT * FROM `occupation_info` WHERE  `company_name` LIKE '%" . $search . "%'"; 
                               
                             }else{
-                               $sql = "SELECT * FROM `education_info` WHERE `family_ic` = '$id'";
+                               $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$id'";
                             }
              
                             $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
@@ -117,24 +116,25 @@ $id = $_GET['famIC'];
                               $count = 1;
                                while($row = mysqli_fetch_assoc($result))
                                   { 
-                                    $edu_id = $row['edu_id'];
+                                    $occupation_id = $row['occupation_id'];
                                 ?>
                                    
                                    <tr>
                                 <td><?php echo $count; ?></td>
-                                <td><?php echo $row['edu_name']; ?></td>
-                                <td><?php echo $row['edu_address']; ?></td>
-                                <td><?php echo $row['edu_phone']; ?></td>
-                                <td><?php echo $row['edu_course']; ?></td>
-                                <td><?php echo $row['edu_level']; ?></td>
-                                <td><?php echo $row['edu_start_date']; ?></td>
-                                <td><?php echo $row['edu_end_date']; ?></td>
+                                <td><?php echo $row['company_name']; ?></td>
+                                <td><?php echo $row['company_address']; ?></td>
+                                <td><?php echo $row['company_phone']; ?></td>
+                                <td><?php echo $row['company_position']; ?></td>
+                                <td><?php echo $row['company_email']; ?></td>
+                                <td><?php echo $row['company_start_date']; ?></td>
+                                <td><?php echo $row['company_end_date ']; ?></td>
                                 
                                 <td>
-                                <form method="post" action="controller.php?edu_id=<?php echo $row["edu_id"]; ?>">
-                                          <input type="hidden" name="edu_id" value="<?php echo $edu_id; ?>">
-                                          <input type="submit" name="deleteedu" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-                                      </form>
+                                  <!-- <button class="btn btn-primary" onclick="location.href='admin_member_edit.php?edu_id=<?php //echo $edu_id; ?>';">Kemaskini</button><br> -->
+                                <form method="post" action="controller.php?occupation_id=<?php echo $row["occupation_id"]; ?>">
+                                          <input type="hidden" name="occupation_id" value="<?php echo $occupation_id; ?>">
+                                          <input type="submit" name="deletejob" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
+                                </form>
                         </td>
                       </tr>
                               <?php

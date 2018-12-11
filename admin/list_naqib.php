@@ -66,7 +66,18 @@ session_start();
 								</nav><br><br>
 								<div class="container">
 								<section>
-						            <table style="width:100%"> 
+						           
+									<table style="width:100%"> 
+						            	<tr>
+						                <td>
+						            		<input type="submit" name="login" value="Daftar Naqib/Naqibah" onclick="location.href='admin_naqib_registration.php';" class="btn btn-primary pull-right">
+						            	</td>
+						            	</tr>   
+						            </table>
+
+						            <br>
+
+						             <table style="width:100%"> 
 						            	<tr>
 						                <td width="70%">
 						            		
@@ -75,26 +86,18 @@ session_start();
 						            		<form method="post" action="list_naqib.php?result=search">
 						            		<table>
 						            			<tr>
-						            				<td width="80%">
-						            					<input type="text" name="search" class="form-control" size="90">
+						            				<td width="88%">
+						            					<input type="text" name="search" class="form-control" size="90" autocomplete="off" required>
 						            				</td>
 						            				<td>
-						            					<input type="submit" value="Carian" class="btn btn-primary pull-right">
+						            					<button type="submit" class="btn btn-primary pull-right">
+												          <span class="glyphicon glyphicon-search"></span> 
+												        </button>
 						            				</td>
 						            			</tr>
 						            		</table>
 						                  </form> 
 						              	</td>
-						            	</tr>   
-						            </table>
-
-						            <br>
-   
-									<table style="width:100%"> 
-						            	<tr>
-						                <td>
-						            		<input type="submit" name="login" value="Daftar Naqib/Naqibah" onclick="location.href='admin_naqib_registration.php';" class="btn btn-primary pull-right">
-						            	</td>
 						            	</tr>   
 						            </table>
 
@@ -117,16 +120,11 @@ session_start();
 										</thead>
 										<tbody>
 
-
-											<?php 
-
-						               if (isset($_POST['mbr_branch'])) {
-						                	$branch = $_POST['mbr_branch'];
-						                	if ($branch == "all") {
-						                		$sql = "SELECT * FROM `naqib`";
-						                	}else{
-						                		$sql = "SELECT * FROM `naqib` LIKE '%".$query."%'";
-						                	}
+									<?php 
+						               if (isset($_POST['search'])) {
+						                	$search = $_POST['search'];
+						                	$sql="SELECT * FROM `naqib` WHERE  `naqib_name` LIKE '%" . $search . "%' OR `naqib_ic` LIKE '%" . $search  ."%'"; 
+						                	
 						                }else{
 						                	 $sql = "SELECT * FROM `naqib`";
 						                }

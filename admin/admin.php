@@ -119,17 +119,17 @@ $member_ic = $_SESSION['memberIC'];
 								          <div class="small-box bg-yellow">
 								            <div class="inner">
 								              <h3><?php 
-                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM member") or die (mysqli_error($myConnection));
+                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM activity WHERE `act_category` = 'Awam'") or die (mysqli_error($myConnection));
                                             $count=mysqli_num_rows($countmember);
                                             echo $count;
                                             ?></h3>
 
-								              <p>Awam</p>
+								              <p>Aktiviti Awam</p>
 								            </div>
 								            <div class="icon">
 								              <i class="ion ion-person-add"></i>
 								            </div>
-								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								            <a href="../activity/list_activity.php" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
 								          </div>
 								        </div>
 								        <!-- ./col -->
@@ -138,17 +138,17 @@ $member_ic = $_SESSION['memberIC'];
 								          <div class="small-box bg-red">
 								            <div class="inner">
 								              <h3><?php 
-                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM member") or die (mysqli_error($myConnection));
+                                          	$countmember = mysqli_query($myConnection,"SELECT * FROM activity WHERE `act_category` = 'Ahli'") or die (mysqli_error($myConnection));
                                             $count=mysqli_num_rows($countmember);
                                             echo $count;
                                             ?></h3>
 
-								              <p>Aktiviti</p>
+								              <p>Aktiviti Ahli</p>
 								            </div>
 								            <div class="icon">
 								              <i class="ion ion-pie-graph"></i>
 								            </div>
-								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								            <a href="../activity/list_activity.php" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
 								          </div>
 								        </div>
 								        <!-- ./col -->

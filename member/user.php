@@ -81,9 +81,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
-						</div>
+						occupation_registration
 						<div class="blog-post-body">
 							<div class="blog-post-text">
 								<br>
@@ -150,9 +148,9 @@
 					                        <td> <center><b> 
 					                        	<?php 
 					                        if ($Fee_status != "Belum Dibayar" AND $Fee_amount != NULL AND $Fee_type == "Yuran Ahli") {
-					                        	echo "<b><a href=''><font color='green'>".strtoupper($Fee_status)."</font></a><b>"; 
+					                        	echo "<b><font color='green'>".strtoupper($Fee_status)."</font><b>"; 
 					                        }else {
-					                        	echo "<b><a href=''><font color='red'> BELUM DIBAYAR </font></a><b>";
+					                        	echo "<b><font color='red'> BELUM DIBAYAR </font><b>";
 					                        }
 					                        ?>
 					                        	
@@ -193,7 +191,7 @@
 								<div class="container">
 								  <button type="button" id="buttonactivity" class="btn btn-info form-control" data-toggle="collapse" data-target="#activity">SENARAI AKTIVITI</button>
 								  <div id="activity" class="collapse">
-								   <?php include 'user_activity_list.php'; ?>
+								   <?php //include 'user_activity_list.php'; ?>
 								  </div>
 								</div>
 				           
@@ -252,7 +250,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "admin_edu_info.php",
+                url: "user_edu_info.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

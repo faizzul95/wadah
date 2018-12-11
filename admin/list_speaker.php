@@ -66,20 +66,33 @@ session_start();
 								</nav><br><br>
 								<div class="container">
 								<section>
+						            
+									<table style="width:100%"> 
+						            	<tr>
+						                <td>
+						            		<input type="submit" name="login" value="Daftar Penceramah" onclick="location.href='admin_speaker_registration.php';" class="btn btn-primary pull-right">
+						            	</td>
+						            	</tr>   
+						            </table>
+
+						            <br>
+
 						            <table style="width:100%"> 
 						            	<tr>
 						                <td width="70%">
 						            		
 						            	</td>
 						            	<td>
-						            		<form method="post" action="list_naqib.php?result=search">
+						            		<form method="post" action="list_speaker.php?result=search">
 						            		<table>
 						            			<tr>
-						            				<td width="80%">
+						            				<td width="88%">
 						            					<input type="text" name="search" class="form-control" size="90">
 						            				</td>
 						            				<td>
-						            					<input type="submit" value="Carian" class="btn btn-primary pull-right">
+						            					<button type="submit" class="btn btn-primary pull-right">
+												          <span class="glyphicon glyphicon-search"></span> 
+												        </button>
 						            				</td>
 						            			</tr>
 						            		</table>
@@ -90,15 +103,6 @@ session_start();
 
 						            <br>
    
-									<table style="width:100%"> 
-						            	<tr>
-						                <td>
-						            		<input type="submit" name="login" value="Daftar Penceramah" onclick="location.href='admin_speaker_registration.php';" class="btn btn-primary pull-right">
-						            	</td>
-						            	</tr>   
-						            </table>
-
-						            <br>
 
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
 										<thead>
@@ -121,11 +125,8 @@ session_start();
 
 						               if (isset($_POST['search'])) {
 						                	$search = $_POST['search'];
-						                	if ($branch == "all") {
-						                		$sql = "SELECT * FROM `speaker`";
-						                	}else{
-						                		$sql = "SELECT * FROM `speaker` LIKE '%".$query."%'";
-						                	}
+						                	$sql="SELECT * FROM `speaker` WHERE  `speak_name` LIKE '%" . $search . "%' OR `speak_ic` LIKE '%" . $search  ."%'"; 
+						                	
 						                }else{
 						                	 $sql = "SELECT * FROM `speaker`";
 						                }

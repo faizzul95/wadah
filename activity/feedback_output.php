@@ -50,7 +50,7 @@ $member_ic = $_SESSION['memberIC'];
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../admin/style/navigation.php'; ?>
+			<?php include '../activity/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">

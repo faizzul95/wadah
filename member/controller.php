@@ -2,6 +2,7 @@
 require ('../connection.php');
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
+//update member
 if(isset($_POST['update_member']))
 {    
 

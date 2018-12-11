@@ -52,7 +52,7 @@ session_start();
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../account/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -73,7 +73,6 @@ session_start();
 				  </ol>
 				</nav>
 								
-				<br><br><br>
 				<div class="container">
 				<section>
             
@@ -83,8 +82,8 @@ session_start();
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
 											<tr>
-												<td>ID :</td>
-												<td><br><input name="Fee_id"  value="<?php echo $row['Fee_id'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td>Nama :</td>
+												<td><br><input name="Fee_id" value="<?php echo $row['Fee_id'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "12" class="form-control" required></td>
 											</tr>
@@ -102,14 +101,14 @@ session_start();
 												<td><br>
 												<select name="Fee_status" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Sudah dibayar">Sudah dibayar</option>
+														<option value="Telah Dibayar">Sudah dibayar</option>
 														<option value="Belum dibayar">Belum dibayar</option>
 												</select>
 												</td>
 											</tr>
 												<td>Tarikh :</td>
 												<td><br>
-												<input name="Fee_date"  value="<?php echo $row['Fee_date'];?>" type="text" size="50" class="form-control" maxlength="50" required>
+												<input name="Fee_date"  value="<?php echo $row['Fee_date'];?>" type="date" size="50" class="form-control" maxlength="50" required>
 												</td>
 											</tr>
 											
@@ -118,8 +117,8 @@ session_start();
 												<td><br>
 												<select name="Fee_type" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Ahli">Ahli</option>
-														<option value="Aktiviti">Aktiviti</option>
+														<option value="Yuran Ahli">Yuran Ahli</option>
+														<option value="Yuran Aktiviti">Yuran Aktiviti</option>
 												</select>
 												</td>
 											</tr>

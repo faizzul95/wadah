@@ -42,9 +42,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
-						</div>
+						occupation_registration
 						<div class="blog-post-body">
 							<div class="blog-post-text">
 								<br>
@@ -55,7 +53,6 @@
 				  </ol>
 				</nav>
 								
-				<br><br><br>
 				<div class="container">
 				<section>
             
