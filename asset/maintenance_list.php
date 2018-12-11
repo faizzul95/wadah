@@ -41,18 +41,7 @@ session_start();
 		<link href="../css/style.css" rel="stylesheet">
 	</head>
 	<body>
-     <?php
-                
-				$sql = "SELECT * FROM `maintenance` 
-				INNER JOIN `vendor` ON `vendor`.`vendor_id` = `maintenance`.`vendor_id` 
-				INNER JOIN `asset` ON `asset`.`asset_id` = `maintenance`.`asset_id`";
-				
-				
-$result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
-                if (mysqli_num_rows($result)==0){
-                     echo "No result found";
-                  }else{
-          ?>
+     
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<?php include '../style/navigation.php'; ?>
@@ -97,7 +86,11 @@ $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 			                    <tbody>
 			                      <?php 
 
-						                $sql = "SELECT * FROM `maintenance`";
+						                //$sql = "SELECT * FROM `maintenance`";
+
+						                $sql = "SELECT * FROM `maintenance` 
+										INNER JOIN `vendor` ON `vendor`.`vendor_id` = `maintenance`.`vendor_id` 
+										INNER JOIN `asset` ON `asset`.`asset_id` = `maintenance`.`asset_id`";
 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
@@ -125,6 +118,7 @@ $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 							                  }
 							                 } 
 						                    ?>
+
 		                        </tbody>
 			                    
 		                      </table>

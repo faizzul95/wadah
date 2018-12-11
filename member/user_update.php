@@ -55,8 +55,7 @@
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Maklumat Peribadi</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+							
 				<div class="container">
 				<section>
 							<center><img title=" " alt=" " src="img/<?php echo $row['mbr_profile_picture'];?>" height="300px" width="300px" />

@@ -1,20 +1,6 @@
 <?php 
-
-require ('../connection.php');
+require ('connection.php');
 session_start();
-
- if(!isset($_SESSION['role'])) // If session is not set then redirect to home
-    {
-       header("Location:logout.php");  
-    }
-   else if($_SESSION['role'] != "admin") // if not admin redirect to home
-    {
-       echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Anda tidak mempunyai akses ke menu Admin.')
-          window.location = 'logout.php';
-          </SCRIPT>");  
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -27,25 +13,18 @@ session_start();
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Naqib</title>
+		<title>Wadah | Aktiviti Ahli</title>
 		<!-- Bootstrap core CSS -->
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<!-- Custom styles for this template -->
-		<link href="../css/jquery.bxslider.css" rel="stylesheet">
-		<link href="../css/style.css" rel="stylesheet">
-
-		<script>
-      	function checkDeleteMem(){
-             return confirm('Padam Naqib ?');
-         }
-
-      </script>
+		<link href="css/jquery.bxslider.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
 	</head>
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../admin/style/navigation.php'; ?>
+			<?php include 'style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -61,36 +40,29 @@ session_start();
 								<br><nav aria-label="breadcrumb">
 								  <ol class="breadcrumb">
 								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
-								    <li class="breadcrumb-item active" aria-current="page">Senarai Naqib & Naqibah</li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Aktiviti Ahli</li>
 								  </ol>
-								</nav><br><br>
+								</nav><br>
 								<div class="container">
 								<section>
-						           
-									<table style="width:100%"> 
-						            	<tr>
-						                <td>
-						            		<input type="submit" name="login" value="Daftar Naqib/Naqibah" onclick="location.href='admin_naqib_registration.php';" class="btn btn-primary pull-right">
-						            	</td>
-						            	</tr>   
-						            </table>
-
-						            <br>
-
-						             <table style="width:100%"> 
+						            <table style="width:100%"> 
 						            	<tr>
 						                <td width="70%">
 						            		
 						            	</td>
 						            	<td>
-						            		<form method="post" action="list_naqib.php?result=search">
+						            		<form method="post" action="list_member_activity.php?result=search">
 						            		<table>
 						            			<tr>
-						            				<td width="88%">
+						            				<td width="10%">
+						            					
+						            				</td>
+						            				<td width="80%">
 						            					<input type="text" name="search" class="form-control" size="90" autocomplete="off" required>
 						            				</td>
 						            				<td>
-						            					<button type="submit" class="btn btn-primary pull-right">
+						            					<!-- <input type="submit" name="btnSearch" value="Carian" class="btn btn-primary pull-right"> -->
+						            					<button name="btnSearch" class="btn btn-primary pull-right">
 												          <span class="glyphicon glyphicon-search"></span> 
 												        </button>
 						            				</td>
@@ -106,29 +78,28 @@ session_start();
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
 										<thead>
 											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>No Kad Pengenalan</th>
-												<th>No Telefon</th>
-												<th>Alamat</th>
-												<th>Email</th>
-												<th>Kategori</th>
-												<th>Cawangan</th>
-												<th>Aktiviti</th>
-												<th>Tindakan</th>
+												<th><center>No.</center></th>
+												<th><center>Nama</center></th>
+												<th><center>Tarikh</center></th>
+												<th><center>Masa</center></th>
+												<th><center>Tempat</center></th>
+												<th><center>Penerangan</center></th>
+												<th><center>Jenis</center></th>
+												<?php if(isset($_SESSION['memberIC'])) { ?>
+												<th><center>Tindakan</center></th>
+												<?php } ?>  
 											</tr>
 										</thead>
 										<tbody>
 
-									<?php 
-						               if (isset($_POST['search'])) {
-						                	$search = $_POST['search'];
-						                	$sql="SELECT * FROM `naqib` WHERE  `naqib_name` LIKE '%" . $search . "%' OR `naqib_ic` LIKE '%" . $search  ."%'"; 
-						                	
+											<?php 
+
+						               if (isset($_POST['btnSearch'])) {
+						                	$query = $_POST['search'];
+						                	$sql="SELECT * FROM `activity` WHERE  `act_name` LIKE '%" . $query . "%'"; 
 						                }else{
-						                	 $sql = "SELECT * FROM `naqib`";
+						                	 $sql = "SELECT * FROM `activity` WHERE `act_category` = 'Ahli'";
 						                }
-						 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
 						                if (mysqli_num_rows($result)==0){
@@ -138,35 +109,26 @@ session_start();
 							                $count = 1;
 							                while($row = mysqli_fetch_assoc($result))
 							                 { 
-							                 		$naqib_ic = $row['naqib_ic'];
+							                 		$act_id = $row['act_id'];
 							                  ?>
 							                     
 							                     <tr>
-												<td><?php echo $count; ?></td>
-												<td><?php echo $row['naqib_name']; ?></td>
-												<td><?php echo $naqib_ic; ?></td>
-												<td><?php echo $row['naqib_address']; ?></td>
-												<td><?php echo $row['naqib_phone']; ?></td>
-												<td><?php echo $row['naqib_mail']; ?></td>
-												<td><?php echo $row['naqib_category']; ?></td>
-												<td><?php echo $row['naqib_branch']; ?></td>
-												<td><center> <?php 
-							                          $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$family_ic'";
-							                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
-							                             $row = mysqli_fetch_array($res);
-
-							                             if (mysqli_num_rows($res)!=0) { ?>
-							                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
-							                             <?php }else{ ?>
-							                               <center> - Tiada Maklumat - </center>
-							                        <?php } ?></center></td>
-											
-												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?naqib_ic=<?php echo $naqib_ic; ?>';">Kemaskini</button><br>
-													 <form method="post" action="controller.php?member_ic=<?php echo $row["naqib_ic"]; ?>">
-						                              <input type="hidden" name="naqib_ic" value="<?php echo $naqib_ic; ?>">
-						                              <input type="submit" name="deletenaqib" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-						                          </form>
-												</td>
+												<td><center><?php echo $count; ?></td>
+												<td><center><?php echo $row['act_name']; ?></center></td>
+												<td><center><?php echo $row['act_date']; ?></center></td>
+												<td><center><?php echo $row['act_time']; ?></center></td>
+												<td><center><?php echo $row['act_venue']; ?></center></td>
+												<td><center><?php echo $row['act_description']; ?></center></td>
+												<td><center><?php echo $row['act_type']; ?></center></td>
+													<?php if(isset($_SESSION['memberIC'])) 
+													    { ?>
+													    <td>
+													       <center>
+																<button class="btn btn-primary" onclick="location.href='admin_member_edit.php?act_id=<?php echo $act_id; ?>';">Sertai Aktiviti
+																</button>
+															</center>
+														</td>
+													 <?php } ?>  
 											</tr>
 
 							                    <?php
@@ -176,20 +138,6 @@ session_start();
 						                    ?>
 
 										</tbody>
-										<tfoot>
-											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>No Kad Pengenalan</th>
-												<th>No Telefon</th>
-												<th>Alamat</th>
-												<th>Email</th>
-												<th>Kategori</th>
-												<th>Cawangan</th>
-												<th>Aktiviti</th>
-												<th>Tindakan</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>
@@ -202,7 +150,7 @@ session_start();
 		</div><!-- /.container -->
 
 		<footer class="footer">
-			<?php include '../style/footer.php'; ?>
+			<?php include 'style/footer.php'; ?>
 		</footer>
 
 		<!-- Bootstrap core JavaScript

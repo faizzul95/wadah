@@ -1,12 +1,6 @@
-
-
-
-
-
 <?php
  	// Turn off error reporting
-	error_reporting(0); 
-	
+	require ('../connection.php');
 	session_start(); 
     if(isset($_SESSION['role'] )!= "admin") // if not admin redirect to home
     {
@@ -70,26 +64,20 @@
 								<h1><br>DAFTAR PENYELENGGARAAN</h1></br>
 
 						<form action="controller.php" method="post">
-								<?php if (isset($member)) { ?>
-								<input name="member_ic" type="hidden" value="<?php echo $member;?>" size="50" maxlength="50">
-							<?php } else { ?>
-								<input name="family_ic" type="hidden" value="<?php echo $family;?>" size="50" maxlength="50">
-							<?php } ?>
+						
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
 									<td colspan="2"><center><b>MAKLUMAT PENYELENGGARAAN</b></center></td> 
 								</tr>
 								<tr>
-									<td>Nama Penyelenggara:</td>
-													<td><br>
-                    <div class="col-md-4">
+									<td>Nama Penyelenggara: <br></td>
+									<td><br>
                                       <?php
                                             
                                             $query = $myConnection->query("SELECT * FROM vendor");
                                             $rowCount = $query->num_rows;
                                             ?>
 
-                                      <div class="form-group">
                                         <select name="vendor_id" id="" class="form-control" required>
                                         <option value="">- Sila Pilih -</option>
                                           <?php
@@ -102,16 +90,12 @@
                                           }
                                           ?>
                                       </select> 
-                                      </div>
-                                    </div>
-                    
-                    
-                    
-                    </td>
+                                      
+                    				</td>
 								</tr>
 								<tr>
 					<td>Tahap penyelenggaraan:</td>
-					<td>
+					<td> <br>
 					<select name="maintenance_status" class="form-control" required>
 						<option value="Pilih">Pilih</option>
 							<option value="100%">100%</option>
@@ -133,7 +117,7 @@
 								</tr>
 								<tr>
 									<td>Tempat Penyelenggaraan :</td>
-					<td><br> <div class="col-md-4">
+					<td><br> 
                                       <?php
                                             
                                             $query = $myConnection->query("SELECT * FROM asset");
@@ -152,8 +136,7 @@
                                               echo '<option value="">Tiada tempat yang berdaftar</option>';
                                           }
                                           ?>
-                                      </select> 
-                                      </div></td>
+                                      </select> </td>
 								</tr>
 								<tr>
 									<td>Tempoh Hari Penyelenggaraan :</td>

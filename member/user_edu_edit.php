@@ -60,8 +60,7 @@
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Pendidikan</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+							
 				<div class="container">
 				<section>
             

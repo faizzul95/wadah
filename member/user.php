@@ -150,9 +150,9 @@
 					                        <td> <center><b> 
 					                        	<?php 
 					                        if ($Fee_status != "Belum Dibayar" AND $Fee_amount != NULL AND $Fee_type == "Yuran Ahli") {
-					                        	echo "<b><a href=''><font color='green'>".strtoupper($Fee_status)."</font></a><b>"; 
+					                        	echo "<b><font color='green'>".strtoupper($Fee_status)."</font><b>"; 
 					                        }else {
-					                        	echo "<b><a href=''><font color='red'> BELUM DIBAYAR </font></a><b>";
+					                        	echo "<b><font color='red'> BELUM DIBAYAR </font><b>";
 					                        }
 					                        ?>
 					                        	

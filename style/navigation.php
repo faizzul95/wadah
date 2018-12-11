@@ -37,8 +37,8 @@
 					     </li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="activity/list_activity.php">Senarai Aktiviti</a></li>
-					          <li><a href="#">Ahli</a></li>
+					          <li><a href="list_public_activity.php">Awam</a></li>
+					          <li><a href="list_member_activity.php">Ahli</a></li>
 					        </ul>
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
@@ -68,8 +68,8 @@
 						<li><a href="index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
-						       <li><a href="#">Awam</a></li>
-						        <li><a href="#">Ahli</a></li>
+					          <li><a href="list_public_activity.php?page=awam">Awam</a></li>
+					          <li><a href="list_member_activity.php?page=ahli">Ahli</a></li>
 						    </ul>
 					     </li>
 					    <li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>
