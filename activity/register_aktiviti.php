@@ -145,7 +145,7 @@ session_start();
 		                                                  echo '<option value="'.$row['naqib_ic'].'">'.strtoupper($row['naqib_name']).'</option>';
 		                                              }
 		                                          }else{
-		                                              echo '<option value="">Tiada Vendor yang berdaftar</option>';
+		                                              echo '<option value="">Tiada Naqib/Naqibah berdaftar</option>';
 		                                          }
 		                                     ?>
 		                                      

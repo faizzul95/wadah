@@ -173,6 +173,53 @@ if (isset($_POST['reg_naqib']))
   }
 }
 
+
+
+// update naqib
+if (isset($_POST['kemaskini_naqib']))
+{
+
+    $naqib_name = mysqli_real_escape_string($myConnection, $_POST['naqib_name']);
+    $naqib_ic = mysqli_real_escape_string($myConnection, $_POST['naqib_ic']);
+    $naqib_phone = mysqli_real_escape_string($myConnection, $_POST['naqib_phone']);
+    $naqib_address = mysqli_real_escape_string($myConnection, $_POST['naqib_address']);
+    $naqib_mail = mysqli_real_escape_string($myConnection, $_POST['naqib_mail']);
+    $naqib_branch = mysqli_real_escape_string($myConnection, $_POST['naqib_branch']);
+    $naqib_category = mysqli_real_escape_string($myConnection, $_POST['naqib_category']);
+
+        $query_eduinfo = "UPDATE `naqib` SET 
+        `naqib_name` = '$naqib_name', 
+        `naqib_ic` = '$naqib_ic', 
+        `naqib_phone` = '$naqib_phone',
+        `naqib_address` = '$naqib_address', 
+        `naqib_mail` = '$naqib_mail', 
+        `naqib_branch` = '$naqib_branch', 
+        `naqib_category` = '$naqib_category' WHERE `naqib_ic` = '$naqib_ic'";
+
+        $result = mysqli_query($myConnection, $query_eduinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Berjaya')
+          window.location = 'list_naqib.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
+
+
+
+
+
 // register speaker
 if (isset($_POST['reg_speaker']))
 {

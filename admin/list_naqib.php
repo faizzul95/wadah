@@ -148,18 +148,18 @@ session_start();
 												<td><?php echo $row['naqib_category']; ?></td>
 												<td><?php echo $row['naqib_branch']; ?></td>
 												<td><center> <?php 
-							                          $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$family_ic'";
+							                          $sql = "SELECT * FROM `activity` WHERE `naqib_ic` = '$naqib_ic'";
 							                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
 							                             $row = mysqli_fetch_array($res);
 
 							                             if (mysqli_num_rows($res)!=0) { ?>
-							                          <button class="btn btn-info" onclick="location.href='user_edu_info.php?famIC=<?php echo $row['family_ic']; ?>';">Lihat</button>
+							                          <button class="btn btn-info" onclick="location.href='list_activity_naqib.php?naqib_ic=<?php echo $row['family_ic']; ?>';">Lihat</button>
 							                             <?php }else{ ?>
 							                               <center> - Tiada Maklumat - </center>
 							                        <?php } ?></center></td>
 											
-												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?naqib_ic=<?php echo $naqib_ic; ?>';">Kemaskini</button><br>
-													 <form method="post" action="controller.php?member_ic=<?php echo $row["naqib_ic"]; ?>">
+												<td><button class="btn btn-primary" onclick="location.href='admin_naqib_edit.php?naqib_ic=<?php echo $naqib_ic; ?>';">Kemaskini</button><br>
+													 <form method="post" action="controller.php?naqib_ic=<?php echo $row["naqib_ic"]; ?>">
 						                              <input type="hidden" name="naqib_ic" value="<?php echo $naqib_ic; ?>">
 						                              <input type="submit" name="deletenaqib" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
 						                          </form>
@@ -217,7 +217,7 @@ session_start();
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT PENDIDIKAN</font></center></center></h2>
+        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT AKTIVITI</font></center></center></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -227,7 +227,6 @@ session_start();
       </div>
       <div class="modal-footer">
 		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
-		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
 	  </div>
     </div>
   </div>

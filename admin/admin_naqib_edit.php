@@ -17,6 +17,11 @@ $member_ic = $_SESSION['memberIC'];
           </SCRIPT>");  
     }
 
+    $id = $_GET['naqib_ic'];
+
+    $sql = mysqli_query($myConnection,"SELECT * FROM `naqib` WHERE naqib_ic = '$id' ") or die (mysqli_error());
+    $row=mysqli_fetch_array($sql);
+
 // echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';
@@ -33,7 +38,7 @@ $member_ic = $_SESSION['memberIC'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Daftar Naqib</title>
+		<title>Admin | Kemaskini Naqib</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -64,26 +69,26 @@ $member_ic = $_SESSION['memberIC'];
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Naqib & Naqibah</li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Naqib & Naqibah</li>
 				  </ol>
 				</nav>		
 				<br>
 				<div class="container">
 				<section>
 								<div align="center">
-								<h1><br>DAFTAR NAQIB / NAQIBAH</h1></br>
+								<h1><br>KEMASKINI NAQIB / NAQIBAH</h1></br>
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
 											<tr>
 												<td>Nama :</td>
-												<td><br><input name="naqib_name" type="text" size="50" autocomplete="off" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td><br><input name="naqib_name" value="<?php echo $row['naqib_name'];?>" type="text" size="50" autocomplete="off" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "60" class="form-control"></td>
 											</tr>
 											<tr>
 												<td>No. Kad Pengenalan :</td>
-												<td><br><input name="naqib_ic" id="nokadpengenalan" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" onkeypress="return isNumeric(event)"
+												<td><br><input name="naqib_ic" value="<?php echo $row['naqib_ic'];?>" id="nokadpengenalan" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "12"
@@ -93,14 +98,14 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Alamat :</td>
 												<td><br>
-							                     <textarea name="naqib_address" class="form-control" rows="5" cols="20" required></textarea>
+							                     <textarea name="naqib_address" class="form-control" rows="5" cols="20" required><?php echo $row['naqib_address'];?></textarea>
 
 							                 </td>
 											</tr>
 											<tr>
 												<td>No. Telefon :</td>
 												<td><br>
-												<input name="naqib_phone" type="text" size="50" autocomplete="off" onkeypress="return isNumeric(event)"
+												<input name="naqib_phone" type="text" value="<?php echo $row['naqib_phone'];?>" size="50" autocomplete="off" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "10"
@@ -111,16 +116,14 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Kategori :</td>
 												<td><br>
-													<input type="radio" name="naqib_category" id="lelaki" value="Naqib"> Naqib &nbsp;
-													<input type="radio" name="naqib_category" id="perempuan" value="Naqibah"> Naqibah
+													<input type="radio" name="naqib_category" id="lelaki" value="Naqib" <?php if($row['naqib_category']=="Naqib") echo 'checked="checked"'; ?> > Naqib &nbsp;
+													<input type="radio" name="naqib_category" id="perempuan" value="Naqibah" <?php if($row['naqib_category']=="Naqibah") echo 'checked="checked"'; ?>> Naqibah
 												</td>
 											</tr>
 											<tr>
 												<td>Email :</td>
 												<td><br>
-												<input name="naqib_mail" type="email" autocomplete="off" size="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "40" class="form-control" required>
+												<input name="naqib_mail" value="<?php echo $row['naqib_mail'];?>" type="email" autocomplete="off" size="50" class="form-control" required>
 												</td>
 											</tr>
 											<tr>
@@ -128,23 +131,28 @@ $member_ic = $_SESSION['memberIC'];
 												<td><br>
 												<select name="naqib_branch" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Kedah">Kedah</option>
-														<option value="Perlis">Perlis</option>
-														<option value="Perak">Perak</option>
-														<option value="Pahang">Pahang</option>
-														<option value="Kuala Lumpur">Kuala Lumpur</option>
-														<option value="Selangor">Selangor</option>
-														<option value="Melaka">Melaka</option>
-														<option value="Johor">Johor</option>
-														<option value="Negeri Sembilan">Negeri Sembilan</option>
-														<option value="Terengganu">Terengganu</option>
-														<option value="Kelantan">Kelantan</option>
+														<option value="Kedah" <?php if($row['naqib_branch']=="Kedah") echo 'selected="selected"'; ?> >Kedah</option>
+														<option value="Perlis" <?php if($row['naqib_branch']=="Perlis") echo 'selected="selected"'; ?> >Perlis</option>
+														<option value="Perak" <?php if($row['naqib_branch']=="Perak") echo 'selected="selected"'; ?> >Perak</option>
+														<option value="Pahang" <?php if($row['naqib_branch']=="Pahang") echo 'selected="selected"'; ?> >Pahang</option>
+														<option value="Kuala Lumpur" <?php if($row['naqib_branch']=="Kuala Lumpur") echo 'selected="selected"'; ?> >Kuala Lumpur</option>
+														<option value="Selangor" <?php if($row['naqib_branch']=="Selangor") echo 'selected="selected"'; ?> >Selangor</option>
+														<option value="Melaka" <?php if($row['naqib_branch']=="Melaka") echo 'selected="selected"'; ?> >Melaka</option>
+														<option value="Johor" <?php if($row['naqib_branch']=="Johor") echo 'selected="selected"'; ?> >Johor</option>
+														<option value="Negeri Sembilan" <?php if($row['naqib_branch']=="Negeri Sembilan") echo 'selected="selected"'; ?>>Negeri Sembilan</option>
+														<option value="Terengganu" <?php if($row['naqib_branch']=="Terengganu") echo 'selected="selected"'; ?> >Terengganu</option>
+
+														<option value="Kelantan" <?php if($row['naqib_branch']=="Kelantan") echo 'selected="selected"'; ?>>Kelantan</option>
+
+														<option value="Sabah" <?php if($row['naqib_branch']=="Sabah") echo 'selected="selected"'; ?>>Sabah</option>
+
+														<option value="Serawak" <?php if($row['naqib_branch']=="Serawak") echo 'selected="selected"'; ?>>Serawak</option>
 												</select>
 												</td>
 											</tr>
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="reg_naqib" value="Daftar Naqib" class="btn btn-primary form-control">
+													<input type="submit" name="kemaskini_naqib" value="Kemaskini" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>

@@ -106,15 +106,6 @@ if (isset($_POST['reg_family']))
     $family_relation = mysqli_real_escape_string($myConnection, $_POST['family_relation']);
     $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
 
-    // // register family occupation
-    // $company_name = mysqli_real_escape_string($myConnection, $_POST['company_name']);
-    // $company_address = mysqli_real_escape_string($myConnection, $_POST['company_address']);
-    // $company_phone = mysqli_real_escape_string($myConnection, $_POST['company_phone']);
-    // $company_position = mysqli_real_escape_string($myConnection, $_POST['company_position']);
-    // $company_email = mysqli_real_escape_string($myConnection, $_POST['company_email']);
-    // $company_start_date = mysqli_real_escape_string($myConnection, $_POST['company_start_date']);
-    // $company_end_date = mysqli_real_escape_string($myConnection, $_POST['company_end_date']);
-
     $check_ic = mysqli_query($myConnection, "SELECT * FROM `family` WHERE `family_ic` = '$family_ic'");
     if(mysqli_num_rows($check_ic) > 0){
         echo ("<SCRIPT LANGUAGE='JavaScript'>
@@ -128,14 +119,6 @@ if (isset($_POST['reg_family']))
            VALUES 
         ('$family_name','$family_ic','$family_address','$family_gender','$family_phone','$family_dob','$family_email','$family_relation','$mbr_ic')";
         $result = mysqli_query($myConnection, $query_faminfo) or die(mysqli_error($myConnection));
-
-        // if($company_name != NULL && $company_start_date != NULL && $company_end_date != NULL){
-        //     $query_occuinfo = "INSERT INTO `occupation_info` 
-        //     (`family_ic`,`company_name`,`company_address`, `company_phone`,`company_position`,`company_email`,`company_start_date`,`company_end_date`)
-        //        VALUES 
-        //     ('$family_ic','$company_name','$company_address','$company_phone','$company_position','$company_email','$company_start_date','$company_end_date')";
-        //     $result2 = mysqli_query($myConnection, $query_occuinfo) or die(mysqli_error($myConnection));
-        // }
 
         if($result)
         {
@@ -443,7 +426,7 @@ if (isset($_POST['update_edu']))
 
 }
 
-//delete occupation
+//delete edu
 if (isset($_POST['deleteedu'])){
    {
 
@@ -469,7 +452,7 @@ if (isset($_POST['deleteedu'])){
    }
 } 
 
-//delete occupation
+//delete family
 if (isset($_POST['deletefamily'])){
    {
 

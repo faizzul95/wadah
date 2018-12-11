@@ -89,9 +89,9 @@ $member_ic = $_SESSION['memberIC'];
 											</tr>
 											<tr>
 												<td>Alamat :</td>
-												<td><br><input name="speak_address" type="text" autocomplete="off" size="50" maxlength="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "250" class="form-control" required></td>
+												<td><br>
+							                     <textarea name="speak_address" class="form-control" rows="5" cols="20" required></textarea>
+							                 </td>
 											</tr>
 											<tr>
 												<td>No. Telefon :</td>

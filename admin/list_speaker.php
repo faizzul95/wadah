@@ -84,7 +84,7 @@ session_start();
 						            		<table>
 						            			<tr>
 						            				<td width="88%">
-						            					<input type="text" name="search" class="form-control" size="90">
+						            					<input type="text" autocomplete="off" name="search" class="form-control" size="90" required>
 						            				</td>
 						            				<td>
 						            					<button type="submit" class="btn btn-primary pull-right">
@@ -232,7 +232,6 @@ session_start();
       </div>
       <div class="modal-footer">
 		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
-		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
 	  </div>
     </div>
   </div>

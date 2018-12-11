@@ -17,9 +17,10 @@ $member_ic = $_SESSION['memberIC'];
           </SCRIPT>");  
     }
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+$id = $_GET['speak_ic'];
+
+$sql = mysqli_query($myConnection,"SELECT * FROM `speaker` WHERE speak_ic = '$id' ") or die (mysqli_error());
+$row=mysqli_fetch_array($sql);
 
 ?>
 
@@ -33,7 +34,7 @@ $member_ic = $_SESSION['memberIC'];
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Daftar Naqib</title>
+		<title>Admin | Kemaskini Penceramah</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -64,26 +65,27 @@ $member_ic = $_SESSION['memberIC'];
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Daftar Naqib & Naqibah</li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Penceramah</li>
 				  </ol>
-				</nav>		
-				<br>
+				</nav>
+							
 				<div class="container">
 				<section>
+            
 								<div align="center">
-								<h1><br>DAFTAR NAQIB / NAQIBAH</h1></br>
+								<h1><br>KEMASKINI PENCERAMAH</h1></br>
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
 											<tr>
 												<td>Nama :</td>
-												<td><br><input name="naqib_name" type="text" size="50" autocomplete="off" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td><br><input name="speak_name" value="<?php echo $row['speak_name'];?>" type="text" size="50" autocomplete="off" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "60" class="form-control"></td>
 											</tr>
 											<tr>
-												<td>No. Kad Pengenalan :</td>
-												<td><br><input name="naqib_ic" id="nokadpengenalan" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" onkeypress="return isNumeric(event)"
+												<td>No Kad Pengenalan :</td>
+												<td><br><input name="speak_ic" value="<?php echo $row['speak_ic'];?>" id="nokadpengenalan" autocomplete="off" oninput="ValNoAlphaIC(this)" onblur="icInformation(this)" type="text" size="50" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
 							                         maxlength = "12"
@@ -93,58 +95,36 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<td>Alamat :</td>
 												<td><br>
-							                     <textarea name="naqib_address" class="form-control" rows="5" cols="20" required></textarea>
-
+							                     <textarea name="speak_address" class="form-control" rows="5" cols="20" required><?php echo $row['speak_address'];?></textarea>
 							                 </td>
 											</tr>
 											<tr>
 												<td>No. Telefon :</td>
 												<td><br>
-												<input name="naqib_phone" type="text" size="50" autocomplete="off" onkeypress="return isNumeric(event)"
+												<input name="speak_phone" value="<?php echo $row['speak_phone'];?>" type="text" size="50" autocomplete="off" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
 							                         type = "text"
-							                         maxlength = "10"
+							                         maxlength = "12"
 							                         min = "1"
-							                         max = "11" class="form-control" required>
+							                         max = "12" class="form-control" required>
 												</td>
 											</tr>
 											<tr>
-												<td>Kategori :</td>
+												<td>Jantina :</td>
 												<td><br>
-													<input type="radio" name="naqib_category" id="lelaki" value="Naqib"> Naqib &nbsp;
-													<input type="radio" name="naqib_category" id="perempuan" value="Naqibah"> Naqibah
+													<input type="radio" name="speak_gender" id="lelaki" value="Lelaki" <?php if($row['speak_gender']=="Lelaki") echo 'checked="checked"'; ?> > Lelaki &nbsp;
+													<input type="radio" name="speak_gender" id="perempuan" value="Perempuan" <?php if($row['speak_gender']=="Perempuan") echo 'checked="checked"'; ?> > Perempuan
 												</td>
 											</tr>
 											<tr>
 												<td>Email :</td>
 												<td><br>
-												<input name="naqib_mail" type="email" autocomplete="off" size="50" oninput="maxLengthCheck(this)"
-							                     type = "text"
-							                     maxlength = "40" class="form-control" required>
-												</td>
-											</tr>
-											<tr>
-												<td>Cawangan :</td>
-												<td><br>
-												<select name="naqib_branch" class="form-control" required>
-													<option value="">- Pilih -</option>
-														<option value="Kedah">Kedah</option>
-														<option value="Perlis">Perlis</option>
-														<option value="Perak">Perak</option>
-														<option value="Pahang">Pahang</option>
-														<option value="Kuala Lumpur">Kuala Lumpur</option>
-														<option value="Selangor">Selangor</option>
-														<option value="Melaka">Melaka</option>
-														<option value="Johor">Johor</option>
-														<option value="Negeri Sembilan">Negeri Sembilan</option>
-														<option value="Terengganu">Terengganu</option>
-														<option value="Kelantan">Kelantan</option>
-												</select>
+												<input name="speak_mail" value="<?php echo $row['speak_mail'];?>" type="email" autocomplete="off" class="form-control" required>
 												</td>
 											</tr>
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="reg_naqib" value="Daftar Naqib" class="btn btn-primary form-control">
+													<input type="submit" name="reg_speaker" value="Daftar" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>
