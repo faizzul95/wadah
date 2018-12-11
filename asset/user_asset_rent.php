@@ -1,10 +1,14 @@
 
 <?php
- 	// Turn off error reporting
-	error_reporting(0); 
-	
-	session_start(); 
-    if(isset($_SESSION['role'] )!= "admin") // if not admin redirect to home
+
+require ('../connection.php');
+session_start();
+
+ if(!isset($_SESSION['role'])) // If session is not set then redirect to home
+    {
+       header("Location:logout.php");  
+    }
+   else if($_SESSION['role'] != "admin") // if not admin redirect to home
     {
        echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Anda tidak mempunyai akses ke menu Admin.')
@@ -53,16 +57,13 @@
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Sewaan Aset</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
+							
 				<div class="container">
 				<section>
-            
-								<div align="center">
+					<div align="center">
 								<h1><br>DAFTAR SEWAAN ASET</h1></br>
 
 						<form action="controller.php" method="post">
-                        <input name="asset_id" type="hidden" value="<?php echo $row['asset_id'];?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
@@ -70,12 +71,10 @@
 								</tr>
 								<tr>
 									<td>Jenis Aset :</td>
-									<td><?php
+									<td><br><?php
                                             $sql = $myConnection->query("SELECT * FROM asset");
-                                            //$rowCount = $sql->num_rows;
+                                            $rowCount = $sql->num_rows;
                                             ?>
-
-                                      <div class="form-group">
                                         <select name="asset_id" id="" class="form-control" required>
                                         <option value="">- Sila Pilih -</option>
                                           <?php
@@ -86,15 +85,17 @@
                                           }else{
                                               echo '<option value="">Tiada aset yang berdaftar</option>';
                                           }
-                                          ?></td>
+                                          ?>
+
+                                   </td>
 								</tr>
 								<tr>
 					<td>Status Aset:</td>
 					<td><br>
                     <select name="rent_availability" class="form-control" required>
 						<option value="">- Status -</option>
-							<option value="ya">ya</option>
-							<option value="tidak">tidak</option>
+							<option value="ya">Ya</option>
+							<option value="tidak">Tidak</option>
 					</select>
 					</td>
 					
