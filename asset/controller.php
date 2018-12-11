@@ -19,7 +19,7 @@ if (isset($_POST['register_asset']))
             $query_assetinfo = "INSERT INTO `asset` 
             (`asset_type`,`asset_status`,`asset_quantity`,`asset_place`,`asset_desc`)
                VALUES 
-            ('$asset_type','$asset_status','$asset_quantity','$asset_place,'$asset_desc')";
+            ('$asset_type','$asset_status','$asset_quantity','$asset_place','$asset_desc')";
             $result = mysqli_query($myConnection, $query_assetinfo) or die(mysqli_error($myConnection));
         
         if($result)
@@ -43,18 +43,18 @@ if (isset($_POST['register_asset']))
 if (isset($_POST['maintenance_asset']))
 {
  
-    $vendor_name = mysqli_real_escape_string($myConnection, $_POST['vendor_name']);
+    $vendor_id = mysqli_real_escape_string($myConnection, $_POST['vendor_id']);
     $maintenance_status = mysqli_real_escape_string($myConnection, $_POST['maintenance_status']);
     $maintenance_cost = mysqli_real_escape_string($myConnection, $_POST['maintenance_cost']);
-    $asset_place = mysqli_real_escape_string($myConnection, $_POST['asset_place']);
+    $asset_id = mysqli_real_escape_string($myConnection, $_POST['asset_id']);
     $maintenance_days = mysqli_real_escape_string($myConnection, $_POST['maintenance_days']);
 	$maintenance_desc = mysqli_real_escape_string($myConnection, $_POST['maintenance_desc']);
 
 
             $query_maintenanceinfo = "INSERT INTO `maintenance` 
-            (`vendor_name`,`maintenance_status`,`maintenance_cost`,`asset_place`,`maintenance_days`,`maintenance_desc`)
+            (`vendor_id`,`maintenance_status`,`maintenance_cost`,`asset_id`,`maintenance_days`,`maintenance_desc`)
                VALUES 
-            ('$vendor_name','$maintenance_status','$maintenance_cost','$asset_place','$maintenance_days'`maintenance_desc`)";
+            ('$vendor_id','$maintenance_status','$maintenance_cost','$asset_id','$maintenance_days','$maintenance_desc')";
 			
             $result = mysqli_query($myConnection, $query_maintenanceinfo) or die(mysqli_error($myConnection));
         

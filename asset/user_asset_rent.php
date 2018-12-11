@@ -54,17 +54,11 @@
 				</tr>
                 <tr>
 					<td>Tarikh Mula Sewaan :</td>
-					<td><style type="text/css">
-@import url("../../../phpMyAdmin/libraries/css/clndr.css");
-</style>
-					</td>
+					<td><input name="rent_startdate" type="date" size="50" maxlength="50"></td>
 				</tr>
                 <tr>
 					<td>Tarikh Akhir Sewaan :</td>
-					<td><style type="text/css">
-@import url("../../../phpMyAdmin/libraries/css/clndr.css");
-</style>
-					</td>
+					<td><input name="rent_finishdate" type="date" size="50" maxlength="50"></td>
 				</tr>
 				
                 <tr>
