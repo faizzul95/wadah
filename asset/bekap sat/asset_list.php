@@ -32,7 +32,7 @@ session_start();
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Sewaan</title>
+		<title>Admin | Aset</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -41,7 +41,6 @@ session_start();
 		<link href="../css/style.css" rel="stylesheet">
 	</head>
 	<body>
-     
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<?php include '../asset/style/navigation.php'; ?>
@@ -55,16 +54,19 @@ session_start();
 			      <div class="col-md-12">
 			        <article class="blog-post">
 			          <div class="blog-post-body">
-			            <div class="blog-post-text"> <br>
-			              <br>
-			              <br>
+			            <div class="blog-post-text"><nav aria-label="breadcrumb">
+								  <ol class="breadcrumb"><br><br>
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Aset</li>
+								  </ol>
+								</nav><br>
 			              <div class="container">
 			                <section>
                              <table style="width:100%"> 
 						            	<tr>
 						            		<td> </td>
 						                  <td>
-						            		<input type="submit" name="login" value="Tambah Maklumat Sewaan" onclick="location.href='user_asset_rent.php';" class="btn btn-primary pull-right">
+						            		<input type="submit" name="login" value="Tambah Aset" onclick="location.href='user_asset_reg.php';" class="btn btn-primary pull-right">
 						            	</td>
 						            	</tr>   
 						            </table>
@@ -73,23 +75,19 @@ session_start();
 			                    <thead>
 			                      <tr>
 			                        <th>#</th>
-			                        <th>Id Sewaan</th>
+			                        <th>Id Aset</th>
 			                        <th>Jenis Aset</th>
 			                        <th>Status Aset</th>
-			                        <th>Bilangan Hari Sewaan</th>
-			                        <th>Tarikh Mula Sewaan</th>
-                                    <th>Tarikh Akhir Sewaan</th>
-                                    <th>Syarikat Sewaan</th>
+			                        <th>Kuantiti Aset</th>
+			                        <th>Lokasi Aset</th>
+                                    <th>Penerangan Aset</th>
+                                    <th>Tindakan</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>
 			                      <?php 
 
-						                //$sql = "SELECT * FROM `maintenance`";
-
-						                $sql = "SELECT * FROM `rent` 
-										INNER JOIN `asset` ON `asset`.`asset_id` = `rent`.`asset_id` 
-										INNER JOIN `asset` ON `asset`.`asset_id` = `rent`.`asset_id`";
+						                $sql = "SELECT * FROM `asset`";
 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
@@ -103,21 +101,19 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['rent_id']; ?></td>
+			                        <td><?php echo $row['asset_id']; ?></td>
 			                        <td><?php echo $row['asset_type']; ?></td>
-			                        <td><?php echo $row['rent_availability']; ?></td>
-			                        <td><?php echo $row['rent_days']; ?></td>
-                                    <td><?php echo $row['rent_startdate']; ?></td>
-                                    <td><?php echo $row['rent_finishdate']; ?></td>
-                                    <td><?php echo $row['rent_companyname']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+			                        <td><?php echo $row['asset_status']; ?></td>
+			                        <td><?php echo $row['asset_quantity']; ?></td>
+                                    <td><?php echo $row['asset_place']; ?></td>
+                                    <td><?php echo $row['asset_desc']; ?></td>
+			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Padam</button></td>
 		                          </tr>
 			                      <?php
 							                    $count++;
 							                  }
 							                 } 
 						                    ?>
-
 		                        </tbody>
 			                    
 		                      </table>
@@ -136,14 +132,13 @@ session_start();
 		<footer class="footer">
 			<?php include '../style/footer.php'; ?>
 		</footer>
-        		<!-- Bootstrap core JavaScript
+
+		<!-- Bootstrap core JavaScript
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-       
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 		<script src="../js/jquery.bxslider.js"></script>
 		<script src="../js/mooz.scripts.min.js"></script>
-        
 	</body>
 </html>

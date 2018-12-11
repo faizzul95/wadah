@@ -32,7 +32,7 @@ session_start();
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Admin | Sewaan</title>
+		<title>Admin | Penyelenggaraan</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -54,6 +54,7 @@ session_start();
 			    <article class="blog-post">
 			      <div class="col-md-12">
 			        <article class="blog-post">
+			          <div class="blog-post-image"> <a href="post.html"><img src="images/750x500-5.jpg" alt=""></a> </div>
 			          <div class="blog-post-body">
 			            <div class="blog-post-text"> <br>
 			              <br>
@@ -64,7 +65,7 @@ session_start();
 						            	<tr>
 						            		<td> </td>
 						                  <td>
-						            		<input type="submit" name="login" value="Tambah Maklumat Sewaan" onclick="location.href='user_asset_rent.php';" class="btn btn-primary pull-right">
+						            		<input type="submit" name="login" value="Tambah Maklumat Penyelenggaraan" onclick="location.href='user_asset_maintenance.php';" class="btn btn-primary pull-right">
 						            	</td>
 						            	</tr>   
 						            </table>
@@ -73,13 +74,13 @@ session_start();
 			                    <thead>
 			                      <tr>
 			                        <th>#</th>
-			                        <th>Id Sewaan</th>
-			                        <th>Jenis Aset</th>
-			                        <th>Status Aset</th>
-			                        <th>Bilangan Hari Sewaan</th>
-			                        <th>Tarikh Mula Sewaan</th>
-                                    <th>Tarikh Akhir Sewaan</th>
-                                    <th>Syarikat Sewaan</th>
+			                        <th>Id Penyelenggaraan</th>
+			                        <th>Nama Penyelenggara</th>
+			                        <th>Tahap Penyelenggaraan</th>
+			                        <th>Kos Penyelenggaraan</th>
+			                        <th>Tempat Penyelenggaraan</th>
+                                    <th>Tempoh Hari Penyelenggaraan</th>
+                                    <th>Penerangan Penyelenggaraan</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>
@@ -87,9 +88,9 @@ session_start();
 
 						                //$sql = "SELECT * FROM `maintenance`";
 
-						                $sql = "SELECT * FROM `rent` 
-										INNER JOIN `asset` ON `asset`.`asset_id` = `rent`.`asset_id` 
-										INNER JOIN `asset` ON `asset`.`asset_id` = `rent`.`asset_id`";
+						                $sql = "SELECT * FROM `maintenance` 
+										INNER JOIN `vendor` ON `vendor`.`vendor_id` = `maintenance`.`vendor_id` 
+										INNER JOIN `asset` ON `asset`.`asset_id` = `maintenance`.`asset_id`";
 
 						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
 
@@ -103,13 +104,13 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['rent_id']; ?></td>
-			                        <td><?php echo $row['asset_type']; ?></td>
-			                        <td><?php echo $row['rent_availability']; ?></td>
-			                        <td><?php echo $row['rent_days']; ?></td>
-                                    <td><?php echo $row['rent_startdate']; ?></td>
-                                    <td><?php echo $row['rent_finishdate']; ?></td>
-                                    <td><?php echo $row['rent_companyname']; ?></td>
+			                        <td><?php echo $row['maintenance_id']; ?></td>
+			                        <td><?php echo $row['vendor_name']; ?></td>
+			                        <td><?php echo $row['maintenance_status']; ?></td>
+			                        <td><?php echo $row['maintenance_cost']; ?></td>
+                                    <td><?php echo $row['asset_place']; ?></td>
+                                    <td><?php echo $row['maintenance_days']; ?></td>
+                                    <td><?php echo $row['maintenance_desc']; ?></td>
 			                       <td><button class="btn btn-primary" onclick="location.href='member_edit.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
 		                          </tr>
 			                      <?php

@@ -129,7 +129,7 @@ $member_ic = $_SESSION['memberIC'];
 								            <div class="icon">
 								              <i class="ion ion-person-add"></i>
 								            </div>
-								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								            <a href="../activity/list_activity.php" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
 								          </div>
 								        </div>
 								        <!-- ./col -->
@@ -148,7 +148,7 @@ $member_ic = $_SESSION['memberIC'];
 								            <div class="icon">
 								              <i class="ion ion-pie-graph"></i>
 								            </div>
-								            <a href="#" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
+								            <a href="../activity/list_activity.php" class="small-box-footer">Baca Selanjutnya <i class="fa fa-arrow-circle-right"></i></a>
 								          </div>
 								        </div>
 								        <!-- ./col -->
