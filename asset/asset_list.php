@@ -54,9 +54,10 @@ session_start();
 			      <div class="col-md-12">
 			        <article class="blog-post">
 			          <div class="blog-post-body">
-			            <div class="blog-post-text"><nav aria-label="breadcrumb">
+			            <div class="blog-post-text">
+			            		<nav aria-label="breadcrumb">
 								  <ol class="breadcrumb"><br><br>
-								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="../admin.php">Halaman Utama</a></li>
 								    <li class="breadcrumb-item active" aria-current="page">Senarai Aset</li>
 								  </ol>
 								</nav><br>

@@ -43,7 +43,7 @@ session_start();
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../account/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -51,9 +51,6 @@ session_start();
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
-						</div>
 						<div class="blog-post-body">
 							<div class="blog-post-text">
 								<br>

@@ -56,9 +56,12 @@ session_start();
 			        <article class="blog-post">
 			          <div class="blog-post-image"> <a href="post.html"><img src="images/750x500-5.jpg" alt=""></a> </div>
 			          <div class="blog-post-body">
-			            <div class="blog-post-text"> <br>
-			              <br>
-			              <br>
+			            <div class="blog-post-text"> <nav aria-label="breadcrumb">
+								  <ol class="breadcrumb"><br>
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="../admin.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Penyelenggaraan</li>
+								  </ol>
+								</nav><br>
 			              <div class="container">
 			                <section>
                              <table style="width:100%"> 

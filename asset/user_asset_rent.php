@@ -44,12 +44,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
-						</div>
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								<br>
+								<br><br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span>&nbsp; <a href="user.php">Halaman Utama</a></li>
@@ -77,9 +74,8 @@
 								<tr>
 									<td>Jenis Aset :</td>
 									<td><?php
-                                            
-                                            $query = $myConnection->query("SELECT * FROM asset");
-                                            $rowCount = $query->num_rows;
+                                            $sql = $myConnection->query("SELECT * FROM asset");
+                                            //$rowCount = $sql->num_rows;
                                             ?>
 
                                       <div class="form-group">
@@ -87,7 +83,7 @@
                                         <option value="">- Sila Pilih -</option>
                                           <?php
                                           if($rowCount > 0){
-                                              while($row = $query->fetch_assoc()){ 
+                                              while($row = $sql->fetch_assoc()){ 
                                                   echo '<option value="'.$row['asset_id'].'">'.strtoupper($row['asset_type']).'</option>';
                                               }
                                           }else{

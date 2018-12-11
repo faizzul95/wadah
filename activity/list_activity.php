@@ -53,9 +53,6 @@ session_start();
 			<div class="row">
 				<div class="col-md-12">
 					<article class="blog-post">
-						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
-						</div>
 						<div class="blog-post-body">
 							<div class="blog-post-text">
 								<br><nav aria-label="breadcrumb">
