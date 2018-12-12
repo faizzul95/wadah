@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 11, 2018 at 06:26 PM
+-- Generation Time: Dec 12, 2018 at 02:05 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -35,13 +35,27 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `act_description` text NOT NULL,
   `act_date` date NOT NULL,
   `act_time` time NOT NULL,
-  `act_venue` varchar(25) NOT NULL,
+  `act_venue` varchar(100) NOT NULL,
   `act_category` enum('Ahli','Awam') NOT NULL,
   `act_type` varchar(11) DEFAULT NULL,
   `act_fee` int(11) DEFAULT NULL,
   `naqib_ic` bigint(13) DEFAULT NULL,
   `speak_ic` bigint(13) DEFAULT NULL,
   PRIMARY KEY (`act_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `act_sponsorship`
+--
+
+DROP TABLE IF EXISTS `act_sponsorship`;
+CREATE TABLE IF NOT EXISTS `act_sponsorship` (
+  `sponsor_id` varchar(10) DEFAULT NULL,
+  `act_id` int(11) DEFAULT NULL,
+  `sponsor_amount` int(11) NOT NULL,
+  `sps_description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,10 +119,8 @@ CREATE TABLE IF NOT EXISTS `education_info` (
 
 DROP TABLE IF EXISTS `event`;
 CREATE TABLE IF NOT EXISTS `event` (
-  `event_id` int(11) NOT NULL AUTO_INCREMENT,
-  `member_ic` varchar(13) NOT NULL,
+  `member_ic` bigint(13) NOT NULL,
   `activity_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`event_id`),
   KEY `event_activity` (`activity_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -342,13 +354,19 @@ CREATE TABLE IF NOT EXISTS `sponsors` (
 
 DROP TABLE IF EXISTS `staff`;
 CREATE TABLE IF NOT EXISTS `staff` (
-  `staff_id` int(11) NOT NULL AUTO_INCREMENT,
+  `staff_id` varchar(15) NOT NULL,
   `staff_fullname` varchar(255) NOT NULL,
   `staff_telno` int(14) NOT NULL,
   `staff_address` text,
-  `staff_email` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`staff_id`)
+  `staff_email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staff_id`, `staff_fullname`, `staff_telno`, `staff_address`, `staff_email`) VALUES
+('staff', 'STAFF', 11111, 'wadah', 'staf.wadah@gmail.com');
 
 -- --------------------------------------------------------
 
