@@ -148,6 +148,84 @@ if (isset($_POST['feedbackahli']))
 
 }
 
+// assign sponsor
+if (isset($_POST['assign_sponsor']))
+{
+  
+    $sponsor_id = mysqli_real_escape_string($myConnection, $_POST['sponsor_id']);
+    $act_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
+    $sponsor_amount = mysqli_real_escape_string($myConnection, $_POST['sponsor_amount']);
+    $sps_description = mysqli_real_escape_string($myConnection, $_POST['sps_description']);
+    
+            $query_expinfo = "INSERT INTO `act_sponsorship` 
+            (`sponsor_id`,`act_id`,`sponsor_amount`,`sps_description`)
+               VALUES 
+            ('$sponsor_id','$act_id','$sponsor_amount','$sps_description')";
+      
+            $result = mysqli_query($myConnection, $query_expinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Berjaya')
+          // window.location.href = window.history.back();
+          window.location = 'list_activity.php?result=berjaya';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+    
+
+}
+
+// joint member activiti
+if (isset($_POST['joinevent']))
+{
+  
+    $member_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
+    $activity_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
+    
+     $check_ic = mysqli_query($myConnection, "SELECT * FROM `event` WHERE `member_ic` = '$member_ic' AND `activity_id` = '$activity_id'");
+    if(mysqli_num_rows($check_ic) > 0){
+        echo ("<SCRIPT LANGUAGE='JavaScript'>
+        window.alert('Anda telah berdaftar dengan aktiviti ini')
+        window.location.href = window.history.back();
+            </SCRIPT>");
+    }else{
+
+         $join = "INSERT INTO `event` 
+            (`member_ic`,`activity_id`)
+               VALUES 
+            ('$member_ic','$activity_id')";
+      
+            $result = mysqli_query($myConnection, $join) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Anda telah berjaya mendaftar aktiviti')
+          window.location = '../member/user.php?result=berjaya';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+    }
+}
+
+
 
 ?>
 

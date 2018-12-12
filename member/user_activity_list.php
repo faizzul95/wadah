@@ -27,10 +27,17 @@
 
                         date_default_timezone_set("Asia/Kuala_Lumpur");
 
-                        $sql = "SELECT `event`.*,`member`.*,`naqib`.*,`activity`.* FROM `event` 
-                         INNER JOIN  `member` ON `event`.`member_ic` = `member`.`mbr_ic`
-                         -- INNER JOIN  `naqib` ON `event`.`naqib_ic` = `naqib`.`naqib_ic`
-                         INNER  JOIN  `activity` ON `event`.`activity_id` = `activity`.`act_id`
+                         $result = $myConnection->query("SELECT * FROM `event` WHERE `member_ic` = '$member_ic'"); 
+                         $row = $result->fetch_assoc();
+                         $check_member_ic = $row['member_ic'];
+
+                        if ($check_member_ic == Null) {
+                          echo "Tiada Maklumat Ditemui";
+                        }else{
+
+                        $sql = "SELECT `event`.*,`member`.*,`activity`.* FROM `event` 
+                          INNER JOIN  `member` ON `event`.`member_ic` = `member`.`mbr_ic`
+                          INNER  JOIN  `activity` ON `event`.`activity_id` = `activity`.`act_id`
                         WHERE `member_ic` = '$member_ic'";
                         $result = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
                         if (mysqli_num_rows($result)==0){
@@ -59,10 +66,13 @@
                            $result2 = $myConnection->query("SELECT * FROM `fees` WHERE `member_ic` = '$member_ic' AND `activity_id` = '$act_id'");
                            $row2 = $result2->fetch_assoc();
                            $Fee_activity_status = $row2['Fee_status'];
-                                  if ($Fee_activity_status == NULL) {
-                                    echo "<b><a href=''><font color='red'> BELUM DIBAYAR </font></a><b>";
+                                  if($row['act_fee'] == 0){
+                                    echo "<b><font color='navy'> TIADA YURAN DIKENAKAN </font><b>";
+                                  }
+                                  else if ($Fee_activity_status == NULL) {
+                                    echo "<b><font color='red'> BELUM DIBAYAR </font><b>";
                                   }else {
-                                    echo "<b><a href=''><font color='green'>".strtoupper($Fee_activity_status)."</font></a><b>"; 
+                                    echo "<b><font color='green'>".strtoupper($Fee_activity_status)."</font><b>"; 
                                   }
                                   ?> </center>
                         </td>        
@@ -89,6 +99,7 @@
                                   $count++;
                                 }
                                } 
+                              }
                                 ?>
 
                     </tbody>

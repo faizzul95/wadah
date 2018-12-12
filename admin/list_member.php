@@ -90,20 +90,12 @@ $member_ic = $_SESSION['memberIC'];
 						            					Susun :
 						            				</td>
 						            				<td width="80%">  
-						            					<select name="mbr_branch" class="form-control" onchange='this.form.submit()'>
-							                   			<option value="">- Pilih Cawangan -</option>
-							                   			<option value="all">Lihat Semua</option>
-							                            <?php
-							                              $sql = "SELECT DISTINCT `mbr_branch` FROM `member`";
-							                              $sql_branch = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
-							                               
-							                              while( $row = mysqli_fetch_array($sql_branch) )
-							                              {
-							                                ?>
-							                                <option value="<?php echo $row['mbr_branch']; ?>"><?php echo $row['mbr_branch']; ?></option>
-							                                <?php
-							                              }
-							                            ?>
+						            					<select name="sort" class="form-control" onchange='this.form.submit()'>
+							                   			<option value="">- Pilih -</option>
+							                   			<option value="nameASC">Nama ASC</option>
+							                   			<option value="nameDESC">Nama DESC</option>
+							                   			<option value="icASC">IC ASC</option>
+							                   			<option value="icDESC">IC DESC</option>
 							                 			 </select>
 						            				</td>
 						            				<td>
@@ -151,10 +143,16 @@ $member_ic = $_SESSION['memberIC'];
 
 											<?php 
 
-						               if (isset($_POST['mbr_branch'])) {
-						                	$branch = $_POST['mbr_branch'];
-						                	if ($branch == "all") {
-						                		$sql = "SELECT * FROM `member`";
+						               if (isset($_POST['sort'])) {
+						                	$sort = $_POST['sort'];
+						                	if ($sort == "nameASC") {
+						                		$sql = "SELECT * FROM `member` ORDER BY `mbr_name` ASC";
+						                	}else if ($sort == "nameDESC") {
+						                		$sql = "SELECT * FROM `member` ORDER BY `mbr_name` DESC";
+						                	}else if ($sort == "icASC") {
+						                		$sql = "SELECT * FROM `member` ORDER BY `mbr_ic` ASC";
+						                	}else if ($sort == "icDESC") {
+						                		$sql = "SELECT * FROM `member` ORDER BY `mbr_ic` DESC";
 						                	}else{
 						                		$sql = "SELECT * FROM `member` WHERE `mbr_branch` = '$branch'";
 						                	}

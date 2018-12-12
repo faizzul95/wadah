@@ -20,7 +20,6 @@
 
  $result = $myConnection->query("SELECT * FROM `fees` WHERE `member_ic` = '$mmbrIC'"); 
  $row = $result->fetch_assoc();
- $member_id = $row['member_id'];
  $Fee_status = $row['Fee_status'];
  $Fee_type = $row['Fee_type'];
  $Fee_amount = $row['Fee_amount'];
@@ -191,7 +190,7 @@
 								<div class="container">
 								  <button type="button" id="buttonactivity" class="btn btn-info form-control" data-toggle="collapse" data-target="#activity">SENARAI AKTIVITI</button>
 								  <div id="activity" class="collapse">
-								   <?php //include 'user_activity_list.php'; ?>
+								   <?php include 'user_activity_list.php'; ?>
 								  </div>
 								</div>
 				           

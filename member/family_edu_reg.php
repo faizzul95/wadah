@@ -36,7 +36,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -97,7 +97,8 @@
 								</tr>
 								<tr>
 									<td>Alamat Institusi :</td>
-									<td><br><input name="edu_address" type="text" autocomplete="off" size="50" maxlength="250" class="form-control" required></td>
+									<td><br>
+										<textarea name="edu_address" class="form-control" maxlength="250" rows="5" cols="20" required></textarea></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
@@ -110,7 +111,7 @@
 								</tr>
 								<tr>
 									<td>Kursus :</td>
-									<td><br><input name="edu_course" type="text" size="50" autocomplete="off" class="form-control" maxlength="50"></td>
+									<td><br><input name="edu_course" type="text" size="50" autocomplete="off" class="form-control" maxlength="25"></td>
 								</tr>
 								<tr>
 									<td>Tahap Pendidikan :</td>

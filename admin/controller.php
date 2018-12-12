@@ -100,6 +100,48 @@ if (isset($_POST['reg_member']))
 	}
 }
 
+// update member
+if (isset($_POST['update_member']))
+{
+
+    $mbr_name = mysqli_real_escape_string($myConnection, $_POST['mbr_name']);
+    $mbr_ic = mysqli_real_escape_string($myConnection, $_POST['mbr_ic']);
+    $mbr_address = mysqli_real_escape_string($myConnection, $_POST['mbr_address']);
+    $mbr_gender = mysqli_real_escape_string($myConnection, $_POST['mbr_gender']);
+    $mbr_phone = mysqli_real_escape_string($myConnection, $_POST['mbr_phone']);
+    $mbr_email = mysqli_real_escape_string($myConnection, $_POST['mbr_email']);
+    $mbr_dob = mysqli_real_escape_string($myConnection, $_POST['mbr_dob']);
+    $mbr_branch = mysqli_real_escape_string($myConnection, $_POST['mbr_branch']);
+
+        $query_unaqib = "UPDATE `member` SET 
+        `mbr_name` = '$mbr_name', 
+        `mbr_ic` = '$mbr_ic', 
+        `mbr_address` = '$mbr_address',
+        `mbr_phone` = '$mbr_phone', 
+        `mbr_email` = '$mbr_email', 
+        `mbr_dob` = '$mbr_dob', 
+        `mbr_branch` = '$mbr_branch' WHERE `mbr_ic` = '$mbr_ic'";
+
+        $result = mysqli_query($myConnection, $query_unaqib) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Berjaya')
+          window.location = 'list_member.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
+
 
 //delete member
 if (isset($_POST['deletemem'])){
@@ -187,7 +229,7 @@ if (isset($_POST['kemaskini_naqib']))
     $naqib_branch = mysqli_real_escape_string($myConnection, $_POST['naqib_branch']);
     $naqib_category = mysqli_real_escape_string($myConnection, $_POST['naqib_category']);
 
-        $query_eduinfo = "UPDATE `naqib` SET 
+        $query_unaqib = "UPDATE `naqib` SET 
         `naqib_name` = '$naqib_name', 
         `naqib_ic` = '$naqib_ic', 
         `naqib_phone` = '$naqib_phone',
@@ -196,7 +238,7 @@ if (isset($_POST['kemaskini_naqib']))
         `naqib_branch` = '$naqib_branch', 
         `naqib_category` = '$naqib_category' WHERE `naqib_ic` = '$naqib_ic'";
 
-        $result = mysqli_query($myConnection, $query_eduinfo) or die(mysqli_error($myConnection));
+        $result = mysqli_query($myConnection, $query_unaqib) or die(mysqli_error($myConnection));
         
         if($result)
         {
@@ -204,6 +246,45 @@ if (isset($_POST['kemaskini_naqib']))
           echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Kemaskini Berjaya')
           window.location = 'list_naqib.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
+
+// update speaker
+if (isset($_POST['update_speaker']))
+{
+
+    $speak_ic = mysqli_real_escape_string($myConnection, $_POST['speak_ic']);
+    $speak_name = mysqli_real_escape_string($myConnection, $_POST['speak_name']);
+    $speak_address = mysqli_real_escape_string($myConnection, $_POST['speak_address']);
+    $speak_phone = mysqli_real_escape_string($myConnection, $_POST['speak_phone']);
+    $speak_gender = mysqli_real_escape_string($myConnection, $_POST['speak_gender']);
+    $speak_mail = mysqli_real_escape_string($myConnection, $_POST['speak_mail']);
+
+        $query_eduinfo = "UPDATE `speaker` SET 
+        `speak_ic` = '$speak_ic', 
+        `speak_name` = '$speak_name', 
+        `speak_address` = '$speak_address',
+        `speak_phone` = '$speak_phone', 
+        `speak_gender` = '$speak_gender', 
+        `speak_mail` = '$speak_mail' WHERE `speak_ic` = '$speak_ic'";
+
+        $result = mysqli_query($myConnection, $query_eduinfo) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Berjaya')
+          window.location = 'list_speaker.php?result=Successfullyupdate';
           </SCRIPT>");
         }
         else

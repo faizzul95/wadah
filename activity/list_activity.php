@@ -63,8 +63,30 @@ session_start();
 								</nav><br>
 								<div class="container">
 								<section>	
+
+									
 									
 						            <table style="width:100%"> 
+						            	<tr>
+						            	<td>
+						            		<input type="submit" value="Daftar Aktiviti Awam" onclick="location.href='register_public.php';" class="btn btn-primary pull-right"> &nbsp; &nbsp; &nbsp;
+						            		
+						            		<input type="submit" value="Daftar Aktiviti Ahli" onclick="location.href='register_aktiviti.php';" class="btn btn-primary pull-right">
+						            		<?php 
+			                          		$sql = "SELECT * FROM `activity` WHERE `act_category` = 'Awam'";
+					                             $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+					                             $row = mysqli_fetch_array($res);
+
+					                             if (mysqli_num_rows($res)!=0) { ?>
+					                              <input type="submit" name="login" value="Daftar Penaja Aktiviti" onclick="location.href='assign_sponsor.php';" class="btn btn-primary pull-right">
+			                          		<?php }?>
+						            	</td>
+						            	</tr>   
+						            </table>
+
+						            <br>
+
+						             <table style="width:100%"> 
 						            	<tr>
 						                <td width="70%">
 						            		
@@ -88,20 +110,6 @@ session_start();
 
 						            <br>
 
-						            <table style="width:100%"> 
-						            	<tr>
-						                <td width="85%">
-						            		<input type="submit" value="Daftar Aktiviti Awam" onclick="location.href='register_public.php';" class="btn btn-primary pull-right"> &nbsp; &nbsp; &nbsp;
-						            		
-						            	</td>
-						            	<td>
-						            		<input type="submit" value="Daftar Aktiviti Ahli" onclick="location.href='register_aktiviti.php';" class="btn btn-primary pull-right">
-						            	</td>
-						            	</tr>   
-						            </table>
-
-						            <br>
-
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
 										<thead>
 											<tr>
@@ -113,6 +121,7 @@ session_start();
 												<th>Peneranagan</th>
 												<th>Kategori</th>
 												<th>Jenis</th>
+												<th>Penaja</th>
 												<th>Tindakan</th>
 											</tr>
 										</thead>
@@ -123,7 +132,7 @@ session_start();
 
 						               if (isset($_POST['search'])) {
 						                	$search = $_POST['search'];
-						                	$sql="SELECT * FROM `activity` WHERE `act_name` LIKE '%" . $search . "%' OR `act_category` LIKE '%" . $search . "%'"; 
+						                	$sql="SELECT * FROM `activity` WHERE `act_name` LIKE '%" . $search . "%'"; 
 						                }else{
 						                	 $sql = "SELECT * FROM `activity`";
 						                }
@@ -149,6 +158,21 @@ session_start();
 												<td><?php echo $row['act_description']; ?></td>
 												<td><?php echo $row['act_category']; ?></td>
 												<td><?php echo $row['act_type']; ?></td>
+												<td>
+                                                     <?php 
+													$sql = "SELECT * FROM `act_sponsorship` WHERE `act_id` = '$act_id'";
+												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+												     $row = mysqli_fetch_array($res);
+
+												     if (mysqli_num_rows($res)!=0) { ?>
+													<form method='post' action=''>
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $act_id; ?>" >Lihat Penaja
+                                                      </button></center>
+                                                     </form>
+                                                     <?php }else{ ?>
+                                                     	 <center> - Tiada Maklumat - </center>
+                                                     <?php } ?>
+												</td>
 												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?act_id=<?php echo $act_id; ?>';">Kemaskini</button><br>
 													 <form method="post" action="controller.php?act_id=<?php echo $row["act_id"]; ?>">
 						                              <input type="hidden" name="act_id" value="<?php echo $act_id; ?>">
@@ -174,6 +198,7 @@ session_start();
 												<th>Peneranagan</th>
 												<th>Kategori</th>
 												<th>Jenis</th>
+												<th>Penaja</th>
 												<th>Tindakan</th>
 											</tr>
 										</tfoot>
@@ -207,7 +232,7 @@ session_start();
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">MAKLUMAT PENDIDIKAN</font></center></center></h2>
+        <h2 class="modal-title" id="exampleModalLabel"><center><font color="white">PENAJA</font></center></center></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -217,7 +242,6 @@ session_start();
       </div>
       <div class="modal-footer">
 		        <input type="submit" class="btn btn-secondary" name="" data-dismiss="modal" onClick="window.location.reload()" value="Tutup">
-		        <input type="submit" class="btn btn-primary" name="updatestudy" value="Kemaskini">
 	  </div>
     </div>
   </div>
@@ -233,7 +257,7 @@ session_start();
 
             $.ajax({
                 type: "GET",
-                url: "admin_edu_info.php",
+                url: "list_act_sponsor.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

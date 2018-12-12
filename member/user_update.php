@@ -35,7 +35,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -128,6 +128,9 @@
 										<option value="Negeri Sembilan" <?php if($row['mbr_branch']=="Negeri Sembilan") echo 'selected="selected"'; ?>>Negeri Sembilan</option>
 										<option value="Terengganu" <?php if($row['mbr_branch']=="Terengganu") echo 'selected="selected"'; ?>>Terengganu</option>
 										<option value="Kelantan" <?php if($row['mbr_branch']=="Kelantan") echo 'selected="selected"'; ?>>Kelantan</option>
+										<option value="Sabah" <?php if($row['mbr_branch']=="Sabah") echo 'selected="selected"'; ?>>Sabah</option>
+										<option value="Serawak" <?php if($row['mbr_branch']=="Serawak") echo 'selected="selected"'; ?>>Serawak</option>
+
 										</select>
 									</td>
 								</tr>

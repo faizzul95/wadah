@@ -74,11 +74,12 @@
 								</tr>
 								<tr>
 									<td>Nama Institusi :</td>
-									<td><br><input name="edu_name" type="text" autocomplete="off" size="50" maxlength="50" class="form-control" required></td>
+									<td><br><input name="edu_name" type="text" autocomplete="off" size="50" maxlength="40" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Alamat Institusi :</td>
-									<td><br><input name="edu_address" type="text" autocomplete="off" size="50" maxlength="250" class="form-control" required></td>
+									<td><br>
+									<textarea name="edu_address" class="form-control" maxlength="250" rows="5" cols="20" required></textarea></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>
@@ -91,7 +92,7 @@
 								</tr>
 								<tr>
 									<td>Kursus :</td>
-									<td><br><input name="edu_course" type="text" size="50" autocomplete="off" class="form-control" maxlength="50"></td>
+									<td><br><input name="edu_course" type="text" size="50" autocomplete="off" class="form-control" maxlength="30"></td>
 								</tr>
 								<tr>
 									<td>Tahap Pendidikan :</td>

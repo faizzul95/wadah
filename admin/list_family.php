@@ -72,7 +72,7 @@ $member_ic = $_SESSION['memberIC'];
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								<br><nav aria-label="breadcrumb">
+								<br><br><nav aria-label="breadcrumb">
 								  <ol class="breadcrumb">
 								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
 								    <li class="breadcrumb-item active" aria-current="page">Senarai Keluarga</li>

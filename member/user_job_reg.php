@@ -34,7 +34,7 @@
 	<body>
 		<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<?php include '../style/navigation.php'; ?>
+			<?php include '../member/style/navigation.php'; ?>
 		</nav>
 
 		<div class="container">
@@ -71,11 +71,12 @@
 								</tr>
 								<tr>
 									<td>Nama Syarikat :</td>
-									<td><br><input name="company_name" type="text" autocomplete="off" size="50" maxlength="50" class="form-control" required></td>
+									<td><br><input name="company_name" type="text" autocomplete="off" size="50" maxlength="40" class="form-control" required></td>
 								</tr>
 								<tr>
 									<td>Alamat Syarikat :</td>
-									<td><br><input name="company_address" type="text" autocomplete="off" size="50" maxlength="250" class="form-control" required></td>
+									<td><br>
+									<textarea name="company_address" class="form-control" maxlength="250" rows="5" cols="20" required></textarea></td>
 								</tr>
 								<tr>
 									<td>No telefon :</td>

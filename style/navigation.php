@@ -37,7 +37,7 @@
 					     </li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="../activity/list_activity.php">Senarai Aktiviti</a></li>
+					          <li><a href="activity/list_activity.php">Senarai Aktiviti</a></li>
 					        </ul>
 				      	</li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>

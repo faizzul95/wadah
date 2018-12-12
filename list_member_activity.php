@@ -139,9 +139,9 @@ session_start();
 													       	<?php
 
 													       	 ?>
-													       	<form method="post" action="controller.php">
+													       	<form method="post" action="activity/controller.php">
 													       		<input type="hidden" name="member_ic" value="<?php echo $_SESSION['memberIC']; ?>">
-													       		<input type="hidden" name="member_ic" value="<?php echo $act_id; ?>">
+													       		<input type="hidden" name="act_id" value="<?php echo $act_id; ?>">
 													       		<input type="submit" name="joinevent" class="btn btn-primary" value="Sertai Aktiviti" onclick='return checkJoin()'>
 													       	</form>
 															</center>

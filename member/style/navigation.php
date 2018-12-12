@@ -27,7 +27,7 @@
 
 				    <!-- only admin can view-->
 				     <?php if($_SESSION['role'] == 'member') { ?>
-						<li><a href="index.php?page=home">Halaman Utama</a></li>
+						<li><a href="../index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
 						        <li><a href="../list_public_activity.php?page=awam">Awam</a></li>
@@ -36,11 +36,11 @@
 					     </li>
 					    <li><a href="member/user.php">Profil</a></li>
 					<?php } else { ?>
-						<li><a href="index.php?page=home">Halaman Utama</a></li>
+						<li><a href="../index.php?page=home">Halaman Utama</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
-					          <li><a href="list_public_activity.php?page=awam">Awam</a></li>
-					          <li><a href="list_member_activity.php?page=ahli">Ahli</a></li>
+					          <li><a href="../list_public_activity.php?page=awam">Awam</a></li>
+					          <li><a href="../list_member_activity.php?page=ahli">Ahli</a></li>
 						    </ul>
 					     </li>
 					    <li><a href="about.php?page=tentangwadah">Tentang Wadah</a></li>

@@ -71,7 +71,7 @@
 				<section>
 								<div align="center">
 								<h1><br>KEMASKINI MAKLUMAT PERIBADI</h1></br>
-
+						<form method="post" action="controller.php">
 							<input name="mbr_id" type="hidden" value="<?php echo $row['mbr_id'];?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">

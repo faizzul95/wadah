@@ -124,7 +124,7 @@ $row=mysqli_fetch_array($sql);
 											</tr>
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="reg_speaker" value="Daftar" class="btn btn-primary form-control">
+													<input type="submit" name="update_speaker" value="Daftar" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>
