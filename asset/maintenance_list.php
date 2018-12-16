@@ -83,6 +83,7 @@ session_start();
 			                        <th>Tempat Penyelenggaraan</th>
                                     <th>Tempoh Hari Penyelenggaraan</th>
                                     <th>Penerangan Penyelenggaraan</th>
+                                    <th>Tindakan</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>
@@ -116,13 +117,13 @@ session_start();
                             <button class="btn btn-primary" onclick="location.href='user_maintenance_edit.php?maintenanceID=<?php echo $row["maintenance_id"]; ?>';">
                               <span class="glyphicon glyphicon-edit"></span>
                             </button>
-                             <form method="post" action="controller.php?jobID=<?php echo $row["maintenance_id"]; ?>">
-                                    <input type="hidden" name="asset_id" value="<?php echo $row["maintenance_id"]; ?>">
+                             <form method="post" action="controller.php?maintenanceID=<?php echo $row["maintenance_id"]; ?>">
+                                    <input type="hidden" name="maintenance_id" value="<?php echo $row["maintenance_id"]; ?>">
                                     <button name="delete_maintenance" onclick='return checkDeleteMaintenance()' class="btn btn-danger">
                                       <span class="glyphicon glyphicon-trash"></span> 
                                     </button>
                               </form>
-                          </td>>
+                          </td>
 		                          </tr>
 			                      <?php
 							                    $count++;

@@ -80,6 +80,7 @@ session_start();
 			                        <th>Alamat Vendor</th>
 			                        <th>Nombor Telefon</th>
 			                        <th>Penerangan Vendor</th>
+                                    <th>Tindakan</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>

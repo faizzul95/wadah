@@ -4,7 +4,7 @@
 	
 	session_start();
 
-	if(!isset($_SESSION['UserID'])) // If session is not set then redirect to home
+	if(!isset($_SESSION['userID'])) // If session is not set then redirect to home
     {
        header("Location:../logout.php");  
     }
@@ -12,7 +12,7 @@
     require('../connection.php');
     $id = $_GET['asset_id'];
 
-    $sql = mysqli_query($myConnection,"SELECT * FROM `asset` WHERE `asset_id` = '$id' ") or die (mysqli_error());
+    $sql = mysqli_query($myConnection,"SELECT * FROM `maintenance` WHERE `maintenance_id` = '$id' ") or die (mysqli_error());
     $row=mysqli_fetch_array($sql);
 
 ?>
@@ -26,7 +26,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>Staf | Kemaskini Aset</title>
+		<title>Staf | Kemaskini Penyelenggaraan</title>
 		<!-- Bootstrap core CSS -->
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -55,7 +55,7 @@
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="user.php">Profil</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Aset</li>
+				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Penyelenggaraan</li>
 				  </ol>
 				</nav>
 								
@@ -64,64 +64,106 @@
 				<section>
             
 								<div align="center">
-								<h1><br>KEMASKINI ASET</h1></br>
+								<h1><br>
+								KEMASKINI PENYELENGGARAAN</h1></br>
 
 						<form action="controller.php" method="post">
 
-							<input name="asset_id" type="hidden" value="<?php echo $row['asset_id'];?>" size="50" maxlength="50">
+							<input name="maintenance_id" type="hidden" value="<?php echo $row['maintenance_id'];?>" size="50" maxlength="50">
 								
 							<TABLE border="0" cellpadding="5" cellspacing="2">
 								<tr>
-									<td colspan="2"><center><b>MAKLUMAT ASET</b></center></td> 
+									<td colspan="2"><center><b>MAKLUMAT PENYELENGGARAAN</b></center></td> 
 								</tr>
 								<tr>
-									<td>Jenis Aset :</td>
-									<td><br><input name="asset_type" type="text" value="<?php echo $row['asset_type'];?>" size="50" maxlength="50" class="form-control" required></td>
-								</tr>
-								<tr>
-									<td>Status Aset :</td>
+									<td>Nama Penyelenggara: <br></td>
 									<td><br>
-										<select name="asset_status" class="form-control" required>
-											<option value="" >- Pilih -</option>
-											<option value="Sangat Bagus" <?php if($row['asset_status']=="Sangat Bagus") echo 'selected="selected"'; ?> >Sangat Bagus</option>
-											<option value="Bagus" <?php if($row['asset_status']=="Bagus") echo 'selected="selected"'; ?> >Bagus</option>
-											<option value="Sederhana" <?php if($row['asset_status']=="Sederhana") echo 'selected="selected"'; ?> >Sederhana</option>
-											<option value="Tidak Memuaskan" <?php if($row['asset_status']=="Tidak Memuaskan") echo 'selected="selected"'; ?> >Tidak Memuaskan</option>
-											<option value="Sangat Tidak Memuaskan" <?php if($row['asset_quantity']=="Sangat Tidak Memuaskan") echo 'selected="selected"'; ?> >Sangat Tidak Memuaskan</option>
+                                      <?php
+                                            
+                                            $query = $myConnection->query("SELECT * FROM vendor");
+                                            $rowCount = $query->num_rows;
+                                            ?>
 
-										</select>
-									</td>
+                                        <select name="vendor_id" id="" class="form-control" required>
+                                        <option value="">- Sila Pilih -</option>
+                                          <?php
+                                          if($rowCount > 0){
+                                              while($row = $query->fetch_assoc()){ 
+                                                  echo '<option value="'.$row['vendor_id'].'">'.strtoupper($row['vendor_name']).'</option>';
+                                              }
+                                          }else{
+                                              echo '<option value="">Tiada Vendor yang berdaftar</option>';
+                                          }
+                                     ?>
+                                      </select> 
+                                      
+                    				</td>
 								</tr>
 								<tr>
-									<td><br>
-										Kuantiti Aset : 
-									</td>
-									<td><br>
-										<select name="asset_quantity" class="form-control" required>
-											<option value="" >- Pilih -</option>
-											<option value="1" <?php if($row['asset_quantity']=="1") echo 'selected="selected"'; ?> >1</option>
-											<option value="2" <?php if($row['asset_quantity']=="2") echo 'selected="selected"'; ?> >2</option>
-											<option value="3" <?php if($row['asset_quantity']=="3") echo 'selected="selected"'; ?> >3</option>
-											<option value="4" <?php if($row['asset_quantity']=="4") echo 'selected="selected"'; ?> >4</option>
-											<option value="5" <?php if($row['asset_quantity']=="5") echo 'selected="selected"'; ?> >5</option>
-											<option value="6" <?php if($row['asset_quantity']=="6") echo 'selected="selected"'; ?> >6</option>
+					<td>Tahap penyelenggaraan:</td>
+					<td> <br>
+					<select name="maintenance_status" class="form-control" required>
+						<option value="Pilih">Pilih</option>
+							<option value="100%">100%</option>
+							<option value="80%">80%</option>
+                          							<option value="60%">60%</option>
+                                                    
+                            							<option value="40%">40%</option>
+                                                        							<option value="20%">20%</option>
 
-										</select>
-									</td>
+					</select>
+					</td>
+				</tr>
+								<tr>
+									<td>Kos Penyelenggaraan:</td>
+									<td><br><input name="maintenance_cost" type="text" size="50" class="form-control" maxlength="50"></td>
 								</tr>
-                                <tr>
-									<td>Lokasi Aset :</td>
-									<td><br><input name="asset_place" type="text" value="<?php echo $row['asset_place'];?>" size="50" class="form-control" maxlength="80"></td>
+								<tr>
+									<td>Tempat Penyelenggaraan :</td>
+					<td><br> 
+                                      <?php
+                                            
+                                            $query = $myConnection->query("SELECT * FROM asset");
+                                            $rowCount = $query->num_rows;
+                                            ?>
+
+                                      <div class="form-group">
+                                        <select name="asset_id" id="" class="form-control" required>
+                                        <option value="">- Sila Pilih -</option>
+                                          <?php
+                                          if($rowCount > 0){
+                                              while($row = $query->fetch_assoc()){ 
+                                                  echo '<option value="'.$row['asset_id'].'">'.strtoupper($row['asset_place']).'</option>';
+                                              }
+                                          }else{
+                                              echo '<option value="">Tiada tempat yang berdaftar</option>';
+                                          }
+                                          ?>
+                                      </select> </td>
 								</tr>
-                                <tr>
-									<td>Penerangan Aset :</td>
-									<td><br><input name="asset_desc" type="text" value="<?php echo $row['asset_desc'];?>" size="50" class="form-control" maxlength="80"></td>
+								<tr>
+									<td>Tempoh Hari Penyelenggaraan :</td>
+					<td>
+						<select name="maintenance_days" class="form-control" required>
+							<option value="" >Pilih</option>
+							<option value="1" >1</option>
+							<option value="2">2</option>
+							<option value="3" >3</option>
+							<option value="4">4</option>
+                            <option value="5" >5</option>
+							<option value="6">6</option>
+						</select>
+					</td>
+                    <tr>
+                    <td>Penerangan Penyelenggaraan:</td>
+					<td><br><input name="maintenance_desc" type="text"  value="" size="50" maxlength="50" class="form-control" required>
+					</td>
 								</tr>
 								
 								<tr align="center">
 									<td colspan="2">
 										<br>
-										<input type="submit" name="update_family" value="Kemaskini" class="btn btn-primary form-control">
+										<input type="submit" name="update_maintenance" value="Kemaskini" class="btn btn-primary form-control">
 									</td>
 								</tr>
 							</TABLE>
@@ -150,3 +192,8 @@
 		<script src="../js/mooz.scripts.min.js"></script>
 	</body>
 </html>
+
+
+
+
+

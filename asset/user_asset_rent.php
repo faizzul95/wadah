@@ -107,6 +107,18 @@ session_start();
 						      <td><br>
 						        <input name="rent_companyname" value="" type="text" size="50" class="form-control" maxlength="50"></td>
 						      </tr>
+                              <tr>
+									<td>Kuantiti Sewaan Aset:</td>
+									<td><br><select name="rent_quantity" class="form-control" required>
+							<option value="" >- Pilih -</option>
+							<option value="1" >1</option>
+							<option value="2">2</option>
+							<option value="3" >3</option>
+							<option value="4">4</option>
+                            <option value="5" >5</option>
+							<option value="6">6</option>
+						</select></td>
+								</tr>
 						    <tr align="center">
 						      <td colspan="2"><br>
 						        <input type="submit" name="rent_asset" value="Daftar" class="btn btn-primary form-control"></td>

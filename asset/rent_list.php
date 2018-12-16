@@ -82,6 +82,8 @@ session_start();
 			                        <th>Tarikh Mula Sewaan</th>
                                     <th>Tarikh Akhir Sewaan</th>
                                     <th>Syarikat Sewaan</th>
+                                    <th>Kuantit Sewaan Aset</th>
+                                    <th>Tindakan</th>
 		                          </tr>
 		                        </thead>
 			                    <tbody>
@@ -109,7 +111,16 @@ session_start();
                                     <td><?php echo $row['rent_startdate']; ?></td>
                                     <td><?php echo $row['rent_finishdate']; ?></td>
                                     <td><?php echo $row['rent_companyname']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='user_asset_edit.php?asset_id=<?php echo $row['asset_id']; ?>';">Kemaskini</button><br><button class="btn btn-danger" onclick="location.href='member_delete.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Buang</button></td>
+                                    <td><?php echo $row['rent_quantity']; ?></td>
+			                       <td> <button class="btn btn-primary" onclick="location.href='user_rent_edit.php?rentID=<?php echo $row["rent_id"]; ?>';">
+                              <span class="glyphicon glyphicon-edit"></span>
+                            </button>
+                             <form method="post" action="controller.php?rentID=<?php echo $row["rent_id"]; ?>">
+                                    <input type="hidden" name="rent_id" value="<?php echo $row["rent_id"]; ?>">
+                                    <button name="delete_rent" onclick='return checkDeleteRent()' class="btn btn-danger">
+                                      <span class="glyphicon glyphicon-trash"></span> 
+                                    </button>
+                              </form></td>
 		                          </tr>
 			                      <?php
 							                    $count++;

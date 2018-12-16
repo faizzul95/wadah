@@ -65,7 +65,7 @@ if (isset($_POST['update_asset']))
        
           echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Berjaya Dikemaskini')
-          window.location = 'user.php?result=SuccessfullyRegister';
+          window.location = 'asset_list.php?result=SuccessfullyRegister';
           </SCRIPT>");
         }
         else
@@ -147,7 +147,7 @@ if (isset($_POST['update_maintenance']))
     $maintenance_days = mysqli_real_escape_string($myConnection, $_POST['maintenance_days']);
 	$maintenance_desc = mysqli_real_escape_string($myConnection, $_POST['maintenance_desc']);
 
-     $asset_id = mysqli_real_escape_string($myConnection, $_POST['asset_id']);
+     $maintenance_id = mysqli_real_escape_string($myConnection, $_POST['maintenance_id']);
 
          $query_assetinfo = "UPDATE `maintenance` SET 
         `vendor_id` = '$vendor_id', 
@@ -206,17 +206,15 @@ if (isset($_POST['rent_asset']))
 {
  
     $asset_id = mysqli_real_escape_string($myConnection, $_POST['asset_id']);
-    $rent_availability = mysqli_real_escape_string($myConnection, $_POST['rent_availability']);
-    $rent_days = mysqli_real_escape_string($myConnection, $_POST['rent_days']);
     $rent_startdate = mysqli_real_escape_string($myConnection, $_POST['rent_startdate']);
     $rent_finishdate = mysqli_real_escape_string($myConnection, $_POST['rent_finishdate']);
 	$rent_companyname = mysqli_real_escape_string($myConnection, $_POST['rent_companyname']);
-
+	$rent_quantity = mysqli_real_escape_string($myConnection, $_POST['rent_quantity']);
 
             $query_rentinfo = "INSERT INTO `rent` 
-            (`asset_id`,`rent_availability`,`rent_days`,`rent_startdate`,`rent_finishdate`,`rent_companyname`)
+            (`asset_id`,`rent_startdate`,`rent_finishdate`,`rent_companyname`,`rent_quantity`)
                VALUES 
-            ('$asset_id','$rent_availability','$rent_days','$rent_startdate','$rent_finishdate','$rent_companyname')";
+            ('$asset_id','$rent_startdate','$rent_finishdate','$rent_companyname','rent_quantity')";
 			
             $result = mysqli_query($myConnection, $query_rentinfo) or die(mysqli_error($myConnection));
         
@@ -237,25 +235,23 @@ if (isset($_POST['rent_asset']))
         }
 
 }
-if (isset($_POST['update_maintenance']))
+if (isset($_POST['update_rent']))
 {
     // update rent
     $asset_id = mysqli_real_escape_string($myConnection, $_POST['asset_id']);
-    $rent_availability = mysqli_real_escape_string($myConnection, $_POST['rent_availability']);
-    $rent_days = mysqli_real_escape_string($myConnection, $_POST['rent_days']);
     $rent_startdate = mysqli_real_escape_string($myConnection, $_POST['rent_startdate']);
     $rent_finishdate = mysqli_real_escape_string($myConnection, $_POST['rent_finishdate']);
 	$rent_companyname = mysqli_real_escape_string($myConnection, $_POST['rent_companyname']);
+	$rent_quantity = mysqli_real_escape_string($myConnection, $_POST['rent_quantity']);
 
      $rent_id = mysqli_real_escape_string($myConnection, $_POST['rent_id']);
 
          $query_assetinfo = "UPDATE `rent` SET 
-        `asset_id` = '$asset_id', 
-        `rent_availability` = '$rent_availability', 
-        `rent_days` = '$rent_days',
+        `asset_id` = '$asset_id',
         `rent_startdate` = '$rent_startdate', 
         `rent_finishdate` = '$rent_finishdate', 
 		`rent_companyname` = '$rent_companyname',
+		`rent_quantity` = '$rent_quantity',
         WHERE `rent_id` = '$rent_id'";
 
         $result = mysqli_query($myConnection, $query_assetinfo) or die(mysqli_error($myConnection));
@@ -395,3 +391,4 @@ if (isset($_POST['update_vendor']))
 } 
 		
 ?>
+<!--<p>This is the content for Layout P Tag</p>-->

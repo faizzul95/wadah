@@ -87,7 +87,7 @@
 											<option value="Bagus" <?php if($row['asset_status']=="Bagus") echo 'selected="selected"'; ?> >Bagus</option>
 											<option value="Sederhana" <?php if($row['asset_status']=="Sederhana") echo 'selected="selected"'; ?> >Sederhana</option>
 											<option value="Tidak Memuaskan" <?php if($row['asset_status']=="Tidak Memuaskan") echo 'selected="selected"'; ?> >Tidak Memuaskan</option>
-											<option value="Sangat Tidak Memuaskan" <?php if($row['asset_quantity']=="Sangat Tidak Memuaskan") echo 'selected="selected"'; ?> >Sangat Tidak Memuaskan</option>
+											<option value="Sangat Tidak Memuaskan" <?php if($row['asset_status']=="Sangat Tidak Memuaskan") echo 'selected="selected"'; ?> >Sangat Tidak Memuaskan</option>
 
 										</select>
 									</td>
@@ -121,7 +121,7 @@
 								<tr align="center">
 									<td colspan="2">
 										<br>
-										<input type="submit" name="update_family" value="Kemaskini" class="btn btn-primary form-control">
+										<input type="submit" name="update_asset" value="Kemaskini" class="btn btn-primary form-control">
 									</td>
 								</tr>
 							</TABLE>
