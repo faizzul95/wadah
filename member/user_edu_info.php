@@ -63,7 +63,7 @@ $id = $_GET['famIC'];
                             
                           </td>
                           <td>
-                            <form method="post" action="list_naqib.php?result=search">
+                            <form method="post" action="user_edu_info.php?result=search">
                             <table>
                               <tr>
                                 <td width="88%">

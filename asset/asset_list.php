@@ -112,7 +112,7 @@ session_start();
                             <button class="btn btn-primary" onclick="location.href='user_asset_edit.php?assetID=<?php echo $row["asset_id"]; ?>';">
                               <span class="glyphicon glyphicon-edit"></span>
                             </button>
-                             <form method="post" action="controller.php?jobID=<?php echo $row["asset_id"]; ?>">
+                             <form method="post" action="controller.php?assetID=<?php echo $row["asset_id"]; ?>">
                                     <input type="hidden" name="asset_id" value="<?php echo $row["asset_id"]; ?>">
                                     <button name="delete_asset" onclick='return checkDeleteAsset()' class="btn btn-danger">
                                       <span class="glyphicon glyphicon-trash"></span> 

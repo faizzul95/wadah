@@ -134,7 +134,7 @@ session_start();
 		                                                  echo '<option value="'.$row['speak_ic'].'">'.strtoupper($row['speak_name']).'</option>';
 		                                              }
 		                                          }else{
-		                                              echo '<option value="">Tiada Vendor yang berdaftar</option>';
+		                                              echo '<option value="">Tiada penceramah yang berdaftar</option>';
 		                                          }
 		                                     ?>
 							                 	</td>

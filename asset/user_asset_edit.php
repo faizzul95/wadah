@@ -10,7 +10,7 @@
     }
 
     require('../connection.php');
-    $id = $_GET['asset_id'];
+    $id = $_GET['assetID'];
 
     $sql = mysqli_query($myConnection,"SELECT * FROM `asset` WHERE `asset_id` = '$id' ") or die (mysqli_error());
     $row=mysqli_fetch_array($sql);

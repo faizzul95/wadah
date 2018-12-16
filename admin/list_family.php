@@ -91,8 +91,8 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<th>No.</th>
 						                        <th>Nama</th>
-						                        <th>Nombor IC</th>
-						                        <th>Nombor Telefon</th>
+						                        <th>No Kad Pengenalan</th>
+						                        <th>No Telefon</th>
 						                        <th>Hubungan Keluarga</th>
 						                        <th>Pekerjaan</th>
 						                        <th>Pelajaran</th>
@@ -164,11 +164,11 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<th>No.</th>
 						                        <th>Nama</th>
-						                        <th>Nombor IC</th>
-						                        <th>Nombor Telefon</th>
-						                        <th>Hubungan Keluarga</th>
-						                        <th>Pekerjaan</th>
-						                        <th>Pelajaran</th>
+                                    <th>No Kad Pengenalan</th>
+                                    <th>No Telefon</th>
+                                    <th>Hubungan Keluarga</th>
+                                    <th>Pekerjaan</th>
+                                    <th>Pelajaran</th>
 											</tr>
 										</tfoot>
 									</table>

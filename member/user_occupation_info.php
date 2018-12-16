@@ -62,7 +62,7 @@ $id = $_GET['famIC'];
                             
                           </td>
                           <td>
-                            <form method="post" action="list_naqib.php?result=search">
+                            <form method="post" action="user_occupation_info.php?result=search">
                             <table>
                               <tr>
                                 <td width="88%">
@@ -86,13 +86,13 @@ $id = $_GET['famIC'];
                     <thead>
                       <tr>
                         <th>No.</th>
-                        <th>Nama Institusi</th>
-                        <th>Alamat Institusi</th>
+                        <th>Nama Syarikat</th>
+                        <th>Alamat Syarikat</th>
                         <th>No Telefon</th>
-                        <th>Kursus</th>
-                        <th>Tahap</th>
-                        <th>Tarikh Mula Belajar</th>
-                        <th>Tarikh Tamat Belajar</th>
+                        <th>Jawatan </th>
+                        <th>Email Syarikat</th>
+                        <th>Tarikh Mula Bekerja</th>
+                        <th>Tarikh Berhenti Bekerja</th>
                         <th>Tindakan</th>
                       </tr>
                     </thead>
@@ -147,13 +147,13 @@ $id = $_GET['famIC'];
                     <tfoot>
                       <tr>
                         <th>No.</th>
-                        <th>Nama Institusi</th>
-                        <th>Alamat Institusi</th>
+                        <th>Nama Syarikat</th>
+                        <th>Alamat Syarikat</th>
                         <th>No Telefon</th>
-                        <th>Kursus</th>
-                        <th>Tahap</th>
-                        <th>Tarikh Mula Belajar</th>
-                        <th>Tarikh Tamat Belajar</th>
+                        <th>Jawatan </th>
+                        <th>Email Syarikat</th>
+                        <th>Tarikh Mula Bekerja</th>
+                        <th>Tarikh Berhenti Bekerja</th>
                         <th>Tindakan</th>
                       </tr>
                     </tfoot>

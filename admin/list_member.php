@@ -94,8 +94,8 @@ $member_ic = $_SESSION['memberIC'];
 							                   			<option value="">- Pilih -</option>
 							                   			<option value="nameASC">Nama ASC</option>
 							                   			<option value="nameDESC">Nama DESC</option>
-							                   			<option value="icASC">IC ASC</option>
-							                   			<option value="icDESC">IC DESC</option>
+							                   			<option value="icASC">Kad Pengenalan ASC</option>
+							                   			<option value="icDESC">Kad Pengenalan DESC</option>
 							                 			 </select>
 						            				</td>
 						            				<td>
@@ -129,8 +129,8 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<th>No.</th>
 												<th>Nama</th>
-												<th>Nombor IC</th>
-												<th>Nombor Telefon</th>
+												<th>No Kad Pengenalan</th>
+												<th>No Telefon</th>
 												<th>Cawangan</th>
 												<th>Maklumat Keluarga</th>
 												<th>Maklumat Pendidikan</th>
@@ -251,8 +251,8 @@ $member_ic = $_SESSION['memberIC'];
 											<tr>
 												<th>No.</th>
 												<th>Nama</th>
-												<th>Nombor IC</th>
-												<th>Nombor Telefon</th>
+												<th>No Kad Pengenalan</th>
+												<th>No Telefon</th>
 												<th>Cawangan</th>
 												<th>Maklumat Keluarga</th>
 												<th>Maklumat Pendidikan</th>

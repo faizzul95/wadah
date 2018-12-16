@@ -16,11 +16,6 @@ session_start();
           </SCRIPT>");  
     }
 
-  $sql = mysqli_query($myConnection,"SELECT `fees`.*,`member`.* FROM `fees` 
-  INNER JOIN  `member` ON `fees`.`member_ic` = `member`.`mbr_ic`") or die (mysqli_error());
-	$row=mysqli_fetch_array($sql);
-  $mbr_name = $row['mbr_name'];
-
 // echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';
@@ -88,8 +83,8 @@ session_start();
 			                    <thead>
 			                      <tr>
 			                        <th>No.</th>
-			                        <th>Nama Peserta.</th>
-			                        <th>Kad Pengenalan Peserta</th>
+			                        <th>Nama</th>
+			                        <th>Kad Pengenalan</th>
 			                        <th>Jumlah</th>
 			                        <th>Status</th>
 			                        <th>Tarikh</th>
@@ -100,16 +95,11 @@ session_start();
 			                    <tbody>
 			                      <?php 
 
-						                //$sql = "SELECT * FROM `fees`";
-
 						                $sql = mysqli_query($myConnection,"SELECT `fees`.*,`member`.* FROM `fees` 
-										INNER JOIN  `member` ON `fees`.`member_ic` = `member`.`mbr_ic`") or die (mysqli_error());
-										$row=mysqli_fetch_array($sql);
-										  
+										INNER JOIN  `member` ON `fees`.`member_ic` = `member`.`mbr_ic`") or die (mysqli_error($myConnection));
+										//$row=mysqli_fetch_assoc($sql);
 
-						                // $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
-
-						                if (mysqli_num_rows($sql)==0){
+						                if (mysqli_num_rows($sql)<0){
 						                     echo "Data Tidak Ditemui";
 						                  }
 						                else{
@@ -139,8 +129,8 @@ session_start();
 			                    <tfoot>
 			                      <tr>
 			                        <th>No.</th>
-			                        <th>Nama Peserta.</th>
-			                        <th>Kad Pengenalan Peserta</th>
+			                        <th>Nama</th>
+			                        <th>Kad Pengenalan</th>
 			                        <th>Jumlah</th>
 			                        <th>Status</th>
 			                        <th>Tarikh</th>

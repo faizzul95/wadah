@@ -7,18 +7,16 @@ $act_id = $_GET['act_id'];
 $result = $myConnection->query("SELECT * FROM `activity` WHERE `act_id` = '$act_id'"); 
 $row = $result->fetch_assoc();
 $act_name = $row['act_name'];
-$activity_id = $row['activity_id'];
+$activity_id = $act_id;
 
 for($i=1; $i<=10; $i++)
 {
 	for($j=1; $j<=5; $j++)
 	{
-		$sql = "SELECT count(*) FROM `feedback` WHERE `q{$i}` = '$j'";
-		// var_dump($sql);die;
+		$sql = "SELECT count(*) FROM `feedback` WHERE `q{$i}` = '$j' and `activity_id` = '$activity_id'";
         $sql_rec = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
         $row = mysqli_fetch_array($sql_rec);
         $arr[$i][$j] = $row[0];
-        // var_dump($arr[$i][$j]);die;
 	}
 }
 
@@ -77,8 +75,10 @@ for($i=1; $i<=10; $i++)
 
 											<?php
 
-									$sql = "SELECT count(*) FROM `feedback`";
+									// $sql = "SELECT count(*) FROM `feedback`";
+									$sql = "SELECT count(*) FROM `feedback` where `activity_id` = '$activity_id'";
 									$sql_rec = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+
 									$row = mysqli_fetch_array($sql_rec);
 									$total = $row[0];
 

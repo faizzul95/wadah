@@ -38,8 +38,8 @@
 		</header>
 		<section class="main-slider">
 			<ul class="bxslider">
-				<li><div class="slider-item"><img src="images/1.png" title="" /><h2><a href="post.html" title="">Slider 1</a></h2></div></li>
-				<li><div class="slider-item"><img src="images/2.png" title="" /><h2><a href="post.html" title="Vintage-Inspired Finds for Your Home">Slider 2</a></h2></div></li>
+				<li><div class="slider-item"><img src="images/1.png" title="" /><h2><a href="post.php" title="">Slider 1</a></h2></div></li>
+				<li><div class="slider-item"><img src="images/2.png" title="" /><h2><a href="post.php" title="Vintage-Inspired Finds for Your Home">Slider 2</a></h2></div></li>
 				<li><div class="slider-item"><img src="images/3.png" title="Funky roots" /><h2><a href="post.php" title="">Slider 3</a></h2></div></li>
 			</ul>
 		</section>
@@ -70,7 +70,7 @@
 							<center><a href="post.php?page=baca"><img src="images/activiti.jpeg" alt=""></a></center>
 						</div> -->
 						<div class="blog-post-body">
-							<h2><a href="post.html"><?php echo $act_name; ?></a></h2>
+							<h2><a href="post.php?page=<?php echo $act_id; ?>"><?php echo $act_name; ?></a></h2>
 							<div class="post-meta"><span><i class="fa fa-clock-o"></i> <?php echo $act_date; ?></span></div>
 							<p><?php echo $act_description; ?></p>
 							<div class="read-more"><a href="post.php?page=<?php echo $act_id; ?>">Teruskan Membaca</a></div>

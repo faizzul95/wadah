@@ -158,7 +158,7 @@ $member_ic = $_SESSION['memberIC'];
 														<option value="Negeri Sembilan">Negeri Sembilan</option>
 														<option value="Terengganu">Terengganu</option>
 														<option value="Kelantan">Kelantan</option>
-														<option value="Sabah">Terengganu</option>
+														<option value="Sabah">Sabah</option>
 														<option value="Serawak">Kelantan</option>
 												</select>
 												</td>
