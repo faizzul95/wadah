@@ -15,11 +15,11 @@
 			  <div class="container-fluid collapse navbar-collapse">
 			  	<?php if(isset($_SESSION['role'])) { ?>
 					<div class="navbar-header">
-				      <a class="navbar-brand" href="../index.php?page=home">Wadah</a>
+				      <a class="navbar-brand" href="../index.php?page=home"><img src="../images/logonav.png" width="100%" height="100%"></a>
 				    </div>	
 				<?php } else { ?>
 					<div class="navbar-header">
-				      <a class="navbar-brand" href="index.php?page=home">Wadah</a>
+				      <a class="navbar-brand" href="index.php?page=home"><img src="../images/logonav.png" width="100%" height="100%"></a>
 				    </div>	
 				<?php } ?>
 			    

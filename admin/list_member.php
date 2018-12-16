@@ -133,6 +133,7 @@ $member_ic = $_SESSION['memberIC'];
 												<th>No Kad Pengenalan</th>
 												<th>No Telefon</th>
 												<th>Cawangan</th>
+												<th>Profil & Senarai Aktiviti</th>
 												<th>Maklumat Keluarga</th>
 												<th>Maklumat Pendidikan</th>
 												<th>Maklumat Pekerjaan</th>
@@ -183,6 +184,9 @@ $member_ic = $_SESSION['memberIC'];
 												<td><?php echo $row['mbr_phone']; ?></td>
 												<td><?php echo $row['mbr_branch']; ?></td>
 												<td>
+													 <center><button class="btn btn-info" onclick="location.href='member_list_activity.php?mbr_ic=<?php echo $row['mbr_ic']; ?>';">Lihat </button>
+												</td>
+												<td>
 													<?php 
 													$sql = "SELECT * FROM `family` WHERE `member_ic` = '$mbr_ic'";
 												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -199,7 +203,6 @@ $member_ic = $_SESSION['memberIC'];
 												</td>
 
 												<td>
-													
                                                     <?php 
 													$sql = "SELECT * FROM `education_info` WHERE `member_ic` = '$mbr_ic'";
 												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -213,7 +216,6 @@ $member_ic = $_SESSION['memberIC'];
                                                      <?php }else{ ?>
                                                      	 <center> - Tiada Maklumat - </center>
                                                      <?php } ?>
-
 												</td>
 												<td>
 													<?php 

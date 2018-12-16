@@ -32,7 +32,7 @@ session_start(); ?>
 
 		<div class="container">
 		<header>
-			<a href="index.php"><img src="images/fulllogo.png" width="50%" height="50%"></a>
+			<a href="index.php"><img src="images/fulllogo.jpg" width="100%" height="100%"></a>
 		</header>
 		<section class="main-slider">
 			<ul class="bxslider">

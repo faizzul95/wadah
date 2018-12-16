@@ -13,13 +13,13 @@
 				</div>
 				
 			  <div class="container-fluid collapse navbar-collapse">
-			  	<?php if(isset($_SESSION['role'])) { ?>
+			  	 <?php if(isset($_SESSION['role'])) { ?>
 					<div class="navbar-header">
-				      <a class="navbar-brand" href="../index.php?page=home">Wadah</a>
+				      <a class="navbar-brand" href="../index.php?page=home"><img src="../images/logonav.png" width="100%" height="100%"></a>
 				    </div>	
 				<?php } else { ?>
 					<div class="navbar-header">
-				      <a class="navbar-brand" href="index.php?page=home">Wadah</a>
+				      <a class="navbar-brand" href="index.php?page=home"><img src="../images/logonav.png" width="100%" height="100%"></a>
 				    </div>	
 				<?php } ?>
 			    
@@ -35,11 +35,7 @@
 						       <li><a href="../admin/list_naqib.php">Senarai Naqib</a></li>
 						    </ul>
 					     </li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Program/Aktiviti<span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="../activity/list_activity.php">Senarai Aktiviti</a></li>
-					        </ul>
-				      	</li>
+						<li><a href="../activity/list_activity.php">Program/Aktiviti</a></li>
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Aset<span class="caret"></span></a>
 					        <ul class="dropdown-menu">
 					          <li><a href="../asset/asset_list.php">Senarai Aset</a></li>
