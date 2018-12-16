@@ -76,11 +76,9 @@ session_start();
 			                  <table id="example" class="table table-striped table-bordered" style="width:100%">
 			                    <thead>
 			                      <tr>
-			                        <th>#</th>
-			                        <th>Id Sewaan</th>
+			                        <th>No.</th>
 			                        <th>Jenis Aset</th>
 			                        <th>Status Aset</th>
-			                        <th>Bilangan Hari Sewaan</th>
 			                        <th>Tarikh Mula Sewaan</th>
                                     <th>Tarikh Akhir Sewaan</th>
                                     <th>Syarikat Sewaan</th>
@@ -106,10 +104,8 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['rent_id']; ?></td>
 			                        <td><?php echo $row['asset_type']; ?></td>
 			                        <td><?php echo $row['rent_availability']; ?></td>
-			                        <td><?php echo $row['rent_days']; ?></td>
                                     <td><?php echo $row['rent_startdate']; ?></td>
                                     <td><?php echo $row['rent_finishdate']; ?></td>
                                     <td><?php echo $row['rent_companyname']; ?></td>
