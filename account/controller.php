@@ -41,16 +41,16 @@ if (isset($_POST['register_sps']))
 if (isset($_POST['register_fees']))
 {
  
-    $Fee_id = mysqli_real_escape_string($myConnection, $_POST['Fee_id']);
+    $member_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
     $Fee_amount = mysqli_real_escape_string($myConnection, $_POST['Fee_amount']);
     $Fee_status = mysqli_real_escape_string($myConnection, $_POST['Fee_status']);
     $Fee_date = mysqli_real_escape_string($myConnection, $_POST['Fee_date']);
     $Fee_type = mysqli_real_escape_string($myConnection, $_POST['Fee_type']);
 
             $query_feeinfo = "INSERT INTO `fees` 
-            (`Fee_id`,`Fee_amount`,`Fee_status`,`Fee_date`,`Fee_type`)
+            (`member_ic`,`Fee_amount`,`Fee_status`,`Fee_date`,`Fee_type`)
                VALUES 
-            ('$Fee_id','$Fee_amount','$Fee_status','$Fee_date','$Fee_type')";
+            ('$member_ic','$Fee_amount','$Fee_status','$Fee_date','$Fee_type')";
 			
             $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
         

@@ -118,7 +118,6 @@ session_start();
 												<th>Tarikh</th>
 												<th>Masa</th>
 												<th>Tempat</th>
-												<th>Peneranagan</th>
 												<th>Kategori</th>
 												<th>Jenis</th>
 												<th>Penaja</th>
@@ -128,9 +127,7 @@ session_start();
 											</tr>
 										</thead>
 										<tbody>
-
-
-											<?php 
+										<?php 
 
 						                 if(isset($_POST['searchbtn'])) {
 						                	$search = $_POST['search'];
@@ -158,7 +155,6 @@ session_start();
 												<td><?php echo $row['act_date']; ?></td>
 												<td><?php echo $row['act_time']; ?></td>
 												<td><?php echo $row['act_venue']; ?></td>
-												<td><?php echo $row['act_description']; ?></td>
 												<td><?php echo $row['act_category']; ?></td>
 												<td><?php echo $row['act_type']; ?></td>
 												<td>
@@ -234,7 +230,6 @@ session_start();
 												<th>Tarikh</th>
 												<th>Masa</th>
 												<th>Tempat</th>
-												<th>Peneranagan</th>
 												<th>Kategori</th>
 												<th>Jenis</th>
 												<th>Penaja</th>

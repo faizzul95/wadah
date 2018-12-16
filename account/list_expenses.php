@@ -59,11 +59,15 @@ session_start();
 			    <article class="blog-post">
 			      <div class="col-md-12">
 			        <article class="blog-post">
-			          <div class="blog-post-image"> <a href="post.html"><img src="images/750x500-5.jpg" alt=""></a> </div>
+			          <div class="blog-post-image"> 
 			          <div class="blog-post-body">
-			            <div class="blog-post-text"> <br>
-			              <br>
-			              <br>
+			            <div class="blog-post-text"> <br><br>
+							<nav aria-label="breadcrumb">
+							  <ol class="breadcrumb">
+							    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span>&nbsp; <a href="user.php">Halaman Utama</a></li>
+							    <li class="breadcrumb-item active" aria-current="page">Daftar Pembelanjaan</li>
+							  </ol>
+							</nav>
 			              <div class="container">
 			                <section>
                              <table style="width:100%"> 

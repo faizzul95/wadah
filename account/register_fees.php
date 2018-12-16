@@ -56,12 +56,10 @@ session_start();
 								<br><br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="list_fee.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp;<a href="list_fee.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Daftar Yuran</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
 				<div class="container">
 				<section>
             
@@ -71,8 +69,8 @@ session_start();
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
 											<tr>
-												<td>ID :</td>
-												<td><br><input name="Fee_id" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td>No Kad Pengenalan :</td>
+												<td><br><input name="member_ic" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "12" class="form-control"></td>
 											</tr>
@@ -106,15 +104,15 @@ session_start();
 												<td>Jenis :</td>
 												<td><br><select name="Fee_type" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Ahli">Ahli</option>
-														<option value="Aktiviti">Aktiviti</option>
+														<option value="Yuran Ahli">Yuran Ahli</option>
+														<option value="Yuran Aktiviti">Yuran Aktiviti</option>
 												</select>
 											</tr>
 											</tr>
 										
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="register_fees" value="Daftar" class="btn btn-primary">
+													<input type="submit" name="register_fees" value="Daftar" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>

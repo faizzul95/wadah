@@ -45,6 +45,7 @@
 					          <li><a href="asset/asset_list.php">Senarai Aset</a></li>
 					          <li><a href="asset/maintenance_list.php">Senarai Penyelenggaraan</a></li>
                               <li><a href="asset/rent_list.php">Senarai Sewaan Aset</a></li>
+                              <li><a href="asset/vendor_list.php">Senarai Vendor</a></li>
 					        </ul>
 				      	</li>
 				      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Akaun<span class="caret"></span></a>
