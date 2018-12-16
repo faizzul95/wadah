@@ -106,7 +106,7 @@ session_start();
 											<tr>
 												<th>No.</th>
 												<th>Nama</th>
-												<th>Nombor IC</th>
+												<th>No Kad Pengenalan</th>
 												<th>Nombor Telefon</th>
 												<th>Alamat</th>
 												<th>Jantina</th>
@@ -116,8 +116,6 @@ session_start();
 											</tr>
 										</thead>
 										<tbody>
-
-
 											<?php 
 
 						               if (isset($_POST['search'])) {
@@ -150,20 +148,19 @@ session_start();
 												<td><?php echo $row['speak_mail']; ?></td>
 												<td>
 													<?php 
-													$sql = "SELECT * FROM `speaker` WHERE `speak_ic` = '$speak_ic'";
+													$sql = "SELECT * FROM `activity` WHERE `speak_ic` = '$speak_ic'";
 												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
 												     $row = mysqli_fetch_array($res);
 
 												     if (mysqli_num_rows($res)!=0) { ?>
-													<form method='post' action=''>
-                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $speak_ic; ?>" >Senarai Aktiviti
-                                                      </button></center>
-                                                     </form>
+                                                      <center>
+                                                      	<button class="btn btn-info" onclick="location.href='speaker_list_activity.php?speak_ic=<?php echo $speak_ic; ?>';">Lihat
+                                                      	</button>
+                                                      </center>
                                                      <?php }else{ ?>
                                                      	 <center> - Tiada Maklumat - </center>
                                                      <?php } ?>
 												</td>
-
 												<td>
 
 													 <button class="btn btn-primary" onclick="location.href='admin_speaker_edit.php?speak_ic=<?php echo $speak_ic; ?>';">
@@ -185,19 +182,6 @@ session_start();
 						                    ?>
 
 										</tbody>
-										<tfoot>
-											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>Nombor IC</th>
-												<th>Nombor Telefon</th>
-												<th>Alamat</th>
-												<th>Jantina</th>
-												<th>Email</th>
-												<th>Aktiviti</th>
-												<th>Tindakan</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>

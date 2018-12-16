@@ -126,18 +126,6 @@ session_start();
 							                 } 
 						                    ?>
 		                        </tbody>
-			                    <tfoot>
-			                      <tr>
-			                        <th>No.</th>
-			                        <th>Nama</th>
-			                        <th>Kad Pengenalan</th>
-			                        <th>Jumlah</th>
-			                        <th>Status</th>
-			                        <th>Tarikh</th>
-			                        <th>Jenis</th>
-                                    <th>Tindakan</th>
-		                          </tr>
-		                        </tfoot>
 		                      </table>
 		                    </section>
 		                  </div>

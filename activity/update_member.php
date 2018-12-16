@@ -103,7 +103,7 @@ $naqib_ic = $row['naqib_ic'];
 											<tr>
 												<td>Penerangan :</td>
 												<td><br>
-													<textarea name="act_description" value="<?php echo $row['act_description']; ?>" class="form-control" rows="5" cols="20" required maxlength="250"></textarea></td>
+													<textarea name="act_description" class="form-control" rows="5" cols="20" required maxlength="250"> <?php echo $row['act_description']; ?> </textarea></td>
 											</tr>
 											<tr>
 												<td>Tempat :</td>

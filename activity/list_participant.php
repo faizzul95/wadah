@@ -68,9 +68,68 @@ $member_ic = $_SESSION['memberIC'];
 								<div class="container">
 								<section>
 
-									<p>NAMA AKTIVITI: <b><?php echo strtoupper($actName); ?></b><br>
+									<center><h3>Maklumat Aktiviti</h3></center>
 
-						            <br>
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                          <tr>
+                            <th width="158" scope="row"><div align="right">Nama Aktiviti : </div></th>
+                            <td>&nbsp; <?php echo $row['act_name']; ?></td>
+                          </tr>
+                         
+                          <tr>
+                            <th width="158" scope="row"><div align="right"> Tempat: </div></th>
+                            <td>&nbsp; <?php echo $row['act_venue']; ?></td>
+                          </tr>
+                          <tr>
+                            <th width="158" scope="row"><div align="right"> Tarikh: </div></th>
+                            <td>&nbsp; <?php echo $row['act_date']; ?></td>
+                          </tr>
+                          <tr>
+                            <th width="158" scope="row"><div align="right"> Penceramah/Naqib: </div></th>
+                            <td>&nbsp; 
+
+                              <?php
+
+                              $naic = $row['naqib_ic'];
+                              $spic = $row['speak_ic'];
+
+                              // var_dump($naic);die;
+
+                              if ($naic != NULL) {
+
+                                 $sql = mysqli_query($myConnection,"SELECT `activity`.*, `naqib`.* FROM `activity` 
+                                INNER JOIN  `naqib` ON `activity`.`naqib_ic` = `naqib`.`naqib_ic`
+                                WHERE `act_id` = '$id'") or die (mysqli_error($myConnection));
+                                $row=mysqli_fetch_array($sql);
+                                $naname = $row['naqib_name'];
+                                echo $naname;
+
+                              }
+                              else{
+
+                                 $sql = mysqli_query($myConnection,"SELECT `speaker`.*,`activity`.* FROM `activity` 
+                                INNER JOIN  `speaker` ON `activity`.` speak_ic` = `speaker`.` speak_ic`
+                                WHERE `act_id` = '$id'") or die (mysqli_error($myConnection));
+                                $row=mysqli_fetch_array($sql);
+                                $spname = $row['speak_name'];
+                                echo $spname;
+
+                              }
+
+                              ?>
+
+                            </td>
+                          </tr>
+                        <tr>
+                            <th width="158" scope="row"><div align="right"> Yuran Aktiviti: </div></th>
+                            <td>&nbsp; <?php echo $row['act_fee']; ?></td>
+                          </tr>
+                          </p>;
+                        </table>
+
+                        <center><h3>Senarai Peserta</h3></center>
+
+                        <br>
 
 									<table id="example" class="table table-striped table-bordered" style="width:100%">
 										<thead>
@@ -141,16 +200,6 @@ $member_ic = $_SESSION['memberIC'];
                                 ?>
 
                     </tbody>
-										<tfoot>
-											<tr>
-										    <th>No.</th>
-                        <th>Nama</th>
-                        <th>No Kad Pengenalan</th>
-                        <th>Nombor Telefon</th>
-                        <th>Alamat</th>
-                        <th>Yuran Aktiviti</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>

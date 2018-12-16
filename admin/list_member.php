@@ -140,8 +140,6 @@ $member_ic = $_SESSION['memberIC'];
 											</tr>
 										</thead>
 										<tbody>
-
-
 											<?php 
 
 						               if (isset($_POST['sort'])) {

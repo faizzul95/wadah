@@ -50,6 +50,7 @@
                                 { 
                                   $act_date = $row['act_date'];
                                   $act_id = $row['act_id'];
+                                  $act_fee = $row['act_fee'];
                                   
                                 ?>
                                    
@@ -87,9 +88,11 @@
                            $row4 = $result4->fetch_assoc();
                            $feedback_activity = $row4['activity_id'];
 
-                          if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity == NULL) { ?>
+                          if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity == NULL ) { ?>
                           <center><button class="btn btn-info" onclick="location.href='../activity/feedbackahli.php?act_id=<?php echo $row['act_id']; ?>';">Maklum Balas</button></center>
-                          <?php } else if($today >= $act_date AND $Fee_activity_status == "Telah Dibayar" AND $feedback_activity != NULL) { ?>
+                          <?php } else if($today >= $act_date AND $act_fee == 0 AND $feedback_activity == NULL) { ?>
+                             <center><button class="btn btn-info" onclick="location.href='../activity/feedbackahli.php?act_id=<?php echo $row['act_id']; ?>';">Maklum Balas</button></center>
+                          <?php } else if($today >= $act_date AND ($Fee_activity_status == "Telah Dibayar" OR $act_fee == 0) AND $feedback_activity != NULL) { ?>
                               <center><span class="glyphicon glyphicon-check"></span></center>
                           <?php } ?>
                         </td>

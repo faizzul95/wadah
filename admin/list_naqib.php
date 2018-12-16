@@ -142,8 +142,8 @@ session_start();
 												<td><?php echo $count; ?></td>
 												<td><?php echo $row['naqib_name']; ?></td>
 												<td><?php echo $naqib_ic; ?></td>
-												<td><?php echo $row['naqib_address']; ?></td>
 												<td><?php echo $row['naqib_phone']; ?></td>
+												<td><?php echo $row['naqib_address']; ?></td>
 												<td><?php echo $row['naqib_mail']; ?></td>
 												<td><?php echo $row['naqib_category']; ?></td>
 												<td><?php echo $row['naqib_branch']; ?></td>
@@ -153,7 +153,7 @@ session_start();
 							                             $row = mysqli_fetch_array($res);
 
 							                             if (mysqli_num_rows($res)!=0) { ?>
-							                          <button class="btn btn-info" onclick="location.href='list_activity_naqib.php?naqib_ic=<?php echo $row['family_ic']; ?>';">Lihat</button>
+							                          <button class="btn btn-info" onclick="location.href='naqib_list_activity.php?naqib_ic=<?php echo $row['naqib_ic']; ?>';">Lihat</button>
 							                             <?php }else{ ?>
 							                               <center> - Tiada Maklumat - </center>
 							                        <?php } ?></center></td>
@@ -177,20 +177,6 @@ session_start();
 						                    ?>
 
 										</tbody>
-										<tfoot>
-											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>No Kad Pengenalan</th>
-												<th>No Telefon</th>
-												<th>Alamat</th>
-												<th>Email</th>
-												<th>Kategori</th>
-												<th>Cawangan</th>
-												<th>Aktiviti</th>
-												<th>Tindakan</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>

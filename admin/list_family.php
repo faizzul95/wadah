@@ -160,17 +160,6 @@ $member_ic = $_SESSION['memberIC'];
                                 ?>
 
                     </tbody>
-										<tfoot>
-											<tr>
-												<th>No.</th>
-						                        <th>Nama</th>
-                                    <th>No Kad Pengenalan</th>
-                                    <th>No Telefon</th>
-                                    <th>Hubungan Keluarga</th>
-                                    <th>Pekerjaan</th>
-                                    <th>Pelajaran</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>

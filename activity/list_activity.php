@@ -228,21 +228,6 @@ session_start();
 						                    ?>
 
 										</tbody>
-										<tfoot>
-											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>Tarikh</th>
-												<th>Masa</th>
-												<th>Tempat</th>
-												<th>Kategori</th>
-												<th>Jenis</th>
-												<th>Penaja</th>
-												<th>Peserta</th>
-												<th>Maklum Balas</th>
-												<th>Tindakan</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>

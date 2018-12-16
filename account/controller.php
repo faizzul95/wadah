@@ -24,7 +24,7 @@ if (isset($_POST['register_sps']))
         {
        
           echo ("<SCRIPT LANGUAGE='JavaScript'>
-          window.alert('Successfully Registered')
+          window.alert('Berjaya Didaftar')
           window.location = 'list_sps.php?result=SuccessfullyRegister';
           </SCRIPT>");
         }

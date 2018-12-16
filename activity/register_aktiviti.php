@@ -123,7 +123,7 @@ session_start();
 
 											<tr>
 												<td>Yuran Aktiviti:</td>
-												<td><br> <input name="act_fee" type="number" maxlength = "4" size="50" autocomplete="off" required oninput="maxLengthCheck(this)"
+												<td><br> <input name="act_fee" type="number" maxlength = "4" size="50" autocomplete="off" oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "60" class="form-control">
 							                 	</td>

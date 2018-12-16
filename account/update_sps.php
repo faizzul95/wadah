@@ -62,15 +62,13 @@ session_start();
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								<br>
+								<br><br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="list_sps.php">Halaman Utama</a></li>
+				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp;<a href="list_sps.php">Halaman Utama</a></li>
 				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Penaja</li>
 				  </ol>
 				</nav>
-								
-				<br><br><br>
 				<div class="container">
 				<section>
             
@@ -124,12 +122,12 @@ session_start();
 												<td><br>
 												<select name="Sps_type" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Wang Tunai">Wang Tunai</option>
-														<option value="Cek">Cek</option>
-                                                        <option value="Keperluan Harian">Keperluan Harian</option>
-                                                        <option value="Makanan & Minuman">Makanan & Minuman</option>
-                                                        <option value="Makanan">Makanan </option>
-                                                        <option value="Minuman">Minuman</option>
+														<option value="Wang Tunai" <?php if($row['Sps_type']=="Wang Tunai") echo 'selected="selected"'; ?> >Wang Tunai</option>
+														<option value="Cek" <?php if($row['Sps_type']=="Cek") echo 'selected="selected"'; ?> >Cek</option>
+                                                        <option value="Keperluan Harian" <?php if($row['Sps_type']=="Keperluan Harian") echo 'selected="selected"'; ?> >Keperluan Harian</option>
+                                                        <option value="Makanan & Minuman" <?php if($row['Sps_type']=="Makanan & Minuman") echo 'selected="selected"'; ?> >Makanan & Minuman</option>
+                                                        <option value="Makanan" <?php if($row['Sps_type']=="Makanan") echo 'selected="selected"'; ?> >Makanan </option>
+                                                        <option value="Minuman" <?php if($row['Sps_type']=="Minuman") echo 'selected="selected"'; ?> >Minuman</option>
 												</select>
 												</td>
 											</tr>
@@ -137,7 +135,7 @@ session_start();
 										
 											<tr align="center">
 												<td colspan="2"> <br>
-													<input type="submit" name="update_sps" value="Kemaskini" class="btn btn-primary">
+													<input type="submit" name="update_sps" value="Kemaskini" class="btn btn-primary form-control">
 												</td>
 											</tr>
 										</form>
