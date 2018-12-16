@@ -76,8 +76,7 @@ session_start();
 			                  <table id="example" class="table table-striped table-bordered" style="width:100%">
 			                    <thead>
 			                      <tr>
-			                        <th>#</th>
-			                        <th>Id Penyelenggaraan</th>
+			                        <th>No.</th>
 			                        <th>Nama Penyelenggara</th>
 			                        <th>Tahap Penyelenggaraan</th>
 			                        <th>Kos Penyelenggaraan</th>
@@ -107,7 +106,6 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['maintenance_id']; ?></td>
 			                        <td><?php echo $row['vendor_name']; ?></td>
 			                        <td><?php echo $row['maintenance_status']; ?></td>
 			                        <td><?php echo $row['maintenance_cost']; ?></td>

@@ -64,20 +64,24 @@ session_start();
 								<h1><br>DAFTAR SEWAAN ASET</h1></br>
 
 						<form action="controller.php" method="post">
-								
-							<TABLE border="0" cellpadding="5" cellspacing="2">
-								<tr>
-									<td colspan="2"><center><b>MAKLUMAT ASET</b></center></td> 
-								</tr>
-								<tr>
-									<td>Jenis Aset :</td>
-									<td><br><?php
+						  <TABLE border="0" cellpadding="5" cellspacing="2">
+						  <tr>
+						  <td><table border="0" cellpadding="5" cellspacing="2">
+						    <tr>
+						      <td colspan="2"><center>
+						        <b>MAKLUMAT ASET</b>
+						        </center></td>
+						      </tr>
+						    <tr>
+						      <td>Jenis Aset :</td>
+						      <td><br>
+						        <?php
                                             $sql = $myConnection->query("SELECT * FROM asset");
                                             $rowCount = $sql->num_rows;
                                             ?>
-                                        <select name="asset_id" id="" class="form-control" required>
-                                        <option value="">- Sila Pilih -</option>
-                                          <?php
+						        <select name="asset_id" id="asset_id" class="form-control" required>
+						          <option value="">- Sila Pilih -</option>
+						          <?php
                                           if($rowCount > 0){
                                               while($row = $sql->fetch_assoc()){ 
                                                   echo '<option value="'.$row['asset_id'].'">'.strtoupper($row['asset_type']).'</option>';
@@ -86,53 +90,30 @@ session_start();
                                               echo '<option value="">Tiada aset yang berdaftar</option>';
                                           }
                                           ?>
-
-                                   </td>
-								</tr>
-								<tr>
-					<td>Status Aset:</td>
-					<td><br>
-                    <select name="rent_availability" class="form-control" required>
-						<option value="">- Status -</option>
-							<option value="ya">Ya</option>
-							<option value="tidak">Tidak</option>
-					</select>
-					</td>
-					
-				</tr>
-								<tr>
-									<td>Bilangan Hari Sewaan:</td>
-									<td><br><select name="rent_days" class="form-control" required>
-							<option value="" >- Pilih -</option>
-							<option value="1" >1</option>
-							<option value="2">2</option>
-							<option value="3" >3</option>
-							<option value="4">4</option>
-                            <option value="5" >5</option>
-							<option value="6">6</option>
-						</select></td>
-								</tr>
-                                <tr>
-					<td>Tarikh Mula Sewaan :</td>
-					<td><br><input name="rent_startdate" type="date" size="50" class="form-control" maxlength="50"></td>
-				</tr>
-                <tr>
-					<td>Tarikh Akhir Sewaan :</td>
-					<td><br><input name="rent_finishdate" type="date" size="50" class="form-control" maxlength="50"></td>
-				</tr>
-				
-                <tr>
-					<td>Syarikat Sewaan :</td>
-					<td><br><input name="rent_companyname" value="" type="text" size="50" class="form-control" maxlength="50"></td>
-				</tr>
-								
-								<tr align="center">
-									<td colspan="2">
-										<br>
-										<input type="submit" name="rent_asset" value="Daftar" class="btn btn-primary form-control">
-									</td>
-								</tr>
-							</TABLE>
+						          </select></td>
+						      </tr>
+						    <tr>
+						      <td>Tarikh Mula Sewaan :</td>
+						      <td><br>
+						        <input name="rent_startdate" type="date" size="50" class="form-control" maxlength="50"></td>
+						      </tr>
+						    <tr>
+						      <td>Tarikh Pulangan Aset :</td>
+						      <td><br>
+						        <input name="rent_finishdate" type="date" size="50" class="form-control" maxlength="50"></td>
+						      </tr>
+						    <tr>
+						      <td>Syarikat Sewaan :</td>
+						      <td><br>
+						        <input name="rent_companyname" value="" type="text" size="50" class="form-control" maxlength="50"></td>
+						      </tr>
+						    <tr align="center">
+						      <td colspan="2"><br>
+						        <input type="submit" name="rent_asset" value="Daftar" class="btn btn-primary form-control"></td>
+						      </tr>
+						    </table></td>
+						  </tr>
+						  </TABLE>
 						</form>
 											</div>
 								</section>

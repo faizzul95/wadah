@@ -75,8 +75,7 @@ session_start();
 			                  <table id="example" class="table table-striped table-bordered" style="width:100%">
 			                    <thead>
 			                      <tr>
-			                        <th>#</th>
-			                        <th>Id Aset</th>
+			                        <th>No.</th>
 			                        <th>Jenis Aset</th>
 			                        <th>Status Aset</th>
 			                        <th>Kuantiti Aset</th>
@@ -102,7 +101,6 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['asset_id']; ?></td>
 			                        <td><?php echo $row['asset_type']; ?></td>
 			                        <td><?php echo $row['asset_status']; ?></td>
 			                        <td><?php echo $row['asset_quantity']; ?></td>

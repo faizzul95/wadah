@@ -75,8 +75,7 @@ session_start();
 			                  <table id="example" class="table table-striped table-bordered" style="width:100%">
 			                    <thead>
 			                      <tr>
-			                        <th>#</th>
-			                        <th>Id Vendor</th>
+			                        <th>No.</th>
 			                        <th>Nama Vendor</th>
 			                        <th>Alamat Vendor</th>
 			                        <th>Nombor Telefon</th>
@@ -100,7 +99,6 @@ session_start();
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['vendor_id']; ?></td>
 			                        <td><?php echo $row['vendor_name']; ?></td>
 			                        <td><?php echo $row['vendor_address']; ?></td>
 			                        <td><?php echo $row['vendor_phone']; ?></td>
