@@ -25,7 +25,7 @@
 
 		<div class="container">
 		<header>
-			<a href="index.php"><img src="images/fulllogo.png" width="50%" height="50%"></a>
+			<a href="index.php"><img src="images/logo.png" width="15%" height="15%"></a>
 		</header>
 		<section>
 			<div class="row">

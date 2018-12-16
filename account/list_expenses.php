@@ -115,11 +115,15 @@ session_start();
 			                        <td><?php echo $row['Exp_type']; ?></td>
 			                        <td><?php echo $row['Exp_outstanding']; ?></td>
                                     <td><?php echo $row['Exp_desc']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='update_expenses.php?expID=<?php echo $row['Exp_id']; ?>';">Kemaskini</button><br>
-                                  <form method="post" action="controller.php?expID=<?php echo $row["Exp_id"]; ?>">
-                                  <input type="hidden" name="Exp_id" value="<?php echo $row["Exp_id"]; ?>">
-                                  <input type="submit" name="deleteExp" onclick='return checkDeleteExp()' class="btn btn-danger" value="Padam">
-                                  </td>
+			                       <td><button class="btn btn-primary" onclick="location.href='update_expenses.php?expID=<?php echo $row['Exp_id']; ?>';"><span class="glyphicon glyphicon-edit"></span></button><br>
+
+	                                  <form method="post" action="controller.php?expID=<?php echo $row["Exp_id"]; ?>">
+								                   <input type="hidden" name="Exp_id" value="<?php echo $row["Exp_id"]; ?>">
+								                   <button name="deleteExp" onclick='return checkDeleteExp()' class="btn btn-danger">
+								                     <span class="glyphicon glyphicon-trash"></span> 
+								                   </button>
+								       </form>   
+								   	</td>
 		                          </tr>
 			                      <?php
 							                    $count++;

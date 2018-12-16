@@ -93,6 +93,10 @@ $member_ic = $_SESSION['memberIC'];
 						                        <th>Nama</th>
 						                        <th>No Kad Pengenalan</th>
 						                        <th>No Telefon</th>
+                                    <th>Alamat</th>
+                                    <th>Jantina</th>
+                                    <th>Tarikh Lahir</th>
+                                    <th>Email</th>
 						                        <th>Hubungan Keluarga</th>
 						                        <th>Pekerjaan</th>
 						                        <th>Pelajaran</th>
@@ -121,6 +125,10 @@ $member_ic = $_SESSION['memberIC'];
                         <td><center><?php echo $row['family_name']; ?></center></td>
                         <td><center><?php echo $row['family_ic']; ?></center></td>
                         <td><center><?php echo $row['family_phone']; ?></center></td>
+                        <td><center><?php echo $row['family_address']; ?></center></td>
+                        <td><center><?php echo $row['family_gender']; ?></center></td>
+                        <td><center><?php echo $row['family_dob']; ?></center></td>
+                        <td><center><?php echo $row['family_email']; ?></center></td>
                         <td><center><?php echo $row['family_relation']; ?></center></td>
                         <td><center><?php 
                           $sql = "SELECT * FROM `occupation_info` WHERE `family_ic` = '$family_ic'";

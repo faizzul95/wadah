@@ -117,7 +117,9 @@ session_start();
 			                        <td><?php echo $row['Fee_status']; ?></td>
 			                        <td><?php echo $row['Fee_date']; ?></td>
                                     <td><?php echo $row['Fee_type']; ?></td>
-			                       <td><center><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';">Kemaskini</button></center>
+			                       <td>
+			                       	<center><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';"><span class="glyphicon glyphicon-edit"></span></button>
+			                       	</center>
                                   </td>
 		                          </tr>
 			                      <?php
