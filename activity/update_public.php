@@ -84,6 +84,7 @@ $speak_ic = $row['speak_ic'];
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
+										<input type="hidden" name="act_id" value="<?php echo $row['act_id']; ?>">
 											<tr>
 												<td>Topik :</td>
 												<td><br><input name="act_name" value="<?php echo $row['act_name']; ?>" type="text" autocomplete="off"  oninput="maxLengthCheck(this)"

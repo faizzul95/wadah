@@ -40,7 +40,7 @@ if (isset($_POST['reg_aktiviti_ahli']))
         }
 }
 
-// register aktiviti member
+// register aktiviti public
 if (isset($_POST['reg_aktiviti_awam']))
 {
 
@@ -223,6 +223,94 @@ if (isset($_POST['joinevent']))
         }
 
     }
+}
+
+
+// update activity member
+if (isset($_POST['update_aktiviti_ahli']))
+{
+    $act_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
+    $act_name = mysqli_real_escape_string($myConnection, $_POST['act_name']);
+    $act_type = mysqli_real_escape_string($myConnection, $_POST['act_type']);
+    $act_description = mysqli_real_escape_string($myConnection, $_POST['act_description']);
+    $act_date = mysqli_real_escape_string($myConnection, $_POST['act_date']);
+    $act_time = mysqli_real_escape_string($myConnection, $_POST['act_time']);
+    $act_venue = mysqli_real_escape_string($myConnection, $_POST['act_venue']);
+    $act_category = "Ahli";
+    $act_fee = mysqli_real_escape_string($myConnection, $_POST['act_fee']);
+    $naqib_ic = mysqli_real_escape_string($myConnection, $_POST['naqib_ic']);
+
+        $query_unaqib = "UPDATE `activity` SET 
+        `act_name` = '$act_name', 
+        `act_type` = '$act_type', 
+        `act_description` = '$act_description',
+        `act_date` = '$act_date', 
+        `act_time` = '$act_time', 
+        `act_venue` = '$act_venue', 
+        `act_fee` = '$act_fee',
+        `naqib_ic` = '$naqib_ic' WHERE `act_id` = '$act_id'";
+
+        $result = mysqli_query($myConnection, $query_unaqib) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Berjaya')
+          window.location = 'list_activity.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
+}
+
+
+// update activity puclic
+if (isset($_POST['update_aktiviti_awam']))
+{
+    $act_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
+    $act_name = mysqli_real_escape_string($myConnection, $_POST['act_name']);
+    $act_description = mysqli_real_escape_string($myConnection, $_POST['act_description']);
+    $act_date = mysqli_real_escape_string($myConnection, $_POST['act_date']);
+    $act_time = mysqli_real_escape_string($myConnection, $_POST['act_time']);
+    $act_venue = mysqli_real_escape_string($myConnection, $_POST['act_venue']);
+    $act_category = "Awam";
+    $act_fee = mysqli_real_escape_string($myConnection, $_POST['act_fee']);
+    $speak_ic = mysqli_real_escape_string($myConnection, $_POST['speak_ic']);
+
+        $query_unaqib = "UPDATE `activity` SET 
+        `act_name` = '$act_name', 
+        `act_description` = '$act_description',
+        `act_date` = '$act_date', 
+        `act_time` = '$act_time', 
+        `act_venue` = '$act_venue', 
+        `act_fee` = '$act_fee',
+        `speak_ic` = '$speak_ic' WHERE `act_id` = '$act_id'";
+
+        $result = mysqli_query($myConnection, $query_unaqib) or die(mysqli_error($myConnection));
+        
+        if($result)
+        {
+       
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Berjaya')
+          window.location = 'list_activity.php?result=SuccessfullyRegister';
+          </SCRIPT>");
+        }
+        else
+        { 
+          echo ("<SCRIPT LANGUAGE='JavaScript'>
+          window.alert('Kemaskini Tidak Berjaya')
+          window.location.href = window.history.back();
+          </SCRIPT>");
+        }
+
 }
 
 

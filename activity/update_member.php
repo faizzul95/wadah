@@ -64,7 +64,7 @@ $naqib_ic = $row['naqib_ic'];
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								<br>
+								<br><br>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="admin.php">Halaman Utama</a></li>
@@ -82,6 +82,7 @@ $naqib_ic = $row['naqib_ic'];
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
+										<input type="hidden" name="act_id" value="<?php echo $row['act_id']; ?>">
 											<tr>
 												<td>Aktiviti:</td>
 											  <td><select name="act_type" class="form-control" required>
