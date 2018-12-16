@@ -31,7 +31,7 @@
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Ahli<span class="caret"></span></a>
 						   <ul class="dropdown-menu">
 						       <li><a href="list_member.php">Senarai Ahli</a></li>
-						       <li><a href="list_speaker.php">Senarai Speaker</a></li>
+						       <li><a href="list_speaker.php">Senarai Penceramah</a></li>
 						       <li><a href="list_naqib.php">Senarai Naqib</a></li>
 						    </ul>
 					     </li>
