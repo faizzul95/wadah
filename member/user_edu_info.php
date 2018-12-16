@@ -129,14 +129,18 @@ $id = $_GET['famIC'];
                                 <td><?php echo $row['edu_level']; ?></td>
                                 <td><?php echo $row['edu_start_date']; ?></td>
                                 <td><?php echo $row['edu_end_date']; ?></td>
-                                
                                 <td>
-                                <form method="post" action="controller.php?edu_id=<?php echo $row["edu_id"]; ?>">
+                                  <button class="btn btn-primary" onclick="location.href='user_edu_edit.php?eduID=<?php echo $edu_id; ?>';">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                  </button>
+                                   <form onsubmit="return checkDeleteMem(this);" method="post" action="controller.php?edu_id=<?php echo $edu_id; ?>">
                                           <input type="hidden" name="edu_id" value="<?php echo $edu_id; ?>">
-                                          <input type="submit" name="deleteedu" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-                                      </form>
-                        </td>
-                      </tr>
+                                          <button name="deleteedu" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-trash"></span> 
+                                          </button>
+                                    </form>
+                                </td>
+                            </tr>
                               <?php
                                   $count++;
                                 }

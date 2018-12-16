@@ -102,7 +102,7 @@
 								</tr>
 								<tr>
 									<td>Tarikh Tamat Bekerja :</td>
-									<td><br><input name="company_end_date" type="date" size="50" class="form-control" maxlength="50">
+									<td><br><input name="company_end_date" value="<?php echo $row['company_end_date'];?>" type="date" size="50" class="form-control" maxlength="50">
 									</td>
 								</tr>
 								<tr align="center">

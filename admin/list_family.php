@@ -128,7 +128,7 @@ $member_ic = $_SESSION['memberIC'];
                              $row = mysqli_fetch_array($res);
 
                              if (mysqli_num_rows($res)!=0) { ?>
-                          <form method='post' action=''>
+                                  <form method='post' action=''>
                                                       <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2" data-whatever="<?php echo $family_ic; ?>" >Lihat
                                                       </button></center>
                                                      </form>
@@ -144,12 +144,12 @@ $member_ic = $_SESSION['memberIC'];
 
                                        if (mysqli_num_rows($res)!=0) { ?>
                                     <form method='post' action=''>
-                                                                <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $family_ic; ?>" >Lihat
-                                                                </button></center>
-                                                               </form>
-                                                               <?php }else{ ?>
-                                                                 <center> - Tiada Maklumat - </center>
-                                                               <?php } ?>
+                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $family_ic; ?>" >Lihat
+                                      </button></center>
+                                      </form>
+                                      <?php }else{ ?>
+                                        <center> - Tiada Maklumat - </center>
+                                    <?php } ?>
                                     </center>
                                   </td>
                                 </tr>
@@ -226,7 +226,7 @@ $member_ic = $_SESSION['memberIC'];
 
             $.ajax({
                 type: "GET",
-                url: "admin_edu_info.php",
+                url: "family_edu_info.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {
@@ -271,7 +271,7 @@ $member_ic = $_SESSION['memberIC'];
 
             $.ajax({
                 type: "GET",
-                url: "admin_occupation_info.php",
+                url: "family_occupation_info.php",
                 data: dataString,
                 cache: false,
                 success: function (data) {

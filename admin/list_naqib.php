@@ -157,12 +157,16 @@ session_start();
 							                             <?php }else{ ?>
 							                               <center> - Tiada Maklumat - </center>
 							                        <?php } ?></center></td>
-											
-												<td><button class="btn btn-primary" onclick="location.href='admin_naqib_edit.php?naqib_ic=<?php echo $naqib_ic; ?>';">Kemaskini</button><br>
-													 <form method="post" action="controller.php?naqib_ic=<?php echo $row["naqib_ic"]; ?>">
-						                              <input type="hidden" name="naqib_ic" value="<?php echo $naqib_ic; ?>">
-						                              <input type="submit" name="deletenaqib" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-						                          </form>
+												<td>
+												<button class="btn btn-primary" onclick="location.href='admin_naqib_edit.php?naqib_ic=<?php echo $naqib_ic; ?>';">
+							                            <span class="glyphicon glyphicon-edit"></span>
+							                    </button>
+							                    <form method="post" action="controller.php?naqib_ic=<?php echo $naqib_ic; ?>">
+							                           <input type="hidden" name="naqib_ic" value="<?php echo $naqib_ic; ?>">
+							                           <button name="deletenaqib" onclick='return checkDeleteMem()' class="btn btn-danger">
+							                             <span class="glyphicon glyphicon-trash"></span> 
+							                           </button>
+							                     </form>
 												</td>
 											</tr>
 

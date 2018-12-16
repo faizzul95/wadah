@@ -164,11 +164,17 @@ session_start();
                                                      <?php } ?>
 												</td>
 
-												<td><button class="btn btn-primary" onclick="location.href='admin_speaker_edit.php?speak_ic=<?php echo $speak_ic; ?>';">Kemaskini</button><br>
-													 <form method="post" action="controller.php?speak_ic=<?php echo $row["speak_ic"]; ?>">
-						                              <input type="hidden" name="speak_ic" value="<?php echo $speak_ic; ?>">
-						                              <input type="submit" name="deletespeaker" onclick='return checkDeleteSpeaker()' class="btn btn-danger" value="Padam">
-						                          </form>
+												<td>
+
+													 <button class="btn btn-primary" onclick="location.href='admin_speaker_edit.php?speak_ic=<?php echo $speak_ic; ?>';">
+							                              <span class="glyphicon glyphicon-edit"></span>
+							                         </button>
+							                         <form method="post" action="controller.php?speak_ic=<?php echo $row["speak_ic"]; ?>">
+							                               <input type="hidden" name="speak_ic" value="<?php echo $row["speak_ic"]; ?>">
+							                               <button name="deletespeaker" onclick='return checkDeleteAsset()' class="btn btn-danger">
+							                                   <span class="glyphicon glyphicon-trash"></span> 
+							                                </button>
+							                         </form>
 												</td>
 											</tr>
 

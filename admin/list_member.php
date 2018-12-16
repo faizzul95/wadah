@@ -128,6 +128,7 @@ $member_ic = $_SESSION['memberIC'];
 										<thead>
 											<tr>
 												<th>No.</th>
+												<th>Gambar</th>
 												<th>Nama</th>
 												<th>No Kad Pengenalan</th>
 												<th>No Telefon</th>
@@ -178,12 +179,12 @@ $member_ic = $_SESSION['memberIC'];
 							                     
 							                     <tr>
 												<td><?php echo $count; ?></td>
+												<td> <img src="../member/img/<?php echo $row['mbr_profile_picture']; ?>" height="100px" width="100px" /></td>
 												<td><?php echo $row['mbr_name']; ?></td>
 												<td><?php echo $mbr_ic; ?></td>
 												<td><?php echo $row['mbr_phone']; ?></td>
 												<td><?php echo $row['mbr_branch']; ?></td>
 												<td>
-													<!-- <button class="btn btn-primary" onclick="location.href='admin_children_info.php?member_ic=<?php echo $row['mbr_ic']; ?>';">Detail</button> -->
 													<?php 
 													$sql = "SELECT * FROM `family` WHERE `member_ic` = '$mbr_ic'";
 												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
@@ -232,11 +233,16 @@ $member_ic = $_SESSION['memberIC'];
                                                      <?php } ?>
 
 												</td>
-												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?member_ic=<?php echo $mbr_ic; ?>';">Kemaskini</button><br>
-													 <form method="post" action="controller.php?member_ic=<?php echo $row["mbr_ic"]; ?>">
-						                              <input type="hidden" name="mbr_ic" value="<?php echo $mbr_ic; ?>">
-						                              <input type="submit" name="deletemem" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-						                          </form>
+												<td>
+													   <button class="btn btn-primary" onclick="location.href='admin_member_edit.php?member_ic=<?php echo $mbr_ic; ?>';">
+							                              <span class="glyphicon glyphicon-edit"></span>
+							                            </button>
+							                             <form method="post" action="controller.php?member_ic=<?php echo $mbr_ic; ?>">
+							                                    <input type="hidden" name="mbr_ic" value="<?php echo $mbr_ic; ?>">
+							                                    <button name="deletemem" onclick='return checkDeleteMem()' class="btn btn-danger">
+							                                      <span class="glyphicon glyphicon-trash"></span> 
+							                                    </button>
+							                              </form>
 												</td>
 											</tr>
 
@@ -247,19 +253,6 @@ $member_ic = $_SESSION['memberIC'];
 						                    ?>
 
 										</tbody>
-										<tfoot>
-											<tr>
-												<th>No.</th>
-												<th>Nama</th>
-												<th>No Kad Pengenalan</th>
-												<th>No Telefon</th>
-												<th>Cawangan</th>
-												<th>Maklumat Keluarga</th>
-												<th>Maklumat Pendidikan</th>
-												<th>Maklumat Pekerjaan</th>
-												<th>Tindakan</th>
-											</tr>
-										</tfoot>
 									</table>
 								</section>
 							</div>

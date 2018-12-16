@@ -116,10 +116,15 @@ session_start();
                                     <td><?php echo $row['Sps_email']; ?></td>
                                     <td><?php echo $row['Sps_type']; ?></td>
 			                       <td>
-                                   <button class="btn btn-primary" onclick="location.href='update_sps.php?spsID=<?php echo $row['Sps_id']; ?>';">Kemaskini</button><br>
-                                  <form method="post" action="controller.php?expID=<?php echo $row["Sps_id"]; ?>">
-                                  <input type="hidden" name="Sps_id" value="<?php echo $row["Sps_id"]; ?>">
-                                  <input type="submit" name="deleteSps" onclick='return checkDeleteSps()' class="btn btn-danger" value="Padam">
+			                       	<button class="btn btn-primary" onclick="location.href='update_sps.php?spsID=<?php echo $row['Sps_id']; ?>';">
+							              <span class="glyphicon glyphicon-edit"></span>
+							            </button>
+							            <form method="post" action="controller.php?expID=<?php echo $row["Sps_id"]; ?>">
+							                   <input type="hidden" name="Sps_id" value="<?php echo $row["Sps_id"]; ?>">
+							                   <button name="deleteSps" onclick='return checkDeleteSps()' class="btn btn-danger">
+							                     <span class="glyphicon glyphicon-trash"></span> 
+							                   </button>
+							             </form>              
                                    
                                    </td>
 		                          </tr>

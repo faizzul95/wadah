@@ -203,16 +203,21 @@ session_start();
                                                      <?php } ?>
                                                  </td>
 												<td>
-													<?php if ($act_category == "Awam") { ?>
-														<button class="btn btn-primary" onclick="location.href='update_public.php?act_id=<?php echo $act_id; ?>';">Kemaskini</button>
+													 <?php if ($act_category == "Awam") { ?>
+														<button class="btn btn-primary" onclick="location.href='update_public.php?act_id=<?php echo $act_id; ?>';">
+							                            <span class="glyphicon glyphicon-edit"></span>
+							                      </button>
 													<?php } else { ?>
-														<button class="btn btn-primary" onclick="location.href='update_member.php?act_id=<?php echo $act_id; ?>';">Kemaskini</button>
+														 <button class="btn btn-primary" onclick="location.href='update_member.php?act_id=<?php echo $act_id; ?>';">
+							                            <span class="glyphicon glyphicon-edit"></span>
+							                      </button>
 													<?php } ?>
-													<br>
-													 <form method="post" action="controller.php?act_id=<?php echo $row["act_id"]; ?>">
-						                              <input type="hidden" name="act_id" value="<?php echo $act_id; ?>">
-						                              <input type="submit" name="deleteactivity" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-						                          </form>
+								                    <form method="post" action="controller.php?act_id=<?php echo $act_id; ?>">
+								                           <input type="hidden" name="act_id" value="<?php echo $act_id; ?>">
+								                           <button name="deleteactivity" onclick='return checkDeleteMem()' class="btn btn-danger">
+								                             <span class="glyphicon glyphicon-trash"></span> 
+								                           </button>
+								                     </form>
 												</td>
 											</tr>
 

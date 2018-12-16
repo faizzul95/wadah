@@ -127,15 +127,18 @@ $id = $_GET['famIC'];
                                 <td><?php echo $row['company_position']; ?></td>
                                 <td><?php echo $row['company_email']; ?></td>
                                 <td><?php echo $row['company_start_date']; ?></td>
-                                <td><?php echo $row['company_end_date ']; ?></td>
-                                
+                                <td><?php echo $row['company_end_date']; ?></td>
                                 <td>
-                                  <!-- <button class="btn btn-primary" onclick="location.href='admin_member_edit.php?edu_id=<?php //echo $edu_id; ?>';">Kemaskini</button><br> -->
-                                <form method="post" action="controller.php?occupation_id=<?php echo $row["occupation_id"]; ?>">
+                                  <button class="btn btn-primary" onclick="location.href='user_job_edit.php?jobID=<?php echo $occupation_id; ?>';">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                  </button>
+                                   <form onsubmit="return checkDeleteMem(this);" method="post" action="controller.php?edu_id=<?php echo $occupation_id; ?>">
                                           <input type="hidden" name="occupation_id" value="<?php echo $occupation_id; ?>">
-                                          <input type="submit" name="deletejob" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
-                                </form>
-                        </td>
+                                          <button name="deletejob" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-trash"></span> 
+                                          </button>
+                                    </form>
+                                </td>
                       </tr>
                               <?php
                                   $count++;

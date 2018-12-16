@@ -1,8 +1,6 @@
 <?php 
-// Turn off error reporting
-	// error_reporting(0);
 
-	session_start(); ?>
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
