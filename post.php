@@ -1,5 +1,14 @@
 <?php 
 session_start();
+require('connection.php');
+$page = $_GET['page'];
+$sql = mysqli_query($myConnection,"SELECT * FROM `activity` WHERE `act_id` = '$page' ") or die (mysqli_error());
+$row=mysqli_fetch_array($sql);
+$act_id = $row['act_id'];
+$act_name = $row['act_name'];
+$act_description = $row['act_description'];
+$act_date = $row['act_date'];
+$act_time = $row['act_time'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,13 +46,10 @@ session_start();
 							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
 						</div>
 						<div class="blog-post-body">
-							<h2><a href="post.html">Tajuk</a></h2>
-							<div class="post-meta"><span><i class="fa fa-clock-o"></i>March 14, 2015</span></div>
+							<h2><a href="post.html"><?php echo $act_name; ?></a></h2>
+							<div class="post-meta"><span><i class="fa fa-clock-o"></i><?php echo $act_date; ?></span></div>
 							<div class="blog-post-text">
-
-								<p>A newly-developed mathematical method can detect geometric structure in neural activity in the brain. “Previously, in order to understand this structure, scientists needed to relate neural activity to some specific external stimulus,” said Vladimir Itskov, associate professor of mathematics at Penn State University. “Our method is the first to be able to reveal this structure without our knowing an external stimulus ahead of time. We’ve now shown that our new method will allow us to explore the organizational structure of neurons without knowing their function in advance.”</p>
-
-								<p>“The traditional methods used by researchers to analyze the relationship between the activities of neurons were adopted from physics,” said Carina Curto, associate professor of mathematics at Penn State, “but neuroscience data doesn’t necessarily play by the same rules as data from physics, so we need new tools. Our method is a first step toward developing a new mathematical toolkit to uncover the structure of neural circuits with unknown function in the brain.”</p>
+								<p><?php echo $act_description; ?></p>
 							</div>
 						</div>
 					</article>

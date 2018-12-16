@@ -99,7 +99,7 @@ session_start();
 						            					<input type="text" name="search" autocomplete="off" class="form-control" size="90" required>
 						            				</td>
 						            				<td>
-						            					<input type="submit" name="search"  value="Carian" class="btn btn-primary pull-right">
+						            					<input type="submit" name="searchbtn"  value="Carian" class="btn btn-primary pull-right">
 						            				</td>
 						            			</tr>
 						            		</table>
@@ -122,6 +122,8 @@ session_start();
 												<th>Kategori</th>
 												<th>Jenis</th>
 												<th>Penaja</th>
+												<th>Peserta</th>
+												<th>Maklum Balas</th>
 												<th>Tindakan</th>
 											</tr>
 										</thead>
@@ -130,9 +132,9 @@ session_start();
 
 											<?php 
 
-						               if (isset($_POST['search'])) {
+						                 if(isset($_POST['searchbtn'])) {
 						                	$search = $_POST['search'];
-						                	$sql="SELECT * FROM `activity` WHERE `act_name` LIKE '%" . $search . "%'"; 
+						                	$sql="SELECT * FROM `activity` WHERE  `act_name` LIKE '%" . $search . "%' OR `act_type` LIKE '%" . $search  ."%'"; 
 						                }else{
 						                	 $sql = "SELECT * FROM `activity`";
 						                }
@@ -147,6 +149,7 @@ session_start();
 							                while($row = mysqli_fetch_assoc($result))
 							                 { 
 							                 		$act_id = $row['act_id'];
+							                 		$act_category = $row['act_category'];
 							                  ?>
 							                     
 							                     <tr>
@@ -159,21 +162,57 @@ session_start();
 												<td><?php echo $row['act_category']; ?></td>
 												<td><?php echo $row['act_type']; ?></td>
 												<td>
-                                                     <?php 
+                                                    <?php 
 													$sql = "SELECT * FROM `act_sponsorship` WHERE `act_id` = '$act_id'";
 												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
 												     $row = mysqli_fetch_array($res);
 
 												     if (mysqli_num_rows($res)!=0) { ?>
 													<form method='post' action=''>
-                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $act_id; ?>" >Lihat Penaja
+                                                      <center><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-backdrop="static" data-whatever="<?php echo $act_id; ?>" >Lihat
                                                       </button></center>
                                                      </form>
                                                      <?php }else{ ?>
                                                      	 <center> - Tiada Maklumat - </center>
                                                      <?php } ?>
 												</td>
-												<td><button class="btn btn-primary" onclick="location.href='admin_member_edit.php?act_id=<?php echo $act_id; ?>';">Kemaskini</button><br>
+												<td>
+													<?php 
+													$sql = "SELECT * FROM `event` WHERE `activity_id` = '$act_id'";
+												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+												     $row = mysqli_fetch_array($res);
+
+												     if (mysqli_num_rows($res)!=0) { ?>
+                                                      <center>
+                                                      	<button class="btn btn-info" onclick="location.href='list_participant.php?act_id=<?php echo $act_id; ?>';">Lihat
+                                                      	</button>
+                                                      </center>
+                                                     <?php }else{ ?>
+                                                     	 <center> - Tiada Maklumat - </center>
+                                                     <?php } ?>
+                                                 </td>
+                                                 <td>
+													<?php 
+													$sql = "SELECT * FROM `feedback` WHERE `activity_id` = '$act_id'";
+												     $res = mysqli_query($myConnection,$sql) or die(mysqli_error($myConnection));
+												     $row = mysqli_fetch_array($res);
+
+												     if (mysqli_num_rows($res)!=0) { ?>
+                                                      <center>
+                                                      	<button class="btn btn-info" onclick="location.href='analysis_feedback.php?act_id=<?php echo $act_id; ?>';">Lihat
+                                                      	</button>
+                                                      </center>
+                                                     <?php }else{ ?>
+                                                     	 <center> - Tiada Maklumat - </center>
+                                                     <?php } ?>
+                                                 </td>
+												<td>
+													<?php if ($act_category == "Awam") { ?>
+														<button class="btn btn-primary" onclick="location.href='update_public.php?act_id=<?php echo $act_id; ?>';">Kemaskini</button>
+													<?php } else { ?>
+														<button class="btn btn-primary" onclick="location.href='update_member.php?act_id=<?php echo $act_id; ?>';">Kemaskini</button>
+													<?php } ?>
+													<br>
 													 <form method="post" action="controller.php?act_id=<?php echo $row["act_id"]; ?>">
 						                              <input type="hidden" name="act_id" value="<?php echo $act_id; ?>">
 						                              <input type="submit" name="deleteactivity" onclick='return checkDeleteMem()' class="btn btn-danger" value="Padam">
@@ -199,6 +238,8 @@ session_start();
 												<th>Kategori</th>
 												<th>Jenis</th>
 												<th>Penaja</th>
+												<th>Peserta</th>
+												<th>Maklum Balas</th>
 												<th>Tindakan</th>
 											</tr>
 										</tfoot>

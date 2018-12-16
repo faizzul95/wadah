@@ -62,13 +62,13 @@ session_start();
 					<article class="blog-post">
 						<div class="blog-post-body">
 							<div class="blog-post-text">
-								<br>
+								<br><br>
 				<nav aria-label="breadcrumb">
-				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="list_fee.php">Halaman Utama</a></li>
-				    <li class="breadcrumb-item active" aria-current="page">Kemaskini Yuran</li>
-				  </ol>
-				</nav>
+								  <ol class="breadcrumb">
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="list_fee.php">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Kemaskini Yuran</li>
+								  </ol>
+								</nav>
 								
 				<div class="container">
 				<section>
@@ -78,9 +78,10 @@ session_start();
 
 								<TABLE border="0" cellpadding="5" cellspacing="2">
 									<form method="post" action="controller.php">
+										<input type="hidden" name="Fee_id" value="<?php echo $row['Fee_id'];?>">
 											<tr>
-												<td>Nama :</td>
-												<td><br><input name="Fee_id" value="<?php echo $row['Fee_id'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
+												<td>Kad Pengenalan Ahli :</td>
+												<td><br><input name="member_ic" value="<?php echo $row['member_ic'];?>" type="text" size="50" maxlength="50" required oninput="maxLengthCheck(this)"
 							                     type = "text"
 							                     maxlength = "12" class="form-control" required></td>
 											</tr>
@@ -98,8 +99,8 @@ session_start();
 												<td><br>
 												<select name="Fee_status" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Telah Dibayar">Sudah dibayar</option>
-														<option value="Belum dibayar">Belum dibayar</option>
+														<option value="Telah Dibayar" <?php if($row['Fee_status']=="Telah Dibayar") echo 'selected="selected"'; ?>>Telah Dibayar</option>
+														<option value="Belum dibayar" <?php if($row['Fee_status']=="Belum dibayar") echo 'selected="selected"'; ?>>Belum dibayar</option>
 												</select>
 												</td>
 											</tr>
@@ -114,8 +115,8 @@ session_start();
 												<td><br>
 												<select name="Fee_type" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Yuran Ahli">Yuran Ahli</option>
-														<option value="Yuran Aktiviti">Yuran Aktiviti</option>
+														<option value="Yuran Ahli" <?php if($row['Fee_type']=="Yuran Ahli") echo 'selected="selected"'; ?>>Yuran Ahli</option>
+														<option value="Yuran Aktiviti" <?php if($row['Fee_type']=="Yuran Aktiviti") echo 'selected="selected"'; ?>>Yuran Aktiviti</option>
 												</select>
 												</td>
 											</tr>

@@ -66,28 +66,18 @@
 						?>
 							
 							<article class="blog-post">
-						<div class="blog-post-image">
+						<!-- <div class="blog-post-image">
 							<center><a href="post.php?page=baca"><img src="images/activiti.jpeg" alt=""></a></center>
-						</div>
+						</div> -->
 						<div class="blog-post-body">
 							<h2><a href="post.html"><?php echo $act_name; ?></a></h2>
 							<div class="post-meta"><span><i class="fa fa-clock-o"></i> <?php echo $act_date; ?></span></div>
 							<p><?php echo $act_description; ?></p>
-							<div class="read-more"><a href="post.php?page=baca">Teruskan Membaca</a></div>
+							<div class="read-more"><a href="post.php?page=<?php echo $act_id; ?>">Teruskan Membaca</a></div>
 						</div>
 					</article>
 
 						<?php } ?>
-
-
-
-
-
-
-
-
-
-
 
 				</div>
 				<div class="col-md-4 sidebar-gutter">

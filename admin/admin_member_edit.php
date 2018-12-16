@@ -84,7 +84,14 @@
 								</tr>
 								<tr>
 									<td>Nombor Kad Pengenalan :</td>
-									<td><br><input name="mbr_ic" value="<?php echo $row['mbr_ic'];?>" type="text" size="50" maxlength="50" class="form-control" required></td>
+									<td><br>
+									<input name="mbr_phone" value="<?php echo $row['mbr_ic'];?>" autocomplete="off" type="text" size="50" onkeypress="return isNumeric(event)"
+				                         oninput="maxLengthCheck(this)"
+				                         type = "text"
+				                         maxlength = "12"
+				                         min = "1"
+				                         max = "12" class="form-control" required>
+				                     </td>
 								</tr>
 								<tr>
 									<td>Alamat :</td>
@@ -133,6 +140,8 @@
 										<option value="Negeri Sembilan" <?php if($row['mbr_branch']=="Negeri Sembilan") echo 'selected="selected"'; ?>>Negeri Sembilan</option>
 										<option value="Terengganu" <?php if($row['mbr_branch']=="Terengganu") echo 'selected="selected"'; ?>>Terengganu</option>
 										<option value="Kelantan" <?php if($row['mbr_branch']=="Kelantan") echo 'selected="selected"'; ?>>Kelantan</option>
+										<option value="Sabah" <?php if($row['mbr_branch']=="Sabah") echo 'selected="selected"'; ?>>Sabah</option>
+										<option value="Sarawak" <?php if($row['mbr_branch']=="Sarawak") echo 'selected="selected"'; ?>>Sarawak</option>
 										</select>
 									</td>
 								</tr>

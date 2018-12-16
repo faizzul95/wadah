@@ -16,6 +16,11 @@ session_start();
           </SCRIPT>");  
     }
 
+  $sql = mysqli_query($myConnection,"SELECT `fees`.*,`member`.* FROM `fees` 
+  INNER JOIN  `member` ON `fees`.`member_ic` = `member`.`mbr_ic`") or die (mysqli_error());
+	$row=mysqli_fetch_array($sql);
+  $mbr_name = $row['mbr_name'];
+
 // echo '<pre>';
 // var_dump($_SESSION);
 // echo '</pre>';
@@ -62,8 +67,12 @@ session_start();
 			          <div class="blog-post-image"> <a href="post.html"><img src="images/750x500-5.jpg" alt=""></a> </div>
 			          <div class="blog-post-body">
 			            <div class="blog-post-text"> <br>
-			              <br>
-			              <br>
+			            	<nav aria-label="breadcrumb">
+								  <ol class="breadcrumb">
+								    <li class="breadcrumb-item"><span class="glyphicon glyphicon-home"></span> &nbsp; <a href="">Halaman Utama</a></li>
+								    <li class="breadcrumb-item active" aria-current="page">Senarai Yuran</li>
+								  </ol>
+								</nav>
 			              <div class="container">
 			                <section>
                              <table style="width:100%"> 
@@ -79,7 +88,8 @@ session_start();
 			                    <thead>
 			                      <tr>
 			                        <th>No.</th>
-			                        <th>ID</th>
+			                        <th>Nama Peserta.</th>
+			                        <th>Kad Pengenalan Peserta</th>
 			                        <th>Jumlah</th>
 			                        <th>Status</th>
 			                        <th>Tarikh</th>
@@ -90,29 +100,34 @@ session_start();
 			                    <tbody>
 			                      <?php 
 
-						                $sql = "SELECT * FROM `fees`";
+						                //$sql = "SELECT * FROM `fees`";
 
-						                $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
+						                $sql = mysqli_query($myConnection,"SELECT `fees`.*,`member`.* FROM `fees` 
+										INNER JOIN  `member` ON `fees`.`member_ic` = `member`.`mbr_ic`") or die (mysqli_error());
+										$row=mysqli_fetch_array($sql);
+										  
 
-						                if (mysqli_num_rows($result)==0){
+						                // $result = mysqli_query($myConnection, $sql) or die(mysqli_error($myConnection));
+
+						                if (mysqli_num_rows($sql)==0){
 						                     echo "Data Tidak Ditemui";
 						                  }
 						                else{
 							                $count = 1;
-							                while($row = mysqli_fetch_assoc($result))
+							                while($row = mysqli_fetch_assoc($sql))
 							                 { 
+							                 	$Fee_id = $row['Fee_id'];
+							                 	$mbr_name = $row['mbr_name'];
 							                  ?>
 			                      <tr>
 			                        <td><?php echo $count; ?></td>
-			                        <td><?php echo $row['Fee_id']; ?></td>
+			                        <td><?php echo $mbr_name; ?></td>
+			                        <td><?php echo $row['member_ic']; ?></td>
 			                        <td><?php echo $row['Fee_amount']; ?></td>
 			                        <td><?php echo $row['Fee_status']; ?></td>
 			                        <td><?php echo $row['Fee_date']; ?></td>
                                     <td><?php echo $row['Fee_type']; ?></td>
-			                       <td><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';">Kemaskini</button><br>
-                                  <form method="post" action="controller.php?feeID=<?php echo $row["Fee_id"]; ?>">
-                                  <input type="hidden" name="Fee_id" value="<?php echo $row["Fee_id"]; ?>">
-                                  <input type="submit" name="deleteFee" onclick='return checkDeleteFee()' class="btn btn-danger" value="Padam">
+			                       <td><center><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';">Kemaskini</button></center>
                                   </td>
 		                          </tr>
 			                      <?php
@@ -124,7 +139,8 @@ session_start();
 			                    <tfoot>
 			                      <tr>
 			                        <th>No.</th>
-			                        <th>ID</th>
+			                        <th>Nama Peserta.</th>
+			                        <th>Kad Pengenalan Peserta</th>
 			                        <th>Jumlah</th>
 			                        <th>Status</th>
 			                        <th>Tarikh</th>
