@@ -36,17 +36,17 @@ $act_time = $row['act_time'];
 
 		<div class="container">
 		<header>
-			<a href="index.php"><img src="images/fulllogo.png" width="50%" height="50%"></a>
+			<a href="index.php"><img src="images/fulllogo.jpg" width="100%" height="100%"></a>
 		</header>
 		<section>
 			<div class="row">
 				<div class="col-md-8">
 					<article class="blog-post">
 						<div class="blog-post-image">
-							<a href="post.html"><img src="images/750x500-5.jpg" alt=""></a>
+							<a href="post.php?page=<?php echo $act_id; ?>"><img src="images/750x500-5.jpg" alt=""></a>
 						</div>
 						<div class="blog-post-body">
-							<h2><a href="post.html"><?php echo $act_name; ?></a></h2>
+							<h2><a href="post.php?page=<?php echo $act_id; ?>"><?php echo $act_name; ?></a></h2>
 							<div class="post-meta"><span><i class="fa fa-clock-o"></i><?php echo $act_date; ?></span></div>
 							<div class="blog-post-text">
 								<p><?php echo $act_description; ?></p>

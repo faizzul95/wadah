@@ -25,9 +25,7 @@ session_start();
     $sql = mysqli_query($myConnection,"SELECT * FROM `fees` WHERE `Fee_id` = '$feeID' ") or die (mysqli_error());
     $row=mysqli_fetch_array($sql);
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+
 
 ?>
 
@@ -85,6 +83,27 @@ session_start();
 							                     type = "text"
 							                     maxlength = "12" class="form-control" required></td>
 											</tr>
+											<tr>
+												<td>Nama Aktiviti :</td>
+												<td><br>
+													<select name="act_id" id="" class="form-control"><?php
+                                            
+			                                            $query = $myConnection->query("SELECT * FROM activity");
+			                                            $rowCount = $query->num_rows;
+			                                            ?>
+					                                        <option value="">- Sila Pilih -</option>
+					                                          <?php
+					                                          if($rowCount > 0){
+					                                              while($row = $query->fetch_assoc()){ 
+					                                                  echo '<option value="'.$row['act_id'].'">'.strtoupper($row['act_name']).'</option>';
+					                                              }
+					                                          }else{
+					                                              echo '<option value="">Tiada aktiviti berdaftar</option>';
+					                                          }
+					                                     ?>
+					                            </td>
+											</tr>
+
 											<tr>
 												<td>Jumlah :</td>
 												<td><br><input name="Fee_amount"  value="<?php echo $row['Fee_amount'];?>" type="text" size="50" onkeypress="return isNumeric(event)"

@@ -65,10 +65,7 @@
 						 <li><a href="login.php?page=logmasuk">Log Masuk &nbsp;<span class="glyphicon glyphicon-log-in"></span></a></li>
 					 </ul> 
 				<?php } ?>
-
-			     
 			  </div>
-				<!--/.nav-collapse -->
 </div>
 
 

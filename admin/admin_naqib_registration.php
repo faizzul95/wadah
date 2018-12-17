@@ -3,8 +3,6 @@
 require ('../connection.php');
 session_start();
 
-$member_ic = $_SESSION['memberIC'];
-
  if(!isset($_SESSION['role'])) // If session is not set then redirect to home
     {
        header("Location:logout.php");  
@@ -16,10 +14,6 @@ $member_ic = $_SESSION['memberIC'];
           window.location = 'logout.php';
           </SCRIPT>");  
     }
-
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
 
 ?>
 

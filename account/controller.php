@@ -46,13 +46,19 @@ if (isset($_POST['register_fees']))
     $Fee_status = mysqli_real_escape_string($myConnection, $_POST['Fee_status']);
     $Fee_date = mysqli_real_escape_string($myConnection, $_POST['Fee_date']);
     $Fee_type = mysqli_real_escape_string($myConnection, $_POST['Fee_type']);
+    $act_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
 
-            $query_feeinfo = "INSERT INTO `fees` 
-            (`member_ic`,`Fee_amount`,`Fee_status`,`Fee_date`,`Fee_type`)
-               VALUES 
-            ('$member_ic','$Fee_amount','$Fee_status','$Fee_date','$Fee_type')";
+
+    if ($act_id == NULL) {
+      $act_id = 0;
+    }
+
+    $query_feeinfo = "INSERT INTO `fees` 
+    (`member_ic`,`Fee_amount`,`Fee_status`,`Fee_date`,`Fee_type`,`activity_id`)
+       VALUES 
+   ('$member_ic','$Fee_amount','$Fee_status','$Fee_date','$Fee_type','$act_id')";
 			
-            $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
+   $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
         
         if($result)
         {
@@ -221,12 +227,18 @@ if (isset($_POST['update_fee']))
  
     // update fees
     $Fee_id = mysqli_real_escape_string($myConnection, $_POST['Fee_id']);
+    $member_ic = mysqli_real_escape_string($myConnection, $_POST['member_ic']);
     $Fee_amount = mysqli_real_escape_string($myConnection, $_POST['Fee_amount']);
     $Fee_status = mysqli_real_escape_string($myConnection, $_POST['Fee_status']);
     $Fee_date = mysqli_real_escape_string($myConnection, $_POST['Fee_date']);
     $Fee_type = mysqli_real_escape_string($myConnection, $_POST['Fee_type']);
+    $act_id = mysqli_real_escape_string($myConnection, $_POST['act_id']);
 
-			$query_feeinfo = "UPDATE fees SET Fee_id='$Fee_id',Fee_amount='$Fee_amount',Fee_status='$Fee_status',Fee_date='$Fee_date',Fee_type='$Fee_type' WHERE Fee_id = '$Fee_id'";
+     if ($act_id == NULL) {
+      $act_id = 0;
+    }
+
+			$query_feeinfo = "UPDATE fees SET member_ic='$member_ic',activity_id='$act_id',Fee_amount='$Fee_amount',Fee_status='$Fee_status',Fee_date='$Fee_date',Fee_type='$Fee_type' WHERE Fee_id = '$Fee_id'";
         $result = mysqli_query($myConnection, $query_feeinfo) or die(mysqli_error($myConnection));
 		
         if($result)

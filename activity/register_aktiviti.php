@@ -148,8 +148,6 @@ session_start();
 		                                              echo '<option value="">Tiada Naqib/Naqibah berdaftar</option>';
 		                                          }
 		                                     ?>
-		                                      
-
 							                 	</td>
 											</tr>
 											

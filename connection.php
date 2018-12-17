@@ -1,6 +1,6 @@
 <?php
 
-$myConnection = new mysqli("localhost","root","","wadah4a");
+$myConnection = new mysqli("localhost","root","","wadah");
 
 // Check connection
 if (mysqli_connect_errno()) {

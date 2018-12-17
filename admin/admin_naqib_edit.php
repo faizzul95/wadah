@@ -3,8 +3,6 @@
 require ('../connection.php');
 session_start();
 
-$member_ic = $_SESSION['memberIC'];
-
  if(!isset($_SESSION['role'])) // If session is not set then redirect to home
     {
        header("Location:logout.php");  
@@ -22,9 +20,7 @@ $member_ic = $_SESSION['memberIC'];
     $sql = mysqli_query($myConnection,"SELECT * FROM `naqib` WHERE naqib_ic = '$id' ") or die (mysqli_error());
     $row=mysqli_fetch_array($sql);
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+
 
 ?>
 

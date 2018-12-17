@@ -16,9 +16,7 @@ session_start();
           </SCRIPT>");  
     }
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+
 
 ?>
 
@@ -75,6 +73,27 @@ session_start();
 							                     maxlength = "12" class="form-control"></td>
 											</tr>
 											<tr>
+												<td>Nama Aktiviti :</td>
+												<td><br>
+													<select name="act_id" id="" class="form-control"><?php
+                                            
+			                                            $query = $myConnection->query("SELECT * FROM activity");
+			                                            $rowCount = $query->num_rows;
+			                                            ?>
+					                                        <option value="">- Sila Pilih -</option>
+					                                          <?php
+					                                          if($rowCount > 0){
+					                                              while($row = $query->fetch_assoc()){ 
+					                                                  echo '<option value="'.$row['act_id'].'">'.strtoupper($row['act_name']).'</option>';
+					                                              }
+					                                          }else{
+					                                              echo '<option value="">Tiada aktiviti berdaftar</option>';
+					                                          }
+					                                     ?>
+					                            </td>
+											</tr>
+
+											<tr>
 												<td>Jumlah :</td>
 												<td><br><input name="Fee_amount" type="text" size="50" onkeypress="return isNumeric(event)"
 							                         oninput="maxLengthCheck(this)"
@@ -83,12 +102,13 @@ session_start();
 							                         min = "1"
 							                         max = "50" class="form-control" required ></td>
 											</tr>
+
 											<tr>
 												<td>Status :</td>
 												<td><br>
 												<select name="Fee_status" class="form-control" required>
 													<option value="">- Pilih -</option>
-														<option value="Sudah dibayar">Sudah dibayar</option>
+														<option value="Telah Dibayar">Telah Dibayar</option>
 														<option value="Belum dibayar">Belum dibayar</option>
 												</select>
 												</td>

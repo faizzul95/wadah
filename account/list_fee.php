@@ -4,21 +4,17 @@ require ('../connection.php');
 session_start();
 
 
- if(!isset($_SESSION['role'])) // If session is not set then redirect to home
+ if(!isset($_SESSION['role'])) 
     {
        header("Location:logout.php");  
     }
-   else if($_SESSION['role'] != "admin") // if not admin redirect to home
+   else if($_SESSION['role'] != "admin") 
     {
        echo ("<SCRIPT LANGUAGE='JavaScript'>
           window.alert('Anda tidak mempunyai akses ke menu Admin.')
           window.location = 'logout.php';
           </SCRIPT>");  
     }
-
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
 
 ?>
 
@@ -85,9 +81,9 @@ session_start();
 			                        <th>No.</th>
 			                        <th>Nama</th>
 			                        <th>Kad Pengenalan</th>
-			                        <th>Jumlah</th>
 			                        <th>Status</th>
 			                        <th>Tarikh</th>
+			                        <th>Jumlah</th>
 			                        <th>Jenis</th>
                                     <th>Tindakan</th>
 		                          </tr>
@@ -113,9 +109,9 @@ session_start();
 			                        <td><?php echo $count; ?></td>
 			                        <td><?php echo $mbr_name; ?></td>
 			                        <td><?php echo $row['member_ic']; ?></td>
-			                        <td><?php echo $row['Fee_amount']; ?></td>
 			                        <td><?php echo $row['Fee_status']; ?></td>
 			                        <td><?php echo $row['Fee_date']; ?></td>
+			                        <td><?php echo $row['Fee_amount']; ?></td>
                                     <td><?php echo $row['Fee_type']; ?></td>
 			                       <td>
 			                       	<center><button class="btn btn-primary" onclick="location.href='update_fees.php?feeID=<?php echo $row['Fee_id']; ?>';"><span class="glyphicon glyphicon-edit"></span></button>

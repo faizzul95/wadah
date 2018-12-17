@@ -25,9 +25,7 @@ session_start();
     $sql = mysqli_query($myConnection,"SELECT * FROM `sponsors` WHERE `Sps_id` = '$spsID' ") or die (mysqli_error());
     $row=mysqli_fetch_array($sql);
 
-// echo '<pre>';
-// var_dump($_SESSION);
-// echo '</pre>';
+
 
 ?>
 
